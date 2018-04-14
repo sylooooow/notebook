@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas></canvas>
+		<!--
+			controls: 播放器的控制栏
+			autoplay: 自动播放
+			preload:  预加载
+			loop:     播放视频结束后会循环播放
+		-->
+		<video width="700" height="400" src="img/QQ20171218-152537-HD.mp4" controls="controls" autoplay="autoplay" preload="auto" loop="loop">
+			<source src="myvideo.mp4" type="video/mp4"></source>
+			<source src="myvideo.ogv" type="video/ogg"></source>
+			<source src="myvideo.webm" type="video/webm"></source>
+			<object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf">
+				<param name="movie" value="myvideo.swf" />
+				<param name="flashvars" value="autostart=true&amp;file=myvideo.swf" />
+			</object>
+			当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
+		</video>
+		
+		<audio src="" autoplay="">不支持audio标签</audio>
+		<!--
+			视频资源路径（本地/网络）
+		-->
+		<iframe src="http://www.baidu.com" width="" height=""></iframe>
+		<!--
+			iframe一般用于加载广告，或者在当前页面加载别的网页
+			iframe里面的标签，不会超出iframe的高度
+		-->
+		<mark>我是高亮文字</mark>
+	</body>
+</html>

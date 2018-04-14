@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: lightblue;
+				position: absolute;
+				top: 0;
+				left: 0px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>;
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			var theBorder = getComputedStyle(oAll)["border"]; //打印当前元素的CSS样式，IE不支持
+			console.log(theBorder);
+			console.log(oAll.currentStyle); //只支持IE
+			console.log(getComputedStyle(oAll));//打印所有的CSS样式
+			
+			function getStyle(obj,attr) {
+				if (obj.currentStyle) {
+					console.log("IE" + obj.currentStyle["border"]);
+					return obj.currentStyle[attr];
+				} else {
+					console.log("非IE:" + getComputedStyle(obj)["border"]);
+					return getComputedStyle(obj)[attr];
+				}
+			}
+			getStyle(oAll,"border");
+		</script>
+	</body>
+</html>

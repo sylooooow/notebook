@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			oAll.onmouseover = function() {
+				this.style.backgroundColor = "yellow";
+				console.log("onmoouseover");
+				console.log(this);
+			}
+			oAll.onmouseout = function() {
+				oAll.innerHTML = "哈哈哈";
+				console.log("onmouseout");
+			}
+		</script>
+	</body>
+</html>

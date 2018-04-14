@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#contain_imgs {
+				margin: 0 auto;
+				padding: 0px;
+			}
+			
+			#contain {
+				margin: 0 auto;
+				width: 1024px;
+				height: 575px;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			#contain_imgs {
+				position: absolute;
+				top: 0px;
+				width: 6144px;
+				height: 576px;
+				list-style: none;
+				z-index: 1;
+			}
+			
+			#contain_imgs li {
+				width: 1024px;
+				height: 575px;
+				float: left;
+			}
+			
+			#prev {
+				left: 20px;
+			}
+			
+			#next {
+				right: 20px;
+			}
+			
+			.arrow {
+				cursor: pointer;
+				display: none;
+				line-height: 100px;
+				text-align: center;
+				font-size: 100px;
+				font-weight: bold;
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				z-index: 2;
+				top: 220px;
+				background-color: RGBA(0, 0, 0, .3);
+				color: #fff;
+				text-decoration: none;
+			}
+			
+			.arrow:hover {
+				background-color: RGBA(0, 0, 0, .7);
+			}
+			
+			#contain:hover .arrow {
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="contain">
+			<ul id="contain_imgs" style="left:-1024px;">
+				<li><img src="img/4.jpg" /></li>
+				<li><img src="img/1.jpg" /></li>
+				<li><img src="img/2.jpg" /></li>
+				<li><img src="img/3.jpg" /></li>
+				<li><img src="img/4.jpg" /></li>
+				<li><img src="img/1.jpg" /></li>
+			</ul>
+			<a href="javascript::" id="prev" class="arrow">&lt;</a>
+			<a href="javascripy::" id="next" class="arrow">&gt;</a>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var prev = document.getElementById("prev");
+		var next = document.getElementById("next");
+		var imgs = document.getElementById("contain_imgs");
+		var count = 0;
+		var timer;
+		var interval = 3000;
+		var animated = false;
+
+		play();
+
+		function move(offset) {
+			animated = true;
+			var time = 1000;
+			var inteval = 10;
+			var speed = offset / (time / inteval);
+			var left = parseInt(imgs.style.left) + offset;
+			var amimate = function() {
+
+				if((speed > 0 && parseInt(imgs.style.left) < left) || (speed < 0 && parseInt(imgs.style.left) > left)) {
+					imgs.style.left = parseInt(imgs.style.left) + speed + 'px';
+					setTimeout(amimate, inteval);
+				} else {
+					imgs.style.left = left + 'px';
+					if(parseInt(left) > -1024) {
+						imgs.style.left = -3072 + "px";
+
+					}
+					if(parseInt(left) < -4096) {
+						imgs.style.left = -1024 + "px";
+
+					}
+					animated = false;
+				}
+			}
+
+			amimate();
+		}
+
+		prev.onclick = function() {
+			if(animated) {
+				return;
+			}
+			move(1024);
+			if(count == 0) {
+				count = 3;
+			} else {
+				count--;
+			}
+
+		}
+		next.onclick = function() {
+			if(animated) {
+				return;
+			}
+			move(-1024);
+			if(count == 3) {
+				count = 0;
+			} else {
+
+			}
+			count++;
+
+		}
+
+		function play() {
+			timer = setInterval(function() {
+				next.onclick();
+			}, interval);
+		}
+
+		function stop() {
+			clearInterval(timer);
+		}
+	</script>
+
+</html>

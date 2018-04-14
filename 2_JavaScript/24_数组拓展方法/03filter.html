@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [1,2,3,4,5,6];
+			var arr1 = [];
+			//将数组中的偶数放到一个新数组中
+			for (var i = 0; i < arr.length; i++) {
+				if (arr[i] % 2 == 0) {
+					arr1.push(arr[i]);
+				}
+			}
+			console.log(arr1);
+			
+			
+			//filter方法,将数组中的某些元素过滤掉，返回符合规则的值
+		    //filter将传入的函数作用于数组中的每个元素,然后根据返回值是true还是false决定保留还是丢弃该元素
+			var newArr = arr.filter(function(value) {
+				return value % 2 == 0;
+			});
+			console.log(newArr);
+			
+			//数组去重
+			var arr2 = [1,3,6,3,5,7,9,3,6];
+			var newArr2 = arr.filter(function(value,index,array) {
+//				console.log(array)
+				return array.indexOf(value) == index;
+			});
+			console.log(newArr2);
+		</script>
+	</body>
+</html>

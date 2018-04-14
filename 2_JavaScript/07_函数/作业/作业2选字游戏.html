@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box {
+				width: 400px;
+				height: 400px;
+				border: 2px solid black;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -200px;
+				margin-left: -200px;
+			}
+			
+			.time {
+				width: 120px;
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				font-size: 1.1em;
+			}
+			
+			.marks {
+				width: 80px;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				font-size: 1.1em;
+				text-align: right;
+			}
+			
+			.screen {
+				width: 120px;
+				height: 120px;
+				border: 1px solid black;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -80px;
+				margin-left: -60px;
+				font-size: 100px;
+				text-align: center;
+				line-height: 120px;
+			}
+			
+			.rule {
+				width: 378px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -189px;
+				margin-top: 50px;
+				text-indent: 2em;
+			}
+			
+			.choose {
+				width: 378px;
+				height: 80px;
+				position: absolute;
+				bottom: 10px;
+				left: 50%;
+				margin-left: -189px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			
+			.choose div {
+				width: 70px;
+				height: 70px;
+				border: 1px solid black;
+				font-size: 65px;
+				text-align: center;
+				line-height: 70px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="time">
+				<span>剩余时间：</span>
+				<span id="time" style="color: red;"></span>
+			</div>
+			<div class="marks">
+				<span>分数：</span>
+				<span id="scores" style="color: red;"></span>
+			</div>
+			<div class="screen" id="show"></div>
+			<div class="rule">
+				根据上面字的颜色，从下面选择正确的字，如果选择正确则自动开始。
+			</div>
+			<div class="choose" id="choosebox">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var myScreen = document.getElementById("show");
+			var chooseBox = document.getElementById("choosebox");
+			var myChoose = chooseBox.getElementsByTagName("div");
+			var myTime = document.getElementById("time");
+			var myScores = document.getElementById("scores");
+			var wordArr = ["黑", "蓝", "黄", "红", "绿"];
+			var colorArr = ["black", "blue", "yellow", "red", "green"];
+			var timer = null;
+			var control = true;
+			var time = 20;
+			var grades = 0;
+			myTime.innerHTML = time;
+
+			changeOne();
+			changeFive();
+			scores();
+
+			function changeOne() {
+				var num1 = Math.floor(Math.random() * (wordArr.length - 1 - 0 + 1) + 0);
+				var num2 = Math.floor(Math.random() * (wordArr.length - 1 - 0 + 1) + 0);
+				myScreen.innerHTML = wordArr[num1];
+				myScreen.style.color = colorArr[num2];
+				myScreen.index = wordArr[num2];
+				console.log("index:" + myScreen.index);
+				return myScreen.index;
+			}
+			function changeFive() {
+				function getNum() {
+					var noRepeatWord = [];
+					while(noRepeatWord.length != 5) {
+						var wordNum = Math.floor(Math.random() * (wordArr.length - 1 - 0 + 1) + 0);
+						var control = true;
+						for(var i = 0; i < noRepeatWord.length; i++) {
+							if(wordNum == noRepeatWord[i]) {
+								control = false;
+								break;
+							}
+						}
+						if(control) {
+							noRepeatWord[noRepeatWord.length] = wordNum;
+						}
+					}
+					return noRepeatWord;
+				}
+				var a = getNum();
+				var b = getNum();
+				for(var i = 0; i < myChoose.length; i++) {
+					myChoose[i].innerHTML = wordArr[a[i]];
+					myChoose[i].style.color = colorArr[b[i]];
+				}
+			}
+
+			function timing() {
+				if(!control) {
+					clearInterval(timer);
+					timer = setInterval(function() {
+						time--;
+						myTime.innerHTML = time;
+						if(time == -1) {
+							clearInterval(timer);
+							alert("game over!" + "你的分数为：" + myScores.innerHTML);
+							location.reload(true); 
+						}
+						control = true;
+					}, 1000)
+				}
+			}
+
+			function scores() {
+				myScores.innerHTML = grades;
+				grades++;
+				return grades;
+			}
+
+			for(var k = 0; k < myChoose.length; k++) {
+				myChoose[k].onclick = function() {
+					if(myScreen.index == this.innerHTML) {
+						changeOne();
+						changeFive();
+						control = false;
+						timing();
+						scores();
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

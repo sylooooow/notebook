@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				width: 200px;
+				height: 200px;
+				background-color: purple;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all")
+			oAll.onmouseover = function(){
+				easeMove(oAll, {"width": 500}, 10,function(){
+					easeMove(oAll,{"height": 500},10,function(){
+						easeMove(oAll,{"opacity" : 50},10)
+					})
+				})	
+		}
+//			oAll.onmouseout = function(){
+//				easeMove(oAll, {"width": 200}, 10)
+//			}
+			
+				
+			function easeMove(obj, attrJson, speed,fn) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					var flag = true;
+
+					for(var attr in attrJson) {
+						if(attr == "opacity") {
+							var attrValue = parseInt(getStyle(obj, attr) * 100);
+						} else {
+							var attrValue = parseInt(getStyle(obj, attr));		
+						}
+						console.log(attrValue)
+						var iTarge = attrJson[attr]
+						var speedEnd = (iTarge - attrValue) / speed;
+						speedEnd = speedEnd > 0 ? Math.ceil(speedEnd) : Math.floor(speedEnd);
+						//都到临界值才能停定时器
+						if(attrValue != iTarge) {
+							flag = false;
+							console.log(attr,attrValue,speedEnd);
+							if(attr == "opacity") {
+								obj.style[attr] = (attrValue + speedEnd) / 100;
+							} else {
+								obj.style[attr] = attrValue + speedEnd + "px";
+							}
+						}
+
+					}
+					//for 结束 对属性都进行判断,如果为真,说明全部都到达临界值
+					if(flag) {
+						clearInterval(obj.timer);
+						if(fn){
+						fn()
+					}
+					}
+					
+				}, 20)
+
+			}
+
+			function getStyle(obj, attr) {
+				if(obj.currentStyle) {
+					return obj.currentScale[attr];
+				} else {
+					return getComputedStyle(obj)[attr];
+				}
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,
+			body {
+				height: 100%;
+			}
+			
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.div1 {
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -50px;
+				margin-left: -50px;
+				font-size: 30px;
+				line-height: 100px;
+				text-align: center;
+				/*background-color: red;*/
+				/*使用动画*/
+				animation: move 0.2s ease 1s  alternate;
+				}
+				/*
+				 * 可设置的属性：
+				 * animation-name 动画名字
+				 * animation-duration 动画执行时间
+				 * animation-timing-function 动画运动时间曲线 
+				 * animation-delay  动画延迟时间
+				 * animation-iteration-count  动画执行次数
+				 * animation-direction：alternate  动画执行方向，alternate表示轮流反向执行
+				 * animation-fill-mode: forwards 动画停留在最后一帧，和动画无限次执行有冲突，有无限次则失效
+				 * animation-play-state 动画运动状态(paused 暂停  running开始)，一般放在:hover里
+				 *
+			}
+			
+			.div1:hover {
+				animation-play-state: paused;
+			}
+			/*声明动画*/
+			
+			@-webkit-keyframes move {
+				0% {
+					transform: translate(0, 0);
+				}
+				80% {
+					transform: translate(0, -30px);
+				}
+				100% {
+					transform: translate(0,0);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--动画-->
+		<div class="div1">弹弹弹</div>
+	</body>
+
+</html>

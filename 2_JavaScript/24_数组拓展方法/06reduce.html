@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [0,1,2,3,4,5];
+			var sum = arr.reduce(function(previous,current) {
+				console.log(previous,current);
+				return previous + current;
+			});
+			console.log(sum);
+			
+			
+			//把arr2中的数组整合为一个大数组
+			var arr2 = [
+			    [10,11],
+			    [12,13,14],
+			    [15,16,17]
+			];
+			
+			//方法1
+			var arr3 = [];
+			for (var i = 0; i < arr2.length; i++) {
+				for (var j = 0; j < arr2[i].length; j++) {
+					arr3.push(arr2[i][j]);
+				}
+			}
+			console.log(arr3);
+			//方法2
+			var arr4 = arr2.reduce(function(p,c) {
+				return p.concat(c);
+			})
+			console.log(arr4);
+		</script>
+	</body>
+</html>

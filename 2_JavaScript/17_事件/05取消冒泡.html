@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 500px;
+				height: 500px;
+				border: 10px solid pink;
+			}
+			
+			#div2 {
+				width: 300px;
+				height: 300px;
+				border: 5px solid black;
+				position: absolute;
+				top: 10px;
+				left: 10px;
+			}
+			
+			#div3 {
+				width: 100px;
+				height: 100px;
+				background-color: lightblue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div1">
+			<div id="div2">
+				<div id="div3"></div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var oDiv1 = document.getElementById("div1");
+			var oDiv2 = document.getElementById("div2");
+
+			oDiv1.onclick = theClick;
+			oDiv2.onclick = theClick;
+
+			function theClick(ev) {
+				var ev = ev || window.event;
+				//取消冒泡
+				//兼容IE 谷歌 和高版本的火狐
+				ev.cancelBubble = true;
+				//下面这个也是取消冒泡，但是不兼容IE
+//				ev.stopPropagation();
+				console.log(this.id);
+			}
+			document.onclick = function() {
+				console.log("wwww");
+			}
+		</script>
+	</body>
+
+</html>

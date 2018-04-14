@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		/*选择带有该属性的标签*/
+			[href] {
+				color: gray;
+			}
+		/*选择href属性的值为#的元素*/
+			[href="#"] {
+				font-size: 50px;
+			}
+		/*选择href属性的值中，包含单独#符号的标签，用 “ ~ ”区别*/
+			[href~="#"] {
+				font-style: oblique;
+			}
+		/*选择href属性中，以单独符号开头的标签,用 “ - ” 区别*/
+			[href|="#"] {
+				color: green;
+			}
+		/*选择href属性的值，以指定字符开头的标签*/
+			[href^= "#"] {
+				background-color: blue;
+			}
+		/*选择href属性中包含指定字符的元素*/
+			[href*="#"] {
+				font-size: 50px;
+			}
+		/*选择href属性的值中，以指定字符结尾的元素*/
+			[href$="#"] {
+				letter-spacing: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#">123</a>
+		<a href="##">123</a>
+		<a href="#-##">223</a>
+		<div href="##1">div</div>
+	</body>
+</html>

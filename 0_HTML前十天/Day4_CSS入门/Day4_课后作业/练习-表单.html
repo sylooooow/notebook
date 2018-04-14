@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			.box1 {
+				width: 100%;
+				height: 50px;
+				border-bottom:1px solid #888888;
+				position: relative;
+			}
+			.box1 span {
+				position: absolute;
+				top: 24%;
+				margin-left: 8px;
+				font-size: large;
+			}
+			.box1 img {
+				height: 85%;
+			}
+			.box2 {
+				/*border: 1px solid black;*/
+				width: 1100px;
+				margin-top: 10px;
+				text-align: right;
+			}
+			
+			.check_box {
+			    /*border: 1px solid black;*/
+			    position: relative;
+			    height: 60px;
+			}
+			.check_box img {
+				position: absolute;
+				right: 1px;
+			}
+	
+			.check_box span {
+				position: absolute;
+				right: 446px;
+			
+			}
+			.submit {
+				width: 240px;
+				height: 50px;
+				border-radius: 0;
+				margin-right: 11%;
+			}
+			.box_right {
+				width: 180px;
+			
+				/*border: 1px solid black;*/
+				float: right;
+				margin-right: -188px;
+				
+			}
+			.box_right p {
+				font-size: small;
+				text-align:left;
+				line-height: 1px;
+			}
+			.box_right2 {
+				position: relative;
+				left: 135px;
+				bottom: 38px;
+			}
+			
+		
+		
+		</style>
+	</head>
+	<body style="">
+		<div class="box1">
+			<img src="../Day3_CSS入门/images/email-bg.jpg" alt=""  "/>
+			<span style=" ">注册邮箱账号</span>
+		</div>
+		<div class="box2">
+			<div class="box_right">
+				<p>请输入您常用的电子邮箱</p>
+			    <p><a href="">创建邮箱</a>或<a href="">注册普通QQ号</a></p>
+			</div>
+			
+			<p>
+				邮箱账号 <input type="email" style="width: 40%; height: 30px;" />
+		    </p>
+		    <p>
+				昵称 <input type="text" style="width: 40%; height: 30px;" />
+		    </p>
+		    <p>
+				密码 <input type="password" style="width: 40%; height: 30px;" />
+		    </p>
+		    <p>
+				确认密码 <input type="password" style="width: 40%; height: 30px;" />
+		    </p>
+		    <p>
+				性别
+				<span style="margin-right:33.5% ;">
+				<input type="radio" name="man" />男
+				<input type="radio" name="women" id="women" value="" />女
+				</span>
+		    </p>
+		    <p>
+		    	    生日
+		    	    <span style="margin-right: 24.5%;">
+		    	    	   <select name="">
+		    	    	   	<option value="">公历</option>
+		    	    	   	<option value="">阴历</option>
+		    	    	   </select>
+		    	    	   <select name="">
+		    	    	   	<option value="">年</option>
+		    	    	   </select>
+		    	    	   <select name="">
+		    	    	   	<option value="">月</option>
+		    	    	   </select>
+		    	    	   <select name="">
+		    	    	   	<option value="">日</option>
+		    	    	   
+		    	    	   </select>
+		    	    </span>
+		    	    
+		    </p>
+		    	<p>
+		    	    所在地
+		    	    <span style="margin-right: 26%;">
+		    	    	   <select name="">
+		    	    	   	<option value="">中国</option>
+		    	    	   </select>
+		    	    	   <select name="">
+		    	    	   	<option value="">上海</option>
+		    	    	   </select>
+		    	    	   <select name="">
+		    	    	   	<option value="">黄埔</option>
+		    	    	   
+		    	    	   </select>
+		    	    </span>
+		    </p>
+		    
+		    <div class="check_box">
+		    	   <span style="line-height: 60px;">验证码</span>
+		    	   <img src="../Day3_CSS入门/images/yz.png" alt="" style="width: 440px; height: 60px;"/>
+		    	   <!--<span>请先进性安全验证</span>-->
+		    </div>
+		    <div class="box_right2">
+		      	请先进行安全验证
+		    </div>
+		    <p style="margin-right: 8%;">
+		    	    <input type="radio" name="" id="" value="" />我已阅读并同意相关服务条款和隐私政策
+		        <span><img src="../Day3_CSS入门/images/down.jpg" alt="" /></span>
+		    </p>
+		    <br />
+		    <p>
+		    	   <input type="image" src="../Day3_CSS入门/images/register.jpg" name="" id="" value="" class="submit"/>
+		    </p>
+		</div>
+		
+	</body>
+</html>

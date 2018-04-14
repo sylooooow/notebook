@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+function getData(data) {
+    console.log(data);  //jsonp直接把后台拿来的json字符串转换成了json
+}
+</script>
+<script src="03同域名模拟实现jsonp.php?type=1&callback=getData"></script>
+</body>
+</html>

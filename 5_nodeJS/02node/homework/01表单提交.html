@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<form action="http://127.0.0.1:8000" method="get">-->
+    <label for="name">姓名:</label>
+    <input type="text" id="name" name="name">
+    <br>
+
+    <label for="age">年龄:</label>
+    <input type="text" id="age" name="age">
+    <br>
+
+    <label for="sex">性别:</label>
+    <input type="text" id="sex" name="sex">
+    <br>
+
+    <label for="">爱好:</label>
+    <input type="checkbox" value="健身" name="hobby1">健身
+    <input type="checkbox" value="游戏" name="hobby2">游戏
+    <input type="checkbox" value="唱歌" name="hobby3">唱歌
+    <br>
+
+    <label for="intro">自我描述:</label>
+    <br>
+    <textarea name="intro" id="intro" cols="30" rows="10"></textarea>
+    <br>
+
+    <button id="submit">提交</button>
+
+    <!--<input type="submit" value="提交">-->
+
+<!--</form>-->
+
+
+<script>
+
+    var btn = document.getElementById("submit");
+    var oname = document.getElementById("name");
+    var age = document.getElementById("age");
+    var sex = document.getElementById("sex");
+    var hobby = document.getElementsByTagName("input");
+    var intro = document.getElementById("intro");
+
+    btn.onclick = function () {
+        var nameText = oname.value;
+        var ageText = age.value;
+        var sexText = sex.value;
+        var introText = intro.value;
+        var hobbyText = "";
+        for (var i = 0; i < hobby.length; i++) {
+            if (hobby[i].checked) {
+                hobbyText += hobby[i].value;
+            }
+        }
+
+        var url = "http://127.0.0.1:8000/?nameText=" + nameText;
+
+
+        // + "&ageText=" + ageText + "&sexText=" + sexText + "&hobbyText=" + hobbyText + "&introText=" + introText
+
+
+        ajax_get(url,function (data) {
+            // console.log(data);
+        })
+    }
+
+
+
+
+    //ajax请求函数
+    function ajax_get(url, fn) {
+        var xhr = null;
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                var theData = xhr.responseText;
+                if (fn) {
+                    fn(theData);
+                }
+            }
+        };
+        xhr.open("get", url, true);
+        xhr.send();
+    }
+</script>
+</body>
+
+</html>

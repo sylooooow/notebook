@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script src="jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//设置200*200 红色
+			//HTML
+			//点击事件
+			$("#all").css({
+				"width":"200px",
+				"height":"200px",
+				"background-color":"red",
+				"display":"flex",
+				"justify-content":"center",
+				"align-items":"center"
+			})
+			.html("just do it!")
+			.click(function() {
+				console.log("哈哈哈");
+			});
+		</script>
+	</body>
+</html>

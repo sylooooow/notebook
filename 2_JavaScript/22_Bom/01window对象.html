@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">点我，你将打开一个世界!</button>
+		<script type="text/javascript">
+			var a = 10; 
+			//全局变量是window的属性
+			console.log(window.a);
+			
+			function abc() {
+				console.log("hello world");
+			}
+			//全局函数也是window的属性
+			window.abc();
+			
+			
+			var oBtn = document.getElementById("btn");
+			oBtn.onclick = function() {
+				//打开一个新的空白页面
+//				window.open();
+
+                //打开一个指定的网页(绝对路径)
+//              window.open("https://www.baidu.com");
+
+                //打开一个本地页面(相对路径)
+//              window.open("00.html");
+
+                //在当前页面打开一个网站
+                //第二个参数_blank 为默认值
+//              window.open("https://www.baidu.com","_self");
+                
+                //关闭一个页面，在谷歌上直接关闭，IE中询问是否关闭，火狐不支持
+                window.close();
+			}
+			
+			
+			//常见的window事件：
+			window.onload = function() {
+				//页面加载晚上
+			}
+			
+			window.onscroll = function() {
+				//页面滚动时
+			}
+			
+			window.onresize = function() {
+				//页面大小变化时
+			}
+			/*
+			 Bom 浏览器对象模型 brower object model
+			 Dom 文档对象模型   document object model
+			 window 对象，所有浏览器都支持
+			 全局变量本质上都是window对象的属性
+			 全局函数本质上也是window对象的属性
+			 
+			 */
+		</script>
+	</body>
+</html>

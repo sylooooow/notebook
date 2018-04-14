@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var h = 100;
+			var s = h; //第一次落地
+			var lastS = 0;
+			for(var i = 1; i <= 10; i++) {
+				h /= 2;
+				if(i == 10) { //最后一次落地
+					lastS += h;
+					console.log("第十次弹起距离：" + lastS);
+				} else {
+					s += 2 * h;
+				}
+			}
+			console.log("第十次落地经过的总距离:" + s);
+		</script>
+	</body>
+
+</html>

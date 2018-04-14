@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p {
+				text-align: left;
+			}
+		
+			
+			h1 {
+				text-align: left;
+			}
+			.aaa p {
+				color: #326B90;
+			}
+			.white {
+				color: white;
+			}
+			.yellow {
+				color: #DDE160;
+			}
+		</style>
+	</head>
+
+	<body style="text-align: center;">
+		<div style="width: 70%; height: 100%; margin: 0 auto;">
+			<div>
+				<p>
+					Decorations are a cornerstone of Atom's hackable core. With a simple API, they provide ways to deeply customize the editor and build awesome user experiences on top of it. Up until now, however, there was no way to display arbitrary content between lines of text, affecting the positions of subsequent lines.
+				</p>
+				<br /><br />
+				<p>
+					For this reason, users and package authors have come up with hacks that circumvent the problem by monkey-patching DisplayBuffer and the way it constructs tokenized lines. However, poking with Atom internals is clearly suboptimal, as they could change at any time and break all the packages that rely on them. (In fact, at the time of writing, we are actively working towards redesigning the whole display layer).
+				</p>
+				<br /><br />
+				<p>
+					Today we're happy to announce a new experimental primitive for Atom 1.6.0-beta that is going to change this: block decorations.
+				</p>
+				<br /><br />
+				<h1>The&nbsp;&nbsp;API</h1>
+				<hr />
+				<p>
+					A block decoration is a special kind of decoration that allows you to insert a DOM node before or after a certain line, and have it follow the line as the buffer changes. You can see it in action by running the snippet below in the DevTools:
+				</p>
+				<div style="background-color: black;" class="aaa">
+					<p>
+						var element =<span class="white"> document.</span>createElement<span class="white"><span class="white">(</span><span class="yellow">'div'</span><span class="white">) </span>
+                    </p>
+                    <p>
+                    	element<span class="white">.</span>textContent = <span class="yellow">'Block decorations!🐲' </span>
+                    </p>
+                    <p>
+                    	   var editor = atom<span class="white">.</span>workspace<span class="white">.</span>getActiveTextEditor<span class="white">()</span>
+                    </p>
+                    <p>
+                    	 var marker = editor<span class="white">.</span>markScreenPosition<span class="white">(</span>[<span class="yellow">0</span>,<span class="yellow">0</span>]<span class="white">)</span>
+                     editor<span class="white">.</span>decorateMarker<span class="white">(</span>marker, <span class="white">{</span>type: <span class="yellow">'block'</span>, position:<span class="yellow"> 'before'</span>, item:element<span class="white">}</span><span class="white">)</span>
+                    </p>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

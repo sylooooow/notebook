@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: lightblue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div1"></div>
+
+		<script type="text/javascript">
+			//			var arr1 = [1,2,3,4,5,6];
+			//			var myDiv1 = document.getElementById("div1");
+			//			//定义函数
+			//			function sumArr() {
+			//				var sum = 0;
+			//				for (var i = 0; i < arr1.length; i++) {
+			//					sum += arr1[i];
+			//				}
+			//				return sum;    //函数返回
+			//			}
+			//			myDiv1.onclick = function() {
+			////				var a = sumArr();
+			//				myDiv1.innerHTML = sumArr();
+			//			}
+
+			var myDiv1 = document.getElementById("div1");
+			myDiv1.onclick = function() {
+				var a = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+				var b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+				var c = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+//				console.log(a);
+//				console.log(b);
+//				console.log(c);
+                var str = "rgb(" + a + "," + b + "," + c + ")";
+				myDiv1.style.backgroundColor = str;
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="500" id="canvas"></canvas>
+<script>
+    var oCanvas = document.getElementById("canvas");
+    var ctx = oCanvas.getContext("2d");
+    ctx.beginPath();
+
+    var clg = ctx.createLinearGradient(200,200,400,200);
+    //创建渐变颜色(渐变百分点，颜色)
+    clg.addColorStop(0,"red");
+    clg.addColorStop(0.3,"yellow");
+    clg.addColorStop(0.7,"orange");
+    clg.addColorStop(1,"blue");
+    ctx.strokeStyle = clg;
+
+    ctx.font = "50px Arial";
+    ctx.strokeText("哈哈哈哈哈哈",100,100);
+
+
+</script>
+</body>
+</html>

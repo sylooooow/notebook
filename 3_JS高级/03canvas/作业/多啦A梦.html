@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            position: absolute;
+            left: 50%;
+            margin-left: -250px;
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="700" id="canvas"></canvas>
+<script>
+    var oCanvas = document.getElementById("canvas");
+    var ctx = oCanvas.getContext("2d");
+//头
+    ctx.beginPath();
+    ctx.arc(250,200,150,Math.PI/180 * 50,Math.PI/180 * 130,true);
+    ctx.lineWidth = 1.5;
+    ctx.fillStyle = "#84D7EC";
+    ctx.fill();
+    ctx.stroke();
+//脸
+    canvas = document.getElementById("canvas");
+    ctx = canvas.getContext("2d")
+    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = "black";
+    ctx.beginPath();
+    ctx.moveTo(241, 390);
+    ctx.bezierCurveTo(52, 232, 102, 120, 246, 125);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.stroke();
+
+    canvas = document.getElementById("canvas");
+    ctx = canvas.getContext("2d")
+    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = "black";
+    ctx.beginPath();
+    ctx.moveTo(240, 390);
+    ctx.bezierCurveTo(450, 276, 400, 111, 245, 125);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.stroke();
+
+    //眼睛
+    ctx.beginPath();
+    ctx.moveTo(160, 140);
+    ctx.bezierCurveTo(160, 70, 250, 70, 250, 140);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(160, 140);
+    ctx.bezierCurveTo(160, 205, 250, 205, 250, 140);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(250, 140);
+    ctx.bezierCurveTo(250, 70, 340, 70, 340, 140);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(250, 140);
+    ctx.bezierCurveTo(250, 205, 340, 205, 340, 140);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.stroke();
+//眼球
+    ctx.beginPath();
+    ctx.arc(220,165,10,0,Math.PI * 2,true);
+    ctx.lineWidth = 2;
+    ctx.fillStyle = "black";
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(280,165,10,0,Math.PI * 2,true);
+    ctx.lineWidth = 2;
+    ctx.fillStyle = "black";
+    ctx.fill();
+    ctx.stroke();
+//鼻子
+    ctx.beginPath();
+    ctx.arc(250,200,25,0,Math.PI * 2,true);
+    ctx.lineWidth = 2;
+    ctx.fillStyle = "#DC815D";
+    ctx.fill();
+    ctx.stroke();
+//
+    ctx.beginPath();
+    ctx.moveTo(250, 230);
+    ctx.arc(250,230,60,Math.PI / 2,Math.PI / 2);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+//嘴
+    canvas = document.getElementById("canvas");
+    ctx = canvas.getContext("2d")
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#0090D2";
+    ctx.beginPath();
+    ctx.moveTo(154, 268);
+    ctx.quadraticCurveTo(250, 340, 355, 266);
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+//胡须
+    ctx.beginPath();
+    ctx.moveTo(200, 220);
+    ctx.arc(200,220,60,Math.PI / 180 * 200,Math.PI / 180 * 200);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(200, 230);
+    ctx.arc(200,230,57,Math.PI / 180 * 185,Math.PI / 180 * 185);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(200, 240);
+    ctx.arc(200,240,57,Math.PI / 180 * 175,Math.PI / 180 * 175);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(300, 220);
+    ctx.arc(300,220,57,-Math.PI / 180 * 20,-Math.PI / 180 * 20);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(300, 230);
+    ctx.arc(300,230,57,-Math.PI / 180 * 10,-Math.PI / 180 * 10);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(300, 240);
+    ctx.arc(300,240,57,Math.PI / 180 * 4,Math.PI / 180 * 4);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+//身体
+    ctx.beginPath();
+    ctx.fillStyle = "#84D7EC";
+    ctx.fillRect(138,330,224,190);
+
+    ctx.beginPath();
+    ctx.moveTo(140,320);
+    ctx.lineTo(65,400);
+    ctx.lineTo(100,430);
+    ctx.lineTo(138,392);
+    ctx.lineTo(138,521);
+    ctx.lineTo(363,521);
+    ctx.lineTo(363,392);
+    ctx.lineTo(409,432);
+    ctx.lineTo(440,400);
+    ctx.lineTo(367,324);
+    ctx.closePath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "black";
+    ctx.fillStyle = "#84D7EC";
+    ctx.fill();
+    ctx.stroke();
+//肚子
+    ctx.beginPath();
+    ctx.arc(250,400,80,0,Math.PI * 2,true);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(250,390,60,0,Math.PI);
+    ctx.lineWidth = 1.5;
+    ctx.closePath();
+    ctx.stroke();
+//围巾
+    ctx.beginPath();
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "black";
+    ctx.strokeRect(114,310,276,30);
+
+    ctx.beginPath();
+    ctx.fillStyle = "#C0573B";
+    ctx.fillRect(115,311,275,29);
+
+    ctx.beginPath();
+    ctx.arc(115,325,15,Math.PI / 2,Math.PI / 180 * 270);
+    ctx.lineWidth = 2;
+    ctx.fillStyle = "#C0573B";
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(389,325,15,-Math.PI / 2,Math.PI / 180 * 90);
+    ctx.lineWidth = 2;
+    ctx.fillStyle = "#C0573B";
+    ctx.fill();
+    ctx.stroke();
+//铃铛
+    ctx.beginPath();
+    ctx.arc(250,350,26,0,Math.PI * 2,true);
+    ctx.lineWidth = 1;
+    ctx.fillStyle = "#F4F28A";
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(250,355,8,0,Math.PI * 2,true);
+    ctx.fillStyle = "black";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(250,360);
+    ctx.lineTo(250,375);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(230,334);
+    ctx.lineTo(270,334);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(225,342);
+    ctx.lineTo(275,342);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+//脚
+    ctx.beginPath();
+    ctx.arc(250,518,15,Math.PI / 180 * 18,Math.PI / 180 * 160,true);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(117,521,118,30);
+
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(265,521,118,30);
+
+    ctx.beginPath();
+    ctx.arc(120,536,15,Math.PI / 2,Math.PI / 180 * 280);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(267,536,15,Math.PI / 2,Math.PI / 180 * 280);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(231,536,15,Math.PI / 2,Math.PI / 180 * 280,true);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(379,536,15,Math.PI / 2,Math.PI / 180 * 280,true);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.stroke();
+//手
+    ctx.beginPath();
+    ctx.arc(80,415,35,0,Math.PI * 2,true);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(425,420,35,0,Math.PI * 2,true);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.stroke();
+</script>
+</body>
+</html>

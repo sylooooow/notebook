@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				width: 800px;
+				height: 400px;
+				border: 5px solid black;
+				position: relative;
+				left: 50%;
+				margin-left: -400px;
+			}
+			
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div id="box"></div>
+		</div>
+		<script type="text/javascript">
+			var oWrap = document.getElementById("wrap");
+			var oBox = document.getElementById("box");
+			var maxL = oWrap.clientWidth - oBox.offsetWidth;
+			var maxT = oWrap.clientHeight - oBox.offsetHeight;
+
+			document.onkeyup = function(ev) {
+				switch(ev.keyCode) {
+					case 37:
+					uniformMove(oBox, "left", 0, -2);
+						break;
+					case 38:
+					uniformMove(oBox, "top", 0, -2);
+						break;
+					case 39:
+					uniformMove(oBox, "left", maxL, 2);
+						break;
+					case 40:
+					uniformMove(oBox, "top", maxT, 2);
+						break;
+					default:
+						break;
+				}
+			}
+
+			function uniformMove(obj, attr, iTarget, speed) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					var attrValue = getStyle(obj, attr);
+					var attrValue = attr == "opacity" ? parseInt(Math.round(attrValue * 100)) : parseInt(attrValue);
+					//临界值
+					if(Math.abs(iTarget - attrValue) <= Math.abs(speed)) {
+
+						obj.style[attr] = attr == "opacity" ? iTarget / 100 : iTarget + "px";
+						clearInterval(obj.timer);
+						setTimeout(function() {
+							alert("碰壁了");
+						},50);
+					} else {
+						obj.style[attr] = attr == "opacity" ? (attrValue + speed) / 100 : attrValue + speed + "px";
+
+					}
+				}, 10)
+			}
+
+			function getStyle(obj, attr) {
+				if(obj.currentStyle) {
+					return obj.currentStyle[attr];
+				} else {
+					return getComputedStyle(obj)[attr];
+				}
+			}
+		</script>
+	</body>
+
+</html>

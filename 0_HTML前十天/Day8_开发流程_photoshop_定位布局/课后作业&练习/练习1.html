@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box {
+				width: 320px;
+				height: 320px;
+				border: 3px solid red;
+				position: relative;
+			}
+			.box > div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				display: flex;
+				justify-content: center;
+			}
+			.a {
+				position: absolute;
+				top: 10px;
+				left: 10px;
+			}
+			.b {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+			}
+			.c {
+				position: absolute;
+				top: 110px;
+				left: 110px;
+				background-color: blue;
+			}
+			.d {
+				position: absolute;
+				top: 210px;
+				left: 10px;
+			}
+			.e {
+				position: absolute;
+				top: 210px;
+				right: 10px;
+			}
+			span {
+				line-height: 100px;
+				color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="a"><span>链接</span></div>
+			<div class="b"><span>链接</span></div>
+			<div class="c" style="background-color: blue;"><span>链接</span></div>
+			<div class="d"><span>链接</span></div>
+			<div class="e"><span>链接</span></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+    //添加原型方法
+    Person.prototype.eat = function () {
+        console.log(this.name + "吃饭了吗?");
+    }
+    Person.prototype.sleep = function () {
+        console.log(this.name + "睡觉了吗?");
+    }
+
+
+    //继承
+    function Student(name,age,score) {
+        //继承属性
+        Person.call(this,name,age);
+        //自己独有的方法写在下面
+        this.score = score;
+    }
+    var stu = new Student("李俊钦",18,100);
+    console.log(stu.name);
+
+
+
+    //原型的继承
+    for (var attr in Person.prototype) {
+        console.log(attr);
+        console.log(Person.prototype[attr]);
+        Student.prototype[attr] = Person.prototype[attr];
+    }
+    stu.eat();
+</script>
+</body>
+</html>

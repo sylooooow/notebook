@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 1000px;
+				height: 500px;
+				border: 10px solid black;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			#move {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				border-radius: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="move"></div>
+		</div>
+
+		<script type="text/javascript">
+			var oBox = document.getElementById("box");
+			var oAll = document.getElementById("move");
+			var oDistance = oBox.clientWidth - 50;
+			var flag = true;
+			unifromMove(oAll, oDistance, "left", 5);
+
+			function unifromMove(obj, iTarget, attr, speed) {
+				setInterval(function() {
+			        var attrValue = parseInt(getStyle(obj, attr));
+			        console.log(attrValue)
+					if(flag) {
+						obj.style[attr] = Math.abs(iTarget - attrValue) < Math.abs(speed) ? iTarget + "px" : attrValue + speed + "px";
+						if(attrValue >= iTarget) {
+							flag = false;
+						}
+						console.log(flag)
+					} else {
+						obj.style[attr] = Math.abs(0 - attrValue) < Math.abs(speed) ? 0 + "px" : attrValue - speed + "px";
+						if(attrValue <= 0) {
+							flag = true;
+						}
+						console.log(flag);
+					}
+				}, 20);
+			}
+
+			function getStyle(obj, attr) {
+				if(obj.currentStyle) {
+					return obj.currentStyle[attr];
+				} else {
+					return getComputedStyle(obj)[attr];
+				}
+			}
+		</script>
+	</body>
+
+</html>

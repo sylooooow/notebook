@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#input {
+				border: 1px solid lightblue;
+				width: 200px;
+				height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<label for="input">姓名：</label>
+		<input type="text" name="input" id="input" />
+		<script type="text/javascript">
+		     var oInput = document.getElementById("input");
+		     oInput.onfocus = function() {
+		     	//获得焦点事件
+		     	console.log("哈哈哈");
+		     }
+		     oInput.onblur = function() {
+		     	//失去焦点事件
+		     	console.log("呵呵呵");
+		     }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		    #wrap {
+		    	width: 500px;
+		    	height: 500px;
+		    	border: 1px solid black;
+		    	position: relative;
+		    }
+			#all {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				border: 1px solid black;
+				padding: 10px;
+				margin: 10px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="all"></div>
+		</div>
+		
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			//offsetLeft表示可见边距离定位父级左侧的距离，margin会对其造成影响
+			//值为left + margin-left
+			//如果没有定位父级，则相对于浏览器定位，这时也不考虑系统自带的8px
+			//offsetTop同理
+			console.log(oAll.offsetLeft);
+			
+			
+			//宽度 + padding左右 + border左右
+			console.log(oAll.offsetWidth);
+			//高度 + padding上下 + border上下
+			console.log(oAll.offsetWidth);
+			
+			
+			//高度 + padding 
+			console.log(oAll.clientHeight)
+			//宽度 + padding 
+			console.log(oAll.clientWidth);
+		</script>
+	</body>
+</html>

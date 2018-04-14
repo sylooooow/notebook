@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//比较两个数的最大值
+			function compare(a,b) {
+				if (a > b) {
+					return a;
+				} else if(a < b){
+					return b;
+				}else {
+					return "a与b相等";
+				}
+			}
+			console.log(compare(2,2));
+			
+			
+	   //1~n的和
+	     function sum(n) {
+	     	var num = 0;
+	     	for (var i = 1; i <= n; i++) {
+	     		num += i;
+	     	}
+	     	return num;
+	     }
+	     console.log(sum(6));
+	     
+	   //如果两个数a 和 b，如果a > b 返回两数的差，否则返回两个数的和
+	   function compare2(a,b) {
+				if (a > b) {
+					return a - b;
+				} else {
+					return a + b;
+				}
+			}
+	   console.log(compare2(2,2));
+		</script>
+	</body>
+</html>

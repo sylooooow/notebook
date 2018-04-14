@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.boy {
+				width: 200px;
+				height: 350px;
+				background-color: blue;
+				margin-top: 30px;
+				margin-left: 120px;
+			}
+			.girl {
+				width: 200px;
+				height: 300px;
+				background-color: pink;
+				margin-top: 50px;
+				padding-left: 80px;
+				padding-right: 60px;
+				border: 12px solid black;
+			}
+			/*
+			 * 标签可视大小由width + padding + border 组成
+			 */
+		</style>
+	</head>
+	<body>
+		<!--
+			padding: 实际内容与边框之间的缝隙,称为内边距
+			margin:  标签之间的缝隙,叫做外边距
+			border:  边框
+			width:   宽度
+			height:  高度
+			
+			以上五个属性 就是组成盒模型的属性
+		-->
+		<div class="boy">男孩</div>
+		<div class="girl">女孩</div>
+		<!--
+			总结:
+			1.垂直方向的margin取最大的那个值
+			2.横向方向的margin取两个边距的和
+		-->
+	</body>
+</html>

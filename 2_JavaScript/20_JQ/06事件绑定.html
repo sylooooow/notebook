@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script src="jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#all").click(function() {
+				console.log("哈哈哈");
+			});
+			//注意：jQuery中绑定多个相同的事件不会像JS那样被抵消，都会生效
+			$("#all").click(function() {
+				console.log("呵呵呵");
+			});
+			$("#all").mousemove(function() {
+				console.log("哈哈");
+			});
+			
+			
+			//下面是绑定事件的第二种方法，效果等同于上面
+			$("#all").on("click",function() {
+				console.log("第二种绑定事件方法");
+			})
+		</script>
+	</body>
+</html>

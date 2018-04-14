@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box {
+				width: 1010px;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			.top {
+				width: 100%;
+				height: 40px;
+				background: url(images/header_back.png) no-repeat;
+				background-size: 100% 100%;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			.top a:hover {
+				color: orange;
+			}
+			
+			.city {
+				width: 40%;
+				position: absolute;
+				top: 7px;
+				left: 19px;
+			}
+			
+			.city a {
+				text-decoration: none;
+				color: #796F6D;
+				margin-left: 13px;
+				font-size: 15px;
+			}
+			
+			.shop {
+				width: 21%;
+				position: absolute;
+				top: 8px;
+				right: 1px;
+			}
+			
+			.shop span {
+				margin-left: 6px;
+			}
+			
+			.shop a {
+				text-decoration: none;
+				font-size: 14px;
+				color: black;
+			}
+			/*end of top*/
+			
+			.nav {
+				width: 100%;
+				height: 130px;
+				overflow: hidden;
+			}
+			
+			.nav_left {
+				width: 38%;
+				height: 100%;
+				float: left;
+			}
+			
+			.nav_right {
+				width: 38%;
+				height: 100%;
+				float: left;
+			}
+			
+			.nav_middle {
+				width: 24%;
+				height: 100%;
+				float: left;
+			}
+			
+			.nav_left_content,
+			.nav_right_content {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				display: flex;
+				align-items: center;
+			}
+			
+			.nav_left_content_img {
+				float: left;
+				margin-left: 24px;
+				font-size: 14px;
+			}
+			
+			.nav_middle {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			/*end of nav*/
+			
+			.search {
+				width: 100%;
+				height: 130px;
+				border: 1px solid #C9C9C9;
+				border-radius: 20px;
+				background: url(images/sousuo_back.png) no-repeat;
+				background-size: 100%;
+				position: relative;
+			}
+			
+			.search_left {
+				height: 100%;
+				width: 20%;
+				position: absolute;
+				left: 20px;
+			}
+			
+			.search_middle {
+				width: 50%;
+				height: 100%;
+				position: absolute;
+				left: 222px;
+			}
+			
+			.search_middle_top {
+				width: 100%;
+				height: 30px;
+				display: table-cell;
+				vertical-align: bottom;
+			}
+			
+			.search_middle_top a {
+				text-decoration: none;
+				color: black;
+				margin-left: 42px;
+			}
+			
+			.search_middle_top a:hover {
+				color: orange;
+			}
+			
+			.search_middle_middle {
+				width: 93%;
+				height: 30px;
+				padding-left: 30px;
+				margin-top: 17px;
+				margin-bottom: 21px;
+			}
+			
+			.search_middle_middle input {
+				width: 80%;
+				height: 24px;
+				border-radius: 10px;
+				vertical-align: middle;
+			}
+			
+			.search_middle_middle button {
+				width: 61px;
+				height: 24px;
+				background-image: url(images/sousuo_button.png);
+				border-radius: 12px;
+				vertical-align: middle;
+			}
+			
+			.search_middle_bottom {
+				width: 93%;
+				height: 30px;
+				display: table-cell;
+				vertical-align: bottom;
+				padding-left: 30px;
+			}
+			
+			.search_right {
+				width: 29%;
+				height: 100%;
+				position: absolute;
+				right: 0.01px;
+				display: flex;
+				align-items: center;
+			}
+			
+			.search_right_text {
+				width: 70%;
+				height: 55%;
+			}
+			/*end of search*/
+			
+			.major_content {
+				width: 100%;
+				height: auto;
+				margin-top: 15px;
+				position: relative;
+			}
+			
+			.major_content_left {
+				width: 74%;
+				height: auto;
+				position: absolute;
+				left: 0.01px;
+				overflow: hidden;
+			}
+			
+			.major_content_right {
+				width: 24%;
+				height: auto;
+				position: absolute;
+				right: 0.01px;
+				overflow: hidden;
+			}
+			
+			.major_content_left_box1,
+			.major_content_left_box2,
+			.major_content_left_box3,
+			.major_content_left_box4,
+			.major_content_left_box5,
+			.major_content_left_box6,
+			.major_content_left_box7,
+			.major_content_left_box8,
+			.major_content_left_box9,
+			.major_content_left_box10,
+			.major_content_left_box11,
+			.major_content_left_box12 {
+				border: 1px solid #DFDFDF;
+				border-radius: 10px;
+			}
+			
+			.major_content_left_box1 {
+				width: 49%;
+				height: 400px;
+				float: left;
+			}
+			
+			.major_content_left_box2 {
+				width: 49%;
+				height: 400px;
+				float: right;
+				background: url(images/box2.png) no-repeat;
+				background-size: 100% 100%;
+			}
+			
+			.major_content_left_box3 {
+				width: 100%;
+				height: 90px;
+				margin-top: 15px;
+				float: left;
+				background: url(images/ad3.png) no-repeat;
+				background-size: 100% 100%;
+			}
+			
+			.major_content_left_box4 {
+				width: 49%;
+				height: 625px;
+				margin-top: 15px;
+				float: left;
+			}
+			
+			.major_content_left_box5 {
+				width: 49%;
+				height: 500px;
+				margin-top: 15px;
+				float: right;
+				background: url(images/box5.png) no-repeat;
+			}
+			
+			.major_content_left_box6 {
+				width: 49%;
+				height: 318px;
+				margin-top: 15px;
+				float: left;
+				background: url(images/box6.png) no-repeat;
+				background-size: 100%;
+			}
+			
+			.major_content_left_box7 {
+				width: 49%;
+				height: 443px;
+				margin-top: 15px;
+				float: right;
+			}
+			
+			.major_content_left_box8 {
+				width: 100%;
+				height: 90px;
+				margin-top: 15px;
+				float: left;
+				background: url(images/ad3.png) no-repeat;
+				background-size: 100%;
+			}
+			
+			.major_content_left_box9 {
+				width: 49%;
+				height: 320px;
+				margin-top: 15px;
+				float: left;
+			}
+			
+			.major_content_left_box10 {
+				width: 49%;
+				height: 320px;
+				margin-top: 15px;
+				float: right;
+			}
+			
+			.major_content_left_box11 {
+				width: 49%;
+				height: 235px;
+				margin-top: 15px;
+				float: left;
+			}
+			
+			.major_content_left_box12 {
+				width: 49%;
+				height: 235px;
+				margin-top: 15px;
+				float: right;
+			}
+			
+			.major_content_left_box1_top {
+				width: 100%;
+				height: 42px;
+			}
+			
+			.major_content_left_box1_middle {
+				width: 100%;
+				height: 258px;
+				border: 1px solid black;
+				margin-top: 5px;
+			}
+			
+			.major_content_left_box1_bottom {
+				width: 100%;
+				height: 93px;
+			}
+			
+			.major_content_left_box4_top {
+				width: 100%;
+				height: 80px;
+				background: url(images/meiri_huodong_header_back.png) no-repeat;
+				background-size: 100% 100%;
+				position: relative;
+			}
+			
+			.major_content_left_box4_middle {
+				width: 90%;
+				height: 120px;
+				margin: 0 auto;
+				margin-top: 55px;
+			}
+			
+			.major_content_left_box4_bottom {
+				width: 90%;
+				height: 338px;
+				margin: 0 auto;
+				margin-top: 30px;
+				position: relative;
+			}
+			
+			.major_content_left_box4_bottom td {
+				text-align: center;
+				background-color: #E8E9E8;
+			}
+			
+			.hidden {
+				width: 328px;
+				height: 108px;
+				background-image: url(images/meiri_eat_big.png);
+				z-index: 9;
+				position: absolute;
+				left: 246px;
+				top: 160px;
+				display: none;
+			}
+			
+			.major_content_left_box7_top {
+				width: 100%;
+				height: 40px;
+				position: relative;
+			}
+			
+			.major_content_left_box7_middle {
+				width: 90%;
+				height: 87%;
+				margin: 0 auto;
+			}
+			
+			.major_content_left_box9_top {
+				width: 100%;
+				height: 40px;
+				position: relative;
+			}
+			
+			.major_content_left_box9_middle {
+				width: 100%;
+				height: 210px;
+			}
+			
+			.major_content_left_box9_bottom {
+				width: 100%;
+				height: 65px;
+				position: relative;
+			}
+			.major_content_left_box10_top {
+				width: 100%;
+				height: 40px;
+				position: relative;
+			}
+			.major_content_left_box10_middle {
+				width: 335px;
+				height: 250px;
+				margin: 0 auto;
+				padding-top: 5px;
+				padding-left: 5px;
+			}
+			.major_content_left_box11_top {
+				width: 100%;
+				height: 30px;
+				position: relative;
+			}
+			.major_content_left_box11_middle {
+				
+			}
+			.major_content_left_box12_top {
+				width: 100%;
+				height: 30px;
+				position: relative;
+			}
+			/*end of major_content_left*/
+			
+			.major_content_right_box1,
+			.major_content_right_box2,
+			.major_content_right_box3,
+			.major_content_right_box4,
+			.major_content_right_box5,
+			.major_content_right_box6,
+			.major_content_right_box7,
+			.major_content_right_box8 {
+				width: 100%;
+				/*background-color: pink;*/
+				border: 1px solid #DFDFDF;
+				border-radius: 10px;
+				margin-bottom: 15px;
+				float: right;
+				position: relative;
+			}
+			
+			.major_content_right_box1 {
+				height: 140px;
+			}
+			
+			.major_content_right_box2 {
+				height: 90px;
+			}
+			
+			.major_content_right_box3 {
+				height: 180px
+			}
+			
+			.major_content_right_box4 {
+				height: 280px;
+				overflow: hidden;
+			}
+			
+			.major_content_right_box5 {
+				height: 425px;
+				position: relative;
+			}
+			
+			.major_content_right_box6 {
+				height: 180px;
+				position: relative;
+			}
+			
+			.major_content_right_box7 {
+				height: 485px;
+				position: relative;
+			}
+			
+			.major_content_right_box8 {
+				height: 525px;
+				position: relative;
+			}
+			.major_content_right_box4_top {
+				width: 100%;
+				height: 40px;
+				position: relative;
+			}
+			..major_content_right_box4_middle {
+				width: 100%;
+			}
+			.major_content_right_box4_a {
+				width: 54%;
+				height: 72%;
+				float: left;
+			}
+			.major_content_right_box4_a li, .major_content_right_box4_b li, .major_content_right_box4_c li {
+				list-style: none;
+				margin-bottom: 13px;
+				font-size: 13px;
+			}
+			.major_content_right_box4_b,  .major_content_right_box4_c{
+				height: 72%;
+				width: 23%;
+				float: left;
+			}
+			.major_content_right_box5_top {
+				width: 100%;
+				height: 40px;
+			}
+			.major_content_right_box6_top {
+				width: 100%;
+				height: 40px;
+			}
+			.major_content_right_box7_top {
+				width: 100%;
+				height: 40px;
+			}
+			.major_content_right_box8_top {
+				width: 100%;
+				height: 32px;
+			}
+			
+			.footer {
+				width: 100%;
+				height: 80px;
+				background-color: #F7F7F7;
+				position: absolute;
+				top: 2750px;
+				border-radius: 10px;
+			}
+			.footer_top {
+				width: 100%;
+				height: 30px;
+				text-align: center;
+				margin-top: 10px;
+			}
+			.footer_top a {
+				text-decoration: none;
+				margin-right: 10px;
+				color: #6D6D6D;
+				font-size: 12px;
+				display: inline-block;
+				width: 70px;
+				border-right: 1px solid black;
+				text-align: left;
+			}
+			.footer_top a:hover {
+				color: black;
+			}
+			.footer_bottom {
+				text-align: center;
+				font-size: 12px;
+				margin-top: 10px;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="top">
+				<div class="city">
+					<span style="font-size: 15px;">切换城市:</span>
+					<a href="#">北京</a>
+					<a href="#">上海</a>
+					<a href="#">福州</a>
+					<a href="#">广州</a>
+					<a href="#">青岛</a>
+				</div>
+				<div class="shop">
+					<span>
+						<img src="images/jiameng.png"/>
+						<a href="#">加盟100度</a>
+					</span>
+					<span style="font-size: 12px;">|</span>
+					<span>
+						<img src="images/dianpu_guanli.png"/>
+						<a href="#">店铺管理</a>
+					</span>
+				</div>
+			</div>
+			<!--end of top-->
+
+			<div class="nav">
+				<div class="nav_left">
+					<div class="nav_left_content">
+						<div class="nav_left_content_img" style="text-align: center;">
+							<img src="images/top_meishi.png" />
+							<p>美食</p>
+						</div>
+						<div class="nav_left_content_img" style="text-align: center;">
+							<img src="images/top_yedian.png" />
+							<p>夜店</p>
+						</div>
+						<div class="nav_left_content_img" style="text-align: center;">
+							<img src="images/top_gouwu.png" />
+							<p>购物</p>
+						</div>
+						<div class="nav_left_content_img" style="text-align: center;">
+							<img src="images/top_wenhua.png" />
+							<p>文化</p>
+						</div>
+						<div class="nav_left_content_img" style="text-align: center;">
+							<img src="images/top_xiuxian.png" />
+							<p>休闲</p>
+						</div>
+					</div>
+				</div>
+				<div class="nav_middle">
+					<img src="images/top_logo.png" />
+				</div>
+				<div class="nav_right">
+					<div class="nav_right_content">
+						<div class="nav_left_content_img" style="text-align: center;">
+							<img src="images/top_meishi.png" />
+							<p>美食</p>
+						</div>
+						<div class="nav_left_content_img" style="text-align: center;">
+							<img src="images/top_yedian.png" />
+							<p>夜店</p>
+						</div>
+						<div class="nav_left_content_img" style="text-align: center;">
+							<img src="images/top_gouwu.png" />
+							<p>购物</p>
+						</div>
+						<div class="nav_left_content_img" style="text-align: center;">
+							<img src="images/top_wenhua.png" />
+							<p>文化</p>
+						</div>
+						<div class="nav_left_content_img" style="text-align: center;">
+							<img src="images/top_xiuxian.png" />
+							<p>休闲</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--end of nav-->
+
+			<div class="search">
+				<div class="search_left">
+					<img src="images/bianqian.png" />
+				</div>
+				<div class="search_middle">
+					<div class="search_middle_top">
+						<a href="#" style="color: white;">搜店</a>
+						<a href="#">地址</a>
+						<a href="#">优惠券</a>
+						<a href="#">全文</a>
+						<a href="#">视频</a>
+					</div>
+					<div class="search_middle_middle">
+						<input type="text" placeholder="例如：荷棠鱼坊烤鱼 或 樱花日本料理" />
+						<button></button>
+					</div>
+					<div class="search_middle_bottom">
+						<span><img src="images/update_icon.png"/></span>
+						<span style="font-size: 13px;">
+							<span style="color: #F91B43;">萱萱</span>
+						<span style="color: #6D6D6D; font-size: 12px;">5分钟前</span>
+						<span>写了一篇新文章：那些灿烂华美的瞬间...</span>
+						<span><img src="images/xiala.png"/></span>
+						</span>
+					</div>
+				</div>
+				<div class="search_right">
+					<div class="search_right_text">
+						<span style="color: white; font-size: 13px;">金钱豹、大江南、湘水之珠、德玉楼、荷棠鱼坊烤鱼、SOHO尚都、湘味楼...</span>
+					</div>
+				</div>
+			</div>
+			<!--end of search-->
+
+			<div class="major_content">
+				<div class="major_content_left">
+					<div class="major_content_left_box1">
+						<div class="major_content_left_box1_top">
+							<img src="images/whatHot.png" />
+						</div>
+						<div class="major_content_left_box1_middle"></div>
+						<div class="major_content_left_box1_bottom">
+							<img src="images/veryHot.png" />
+						</div>
+					</div>
+					<div class="major_content_left_box2"></div>
+					<div class="major_content_left_box3"></div>
+					<div class="major_content_left_box4">
+						<div class="major_content_left_box4_top">
+							<span style="color: red; position: absolute; left: 20px; top: 10px;">LUCKY YODAY</span>
+							<span style="color: red; position: absolute; font-size: 36px; left: 140px; top: 10px;">2017.12</span>
+							<span style="position: absolute; left: 20px; font-size: 26px; top: 52px;">每日活动</span>
+						</div>
+						<div class="major_content_left_box4_middle">
+							<img src="images/xie.png" />
+						</div>
+						<div class="major_content_left_box4_bottom">
+							<table border="" cellspacing="1" cellpadding="" width="100%" height="338px" style="border: 1px solid #CCCCCC;">
+								<tr>
+									<th>MON</th>
+									<th>TUE</th>
+									<th>WED</th>
+									<th>THU</th>
+									<th>FRI</th>
+									<th>SAT</th>
+									<th>SUN</th>
+								</tr>
+								<tr>
+									<td style="color: #99999E; background-color: #F6F6F6;">29</td>
+									<td style="color: #99999E; background-color: #F6F6F6;">30</td>
+									<td>1</td>
+									<td>2</td>
+									<td>3</td>
+									<td>4</td>
+									<td>5</td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td>7</td>
+									<td>8</td>
+									<td>9</td>
+									<td>10</td>
+									<td>11</td>
+									<td>12</td>
+								</tr>
+								<tr>
+									<td>13</td>
+									<td>14</td>
+									<td>15</td>
+									<td>16</td>
+									<td>17</td>
+									<td>18</td>
+									<td>19</td>
+								</tr>
+								<tr>
+									<td>20</td>
+									<td><img src="images/meiri_foot.png" /></td>
+									<td>22</td>
+									<td>23</td>
+									<td><img src="images/meiri_eat_small.png" onmouseover="display()" onmousemove="hidden()" /></td>
+									<td>25</td>
+									<td>26</td>
+								</tr>
+								<tr>
+									<td>27</td>
+									<td>28</td>
+									<td>29</td>
+									<td>30</td>
+									<td>31</td>
+									<td>1</td>
+									<td>2</td>
+								</tr>
+								<tr style="color: #99999E;">
+									<td style="background-color: #F6F6F6">3</td>
+									<td style="background-color: #F6F6F6">4</td>
+									<td style="background-color: #F6F6F6">5</td>
+									<td style="background-color: #F6F6F6">6</td>
+									<td style="background-color: #F6F6F6">7</td>
+									<td style="background-color: #F6F6F6">8</td>
+									<td style="background-color: #F6F6F6">9</td>
+								</tr>
+							</table>
+							<div id="yincang" class="hidden"></div>
+						</div>
+					</div>
+					<div class="major_content_left_box5"></div>
+					<div class="major_content_left_box7">
+						<div class="major_content_left_box7_top">
+							<span style="position: absolute; top: 10px; left: 10px; font-size: 12px;">BSS 论坛</span>
+							<span style="position: absolute; right: 10px; top: 8px;"><img src="images/dian_more.png"/></span>
+						</div>
+						<div class="major_content_left_box7_middle">
+							<img src="images/BBS.png" />
+						</div>
+					</div>
+					<div class="major_content_left_box6"></div>
+					<div class="major_content_left_box8"></div>
+					<div class="major_content_left_box9">
+						<div class="major_content_left_box9_top">
+							<span style="font-size: smaller; position: absolute; top: 10px; left: 10px;">LIFESTYLE ADVICE 知道分子</span>
+							<span style="position: absolute; top: 8px; right: 10px;"><img src="images/dian_more.png"/></span>
+						</div>
+						<div class="major_content_left_box9_middle">
+							<img src="images/zhidao_fenzi.png" />
+						</div>
+						<div class="major_content_left_box9_bottom">
+							<span style="color: #565656; font-size: small; position: absolute; top: 23px; left: 10px;">搜搜谁知道 : </span>
+                            <span style="position: absolute; top: 15px; left: 90px;">
+					    	    	     <input type="text" style="width: 210px; height: 30px;" placeholder="输入关键字"/>
+					    	    </span>
+                            <span style="position: absolute; top: 18px; right: 24px;">
+					    	    	     <img src="images/go_button.png"/>
+					    	    </span>
+						</div>
+					</div>
+					<div class="major_content_left_box10">
+						<div class="major_content_left_box10_top">
+							<span style="font-size: small; position: absolute; top: 10px; left: 10px;">HOT 红人烧客</span>
+							<span style="position: absolute; top: 8px; right: 10px;"><img src="images/dian_more.png"/></span>
+						</div>
+						<div class="major_content_left_box10_middle">
+							<img src="images/shaoke1.png"/>
+							<img src="images/shaoke2.png"/>
+							<img src="images/shaoke3.png"/>
+							<img src="images/shaoke4.png"/>
+							<img src="images/shaoke5.png"/>
+							<img src="images/shaoke6.png"/>
+							<img src="images/shaoke7.png"/>
+							<img src="images/shaoke8.png"/>
+							<img src="images/shaoke9.png"/>
+							<img src="images/shaoke10.png"/>
+							<img src="images/shaoke11.png"/>
+						</div>
+					</div>
+					<div class="major_content_left_box11">
+						<div class="major_content_left_box11_top">
+							<span style="font-size: small; position: absolute; top: 10px; left: 10px;">HELP 在线帮助</span>
+						</div>
+						<div class="major_content_left_box11_middle">
+							<img src="images/help.png"/>
+						</div>
+					</div>
+					<div class="major_content_left_box12">
+						<div class="major_content_left_box12_top">
+							<span style="font-size: small; position: absolute; top: 10px; left: 10px;">100DU IN THE MEDIA 媒体声音</span>
+							<span style="position: absolute; top: 8px; right: 10px;"><img src="images/dian_more.png"/></span>
+						</div>
+						<div class="major_content_left_box12_middle">
+							<img src="images/media.png"/>
+						</div>
+					</div>
+				</div>
+
+				<div class="major_content_right">
+					<div class="major_content_right_box1">
+						<img src="images/login_back.png" alt="">
+						<span style="font-size: 12px; position: absolute; top: 10px; left: 10px ; color: red">LOAD 
+							<span style="font-size: 12px; color: black">登录</span>
+						</span>
+						<input type="text" style="position: absolute;left: 70px;top: 50px; width: 90px">
+						<br />
+						<input type="text" style="position: absolute;left: 70px;top: 77px;width: 90px">
+					</div>
+					<div class="major_content_right_box2">
+						<img src="images/ad1.png" alt="">
+					</div>
+					<div class="major_content_right_box3">
+						<img src="images/ad2.png" alt="">
+					</div>
+					<div class="major_content_right_box4">
+						<div class="major_content_right_box4_top">
+							<span style="font-size: 12px; position: absolute; top: 10px; left: 10px ; color: red">COUPONS 
+							     <span style="font-size: 12px; color: black">抢劵儿</span>
+						    </span>
+						    <span style="position: absolute; top: 8px; right: 10px;"><img src="images/dian_more.png"/></span>
+						</div>
+						<div class="major_content_right_box4_middle">
+							<img src="images/qiang_juan.png" alt="">
+						</div>
+						<div class="major_content_right_box4_a">
+							<p style="color: grey; font-size: 14px">店名</p>
+							
+								<li>老北京-尊皇牛</li>
+								<li>老北京-尊皇牛</li>
+								<li>老北京-尊皇牛</li>
+								<li>老北京-尊皇牛</li>
+								<li>老北京-尊皇牛</li>
+							
+						</div>
+						<div class="major_content_right_box4_b">
+							<p style="color: grey; font-size: 14px">省</p>
+								<li>12%</li>
+								<li>12%</li>
+								<li>12%</li>
+								<li>12%</li>
+								<li>12%</li>
+						</div>
+						<div class="major_content_right_box4_c">
+							<p style="color: grey; font-size: 14px">打印</p>
+								<li>345</li>
+								<li>345</li>
+								<li>345</li>
+								<li>345</li>
+								<li>345</li>
+						</div>
+					</div>
+					<div class="major_content_right_box5">
+						<div class="major_content_right_box5_top">
+							<span style="font-size: 12px; position: absolute; top: 10px; left: 10px ; color: red">SHOP 
+							     <span style="font-size: 12px; color: black">今日推荐</span>
+						    </span>
+						    <span style="position: absolute; top: 8px; right: 10px;"><img src="images/dian_more.png"/></span>
+						</div>
+						<div class="major_content_right_box5_middle" style="position: absolute;right: 0.01px;">
+							<img src="images/right_box5.png"/>
+						</div>
+					</div>
+					<div class="major_content_right_box6">
+						<div class="major_content_right_box6_top">
+						<span style="font-size: 12px; position: absolute; top: 10px; left: 10px ; color: red">SHOP 
+							     <span style="font-size: 12px; color: black">今日推荐</span>
+						    </span>
+						  <span style="position: absolute; top: 8px; right: 10px;"><img src="images/dian_more.png"/></span>
+						</div>
+						<div class="major_content_right_box6_middle" style="position: absolute; left: 10px;">
+							<img src="images/shop_360.png"/>
+						</div>
+					</div>
+					<div class="major_content_right_box7">
+						<div class="major_content_right_box7_top">
+						<span style="font-size: 12px; position: absolute; top: 10px; left: 10px ; color: red">SHOP 
+							     <span style="font-size: 12px; color: black">折扣店</span>
+						    </span>
+						  <span style="position: absolute; top: 8px; right: 10px;"><img src="images/dian_more.png"/></span>
+						</div>
+						<div class="major_content_right_box7_middle" style="position: absolute; right: 0.01px;">
+							<img src="images/right_box7.png"/>
+						</div>
+					</div>
+					<div class="major_content_right_box8">
+					    <div class="major_content_right_box8_top">
+						<span style="font-size: 12px; position: absolute; top: 10px; left: 10px ; color: red">COUPONS 
+							     <span style="font-size: 12px; color: black">最新加盟</span>
+						    </span>
+						  <span style="position: absolute; top: 8px; right: 10px;"><img src="images/dian_more.png"/></span>
+						</div>
+						<div class="major_content_right_box8_middle" style="position: absolute; right: 0.01px;">
+							<img src="images/right_box8.png"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--end of major_content-->
+            <div class="footer">
+				<div class="footer_top">
+				    <a href="#">关于我们</a>
+				    <a href="#">联系我们</a>
+				    <a href="#">版权声明</a>
+				    <a href="#">加入我们</a>
+				    <a href="#">问题反馈</a>
+				    <a href="#">友情链接</a>
+				    <a href="#">网站地图</a>
+				    <a href="#" style="border: 0;">视频索引</a>
+				</div>
+				<div class="footer_bottom">
+					<span>Copyright © 2008 www. 100du. com 100度享乐网 版权所有 京ICP证070374号</span>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			function display() {
+				var el = document.getElementById("yincang");
+				el.style.display = "block";
+			}
+
+			function hidden() {
+				var el = document.getElementById("yincang");
+				el.style.display = "none";
+			}
+		</script>
+	</body>
+
+</html>

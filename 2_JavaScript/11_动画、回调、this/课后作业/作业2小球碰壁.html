@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 1000px;
+				height: 500px;
+				border: 10px solid black;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			#move {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				border-radius: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="move"></div>
+		</div>
+
+		<script type="text/javascript">
+			var oBox = document.getElementById("box");
+			var oAll = document.getElementById("move");
+			var oDistance1 = oBox.clientWidth - 50;
+			var oDistance2 = oBox.clientHeight - 50;
+			var flag1 = true;
+			var flag2 = true;
+			unifromMove(oAll, oDistance1, oDistance2, "left", "top",  300);
+			function unifromMove(obj, iTarget1, iTarget2, attr1, attr2, speed) {
+				setInterval(function() {
+					var attrValue1 = parseInt(getStyle(obj, attr1));
+					var attrValue2 = parseInt(getStyle(obj, attr2));
+					if(flag1) {
+						obj.style[attr1] = Math.abs(iTarget1 - attrValue1) < Math.abs(speed) ? iTarget1 + "px" : attrValue1 + speed + "px";
+						if(attrValue1 >= iTarget1) {
+							flag1 = false;
+						}
+					} else {
+						obj.style[attr1] = Math.abs(0 - attrValue1) < Math.abs(speed) ? 0 + "px" : attrValue1 - speed + "px";
+						if(attrValue1 <= 0) {
+							flag1 = true;
+						}
+					}
+					if(flag2) {
+						obj.style[attr2] = Math.abs(iTarget2 - attrValue2) < Math.abs(speed) ? iTarget2 + "px" : attrValue2 + speed + "px";
+						if(attrValue2 >= iTarget2) {
+							flag2 = false;
+						}
+					}else {
+						obj.style[attr2] = Math.abs(0 - attrValue2) < Math.abs(speed) ? 0 + "px" : attrValue2 - speed + "px";
+						if(attrValue2 <= 0) {
+							flag2 = true;
+						}
+					}
+					console.log(attrValue1, attrValue2);
+				}, 20);
+			}
+
+			function getStyle(obj, attr) {
+				if(obj.currentStyle) {
+					return obj.currentStyle[attr];
+				} else {
+					return getComputedStyle(obj)[attr];
+				}
+			}
+		</script>
+	</body>
+
+</html>

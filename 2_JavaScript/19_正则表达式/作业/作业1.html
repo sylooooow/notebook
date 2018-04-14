@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str1 = "0.6515";
+			var str2 = "7032";
+			var str3 = "0.1";
+			var str4 = "2017-01-09";
+			
+			var re1 = /^\d{1,14}(\.\d{1,14})?$/;
+			console.log("验证小数或整数：" + re1.test(str1));
+			
+			var re2 = /^[1-9](\d{1,13})?$/;
+			console.log("非0正整数：" + re2.test(str2));
+			
+			var re3 = /^0{1}|((\-?[1-9])\.{1}(\d{1,13})| )$/;
+//			var re = /^[\+\-]?[1-9][0-9]*(\.{1}\d+|)$/;
+			console.log("零和非零开头的数: " + re3.test(str3));
+			
+			var re4 = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+            console.log(re4.test(str4));
+		</script>
+	</body>
+</html>

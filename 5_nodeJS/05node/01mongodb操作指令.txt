@@ -1,0 +1,14 @@
+1.  show dbs 显示所有的数据库
+2.  use 切换数据库,如果没有则创建
+3.  show collections 显示当前数据库里的所有集合
+4.  db.集合名.find() 查询当前数据库集合下的所有数据
+5.  db.集合名.find({"name":"zhangsan"}) 查询当前集合下所有name为zhangsan的数据
+6.  db.集合名.find({"name":"zhangsan","age":18}) 查询当前集合下符合多个条件的数据
+7.  db.集合名.find({"$or":["name":"zhangsan"},{"name":"lisi}]}) 查询name为张三或者李四的数据
+8.  db.集合名.find({"age":{"$gt":20}}) 查找年龄大于20的
+9.  db.集合名.find({"age":{"$gte":20}})查找年龄大于等于20的
+10. db.集合名.find({"age":{"$ne":20}})查找年龄等于20的
+11. db.集合名.find({"age":{"$lt":20}}) 查找年龄小于20的 (小于等于 同理)
+12. db.集合名.update({"name":"zhangsan"},{$set:{age:18}},{multi:true}) 更新name为zhangsan的年龄，修改为18，multi表示更改所有符合条件的
+13. db.集合名.remove({"name":"zhangsan"},{"justOne":true})  删除name为zhangsan的数据,justOne表示只删除一个,否则删除所有符合条件的
+14. db.集合名.insert("name":"李四")  插入一条数据

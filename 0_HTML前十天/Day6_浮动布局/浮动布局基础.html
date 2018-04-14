@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.father {
+				width: 600px;
+				/*height: 600px;*/
+				margin: 0 auto;
+				background-color: blue;
+			}
+			.one, .two, .three {
+				width: 100px;
+				height: 100px;
+			}
+			.one {
+				background-color: green;
+				float: left;
+			}
+			.two {
+				background-color: yellow;
+				float: right;
+			}
+			.three {
+				background-color: orange;
+				float: right;
+			}
+			/*
+			 1. 浮动会让标签的布局脱离原来的文档流布局方式,不占原来的位置
+			 2. 浮动会让块元素独占一行的特性消失,在浮动这层的标签可以共存一行
+			 3. 只能是往左或往右浮动,所以遇到左右布局的时候可以考虑使用浮动
+			 4. 浮动是相对于父标签内空间而调整的
+			 5. 浮动后的元素,会导致文本流里的布局错乱,所以一定要在浮动元素的父级加overflow: hidden
+			*/
+			
+			/*
+			 清除浮动:
+			 1. 在浮动的父级元素上overflow:hidde
+			 2. 在浮动元素的下面加一个<div class="clear"> clear{clear :both}  (第二种方法)
+			 清除浮动原理:
+			 1. 父级元素是靠内容撑起来的时候, 浏览器会计算当前父级元素的高度是多少,默认情况下不算浮动元素的高度
+			 2. 计算超出部分隐藏的时候,触发特性: 不光计算内容还要计算浮动元素所占的高度
+			*/
+			
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="one"></div>
+			<div class="two"></div>
+			<div class="three"></div>
+		</div>
+	</body>
+</html>
+
+<!--
+	1. float会影响margin: 0 auto居中方式
+	2. float会影响text-align属性, (通常给父标签加宽度可以解决)
+-->

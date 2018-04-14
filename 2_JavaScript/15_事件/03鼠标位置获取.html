@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				margin-top: 1000px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			oAll.onclick = function(ev) {
+				var ev = ev || window.event;
+				//鼠标距离浏览器窗口横坐标的位置,与页面多长多宽无关, 包含系统默认的8px
+				console.log("🐒" + ev.clientX);
+		        //鼠标距离浏览器窗口纵坐标的位置,与页面多长多宽无关, 包含系统默认的8px
+				console.log("🐒" + ev.clientY);
+				
+				
+				//这组是距离页面的位置，如果页面很长那pageX也很长, 包含系统默认的8px
+				console.log("🐘" + ev.pageX);
+				console.log("🐘" + ev.pageY);
+				
+				
+			    //距离显示器屏幕的距离,很少用
+			    console.log(ev.screenX);
+			    console.log(ev.screenY);
+			    
+			    //鼠标相对自身可见边的位置
+			    console.log(ev.pageX - oAll.offsetLeft);
+			}
+		</script>
+	</body>
+</html>

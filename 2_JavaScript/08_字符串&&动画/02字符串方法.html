@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str = "背题咋这么费劲呢~~";
+			
+			//1.length字符串长度,空格，标点符号都算字符
+			console.log(str.length);
+			
+			//2.charAt()获取某个字符下标对应的值,从0开始s
+			var index = str.charAt(0);
+			console.log(index); //背
+			
+			//3.遍历字符串
+			for (var i = 0; i < str.length; i++) {
+				console.log(str.charAt(i));
+				console.log(str[i]);
+			}
+			
+			//4.获取字符串中指定的值对应的下标
+			var a = str.indexOf("费劲");
+			console.log(a); //返回5。 如果打印的值在字符串中不存在，则打印-1。如果打印的子串是多个值，则把它们看成一个整体
+			
+			//5.基本等同于indexOf(),多用于判断子串是否在某个字符串里
+			var aa = str.search("费劲");
+			console.log(aa); //返回5。 如果打印的值在字符串中不存在，则打印-1。如果打印的子串是多个值，则把它们看成一个整体
+			
+			//6.截取，从指定下标开始截取，截取到最后。包含指定的下标
+			var str2 = str.substr(2);
+			console.log(str2);//输出：咋这么费劲呢~~
+			var str3 = str.substr(2,3); 
+			console.log(str3);//输出：咋这么  这样写表示从下标为2开始截取3个长度的值，且包含下标2
+			
+			
+			//7.substring()截取
+			var str4 = str.substring(2); //如果只输入一个参数，与str.substr(2)效果相同;
+			console.log(str4);
+			var str5 = str.substring(2,5);// 如果输入两个参数，表示从下标2开始截取到下标5，但不包括5
+			console.log(str5);
+			
+			
+			//8.split()字符串切割(字符串->数组),参数里可以是字符串中的任意元素
+			var strA = "Play hard Study hard";
+			var strArr = strA.split(" "); //用空格去切割，切割成多个值，并转换为数组类型
+			var strBrr = strA.split("ha");//此时输出["Play ", "rd Study ", "rd"]
+			console.log(strBrr);
+			console.log(strArr);
+			console.log(strBrr.join(" "))//以空格将数组连接成字符串
+			
+			
+			//9.concat()字符串拼接
+			var strM = "hahaha";
+			var strN = "hehehe";
+			var strMM = strM.concat(strN);
+			console.log(strMM);
+			var strNN = strM.concat("🍑", strN, "🐱");
+			console.log(strNN);
+			
+			
+			//10.大小写转换
+			var strX = "good good stydy";
+			var strY = "DAY DAY UP";
+			console.log(strX.toUpperCase()); //转换成大写
+			console.log(strY.toLowerCase()); //转换成小写
+			
+			
+			//11.去掉首尾空格(在input里常见)
+			var strZ = "     哈哈哈      呵呵呵    哎哎哎   ";
+			console.log("🐒" + strZ + "🐘"); //此时正常输出为🐒     哈哈哈      呵呵呵    哎哎哎   🐘
+			console.log("🐒" + strZ.trim() + "🐘")//此时去掉了首尾空格，输出为：🐒哈哈哈      呵呵呵    哎哎哎🐘
+			console.log("🐒" + strZ.trimLeft() + "🐘") //只去掉左边的空格
+			console.log("🐒" + strZ.trimRight() + "🐘")//只去掉右边的空格
+			
+		</script>
+	</body>
+</html>

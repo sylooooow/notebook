@@ -1,0 +1,227 @@
+.main-comment {
+    width: 100%;
+    height: 65%;
+    border-top: 1px solid #E7E7E8;
+    border-bottom: 1px solid #EEEEEE;
+    background-color: #FFFFFF;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+.synthesis {
+    width: 100%;
+    height: 25%;
+    border-bottom: 1px solid #F0F1F1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.synthesis-box {
+    width: 92%;
+    height: 76%;
+    display: flex;
+}
+.synthesis-box-left {
+    height: 100%;
+    width: 34%;
+    border-right: 1px solid #F8F8F9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.synthesis-box-left span:nth-child(2) {
+    font-size: 0.9em;
+
+}
+.synthesis-box-left span:nth-child(3) {
+    font-size: 0.4em;
+    color: #AAAFB4;
+}
+.comment-grade {
+    font-size: 1.8em;
+    color: #FF9112;
+}
+.synthesis-box-right {
+    height: 100%;
+    width: 65.7%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.shop-comment, .service-comment, .wheel-time {
+    width: 95%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em;
+}
+.score1, .score2 {
+    color: #FFA44E;
+    width: 25px;
+    /*background-color: yellow;*/
+}
+.wheel-time {
+    justify-content: flex-start;
+}
+.wheel-time span:nth-child(2) {
+    color: #A3A8AC;
+    margin-left: 11px;
+}
+.block-box {
+    width: 100%;
+    height: 10px;
+    background-color: #F3F5F7;
+    border-top: 1px solid #ECEDEF;
+    border-bottom: 1px solid #ECEDEF;
+}
+.comment-nav {
+    width: 100%;
+    height: 20%;
+    border-bottom: 2px solid #F4F5F5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.comment-nav-top, .comment-nav-bottom {
+    width: 90%;
+    display: flex;
+}
+.comment-nav-top {
+    height: 58%;
+    border-bottom: 1px solid #F2F2F3;
+    align-items: center;
+}
+.comment-nav-bottom {
+    height: 41.5%;
+    align-items: center;
+}
+.feeling-box {
+    height: 56%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.feeling-box button {
+    height: 100%;
+    width: 60px;
+    border: none;
+    display: flex;
+    margin-right: 8px;
+    align-items: center;
+    justify-content: center;
+}
+.feeling-box button:nth-child(1) {
+    background-color: #009FD9;
+    color: white;
+}
+.feeling-box button:nth-child(2) {
+    background-color: #CBECF7;
+}
+.feeling-box button:nth-child(3) {
+    background-color: #E9EBEC;
+}
+sub {
+    font-size: 10px;
+}
+.feeling-box button img {
+    margin-left: 3px;
+}
+.comment-nav-bottom-box {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+}
+.comment-nav-bottom-box img {
+    height: 100%;
+}
+.comment-nav-bottom-box span{
+    color: #ACB0B3;
+    font-size: 0.8em;
+    margin-left: 7px;
+}
+.comment-allbox {
+    width: 90%;
+    height: 110px;
+    border-bottom: 1px solid #EDEEEE;
+    display: flex;
+    align-items: center;
+}
+.comment-box {
+    width: 100%;
+    height: 86%;
+    display: flex;
+    justify-content: space-between;
+}
+.comment-box-left {
+    height: 100%;
+    width: 10%;
+}
+.comment-box-right {
+    height: 100%;
+    width: 88%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.box1, .box2, .box3, .box4 {
+    width: 100%;
+    display: flex;
+}
+.box1 {
+    height: 15%;
+    align-items: center;
+    justify-content: space-between;
+}
+.user {
+    font-size: 0.6em;
+    color: #6E7071;
+}
+.user-time {
+    font-size: 0.6em;
+    color: #D7D9DB;
+}
+.box2 {
+    height: 12%;
+    align-items: center;
+}
+.user-star {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.user-star img {
+    height: 100%;
+}
+.songda {
+    font-size: 0.4em;
+    color: #D7D9DB;
+    margin-left: 7px;
+}
+.box3 {
+    height: 40%;
+    font-size: 0.8em;
+}
+.box4 {
+    height: 15%;
+    display: flex;
+    align-items: center;
+}
+.box4 img {
+    height: 100%;
+    margin-right: 7px;
+}
+.box4 span {
+    height: 95%;
+    width: 60px;
+    font-size: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 7px;
+    border: 1px solid #B4B9BC;
+    color: #B4B9BC;
+}

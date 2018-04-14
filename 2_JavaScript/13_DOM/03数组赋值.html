@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var arr = [1,2,3,4,5];
+		var arr1 = [];
+//		arr1 = arr;
+//		arr1[0] = 0;
+//		//这种写法会让之前的数组发生变化
+//		console.log(arr1); //[0, 2, 3, 4, 5]
+//		console.log(arr); //[0, 2, 3, 4, 5]
+		
+		for (var i = 0; i < arr.length; i++) {
+			arr1.push(arr[i]);
+		}
+		arr1[0] = 0;
+		console.log(arr1);
+		console.log(arr);
+	</script>
+</html>

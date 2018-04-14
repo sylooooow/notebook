@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [1,2,3,4,5];
+			arr.forEach(function(value) {
+				console.log(value);
+			})
+			//index为下标，value为数组的值
+			arr.forEach(function(index,value) {
+				console.log(index,value);
+			})
+			
+			arr.forEach(function(value,index,array) {
+				console.log(value,index,array);
+			})
+			
+			function abc(a,fn) {
+				a++;
+				if (fn) {
+					fn(100);
+				}
+			}
+			abc(2,function(a) {
+				console.log(a);
+			})
+		</script>
+	</body>
+</html>

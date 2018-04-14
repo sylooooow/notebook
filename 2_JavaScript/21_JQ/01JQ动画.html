@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				margin-bottom: 10px;
+			}
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap"></div>
+		<div id="all"></div>
+		<script src="jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#wrap").on("click",function() {
+				//1. 使隐藏的元素显示出来，括号里的三个参数都是可选的,可以是速度(可以是毫秒数或"slow","normal", or "fast")、指定切换效果，默认是"swing"，可用参数"linear"、函数(动画执行完时要做的事情)
+				//详见：http://jquery.cuishifeng.cn/show.html
+//				$("#all").show("slow",function() {
+//					$("#all").css("background-color","blue");
+//				});
+				
+				
+				//2. 隐藏显示的元素,括号里的参数同上
+//				$("#wrap").hide("slow","linear", function() {
+//					$("#wrap").show("slow");
+//				});
+				
+				
+				//3. 将隐藏元素通过增加高度显示出来，效果相似于下拉菜单。括号里的参数与上面相等。
+//				$("#all").slideDown("slow");
+				
+				
+				//4. 将显示元素通过减少高度显示出来，效果相似于收回菜单。括号里的参数与上面相等。
+//				$("#all").slideUp("slow");
+
+
+                //5.将元素以动画形式显示为目标效果。参数1必填，为json格式的目标效果。后面参数可选，与上面相似，详见API:http://jquery.cuishifeng.cn/index.html
+//              $("#all").animate({
+//              	    "width":"300px",
+//              	    "height":"300px"
+//              },"slow")
+
+
+                //6.将显示元素淡入
+//              $("#all").fadeOut();
+                
+                
+                //7.将隐藏元素淡出
+//              $("#all").fadeIn(3000);
+                
+                
+                //8.会自动判断元素是否隐藏，通过改变高度展示出对应的显示效果。相当于上面3、4的结合
+//              $("#all").slideToggle();
+			})
+		</script>
+	</body>
+</html>

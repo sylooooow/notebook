@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #all {
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        #top {
+            width: 100%;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        #top #nav {
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        #top #nav #nav_left {
+            float: left;
+            font-size: 25px;
+            color: #FFA500;
+        }
+
+        #top #nav #nav_right {
+            float: right;
+            font-size: 25px;
+            color: #FFA500;
+        }
+
+        #middle {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        #top #middle #textarea {
+            width: 600px;
+            margin: 0 auto;
+            resize: none;
+        }
+
+        #top .top_bottom {
+            overflow: hidden;
+        }
+
+        #top .top_bottom .t_bottom_left {
+            padding-top: 10px;
+            float: left;
+            overflow: hidden;
+        }
+
+        .t_bottom_left div {
+            float: left;
+            margin-right: 20px;
+            font-size: 20px;
+        }
+
+        #t_bottom_right {
+            float: right;
+            background-color: #FFA280;
+            width: 90px;
+            height: 30px;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+        }
+
+        #bottom {
+            width: 100%;
+            padding: 20px;
+            height: 1000px;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+        /*给js的样式*/
+
+        #bottom .small {
+            width: 600px;
+            margin: 0 auto;
+            padding: 10px;
+            border: 1px solid black;
+            height: 100px;
+            border-radius: 10px;
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .small .name {
+            margin-bottom: 5px;
+        }
+
+        .small .text {
+            width: 100%;
+            height: 60px;
+            word-wrap: break-word;
+        }
+
+        .small .delete {
+            width: 50px;
+            height: 20px;
+            position: absolute;
+            top: 10px;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="all">
+
+    <div id="top">
+        <div id="nav">
+            <div id="nav_left">LOGO</div>
+            <!--还可以输入137个字-->
+            <div id="nav_right">点击领取红包</div>
+        </div>
+        <div id="middle">
+            <textarea name="" rows="12" cols="100" id="textarea"></textarea>
+        </div>
+        <div class="top_bottom">
+            <div class="t_bottom_left">
+                <div>表情</div>
+                <div>图片</div>
+                <div>视频</div>
+                <div>话题</div>
+                <div>文章</div>
+            </div>
+            <div id="t_bottom_right">发 布</div>
+        </div>
+    </div>
+
+    <div id="bottom">
+
+        <!--<div class="small">-->
+            <!--<div class="name">何文静</div>-->
+            <!--<div class="text">1111</div>-->
+            <!--<div class="time">10月26日 21: 07 发布</div>-->
+            <!--<div class="delete">删除</div>-->
+        <!--</div>-->
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    var oTextArea = document.getElementById("textarea");
+    var oBtn = document.getElementById("t_bottom_right");
+    var oBottom = document.getElementById("bottom");
+    var theText = null;
+    var theDate = null;
+    var theId = null;
+
+    //1.查询数据库显示
+    getData();
+    function getData() {
+        var url2 = "operation.php?type=2";
+        ajax_get(url2,function(res) {
+            var result = JSON.parse(res);
+            result = result["result"];
+
+            for (var i = 0; i < result.length; i++) {
+               theText = JSON.parse(res)["result"][i]["message"];
+               theDate = JSON.parse(res)["result"][i]["date"];
+               theId = JSON.parse(res)["result"][i]["id"];
+               createBottomDiv(theId);
+           }
+        })
+    }
+
+
+    oBtn.onclick = function() {
+        theText = oTextArea.value;
+        if(theText.trim().length == 0) {
+            alert("请输入文字");
+        } else {
+            theDate = getTDate();
+            var url1 = "operation.php?type=1&mes=" + theText + "&date=" + theDate;
+            ajax_get(url1,function (res) {
+                var result = JSON.parse(res);
+                if (result["status"] ==1) {
+                    alert("发布成功");
+                    theId = result["id"];
+                    createBottomDiv(theId);
+                    oTextArea.value = "";
+                } else {
+                    alert("发布失败");
+                }
+            })
+        }
+    }
+
+    function createBottomDiv(id) {
+        var smallDiv = createEle("div", "small");
+        //			oBottom.appendChild(smallDiv);
+        oBottom.insertBefore(smallDiv, oBottom.children[0]);
+
+        var nameDiv = createEle("div", "name");
+        nameDiv.innerHTML = "小乔";
+        smallDiv.appendChild(nameDiv);
+
+        var textDiv = createEle("div", "text");
+        textDiv.innerHTML = theText;
+        smallDiv.appendChild(textDiv);
+
+        var timeDiv = createEle("div", "time");
+        timeDiv.innerHTML = theDate;
+        smallDiv.appendChild(timeDiv);
+
+        var deleteDiv = createEle("div", "delete");
+        deleteDiv.innerHTML = "删除";
+        deleteDiv.theId = id;
+        deleteDiv.className = "delete";
+        smallDiv.appendChild(deleteDiv);
+        deleteDiv.onclick = function(ev) {
+            var msg = "您真的要删除吗？";
+            var _this = this;
+            if(confirm(msg)) {
+                var url3 = "operation.php?type=3&id=" + _this.theId;
+                ajax_get(url3,function (res) {
+                    var result = JSON.parse(res);
+                    if (result["status"] == 1) {
+                        alert("删除成功!");
+                        console.log(ev.target)
+                        _this.parentNode.remove();
+                    } else {
+                        alert("删除失败!");
+                    }
+                })
+            }
+        }
+    }
+
+    function getTDate() {
+        var nowDate = new Date();
+        var month = nowDate.getMonth() + 1;
+        var oDate = nowDate.getDate();
+        var hour = nowDate.getHours();
+        var min = nowDate.getMinutes();
+
+        return addZero(month) + "月" + addZero(oDate) + "日" + addZero(hour) + "时" + addZero(min) + "分" + "发布";
+    }
+
+    function addZero(num) {
+        return num >= 10 ? num : "0" + num;
+    }
+
+    function createEle(tagName, className) {
+        var newEle = document.createElement(tagName, className);
+        newEle.className = className;
+        return newEle;
+    }
+
+
+
+    function ajax_get(url,fn) {
+        var xhr = null;
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                var theData = xhr.responseText;
+                if (fn) {
+                    fn(theData);
+                }
+            }
+        }
+
+        xhr.open("get",url,true);
+
+        xhr.send();
+    }
+</script>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				padding: 50px;
+				overflow: hidden;
+			}
+			
+			#min,
+			#max {
+				float: left;
+				width: 350px;
+				height: 350px;
+				position: relative;
+				margin-right: 20px;
+				border: 1px solid black;
+				overflow: hidden;
+			}
+			
+			#mask {
+				width: 100px;
+				height: 100px;
+				background-color: lightgray;
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0.8;
+				display: none;
+			}
+			
+			#max {
+				display: none;
+				overflow: hidden;
+			}
+			
+			#max img {
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all">
+			<div id="min">
+				<img src="img/min.jpg" />
+				<div id="mask"></div>
+			</div>
+			<div id="max">
+				<img src="img/max.jpg" id="maxImg" />
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var oMax = document.getElementById("max");
+			var oMin = document.getElementById("min");
+			var oMask = document.getElementById("mask");
+			var oMaxImg = document.getElementById("maxImg");
+			
+			document.onmousemove = function(ev) {
+				var ev = ev || window.event;
+				var mouseL = ev.pageX > oMin.offsetLeft && ev.pageX < oMin.offsetLeft + oMin.offsetWidth;
+				var mouseT = ev.pageY > oMin.offsetTop && ev.pageY < oMin.offsetTop + oMin.offsetHeight;
+				var maskL = ev.pageX - oMin.offsetLeft - oMask.offsetWidth / 2;
+				var maskT = ev.pageY - oMin.offsetTop - oMask.offsetHeight / 2;
+				var ratioL = oMask.offsetLeft / (oMin.clientWidth - oMask.offsetWidth);
+				var ratioT = oMask.offsetTop / (oMin.clientHeight - oMask.offsetHeight);
+				if (mouseL && mouseT) {
+					oMax.style.display = "block";
+					oMask.style.display = "block";
+					
+					oMask.style.left = maskL + "px";
+					oMask.style.top = maskT +"px";
+					
+					oMaxImg.style.left = (oMax.clientWidth - oMaxImg.clientWidth) * ratioL + "px";
+					oMaxImg.style.top = (oMax.clientHeight - oMaxImg.clientHeight) * ratioT + "px";
+				} else {
+					oMax.style.display = "none";
+					oMask.style.display = "none";
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

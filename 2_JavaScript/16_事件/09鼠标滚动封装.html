@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			var oBox = document.getElementById("box");
+
+			//调用添加事件函数
+			mouseWheel(oBox, function(obj,isDown) {
+				if(isDown) {
+					obj.style.width = obj.offsetWidth + 5 + "px";
+					obj.style.height = obj.offsetHeight + 5 + "px";
+				} else {
+					obj.style.width = obj.offsetWidth - 5 + "px";
+					obj.style.height = obj.offsetHeight - 5 + "px";
+				}
+			});
+
+			//根据不同浏览器给目标元素添加事件
+			function mouseWheel(obj, fn) {
+				var isFirefox = window.navigator.userAgent.indexOf("Firefox");
+				if(isFirefox == -1) {
+					//非火狐浏览器
+					obj.onmousewheel = mouseScroll;
+				} else {
+					obj.addEventListener("DOMMouseScroll", mouseScroll, false);
+				}
+
+				function mouseScroll(ev) {
+					var ev = ev || window.event;
+					//记录滚轮方向默认向下
+					var isDown = true;
+					if(isFirefox == -1) {
+						if(ev.wheelDelta > 0) {
+							//页面向上
+							isDown = false;
+						}
+					} else {
+						if(ev.detail < 0) {
+							isDown = false;
+						}
+					}
+					fn(obj,isDown);
+				}
+			}
+		</script>
+	</body>
+
+</html>

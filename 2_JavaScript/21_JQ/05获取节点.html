@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div>div1</div>
+		<div class="all">div2</div>
+		<div>div3</div>
+		<div class="all">
+			<span>span</span>
+		</div>
+		<p class="all"></p>
+
+		<script src="jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//1. 选中div中类名为all的元素
+			//			$("div").filter(".all").css("background-color","red");
+
+			//2. 选中div中类名不为all的元素
+			//			$("div").not(".all").css("background-color","red");
+
+			//3.选中div中包含span标签的元素
+			$("div").has("span").css("color", "blue");
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.a:hover {
+				color: yellow;
+			}
+			/*当鼠标悬浮到元素上时, 触发:hover里对应的样式*/
+			.my_div {
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+			}
+			.my_div:hover {
+				background-color: yellow;
+				border-radius: 100px;
+				/*border_radius: 0 0 0 150 定义弯道的边框大小(左上,右上,右下,左下)*/
+				background-image: url(../Day1_HTML常用标签/img/小龙女/2014陈妍希替身.jpeg);
+				background-size: 100% 100%;
+			}
+			/*
+			 box-shadow: 
+			 参1: 横向
+			 惨2: 纵向
+			 惨3: 阴影的范围
+			 参4: 阴影的大小
+			 参5: 颜色
+			 参6: inset忘里阴
+			 * */
+		</style>
+	</head>
+	<body>
+		<a href="javascript:void(0)" class="a">百度一下</a>
+		<div class="my_div"></div>
+	</body>
+</html>
+<!--
+	a标签的伪类:
+	1. :hover {}
+	2. :link {} 标签未被点击的样式
+	3. :visited {}标签被点击后的样式
+    4. :active {}处于激活时候的样式(鼠标按住)
+-->

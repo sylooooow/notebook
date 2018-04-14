@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript"> 
+		    var oAll = document.getElementById("all");
+			document.onclick = function(ev) {
+				var oLeft = ev.clientX;
+				var oTop = ev.clientY;
+				oAll.style.left = oLeft + "px";
+				oAll.style.top = oTop + "px";
+			}
+		</script>
+	</body>
+</html>

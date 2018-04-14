@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//js函数调用完，变量a会被内存释放
+			function aaa() {
+				var a = 1;
+				console.log(a);
+			}
+			
+			//闭包。把某一个变量，一直在内存中不被释放。且这个变量还不是全局变量
+		    function aa(a) {
+		    	    var b = 1;
+		    	    function bb() {
+		    	    	   console.log(a);
+		    	    	   console.log(b);
+		    	    }
+		    	    return bb;
+		    }
+		    aa(4)();
+		    
+		    var c = aa(2);
+		    c();
+		    console.log(c);
+		    
+		    var m = function mm() {
+		    	    console.log("123");
+		    }
+		    m();
+		</script>
+	</body>
+</html>

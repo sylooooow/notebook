@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="btn">停止</div>
+		<script type="text/javascript">
+		var btn = document.getElementById("btn");
+		    //延时执行某一段代码，它只执行一次;在等待时候先运行下面的代码；例如下面的程序先打印🐖，到时候后再打印asas
+			var timer = setTimeout(function() {
+				console.log("asas");
+			}, 1000)
+			console.log("🐖");
+			
+			btn.onclick = function() {
+				clearTimeout(timer); //移除延时定时器，点击之后延时执行的函数将失效
+			}
+		</script>
+	</body>
+</html>

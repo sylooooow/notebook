@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box1 {
+				width: 150px;
+				height: 150px;
+				background-color: red;
+				position: absolute;
+				left: 0px;
+				top: 0;
+			}
+			
+			.box2 {
+				width: 150px;
+				height: 150px;
+				background-color: pink;
+				position: absolute;
+				left: 0px;
+				top: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box1" id="box1"></div>
+		<div class="box2" id="box2"></div>
+		<script type="text/javascript">
+			var boxOne = document.getElementById("box1");
+			var boxTwo = document.getElementById("box2");
+			var timer1 = null;
+			var timer2 = null;
+			var flag = true;
+			var flag2 = true;
+			boxOne.onclick = function() {
+				if(flag) {
+					clearInterval(timer1);
+					timer1 = setInterval(function() {
+						var distance = boxOne.offsetLeft;
+						boxOne.style.left = distance + 1 + "px";
+						if(distance >= 799) {
+							clearInterval(timer1);
+						}
+					}, 10)
+					flag = false;
+				}
+			}
+			boxTwo.onclick = function() {
+				if(flag2) {
+					clearInterval(timer2);
+					var maxNum = parseInt(800 / 3 - 1) * 3;
+					var continueNum = 800 - maxNum;
+					timer2 = setInterval(function() {
+						var distance = boxTwo.offsetLeft;
+						boxTwo.style.left = distance + 3 + "px";
+						if(distance == maxNum) {
+							boxTwo.style.left = distance + continueNum + "px";
+							console.log(distance);
+							clearInterval(timer2);
+						}
+					}, 10)
+					flag2 = false;
+				}
+			}
+		</script>
+	</body>
+
+</html>

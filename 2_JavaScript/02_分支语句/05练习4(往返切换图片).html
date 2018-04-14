@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img id="pic" src="images/girl2.jpg"/>
+		<script type="text/javascript">
+			var picture = document.getElementById("pic");
+			var a = "http://127.0.0.1:8020/yanziyeHTML/2_JavaScript/02_%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5/images/girl2.jpg";
+			var b = "http://127.0.0.1:8020/yanziyeHTML/2_JavaScript/02_%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5/images/girl3.jpg";
+			var i = 0;
+			var x = true;
+
+//			picture.onclick = function() {
+//				if (i == 0) {
+//					picture.src = b;
+//					i++;
+//				} else{
+//					picture.src = a;
+//					i--;
+//				}
+//			}
+			
+			
+//			picture.onclick = function() {
+//				if (x) {
+//					picture.src = b;
+//					x = false;
+//				} else{
+//					picture.src = a;
+//					x = true;
+//				}
+//			}
+			
+			
+			picture.onclick = function() {
+				if (picture.src == a) {
+					picture.src = b;
+				} else{
+					picture.src = a;
+				}
+				console.log(picture.src);
+			}
+		</script>
+	</body>
+</html>

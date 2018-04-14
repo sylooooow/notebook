@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+			.wrap {
+				width: 96%;
+				max-width: 1200px;
+				min-width: 640px;
+				margin: 0 auto;
+				background-color: #EFEFEF;
+				overflow: hidden;
+			}
+			/*清除浮动*/
+			/*1、position不为relative*/
+			/*2、display：inline-block*/
+			/*3、overflow不为visible*/
+			/*,还有visible, hidden, scroll, auto*/
+			.wrap img {
+				width: 31%;
+				float: left;
+				margin-top: 40px;
+			}
+			.wrap img:nth-child(3n+2) {
+				margin-left: 3.5%;
+				margin-right: 3.5%;
+			}
+			
+			@media only screen and (max-width: 640px) {
+				.wrap {
+					min-width: 350px;
+				}
+			}
+			@media only screen and (max-width: 480px) {
+				.wrap img {
+					width: 48%;
+					
+				}
+				.wrap img:nth-child(3n+2) {
+					margin: 0;
+					margin-top: 40px;
+				}
+				.wrap img:nth-child(2n) {
+					margin-left: 4%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+			<img src="img/1.png" alt="" />
+		</div>
+	</body>
+</html>

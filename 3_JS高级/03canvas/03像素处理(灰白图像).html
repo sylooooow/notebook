@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -250px;
+            margin-top: -250px;
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="500" id="myCanvas">
+
+</canvas>
+<script>
+    var oCanvas = document.getElementById("myCanvas");
+
+    var ctx = oCanvas.getContext("2d");
+
+    var theImg = new Image();
+    theImg.src = "1.jpg";
+    theImg.onload = function (ev) {
+        ctx.beginPath();
+        ctx.drawImage(this,0,0,500,500);
+
+        var imgData = ctx.getImageData(0,0,oCanvas.width,oCanvas.height);
+
+        //像素取反
+        for (var i = 0; i < imgData.data.length; i+=4) {
+
+                var num = (imgData.data[i] + imgData.data[i+1] + imgData.data[i+2]) / 3;
+                imgData.data[i] = num;
+                imgData.data[i+1] = num;
+                imgData.data[i+2] = num;
+        }
+        console.log(imgData.data);
+
+        //添加像素点
+        ctx.putImageData(imgData,0,0);
+
+    }
+
+
+</script>
+</body>
+</html>

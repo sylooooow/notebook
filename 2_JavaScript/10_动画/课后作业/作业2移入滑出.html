@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box {
+				height: 100px;
+				width: 100px;
+				margin-bottom: 10px;
+				position: relative;
+			}
+			
+			.father {
+				height: 100px;
+				width: 230px;
+				background-color: red;
+				position: absolute;
+				left: -130px;
+				color: white;
+				font-size: 30px;
+				line-height: 100px;
+				text-align: right;
+			}
+			
+			.box > div > span {
+				height: 100px;
+				width: 100px;
+				background-color: black;
+				position: fixed;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="father">
+				购物车
+				<span></span>
+			</div>
+		</div>
+		<div class="box">
+			<div class="father">
+				我的订单
+				<span></span>
+			</div>
+		</div>
+		<div class="box">
+			<div class="father">
+				历史足迹
+				<span></span>
+			</div>
+		</div>
+		<div class="box">
+			<div class="father">
+				网红达人
+				<span></span>
+			</div>
+		</div>
+		<div class="box">
+			<div class="father">
+				精彩推荐
+				<span></span>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		var oDivs = document.getElementsByClassName("father");
+		for(var i = 0; i < oDivs.length; i++) {
+			oDivs[i].onmouseover = function() {
+				unifromMove(this, 0, "left", 2);
+			}
+			oDivs[i].onmouseout = function() {
+				unifromMove(this, -130, "left",2);
+			}
+		}
+
+		function unifromMove(obj, iTarget, attr, speed) {
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function() {
+				var attrValue = parseInt(getStyle(obj, attr));
+				var speedEnd = (iTarget - attrValue) / speed;
+				//						console.log(iTarget, attrValue, speedEnd);
+				speedEnd = speedEnd > 0 ? Math.ceil(speedEnd) : Math.floor(speedEnd);
+				if(attrValue == iTarget) {
+					clearInterval(obj.timer);
+				} else {
+					obj.style[attr] = attrValue + speedEnd + "px";
+				}
+			}, 100)
+		}
+
+		function getStyle(obj, attr) {
+			if(obj.currentStyle) {
+				return obj.currentStyle[attr];
+			} else {
+				console.log(getComputedStyle(obj)[attr])
+				return getComputedStyle(obj)[attr];
+			}
+		}
+	</script>
+
+</html>

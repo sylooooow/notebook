@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function abc() {
+				var a = 1;
+				var b = 2;
+				return a + b;
+			}
+			var result = abc();
+			console.log(result);
+			
+			function ab() {
+				var a = 1;
+				var b = 2;
+				console.log("a - b");
+			}
+			var d = ab();
+			console.log(d);  //undefined,表示函数没有返回值
+			
+			function ac() {
+				console.log("🐩");
+				console.log("🐱");
+				return ;     //函数遇到关键字return后，函数内的代码将不再执行
+				console.log("🐢");
+			}
+			ac();
+		</script>
+	</body>
+</html>

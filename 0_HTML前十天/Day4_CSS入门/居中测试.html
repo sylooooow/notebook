@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box1 {
+			    width: 800px;
+			    height: 800px;
+			    background-color: yellow;
+			    /*display: flex;*/
+			    /*align-items: center;*/
+			   position: relative;
+			   
+			}
+			.box2 {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				/*margin: 0 auto;*/
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -100px;
+				margin-left: -100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<div class="box2"></div>
+		</div>
+		
+	</body>
+</html>
+
+<!--
+	水平居中:
+	1. 内容为图片/文字的时候,让内容居中对父级设置text-align: center;
+	2. 想让容器居中显示,给定宽度后设置宽度和margin: 0 auto;
+	垂直居中:
+	1.单行文本内容垂直居中, 让line-height和当前标签height一致;
+	2.让标签垂直居中, vertical-align: center;
+-->

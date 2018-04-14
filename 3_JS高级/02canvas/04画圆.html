@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="500" id="canvas"></canvas>
+<script>
+    var oCanvas = document.getElementById("canvas");
+    var ctx = oCanvas.getContext("2d");
+    //Math.PI 180度
+    //1度 = Math.PI/180
+
+    ctx.beginPath();
+    //画圆
+    //参数：圆心x,圆心y,半径,起始角度,结束角度,是否逆时针
+    ctx.arc(250,250,100,0,Math.PI*2,true);
+    //实心
+    // ctx.fillStyle = "blue";
+    // ctx.fill();
+    //空心
+    ctx.strokeStyle = "blue";
+    ctx.stroke();
+
+
+    //画弧
+    ctx.beginPath();
+    ctx.arc(150,150,100,0,Math.PI,true);
+    ctx.strokeStyle = "blue";
+    ctx.lineTo(150,150);
+    ctx.closePath();
+    ctx.stroke();
+
+
+    //画指定角度的线
+    //与画扇形方法一样，使起始角度和结束角度相同
+    ctx.beginPath();
+    ctx.moveTo(300,300);
+    ctx.arc(300,300,100,Math.PI/180 * 30,Math.PI/180 * 30);
+    ctx.stroke();
+</script>
+</body>
+</html>

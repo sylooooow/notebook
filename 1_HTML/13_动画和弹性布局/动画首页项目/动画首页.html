@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=2,user-scalable=" />
+		<title></title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box {
+				width: 100%;
+				height: 100%;
+				background: url(img/bg.jpg) no-repeat;
+				background-size: 100% 100%;
+				position: absolute;
+				overflow: hidden;
+			}
+			.box img {
+				position: absolute;
+			}
+			.box img:nth-child(1) {
+				bottom: 15px;
+				left: 45%;
+				animation: bottom 0.7s ease-in-out infinite;
+			}
+			@-webkit-keyframes bottom{
+				50%{
+					transform: translateY(-26px);
+				}
+			}
+			.box img:nth-child(2) {
+				bottom: 15px;
+				right: 15px;
+				animation: music 1700s linear infinite ;
+			}
+			@-webkit-keyframes music{
+				80% {
+					transform: rotateZ(360000deg);
+				}
+			}
+			.box img:nth-child(3) {
+				top: 200px;
+				right: -100px;
+				animation: liuxing1 2s;
+			}
+			@-webkit-keyframes liuxing1{
+				to{
+					width: 35%;
+					transform: translate(-500px, -200px);
+				}
+			}
+			.box img:nth-child(4) {
+				bottom: 300px;
+				right: -200px;
+				animation: liuxing2 2s 0.5s ease ;
+			}
+			@-webkit-keyframes liuxing2{
+				100% {
+					width: 50%;
+					transform: translate(-700px, 150px);
+				}
+			}
+			.box img:nth-child(5) {
+				left: 80px;
+				top: 90px;
+			}
+			.box img:nth-child(6) {
+				right: 80px;
+				top: 90px;
+			}
+			.box img:nth-child(7) {
+				left: 80px;
+				top: 213px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<img src="img/bottom.png" />
+			<img src="img/music.png" width="25px" height="25px"/>
+			<img src="img/流星1.png" width="10%"/>
+			<img src="img/流星3.png" width="10%"/>
+			<img src="img/red.png" width="120px"/>
+			<img src="img/blue.png" width="210px"/>
+			<img src="img/yellow.png" width="215px"/>
+		</div>
+		
+	</body>
+
+</html>

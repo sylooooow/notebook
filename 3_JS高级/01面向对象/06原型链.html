@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Array.prototype.a = 88;
+    var arr = [1,2,3,4,5,6];
+    console.log(arr.a)
+    arr.a = 66;
+    console.log(arr.a);
+
+    var arr1 = [2,3,5];
+    console.log(arr1.a);
+
+    delete arr.a; //删除arr的属性a
+</script>
+</body>
+</html>
+<!--
+
+原型链：
+  当要获取某个对象的属性值时
+  1.判断当前对象是否有该属性，如果有，则返回对应的值
+  2.如果没有，去构造函数的原型上找，有则返回
+  3.如果没有原型属性，去object的根类上寻找
+  4.如果都没有，返回undifined
+-->

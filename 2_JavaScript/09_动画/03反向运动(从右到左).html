@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: lightblue;
+				position: absolute;
+				top: 0;
+				left: 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			var timer = setInterval(function() {
+				unifromMove(oAll,800,3);
+			}, 500);
+
+//			function move(speed, ele) {
+////				ele.style.left = max + "px";
+//				console.log(oAll.offsetLeft);
+//				if(oAll.offsetLeft <= speed) {
+//					ele.style.left = "0px";
+//					clearInterval(timer);
+//				} else {
+//					ele.style.left = oAll.offsetLeft - speed + "px";
+//				}
+//			}
+			
+			//正反向匀速移动效果的封装
+			//接受参数：目标元素，目标距离(距离浏览器左侧的距离)，速度
+			function unifromMove(obj, iTarget, speed) {
+				var timer = setInterval(function() {
+					if (Math.abs(iTarget - obj.offsetLeft) <= Math.abs(speed)) {
+						obj.style.left = iTarget + "px";
+						clearInterval(timer);
+					}else {
+						obj.style.left = obj.offsetLeft + speed + "px";
+					}
+					console.log(obj.style.left)
+				},20)
+			}
+		</script>
+	</body>
+
+</html>

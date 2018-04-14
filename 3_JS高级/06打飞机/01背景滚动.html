@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+<script>
+    var oCanvas = document.getElementById("myCanvas");
+    var ctx = oCanvas.getContext("2d");
+
+    oCanvas.width = document.documentElement.clientWidth;
+    oCanvas.height = document.documentElement.clientHeight;
+
+    var firstY = -oCanvas.height;
+    var secondY = 0;
+
+    var ctx = oCanvas.getContext("2d");
+    var bgImg = new Image();
+    bgImg.src = "img/background.png";
+    ctx.beginPath();
+    ctx.drawImage(bgImg,0,firstY,oCanvas.width,oCanvas.height);
+
+    ctx.beginPath();
+    ctx.drawImage(bgImg,0,secondY,oCanvas.width,oCanvas.height);
+
+    setInterval(function () {
+        ctx.clearRect(0, 0, oCanvas.width, oCanvas.height);
+
+        firstY += 1;
+        secondY += 1;
+
+        if (secondY >= oCanvas.height) {
+            secondY = 0;
+            firstY = -oCanvas.height
+        }
+
+        ctx.beginPath();
+        ctx.drawImage(bgImg,0,firstY,oCanvas.width,oCanvas.height);
+
+        ctx.beginPath();
+        ctx.drawImage(bgImg,0,secondY,oCanvas.width,oCanvas.height);
+
+    },20)
+</script>
+</body>
+</html>

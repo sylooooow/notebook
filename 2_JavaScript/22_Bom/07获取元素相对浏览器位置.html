@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 500px;
+				height: 600px;
+				border: 10px solid black;
+				padding: 30px;
+				/*position: relative;*/
+			}
+			
+			#div2 {
+				width: 300px;
+				height: 300px;
+				border: 5px solid lightblue;
+				position: relative;
+			}
+			
+			#div3 {
+				width: 100px;
+				height: 100px;
+				border: 2px solid grey;
+				position: absolute;
+				top: 10px;
+				left: 10px;
+			}
+		</style>
+	</head>
+
+	<body id="body">
+		<div id="div1">
+			<div id="div2">
+				<div id="div3"></div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var oDiv3 = document.getElementById("div3");
+			getPos(oDiv3,"left");
+			function getPos(obj,attr) {
+				var a = obj;
+				var pos = 0;
+				while (a.offsetParent){
+					var theBorder = "";
+					if (attr == "left") {
+						theBorder = "borderLeftWidth";
+						attr = "offsetLeft";
+					} else {
+						theBorder = "borderTopWidth";
+						attr = "offsetTop";
+					}
+					var borderW = parseInt(getStyle(a.offsetParent,theBorder));
+					pos += a[attr] + borderW;
+					a = a.offsetParent;
+				}
+				console.log(pos);
+			}
+			
+			function getStyle(obj,attr) {
+				if (obj.currentStyle) {
+					return obj.currentStyle[attr]
+				} else {
+					return getComputedStyle(obj)[attr];
+				}
+			}
+		</script>
+	</body>
+
+</html>

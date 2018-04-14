@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+		<script src="../00_package/00_封装好的一些常用方法.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="all"></div>
+
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			//缓冲变宽,越来越慢,速度逐渐减小，到匀速运动1px
+			oAll.onmouseover = function() {
+				unifromMove(oAll, 300, "width", 3);
+			}
+			oAll.onmouseout = function() {
+				unifromMove(oAll, 100, "width", 3);
+			}
+
+			function unifromMove(obj, iTarget, attr, speed) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					var attrValue = parseInt(getStyle(obj, attr));
+					var speedEnd = (iTarget - attrValue) / speed;
+//					console.log(iTarget, attrValue, speedEnd);
+					speedEnd = speedEnd > 0 ? Math.ceil(speedEnd) : Math.floor(speedEnd);
+					if(attrValue == iTarget) {
+						clearInterval(obj.timer);
+					} else {
+						obj.style[attr] = attrValue + speedEnd + "px";
+					}
+				}, 100)
+			}
+		</script>
+	</body>
+
+</html>

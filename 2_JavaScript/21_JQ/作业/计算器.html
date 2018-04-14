@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,
+			html {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.wrap {
+				width: 350px;
+				height: 500px;
+				border: 3px solid #808080;
+				background-color: #808080;
+				display: flex;
+				flex-wrap: wrap;
+			}
+			
+			.screen {
+				width: 100%;
+				height: 25%;
+				background-color: #808080;
+				display: flex;
+			}
+			
+			#score {
+				width: 100%;
+				height: 50%;
+				font-size: 60px;
+				color: white;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+			}
+			
+			.board {
+				width: 100%;
+				height: 75%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			
+			.board> div {
+				width: 100%;
+				height: 19.2%;
+			}
+			
+			.board> div div {
+				width: 24%;
+				height: 100%;
+				font-size: 30px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.board> div {
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.row5 div:nth-child(1) {
+				width: 49%;
+			}
+			
+			.row1 div {
+				color: white;
+				background-color: orange;
+			}
+			
+			.row2 div,
+			.row3 div,
+			.row4 div,
+			.row5 div {
+				background-color: #D9D9D9;
+			}
+			
+			.row2 div:nth-child(4),
+			.row3 div:nth-child(4),
+			.row4 div:nth-child(4),
+			.row5 div:nth-child(3) {
+				color: white;
+				background-color: orange;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="screen" id="screen">
+				<div id="score">0</div>
+			</div>
+			<div class="board" id="board">
+				<div class="row1">
+					<div>AC</div>
+					<div>+/-</div>
+					<div>%</div>
+					<div>/</div>
+				</div>
+
+				<div class="row2">
+					<div>1</div>
+					<div>2</div>
+					<div>3</div>
+					<div>*</div>
+				</div>
+
+				<div class="row3">
+					<div>4</div>
+					<div>5</div>
+					<div>6</div>
+					<div>-</div>
+				</div>
+
+				<div class="row4">
+					<div>7</div>
+					<div>8</div>
+					<div>9</div>
+					<div>+</div>
+				</div>
+
+				<div class="row5">
+					<div>0</div>
+					<div>.</div>
+					<div>=</div>
+				</div>
+			</div>
+		</div>
+		<script src="jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var $result = $("#score");
+			var reCode = /\+|\-|\*|\//g;
+			var num = "";
+			var markNum = "";  //当num中有运算符号时，用来保存thisKey中的值，使结果能够加上上一次输入的值
+
+			$("#board").children().children().click(function() {
+				switch($(this).html()) {
+					case "AC":
+						$result.html("0");
+						num = "";
+						markNum = "";
+						break;
+					case "1":
+						var thisKey = $(this);
+						checkCode(thisKey);
+						break;
+					case "2":
+						var thisKey = $(this);
+						checkCode(thisKey);
+						break;
+					case "3":
+						var thisKey = $(this);
+						checkCode(thisKey);
+						break;
+					case "4":
+						var thisKey = $(this);
+						checkCode(thisKey);
+						break;
+					case "5":
+						var thisKey = $(this);
+						checkCode(thisKey);
+						break;
+					case "6":
+						var thisKey = $(this);
+						checkCode(thisKey);
+						break;
+					case "7":
+						var thisKey = $(this);
+						checkCode(thisKey);
+						break;
+					case "8":
+						var thisKey = $(this);
+						checkCode(thisKey);
+						break;
+					case "9":
+						var thisKey = $(this);
+						checkCode(thisKey);
+						break;
+					case "0":
+						var thisKey = $(this);
+						checkCode(thisKey);
+						break;
+					case ".":
+						var re = /\./g;
+						var thisKey = $(this);
+						//判断是否有多个. 如果有则不添加进去
+						if(!$result.html().match(re)) {
+							if(num == "") {
+								num = "0";
+							}
+							$result.html($result.html() + thisKey.html());
+							num += $(this).html();
+						}
+						break;
+					case "+":
+						numEffect();
+						var thisKey = $(this);
+						calculate(thisKey);
+						break;
+
+					case "-":
+						numEffect();
+						var thisKey = $(this);
+						calculate(thisKey);
+						break;
+					case "/":
+						numEffect();
+						var thisKey = $(this);
+						calculate(thisKey);
+						break;
+					case "*":
+						numEffect();
+						var thisKey = $(this);
+						calculate(thisKey);
+						break;
+
+					case "=":
+						numEffect();
+						if(num.match(reCode)) {
+							$result.html(eval(num));
+							if($result.html().length > 10) {
+								var str = $result.html().substring(0, 10);
+								$result.html(str);
+							}
+						}
+						num = $result.html();
+						markNum = "";
+						break;
+					default:
+						break;
+				}
+			});
+
+			function getKeyNum(thisKey) {
+				//当屏幕显示值为0时，再按0无效果
+				if($result.html() == "0") {
+					$result.html(thisKey.html());
+					if(num == "0") {
+						num = "0";
+					} else {
+						num += thisKey.html();
+					}
+				} else {
+					//当屏幕值不为0，将输入的值加进去。
+					$result.html($result.html() + thisKey.html());
+					num += thisKey.html();
+					console.log(num);
+				}
+				return $result.html();
+			}
+
+			function checkCode(thisKey) {
+				//判断小数点条件
+				var re1 = /\./g;
+				//判断是否有小数点及运算符
+				var re2 = /^\d+\.\d+(\+|\-|\*|\/)$/;
+				if(num.match(re2)) {
+					$result.html(thisKey.html());
+					num += $result.html();
+				} else if(num.match(reCode) && num.match(re1)) { //判断有小数运算时，可以显示多位小数
+					getKeyNum(thisKey);
+				} else if(num.match(reCode)) {
+					//如果在运算符后输入值，可以是多位
+					$result.html(markNum + thisKey.html());
+					markNum = $result.html();
+					num += thisKey.html();
+				} else {
+					getKeyNum(thisKey);
+				}
+			}
+
+			function calculate(thisKey) {
+				if(!num.match(reCode)) {
+					num += thisKey.html();
+					console.log(num)
+				} else {
+					//当输入多个一样的运算符号或要改变运算符号，会被替换为后面的那个运算符
+//					num = num.replace(num.match(reCode), thisKey.html());
+					$result.html(eval(num));
+					//检测结果是几位数，如果大于10位数，后面的则被截去
+					if($result.html().length > 10) {
+						var str = $result.html().substring(0, 10);
+						$result.html(str);
+					}
+					markNum = "";
+					num = $result.html() + thisKey.html();
+				}
+			}
+
+			function numEffect() {
+				$result.hide();
+				setTimeout(function() {
+					$result.show();
+				}, 50)
+			}
+		</script>
+	</body>
+
+</html>

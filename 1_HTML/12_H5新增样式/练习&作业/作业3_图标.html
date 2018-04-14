@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box {
+				width: 660px;
+				height: 340px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -330px;
+				margin-top: -170px;
+				background: url(img/bg.jpg) no-repeat;
+				background-size: 100% 100%;
+				-webkit-transform-style: preserve-3d;
+				-webkit-perspective: 1000px;
+			}
+			
+			.bottom {
+				border: 1px solid #7C8386;
+				width: 550px;
+				height: 196px;
+				background: -webkit-linear-gradient(bottom, #ADADAD, #EAEAEA);
+				position: absolute;
+				left: 50%;
+				margin-left: -275px;
+				bottom: 5px;
+			}
+			
+			.icon {
+				position: absolute;
+				top: 95px;
+				z-index:99;
+				transform: rotateX(-40deg);
+			}
+			
+			.bottom {
+				transform: rotateX(55deg);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+
+			<div class="bottom">
+				<div class="icon">
+					<a href=""><img src="img/icon-addressbook.png" alt="" /></a>
+					<a href=""><img src="img/icon-ical.png" alt="" /></a>
+					<a href=""><img src="img/icon-idisk.png" alt="" /></a>
+					<a href=""><img src="img/icon-iphoto.png" alt="" /></a>
+					<a href=""><img src="img/icon-mail.png" alt="" /></a>
+				</div>
+			</div>
+            
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//打印100个1
+//		var n = 0;
+//		while (n < 100){
+//			n++;
+//			console.log(1);
+//		}
+		
+		//打印1到100之间7的倍数
+//		var n = 0;
+//		while (n <= 100){
+//			n++;
+//			if (n % 7 == 0) {
+//				console.log(n);
+//			} 
+//		}
+
+        //打印1到100之间包含为7的数
+        var n = 1;
+		while (n <= 100){
+			if (n % 10 == 7 || parseInt(n / 10) == 7) {
+				console.log(n);
+			}
+			n++;
+		}
+	</script>
+</html>
+<!--
+	while循环一般用于不知道循环多少次的时候
+-->

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				width: 320px;
+				height: 480px;
+				background: url(img/bg.jpg) no-repeat;
+				position: relative;
+				left: 50%;
+				margin-left: -160px;
+				overflow: hidden;
+			}
+			
+			#scores {
+				width: 56px;
+				height: 39px;
+				position: absolute;
+				left: 50%;
+				margin-left: -28px;
+				top: 30px;
+				z-index: 99;
+				overflow: hidden;
+			}
+			
+			#scores img {
+				float: left;
+			}
+			
+			#flappy {
+				width: 236px;
+				height: 77px;
+				position: absolute;
+				left: 50%;
+				margin-left: -118px;
+				top: 110px;
+				animation: flappy 0.7s linear infinite;
+				animation-direction: alternate;
+			}
+			
+			@-webkit-keyframes flappy {
+				from {
+					-webkit-transform: translateY(0);
+				}
+				to {
+					-webkit-transform: translateY(30px);
+				}
+			}
+			
+			.bird {
+				width: 40px;
+				height: 26px;
+				position: absolute;
+				right: 0;
+				top: 50%;
+				margin-top: -13px;
+				animation: changeBg 0.5s linear infinite;
+				animation-direction: alternate;
+			}
+			
+			@-webkit-keyframes changeBg {
+				from {
+					background: url(img/bird0.png) no-repeat;
+				}
+				to {
+					background: url(img/bird1.png) no-repeat;
+				}
+			}
+			
+			#start {
+				width: 85px;
+				height: 29px;
+				position: absolute;
+				left: 50%;
+				margin-left: -43px;
+				bottom: 160px;
+			}
+			
+			#slider {
+				position: absolute;
+				left: 0;
+				bottom: 43px;
+				width: 686px;
+				height: 14px;
+			}
+			
+			#slider img {
+				float: left;
+			}
+			
+			#bird {
+				position: absolute;
+				left: 10px;
+				top: 100px;
+				/*background-color: red;*/
+				display: none;
+			}
+			
+			.duct {
+				position: absolute;
+				top: 0;
+				left: 320px;
+				width: 62px;
+				height: 100%;
+			}
+			
+			.ductUp {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				background: url(img/up_mod.png) repeat-y;
+			}
+			
+			.img1 {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+			
+			.ductDown {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				background: url(img/down_mod.png) repeat-y;
+			}
+			
+			.img2 {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all">
+			<div id="scores">
+				<img src="img/0.jpg" id="scoreLeft" />
+				<img src="img/0.jpg" id="scoreRight" />
+			</div>
+			<div id="flappy">
+				<img src="img/head.jpg" />
+				<div class="bird"></div>
+			</div>
+			<div id="start">
+				<img src="img/start.jpg" />
+			</div>
+			<div id="slider">
+				<img src="img/banner.jpg" />
+				<img src="img/banner.jpg" />
+			</div>
+			<div id="bird">
+				<img src="img/down_bird0.png" id="birdImg" />
+			</div>
+			<div class="duct" id="ducts"></div>
+		</div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			var oBird = document.getElementById("bird");
+			var oFlappy = document.getElementById("flappy");
+			var oStart = document.getElementById("start");
+			var oSlider = document.getElementById("slider");
+			var birdImg = document.getElementById("birdImg");
+			var oScoreL = document.getElementById("scoreLeft");
+			var oScoreR = document.getElementById("scoreRight");
+			var birdTimer = null;
+			var i = -2;
+			var j = 0;
+
+			var sliderL = oSlider.offsetWidth - oAll.offsetWidth;
+			unifromMove(oSlider, -sliderL, -4);
+			oStart.onclick = function() {
+				oFlappy.style.display = "none";
+				oStart.style.display = "none";
+				oBird.style.display = "block";
+				setInterval(function() {
+					showDuct();
+				}, 2700);
+				birdMove();
+			};
+			document.onkeydown = function() {
+				clearInterval(birdTimer);
+				birdImg.src = "img/up_bird1.png";
+				oBird.style.top = oBird.offsetTop - 20 + "px";
+				if(oBird.offsetTop <= 0) {
+					alert("死啦!");
+					location.reload(true);
+				}
+
+			};
+			document.onkeyup = function() {
+				setTimeout(function() {
+					birdImg.src = "img/down_bird0.png";
+				}, 100);
+				birdMove();
+			};
+
+			function showDuct() {
+				var maxH = oAll.offsetHeight * 0.7;
+				var maxDuctH = maxH * 0.7;
+				var minDuctH = maxH * 0.3;
+				var ductTopH = Math.floor(Math.random() * (maxDuctH - minDuctH + 1) + minDuctH);
+				var ductDownH = maxH - ductTopH;
+				var ductDiv = document.createElement("div");
+				var ductTop = document.createElement("div");
+				var ductDown = document.createElement("div");
+				var ductTopImg = document.createElement("img");
+				var ductDownImg = document.createElement("img");
+				ductTop.className = "ductUp";
+				ductDown.className = "ductDown";
+				ductTopImg.className = "img1";
+				ductTopImg.src = "img/up_pipe.png";
+				ductDownImg.src = "img/down_pipe.png";
+				ductDownImg.className = "img2";
+				ductDiv.appendChild(ductTop);
+				ductDiv.appendChild(ductDown);
+				ductDiv.className = "duct";
+				ductTop.appendChild(ductTopImg);
+				ductDown.appendChild(ductDownImg);
+				oAll.appendChild(ductDiv);
+				ductTop.style.height = ductTopH + "px";
+				ductDown.style.height = ductDownH + "px";
+				ductFlag = false;
+				i++;
+				var timer = setInterval(function() {
+					if(Math.abs(-62 - ductDiv.offsetLeft) < Math.abs(-2)) {
+						ductDiv.style.left = -62 + "px";
+						oAll.removeChild(ductDiv);
+						clearInterval(timer);
+					} else {
+						ductDiv.style.left = ductDiv.offsetLeft - 2 + "px";
+						var conditionLeft = ductDiv.offsetLeft <= oBird.offsetLeft + oBird.offsetWidth;
+						var conditionRight = ductDiv.offsetLeft + ductDiv.offsetWidth <= oBird.offsetLeft;
+						var conditionTop = oBird.offsetTop <= ductTop.offsetHeight;
+						var conditionDown = oBird.offsetTop + oBird.offsetHeight >= oAll.offsetHeight - ductDown.offsetHeight;
+						var scoreCondition = ductDiv.offsetLeft + ductDiv.offsetWidth <= oBird.offsetLeft;
+						if(scoreCondition) {
+							if(i == 10) {
+								j++;
+								i = 0;
+								oScoreL.src = "img/" + j + ".jpg";
+							}
+							oScoreR.src = "img/" + i + ".jpg";
+							//							console.log(i);
+						}
+						if((conditionLeft && conditionTop) || (conditionLeft && conditionDown) || (conditionRight && conditionTop) || (conditionRight && conditionDown)) {
+							clearInterval(timer);
+							setTimeout(function() {
+								alert("死啦!");
+								location.reload(true);
+							}, 70);
+						}
+					}
+				}, 30)
+			}
+
+			function birdMove() {
+				 birdTimer = setInterval(function() {
+					if(Math.abs(395 - oBird.offsetTop) < Math.abs(1)) {
+						oBird.style.top = 395 + "px";
+						clearInterval(birdTimer);
+						setTimeout(function() {
+							alert("死啦!");
+							location.reload(true);
+						}, 20);
+					} else {
+						oBird.style.top = oBird.offsetTop + 1 + "px";
+					}
+				}, 10);
+			}
+
+			function unifromMove(obj, iTarget, speed) {
+				var timer = setInterval(function() {
+					if(Math.abs(iTarget - obj.offsetLeft) < Math.abs(speed)) {
+						obj.style.left = iTarget + "px";
+						obj.style.left = 0;
+					} else {
+						obj.style.left = obj.offsetLeft + speed + "px";
+					}
+				}, 100);
+			}
+		</script>
+	</body>
+
+</html>

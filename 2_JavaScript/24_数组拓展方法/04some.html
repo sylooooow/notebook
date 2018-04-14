@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [1,12,10,11,50];
+			var arr1 = [1,2,3,4,5,6];
+			//判断数组arr中是否有大于10的数
+			
+			//有一个符合条件，则返回为真。只要碰到返回为true，则不再遍历数组，结束some语句
+			var result = arr.some(function(value) {
+				console.log(value)
+				return value > 10;
+			});
+			console.log(result);
+		</script>
+	</body>
+</html>

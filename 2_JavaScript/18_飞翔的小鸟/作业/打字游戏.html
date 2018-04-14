@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.word {
+				position: absolute;
+				top: -50px;
+			}
+			
+		</style>
+	</head>
+
+	<body id="all">
+		<button id="btn">开始</button>
+		<div id="word" class="word"></div>
+	</body>
+	<script type="text/javascript">
+		var oAll = document.getElementById("all");
+		var oWord = document.getElementById("word");
+		var oBtn = document.getElementById("btn");
+		var oScore = document.getElementById("score");
+		var score = 0;
+		var flag = true;
+		
+		oBtn.onclick = function() {
+				if(flag) {
+					createWord();
+					flag = false;
+				}
+			}
+			//创建字母
+		function createWord() {
+			var timer = setInterval(function() {
+				var newWord = document.createElement("div");
+				newWord.className = "word";
+				var wordNum = randomWord();
+				var wordText = String.fromCharCode(wordNum);
+				newWord.innerHTML = wordText;
+				var wordColor = getColor();
+				newWord.style.color = wordColor;
+				var fontSize = randomSize(50, 80);
+				newWord.style.fontSize = fontSize;
+				var leftPos = randomLeftPos(0, document.documentElement.clientWidth);
+				newWord.style.left = leftPos;
+				oAll.appendChild(newWord);
+
+				var wordSpeed = randomSpeed(5, 10);
+				wordDrop(newWord, wordSpeed);
+
+			}, 100);
+
+			document.onkeydown = function(ev) {
+				var ev = ev || window.event;
+				for(var i = 0; i < oAll.children.length; i++) {
+					if(String.fromCharCode(ev.keyCode) == oAll.children[i].innerHTML) {
+						oAll.children[i].remove();
+					} 
+				}
+			}
+		}
+		//字母下落
+		function wordDrop(obj, speed) {
+			var wordTimer = setInterval(function() {
+				obj.style.top = obj.offsetTop + speed + "px";
+				if(obj.offsetTop + obj.offsetHeight >= document.documentElement.clientHeight) {
+					oAll.removeChild(obj);
+					score++;
+				}
+			}, 20);
+		}
+		//随机字母
+		function randomWord() {
+			var ev = ev || window.event;
+			var wordNum = Math.floor(Math.random() * (90 - 65 + 1) + 65);
+			return wordNum;
+		}
+		//随机left位置
+		function randomLeftPos(min, max) {
+			return Math.floor(Math.random() * (max - min + 1) + min) + "px";
+		}
+		//随机速度函数
+		function randomSpeed(min, max) {
+			return Math.floor(Math.random() * (max - min + 1) + min);
+		}
+		//随机颜色
+		function getColor() {
+			var r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+			var g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+			var b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+			return "rgb(" + r + "," + g + "," + b + ")";
+		}
+		//随机字体大小
+		function randomSize(min, max) {
+			return Math.floor(Math.random() * (max - min + 1) + min) + "px";
+		}
+	</script>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		    var a = 10;
+			function sum() {
+				a++;
+				console.log(a);
+			}
+			sum();
+			sum();
+			
+			function sum1() {
+				var b = 0;
+				b++;
+				console.log(b);
+			}
+			sum1();
+			sum1();
+			sum1();
+			
+			function bibao() {
+				var c = 0;
+				return function() {
+					c++;
+					console.log(c);
+				}
+			}
+			var c = bibao();
+			c();
+			c();
+
+            //闭包简写
+            //执行代码时，先执行函数自调用，调用函数后，将返回值赋值给sum3。再调用sum3即可得到输出结果
+            var sum3 = (function() {
+            	    var a = 0;
+            	    return function() {
+            	    	   a++;
+            	    	   console.log("ss" + a);
+            	    }
+            })();
+            sum3();
+            sum3();
+            sum3();
+            
+            (function() {
+            	    console.log("函数自调用");
+            })();
+		</script> 
+	</body>
+</html>
+<!--
+	闭包的好处：
+	1.将局部变量永久保存在内存中
+	2.防止全局变量污染
+-->

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #f5f5f5;
+			}
+			
+			.box {
+				width: 650px;
+				height: 500px;
+				/*border: 1px solid pink;*/
+				background: url(img/main.jpg) no-repeat;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -250px;
+				margin-left: -325px;
+				
+				-webkit-mask-size: 10%;
+				-webkit-mask: center no-repeat;
+				-webkit-mask-image: url(img/apple.png), url(img/apple.png), url(img/apple.png), url(img/apple.png);
+				-webkit-mask-size: 10%;
+				
+				animation: scale 1s ease, move 4s 1s ease-out, scale2 1s 5s ease-in-out alternate-reverse, stop 0.6s 5.5s ease-in forwards;
+			}
+			
+			@-webkit-keyframes scale{
+				50% {
+					-webkit-mask-size: 20%;
+				}
+			}
+			@-webkit-keyframes move{
+				10% {
+					-webkit-mask-position: left top,center, center, center;
+					-webkit-mask-size: 20%, 10%, 10%, 10%;
+				}
+				20% {
+					-webkit-mask-position: left top,right top, center, center;
+					-webkit-mask-size: 20%, 20%, 10%, 10%;
+				}
+				30% {
+					-webkit-mask-position: left top,right top, left bottom, center;
+					-webkit-mask-size: 20%, 20%, 20%, 10%;
+				}
+				40% {
+					-webkit-mask-position: left top,right top, left bottom, right bottom;
+					-webkit-mask-size: 20%, 20%, 20%, 20%;
+				}
+				70% {
+					-webkit-mask-position: left bottom, left top, right bottom, right top;
+		            -webkit-mask-size: 20%, 20%, 20%, 20%;
+				}
+				100% {
+					-webkit-mask-position: center;
+					-webkit-mask-size: 10%;
+				}
+			}
+			@-webkit-keyframes scale2{
+				50% {
+					-webkit-mask-size: 30%;
+				}
+			}
+			@-webkit-keyframes stop{
+				
+				100% {
+					-webkit-mask-position: 80px 30px, 400px 30px, 80px 300px, 400px 300px;
+					-webkit-mask-size: 25%;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box"></div>
+	</body>
+
+</html>

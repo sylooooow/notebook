@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="xingli" id="xingli" value="" />
+		<button id="btn">计算</button><br />
+		<div id="money">	</div>
+	</body>
+	<script type="text/javascript">
+		var xingli = document.getElementById("xingli");
+		var btn = document.getElementById("btn");
+		var result = document.getElementById("money");
+		var num = 0;
+		btn.onclick = function() {
+			if (xingli.value == ""){
+				result.innerHTML = "请输入托运重量";
+			}else if (parseInt(xingli.value) <= 50) {
+				num = parseInt(xingli.value) * 0.15;
+				console.log(num);
+				result.innerHTML = num;
+			} else{
+				num = 7.5 + (parseInt(xingli.value) - 50) * 0.25;
+			    console.log(num);
+			    result.innerHTML = num;
+			}
+		}
+	</script>
+</html>

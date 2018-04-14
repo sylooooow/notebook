@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表格复杂操作</title>
+	</head>
+	<body style="text-align: center;">
+		<!--
+			cellspaceing:单元格间距
+			cellpadding:单元格内边距
+		-->
+		<table border="1" style="margin: 0 auto;" cellspacing="0" cellpadding="1" width="400px" >
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+			</tr>
+			<tr>
+				<td>毛泽东</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>江泽民</td>
+				<td>男</td>
+			</tr>
+		</table>
+		<br />
+		<!--表格标题-->
+		<table border="1" style="margin: 0 auto;" cellspacing="0" cellpadding="1" width="400px" >
+			<caption>联系人列表</caption>
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+			</tr>
+			<tr>
+				<td>毛泽东</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>江泽民</td>
+				<td>男</td>
+			</tr>
+		</table>
+		<br />
+		<!--合并单元格-->
+		<!--
+			rowspan:表示单元格占几行
+			colspan:表示单元格占几列
+			不同行row
+		-->
+		<table border="1" style="margin: 0 auto;" cellspacing="0" cellpadding="1" width="200px" >
+			<caption>colspan</caption>
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>姓名</th>
+				<th>性别</th>
+			</tr>
+			<tr>
+				<td>江泽民</td>
+				<td>男</td>
+				<td>江泽民</td>
+				<td>男</td>
+				
+			</tr>
+			<tr>
+				<td>江泽民</td>
+				<td colspan="3">男</td>
+				
+			</tr>
+		</table>
+		<br />
+		<table border="1" style="margin: 0 auto;" cellspacing="0" cellpadding="1" width="200px" >
+		<caption>rowspan</caption>
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>姓名</th>
+				<th rowspan="3">性别</th>
+			</tr>
+			<tr>
+				<td>江泽民</td>
+				<td rowspan="2">男</td>
+				<td>江泽民</td>
+				
+				
+			</tr>
+			<tr>
+				<td>江泽民</td>
+				
+				<td>江泽民</td>
+			</tr>
+		</table>
+		<br />
+		<table border="1" style="margin: 0 auto;" cellspacing="0" cellpadding="1" width="200px" >
+			<caption>colspan</caption>
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>姓名</th>
+				<th>性别</th>
+			</tr>
+			<tr>
+				<td colspan="3" rowspan="2">江泽民</td>
+				<td>江泽民</td>
+				
+			</tr>
+			<tr>
+				<td>江泽民</td>
+				
+			</tr>
+		</table>
+	</body>
+</html>

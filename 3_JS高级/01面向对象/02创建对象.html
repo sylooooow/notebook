@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj = new Object();
+    obj.name = "shuaihong";
+    obj.age = 18;
+    obj.sex = "nan";
+    obj.eat = function () {
+        console.log(this.name + "去吃饭了");
+    }
+    obj.eat();
+
+    var obj1 = new Object();
+    obj1.name = "齐颜";
+
+
+
+
+    //构造函数创建对象
+    function person(name,age,sex) {
+        var obj = new Object();
+        obj.name = "shuaihong";
+        obj.age = 18;
+        obj.sex = "nan";
+        obj.eat = function () {
+            console.log(this.name + "去吃饭了");
+        }
+        return obj;
+    }
+    var person1 = new person("小乔",18,"女");
+    console.log(person1);
+
+
+
+    var per2 = person("张勇",20,"男");
+    console.log(person1.eat == per2.eat);
+
+    var a = function () {
+        console.log(12);
+    }
+    var b = function () {
+        console.log(12);
+    }
+    console.log(a == b);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//key-value形式存储数据
+			//key:字符串，代表值得含义。value：值,可以是任意类型
+			var aJson = {
+				"name": "何欣",
+				"age": 18,
+				"sex": "女"
+			};
+			//取值
+			console.log(typeof(aJson));
+			console.log(aJson);
+			console.log(aJson.name);
+			console.log(aJson["name"]);
+			
+			//赋值
+			aJson["name"] = "哈哈哈";//如果key值存在，会改变key对应的value值
+			aJson.name = "呵呵呵";
+			console.log(aJson);
+			aJson["height"] = 160;  //如果key值不存在，会向后面添加一组键值对
+			console.log(aJson);
+			
+			//json遍历
+			//遍历json中的key：
+			for (var a in aJson) {
+				console.log(a); //遍历key
+				console.log(aJson[a]); //遍历value
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #all {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="all"></div>
+</body>
+<script>
+    var oAll = document.getElementById("all");
+
+
+    oAll.addEventListener("touchmove",function () {
+        //按下拖动触发
+        console.log("touchmove");
+    })
+
+    oAll.addEventListener("touchstart",function (ev) {
+        //鼠标按下触发，点击
+        console.log("touchstart")
+
+        var ev = ev || window.event;
+        var finger = ev.touches[0];
+        console.log(finger);
+        console.log(ev.touches);
+
+        //手指距离屏幕的距离
+        var screenX = finger.screenX;
+        var screenY = finger.screenY;
+
+        //手指距离页面的距离
+        var pageX = finger.pageX;
+        var pageY = finger.pageY;
+
+        //手指距离可视窗口的距离
+        var clientX = finger.clientX;
+        var clientY = finger.clientY;
+    })
+
+    oAll.addEventListener("touchend",function () {
+        //点击后抬起时触发
+        console.log("touchend");
+    })
+</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		    /*该选择器的父级的第一个子级， 是该元素则生效*/
+			.div1 p:first-child {
+				/*background-color: red;*/
+			}
+			/*该选择器的父级的第一个该元素子级,不管第一个p在什么位置，只要是父级下的第一个就行*/
+			.div1 p:first-of-type {
+				background-color: green;
+			}
+			/*从后往前看*/
+			.div1 p:last-child {
+				
+			}
+			.div1 p:last-of-type {
+				
+			}
+			
+			/*选择该选择器父级的第n个子级，是该选择器则改变*/
+			.div1 div:nth-child(2n+1) {
+				background-color: pink;
+			}
+			
+			/**/
+			.div1 div:nth-of-type(2n) {
+				background-color: gray;
+			}
+			.div1 div:nth-last-of-type(3n+2) {
+				background-color: pink;
+			}
+			
+			/*选择div下仅有的一个子元素，只能有一个子级就是P，不能有其它 */
+			div p:only-child {
+				background-color: deepskyblue;
+			}
+			/*选择div下仅有的一个该子级，父级下只有一个P类型，也可以有其它*/
+			div p:only-of-type {
+				background-color: beige;
+			}
+			
+			/*选择没有内容的选择器*/
+			div:empty {
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">
+			<p>1</p>
+			<div>2</div>
+			<a href="3"></a>
+			<p>4</p>
+			<div>5</div>
+			<a href="#">6</a>
+		</div>
+		<div>
+			<p>7</p>
+			<p>8</p>
+		</div>
+		<div>
+			<p>9</p>
+		</div>
+	</body>
+</html>

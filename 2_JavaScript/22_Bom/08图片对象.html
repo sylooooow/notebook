@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="all">
+			
+		</div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			//创建一个图片
+		    var newImg = new Image(); 	
+		    newImg.src = "home-box-2_CN_hover.jpg";
+		    oAll.appendChild(newImg);
+		    
+		    //图片加载完成时的触发函数,如果有多个图片加载，哪个先加载完先执行哪个的函数
+		    newImg.onload = function() {
+		    	    console.log("图片加载完成");
+		    }
+		</script>
+	</body>
+</html>

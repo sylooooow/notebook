@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 40px;
+			    background-color: gray;
+			    text-align: center;
+			    line-height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="btn">停止</div>
+		<script type="text/javascript">
+		var btn = document.getElementById("btn");
+		//定时器，每隔固定的时间就执行function中的代码
+		var timer = setInterval(function() {
+				console.log("跳一跳不能刷分了");
+			}, 1000)
+		
+		btn.onclick = function () {
+			clearInterval(timer);
+		}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="wrap">凹函数品搜哦去玩了但</div>
+		<script src="jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var oWrap = document.getElementById("wrap");
+			//JS对象
+			console.log(oWrap);
+			var $wrap = $("#wrap");
+//			$wrap.style.backgroundColor = "blue"; //不好用，不能用JS的方法
+			$wrap.css("background-color","red")
+			//JQ对象
+			console.log($("#wrap"));
+			
+			
+			//JS 与 JQ 对象之间的转换
+			console.log($(oWrap));  //JS转JQ
+			console.log($("#wrap")[0]);  //JQ转JS
+			
+			
+			//注意：
+			//1. 通过jQuery选择器获取的都是JQ对象，不是原生的DOM对象
+			//2. jQuery对象都是jQuery独有的
+			//3. jQuery对象无法使用原生DOM对象的任何方法和属性
+			//4. 原生DOM对象也无法使用jQuery对象的任何方法和属性
+ 		</script>
+	</body>
+</html>

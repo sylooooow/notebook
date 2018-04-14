@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="#" method="post" id="theForm">
+			
+			<input type="text" value="" id="name"/>
+			<input type="submit" name="" id="" value="提交" />
+			<select name="" id="city">
+				<option value="">河北</option>
+				<option value="">北京</option>
+				<option value="">上海</option>
+			</select>
+		</form>
+		<script type="text/javascript">
+			var oName = document.getElementById("name");
+			var oForm = document.getElementById("theForm");
+			var oCity = document.getElementById("city");
+			oCity.onchange = function() {
+				console.log(this.value);
+			}
+			
+			oName.onchange = function() {
+				//值改变并且失去焦点的时候出发事件
+				console.log(this.value);
+			}
+			oName.oninput = function() {
+				//当输入内容时触发事件
+				console.log("ssss");
+			}
+			oForm.onsubmit = function() {
+				//当表单提交时触发
+				console.log("提交了");
+			}
+		</script>
+	</body>
+</html>

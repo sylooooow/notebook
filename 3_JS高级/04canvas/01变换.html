@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -250px;
+            margin-top: -250px;
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="500" id="canvas"></canvas>
+<script>
+    var oCanvas = document.getElementById("canvas");
+    var ctx = oCanvas.getContext("2d");
+
+    //保存当前路径,即保存当前的初始点(0,0)
+    ctx.save();
+    //移动,之后的绘图都会移动这些
+    ctx.translate(50,50);
+    ctx.fillRect(0,0,200,100);
+    //恢复到之前保存的路径，即以后的绘图初始点为(0,0)
+    ctx.restore();
+
+    ctx.fillStyle = "blue";
+    ctx.fillRect(10,10,100,50);
+    ctx.fill();
+
+    //保存路径
+    ctx.save();
+    ctx.beginPath();
+    //缩放。缩放的是整个画布，而不是下面的矩形
+    ctx.scale(0.5,1);
+    ctx.fillRect(0,100,200,100);
+    //正常情况下下面的矩形在中心，但是却在右侧，是因为上面整个画布被压缩了一半
+    ctx.fillRect(250,250,100,100);
+    //此时画布又恢复到了原来的大小
+    ctx.restore();
+    ctx.fillRect(250,250,100,100);
+
+    //
+    ctx.beginPath();
+    //旋转。使整个当前画布都旋转
+    ctx.rotate(Math.PI / 4);
+    ctx.arc(300,300,50,0,Math.PI * 2);
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(200,200,50,30);
+    ctx.fill();
+</script>
+</body>
+</html>

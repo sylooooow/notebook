@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<p id="p1"><a href="#">123</a>ppppppppp</p>
+			<p>ppppppppp</p>
+			<p>ppppppppp</p>
+			<p>ppppppppp</p>
+			<p>ppppppppp</p>
+			<p>ppppppppp</p>
+			<p>ppppppppp</p>
+			<p>ppppppppp</p>
+			<p>ppppppppp</p>
+			<p>ppppppppp</p>
+		</div>
+		<script type="text/javascript">
+			var myDiv = document.getElementById("div1");
+			var myP = document.getElementById("p1");
+			myDiv.style.backgroundColor = "lightblue";
+			myDiv.style.height = "auto";
+			myP.innerHTML = "哈哈哈呵呵呵";
+			console.log(myP.innerHTML);
+		</script>
+	</body>
+</html>

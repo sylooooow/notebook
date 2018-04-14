@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="all">这周太冷了</div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			//传统方法绑定事件，下面的两个事件只能响应一个
+			oAll.onclick = function() {
+				console.log("onclick");
+			}
+			oAll.onclick = function() {
+					console.log("onclick1");
+				}
+				//第二种绑定方式,可以绑定多个响应事件
+				//参数1：事件名,省去on
+				//参数2：绑定事件触发的函数
+				//参数3：false表示禁止事件冒泡，true表示事件捕获
+			oAll.addEventListener("click", function() {
+				console.log("第二种绑定事件方式");
+			}, false);
+			oAll.addEventListener("click", function() {
+				console.log("addeventListener能绑定多个函数")
+			}, false);
+
+			//IE678用下面的方式
+			//			oAll.attachEvent("onclick",function() {
+			//				console.log("IE");
+			//			},false)
+
+			//移除事件（如果响应事件为匿名函数，不能移除事件的函数）
+			//参数1：事件名
+			//参数2：要移除的函数
+			//参数3：false表示禁止事件冒泡，true表示事件捕获
+//			oAll.removeEventListener("click", "函数名", false)
+
+			//IE的移除事件
+			//          oAll.detachEvent("onclick",函数名,false)
+
+			//事件绑定函数
+			function addEvent(obj, theEvent, fn) {
+				if(obj.attachEvent) {
+                     obj.attachEvent("on" + theEvent,fn,false);
+				} else {
+					//非IE
+                    obj.addEventListener(theEvent,fn,false);
+				}
+			}
+			addEvent(oAll,"mouseover",function() {
+				console.log("mouseover");
+			})
+		</script>
+	</body>
+
+</html>

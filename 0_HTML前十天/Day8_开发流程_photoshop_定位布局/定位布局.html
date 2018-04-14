@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>定位布局</title>
+		<style type="text/css">
+			.box {
+				border: 1px solid red;
+				width: 400px;
+				height: 300px;
+				margin: 200px;
+				position: relative;
+			}
+			.box_son {
+				width: 100px;
+				height: 150px;
+				background-color: red;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -50px;
+				margin-top: -75px;
+				
+			}
+			.box_son2 {
+				width: 50px;
+				height: 50px;
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box_son"></div>
+			<div class="box_son2"></div>
+		</div>
+	</body>
+</html>
+<!--绝对定位：
+	1.绝对定位会让标签脱离文本流
+	2.默认相对于浏览器定位
+	3.子标签想要相对于某个进行绝对定位，那么需要对该标签设置position：relative,且该标签是子标签的父级以上元素
+	4.如果子标签们都绝对定位了， 都加载的标签在上面
+	5.设置绝对定位的标签不再是行/块属性标签
+	6.默认可以设置宽高，如果不设置宽高则内容撑开大小
+	相对定位：
+	1.相对定位的标签不脱离文本流
+	2.不改变原有的行块属性
+	3.通常用于给子标签辅助定位
+	固定定位：
+	1.脱离文本流
+	2.不再是行/块属性
+	3.可以设置宽高，如果不设置则靠内容撑开宽高
+	4.固定定位相对于浏览器进行设置位置
+	
+	注意：
+	1.如果爷爷级标签设置position：relative， 而父级标签没有设置，则相对于爷爷级标签进行定位
+	2.如果都设置则相对于父级标签进行定位（就近原则）
+	3.margin和position一起设置的时候，要加上同方向的值，才是真正的距离
+	4.padding不影响position定位的位置
+-->

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box {
+				width: 300px;
+				height: 300px;
+				position: relative;
+			}
+			.a, .b, .c , .d , .e {
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+				position: absolute;
+				border: 1px solid black;
+			}
+			.a {
+				top: 0;
+				left: 0;
+			}
+			.b {
+				top: 50px;
+				left: 50px;
+				z-index: 2;
+			}
+			.c {
+				top: 100px;
+				left: 100px;
+			}
+			.d {
+				top: 150px;
+				left: 150px;
+				z-index: 3;
+			}
+			.e {
+				left: 200px;
+				top: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="a">1</div>
+			<div class="b">2</div>
+			<div class="c">3</div>
+			<div class="d">4</div>
+			<div class="e">5</div>
+		</div>
+	</body>
+</html>

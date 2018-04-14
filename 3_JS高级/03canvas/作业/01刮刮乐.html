@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: black;
+            color: white;
+            font-size: 1.4em;
+            text-align: center;
+            line-height: 100px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -50px;
+        }
+        canvas {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -50px;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">谢谢惠顾</div>
+<canvas width="200" height="100" id="myCanvas">
+
+</canvas>
+<script>
+    var oCanvas = document.getElementById("myCanvas");
+
+    var ctx = oCanvas.getContext("2d");
+
+    ctx.beginPath();
+    ctx.fillStyle = "gray";
+    ctx.fillRect(0,0,200,100);
+
+    oCanvas.onmousedown = function (ev) {
+        var x = ev.pageX - oCanvas.offsetLeft;
+        var y = ev.pageY - oCanvas.offsetTop;
+
+        ctx.beginPath();
+        ctx.arc(x,y,10,0,Math.PI*2,true);
+        ctx.fillStyle = "blue";
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.fill();
+
+        oCanvas.onmousemove = function (ev) {
+            var x2 = ev.pageX - oCanvas.offsetLeft;
+            var y2 = ev.pageY - oCanvas.offsetTop;
+
+            ctx.beginPath();
+            ctx.arc(x2,y2,10,0,Math.PI*2,true);
+            ctx.fillStyle = "blue";
+            ctx.globalCompositeOperation = "destination-out";
+            ctx.fill();
+        }
+
+    }
+    oCanvas.onmouseup = function (ev) {
+        oCanvas.onmousemove = null;
+    }
+</script>
+</body>
+</html>

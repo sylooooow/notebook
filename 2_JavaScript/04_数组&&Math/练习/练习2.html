@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: black;
+				color: white;
+				text-align: center;
+				line-height: 100px;
+				font-size: 40px;
+			}
+			
+			button {
+				width: 100px;
+				height: 30px;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box"></div>
+		<button id="btn">停止</button>
+
+		<script type="text/javascript">
+			var i = 0;
+			var control = true;
+			var timer = null;
+			var box = document.getElementById("box");
+			var btn = document.getElementById("btn");
+			timer = setInterval(function() {
+				i++;
+				box.innerHTML = i;
+			}, 500)
+			btn.onclick = function() {
+				if(control == true) {
+					clearInterval(timer);
+					btn.innerHTML = "继续";
+					control = false;
+				} else {
+					clearInterval(timer);
+					timer = setInterval(function() {
+						i++;
+						box.innerHTML = i;
+					}, 500)
+					btn.innerHTML = "停止";
+					control = true;
+				}
+			}
+		</script>
+	</body>
+
+</html>

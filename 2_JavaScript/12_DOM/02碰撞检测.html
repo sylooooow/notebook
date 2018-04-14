@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				width: 1000px;
+				height: 500px;
+				border: 5px solid black;
+				position: relative;
+				margin: 0 auto;
+			}
+			
+			#box {
+				width: 50px;
+				height: 50px;
+				background-color: pink;
+				border-radius: 25px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all">
+			<div id="box"></div>
+		</div>
+
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			var oBox = document.getElementById("box");
+			var maxW = oAll.clientWidth - oBox.offsetWidth;
+			var maxH = oAll.clientHeight - oBox.offsetHeight;
+			var iTargetX = maxW;
+			var iTargetY = maxH;
+			var speedX = 10;
+			var speedY = 10;
+			easeMove(oBox, iTargetX, iTargetY, 10, 10, "left", "top");
+
+			function easeMove(obj, iTargetX, iTargetY, speedX, speedY, attr1, attr2) {
+				var attrValue1 = parseInt(getStyle(obj, attr1));
+				var attrValue2 = parseInt(getStyle(obj, attr2));
+				var timer = setInterval(function() {
+					if(Math.abs(iTargetX - attrValue1) < Math.abs(speedX)) {
+						oBox.style[attr1] = iTargetX + "px";
+						speedX *= -1;
+						iTargetX = speedX > 0 ? maxW : 0;
+					} else {
+						oBox.style[attr1] = attrValue1 + speedX + "px";
+					}
+					if(Math.abs(iTargetY - attrValue2) < Math.abs(speedY)) {
+						oBox.style[attr2] = iTargetY + "px";
+						speedY *= -1;
+						iTargetY = speedY > 0 ? maxH : 0;
+					} else {
+						oBox.style[attr2] = attrValue2 + speedY + "px";
+					}
+
+				}, 20);
+				console.log(attrValue1,attrValue2)
+			}
+
+			function getStyle(obj, attr) {
+				if(obj.currentStyle) {
+					return obj.currentStyle[attr];
+				} else {
+					//					console.log(getComputedStyle(obj)[attr])
+					return getComputedStyle(obj)[attr];
+				}
+			}
+		</script>
+	</body>
+
+</html>

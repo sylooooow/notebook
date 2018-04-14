@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function abc(n) {
+				return n++;
+			}
+			console.log(abc(1));
+			console.log(abc); //返回整个函数
+			var a = abc;
+			console.log(a); //返回函数abc
+			console.log(a(2));
+			
+			function xyz(x) {
+				console.log("123");
+				console.log(x);
+			}
+			xyz();  //当调用函数不传参时，x为undefined
+			xyz(1);
+	        
+	        function aaa(x,fn) {
+	        	    console.log(x);
+	        	    fn();
+	        	    console.log(x + "🐒");
+	        }
+	        aaa("刘玉红",function () {
+	        	    console.log("无嫌疑");
+	        });
+	        
+	        function bbb(n,fn) {
+	        	    console.log(n);
+	        	    if (fn) {
+	        	    	   fn();
+	        	    }
+	        	    console.log(n + "😀");
+	        }
+	        bbb("陈晓楠",function() {
+	        	    bbb("大哥");
+	        })
+		</script>
+	</body>
+</html>

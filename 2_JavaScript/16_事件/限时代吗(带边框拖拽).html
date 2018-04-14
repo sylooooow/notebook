@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				width: 800px;
+				height: 400px;
+				border: 5px solid black;
+				position: relative;
+				left: 50%;
+				margin-left: -400px;
+			}
+			
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div id="box"></div>
+		</div>
+		<script type="text/javascript">
+			var oWrap = document.getElementById("wrap");
+			var oBox = document.getElementById("box");
+			var maxL = oWrap.clientWidth - oBox.offsetWidth;
+			var maxT = oWrap.clientHeight - oBox.offsetHeight;
+			oBox.onmousedown = function(ev) {
+				var ev = ev || window.event;
+				var lessX = ev.pageX - oBox.offsetLeft;
+				var lessY = ev.pageY - oBox.offsetTop;
+				document.onmousemove = function(ev) {
+					var ev = ev || window.event;
+					var posL = ev.pageX - lessX;
+					var posT = ev.pageY - lessY;
+					if (posL < 0) {
+						posL = 0;
+					}
+					if (posL > maxL) {
+						posL = maxL;
+					}
+					if (posT < 0) {
+						posT = 0;
+					}
+					if (posT > maxT) {
+						posT = maxT;
+					}
+					oBox.style.left = posL + "px";
+					oBox.style.top = posT + "px";
+					
+				}
+			}
+			document.onmouseup = function() {
+				document.onmousemove = null;
+			}
+		</script>
+	</body>
+
+</html>

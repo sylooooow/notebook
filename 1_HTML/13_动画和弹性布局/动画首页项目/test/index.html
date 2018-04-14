@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=2,user-scalable=" />
+		<title></title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box {
+				width: 100%;
+				height: 100%;
+				background: url(img/bg.jpg) no-repeat;
+				background-size: 100% 100%;
+				position: absolute;
+				overflow: hidden;
+				transform-style: preserve-3d;
+				perspective: 1000px;
+			}
+			
+			.box img {
+				position: absolute;
+			}
+			
+			.box img:nth-child(1) {
+				bottom: 15px;
+				left: 45%;
+				animation: bottom 0.7s ease-in-out infinite;
+			}
+			
+			@-webkit-keyframes bottom {
+				50% {
+					transform: translateY(-26px);
+				}
+			}
+			
+			.box img:nth-child(2) {
+				bottom: 15px;
+				right: 15px;
+				animation: music 1700s linear infinite;
+			}
+			
+			@-webkit-keyframes music {
+				80% {
+					transform: rotateZ(360000deg);
+				}
+			}
+			
+			.box img:nth-child(3) {
+				top: 200px;
+				right: -100px;
+				animation: liuxing1 2s 4;
+			}
+			
+			@-webkit-keyframes liuxing1 {
+				to {
+					width: 35%;
+					transform: translate(-500px, -200px);
+				}
+			}
+			
+			.box img:nth-child(4) {
+				bottom: 300px;
+				right: -200px;
+				animation: liuxing2 2s 0.5s ease 4;
+			}
+			
+			@-webkit-keyframes liuxing2 {
+				100% {
+					width: 50%;
+					transform: translate(-700px, 150px);
+				}
+			}
+			
+			.box img:nth-child(5) {
+				left: -200px;
+				top: 90px;
+				animation: red 1s 1.6s ease-out;
+				animation-fill-mode: forwards;
+			}
+			
+			@-webkit-keyframes red {
+				to {
+					transform: translateX(290px);
+				}
+			}
+			
+			.box img:nth-child(6) {
+				right: 65px;
+				top: -250px;
+				animation: blue 1.2s 1.5s forwards;
+			}
+			
+			@-webkit-keyframes blue {
+				to {
+					transform: translateY(340px);
+				}
+			}
+			
+			.box img:nth-child(7) {
+				left: 93px;
+				bottom: -150px;
+				animation: yellow 1.2s 1.5s forwards;
+			}
+			
+			@-webkit-keyframes yellow {
+				to {
+					transform: translateY(-460px);
+				}
+			}
+			
+			.box img:nth-child(8) {
+				left: 210px;
+				top: 35px;
+				opacity: 0;
+				animation: left_gray 1.5s 1.7s forwards;
+			}
+			@-webkit-keyframes left_gray{
+				to{
+					transform: translate(-75px, 100px);
+					opacity: 1;
+				}
+			}
+			
+			.box img:nth-child(9) {
+				top: -250px;
+				left: 177px;
+				animation: green 1.3s 1.7s forwards;
+			}
+			@-webkit-keyframes green{
+				to{
+					transform: translateY(340px);
+				}
+			}
+			
+			.box img:nth-child(10) {
+				top: -300px;
+				left: 234px;
+				animation: right_gray 1.35s 1.7s forwards;
+			}
+			@-webkit-keyframes right_gray{
+				to{
+					transform: translate(-30px, 390px);
+				}
+			}
+			.box img:nth-child(11) {
+				left: 160px;
+				top: 90px;
+				opacity: 0;
+				animation: left_blue 1s 1.7s forwards;
+			}
+			@-webkit-keyframes left_blue{
+				to{
+					transform: translate(-70px, 90px);
+					opacity: 1;
+				}
+			}
+			.box img:nth-child(12) {
+				left: 200px;
+				top: 100px;
+				opacity: 0;
+				animation: little_red 1s 1.7s forwards;
+			}
+			@-webkit-keyframes little_red{
+				to{
+					transform: translate(-54px, 90px);
+					opacity: 1;
+				}
+			}
+			.box img:nth-child(13) {
+				left: 100px;
+				top: 190px;
+				opacity: 0;
+				animation: word_D 1.5s 2s forwards;
+			}
+			@-webkit-keyframes word_D{
+				from{
+					transform: translateZ(300px);
+				}
+				to{
+					transform: translateZ(0);
+					opacity: 1;
+				}
+			}
+			.box img:nth-child(14) {
+				left: 135px;
+				top: 175px;
+				opacity: 0;
+				animation: word_RM 2.5s 2s forwards;
+			}
+			@-webkit-keyframes word_RM{
+				from{
+					transform: translateZ(800px);
+				}
+				to{
+					transform: translateZ(0);
+					opacity: 1;
+				}
+			}
+			.box img:nth-child(15) {
+				left: 172px;
+				top: 175px;
+				opacity: 0;
+				animation: word_E 2.6s 2.05s forwards;
+			}
+			@-webkit-keyframes word_E{
+				from{
+					transform: translateZ(800px);
+				}
+				to{
+					transform: translateZ(0);
+					opacity: 1;
+				}
+			}
+			.box img:nth-child(16) {
+				left: 150px;
+				top: 310px;
+				opacity: 0;
+				animation: maker 2.7s 2.1s forwards;
+			}
+			@-webkit-keyframes maker{
+				from{
+					transform: translateZ(800px);
+				}
+				to{
+					transform: translateZ(0);
+					opacity: 1;
+				}
+			}
+			.box img:nth-child(17) {
+				width: 120px;
+				height: 15px;
+				left: 50%;
+				top: 65%;
+				margin-left: -60px;
+				opacity: 0;
+				animation: title1 1.2s 2s forwards;
+			}
+			@-webkit-keyframes title1{
+				from{
+					transform: translateZ(-800px);
+				}
+				to{
+					transform: translateZ(0);
+					opacity: 1;
+				}
+			}
+			.box img:nth-child(18) {
+				width: 250px;
+				height: 35px;
+				left: 50%;
+				top: 70%;
+				margin-left: -125px;
+				opacity: 0;
+				animation: title2 1.4s 2s forwards;
+			}
+			@-webkit-keyframes title2{
+				from{
+					transform: translateZ(-800px);
+				}
+				to{
+					transform: translateZ(0);
+					opacity: 1;
+				}
+			}
+			.box img:nth-child(19) {
+				left: 20px;
+				top: 350px;
+				opacity: 0;
+				animation: star1 1s 2.5s ease forwards;
+			}
+			@-webkit-keyframes star1{
+				to{
+					transform: translate(70px, 50px);
+					opacity: 1;
+				}
+			}
+			.box img:nth-child(20) {
+				top: 400px;
+				right: 0px;
+				opacity: 0;
+				animation: star2 1.1s 2.5s ease forwards;
+			}
+			@-webkit-keyframes star2{
+				to{
+					transform: translate(-30px, -50px);
+					opacity: 1;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<img src="img/bottom.png" />
+			<img src="img/music.png" width="25px" height="25px" />
+			<img src="img/流星1.png" width="10%" />
+			<img src="img/流星3.png" width="10%" />
+			<img src="img/red.png" width="130px" height="268px" />
+			<img src="img/blue.png" width="220px" />
+			<img src="img/yellow.png" width="216px" height="135px"/>
+			<img src="img/左灰色.png" width="75px" height="160px" />
+			<img src="img/绿色.png" height="230px" width="50px" />
+			<img src="img/right_gray.png" width="24px" height="142px" />
+			<img src="img/二层蓝.png"/ width="45px">
+			<img src="img/二层红点.png" width="20px"/>
+			<img src="img/D.png" width="23px" height="40px"/>
+			<img src="img/RM.png"/ width="174px" height="168px">
+			<img src="img/E.png" width="30px" height="70px"/>
+			<img src="img/maker.png" width="160px" height="33px"/>
+			<img src="img/标题1.png"/>
+			<img src="img/标题2.png"/>
+			<img src="img/star1.png"/>
+			<img src="img/star2.png"/>
+		</div>
+
+	</body>
+
+</html>

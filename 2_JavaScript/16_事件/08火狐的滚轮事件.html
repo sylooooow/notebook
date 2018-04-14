@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			document.addEventListener("DOMMouseScroll",function(ev) {
+				var ev = ev || window.event;
+				console.log(ev.detail);
+				if (ev.detail > 0) {
+					console.log("向下滚");
+				} else{
+					console.log("向上滚");
+				}
+			},false)
+			//判断浏览器：
+			var isFirefox = window.navigator.userAgent.indexOf("Firefox");
+			console.log(isFirefox); //如果输出值为-1说明是非火狐浏览器，否则为火狐浏览器
+		</script>
+	</body>
+</html>

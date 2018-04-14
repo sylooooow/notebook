@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a = 1;
+			var b = 5; 
+			var c = 9;
+			var sum1 = "";
+			var sum2 = "";
+			var sum3 = "";
+//			if (a > b && a > c) {
+//				console.log("最大值为a");
+//			} else if (b > a && b > c) {
+//				console.log("最大值为b");
+//			} else if (c > a && c > b) {
+//				console.log("最大值为c");
+//			} 
+//			
+//			if (a < b && a < c) {
+//				console.log("最小值为a");
+//			} else if (b < a && b <c) {
+//				console.log("最小值为b");
+//			} else if (c < b && c < a) {
+//				console.log("最小值为c");
+//			}
+//			
+//			if ((a > b && a < c) || (a > c && a < b)) {
+//				console.log("中间值为a");
+//			} else if ((b > a && b < c) || (b > c && b < a)) {
+//				console.log("中间值为b");
+//			} else if ((c > b && c < a) || (c > a && c < b)) {
+//				console.log("中间值为c");
+//			}
+				
+			
+			sum1 = a > b && a > c ? "a" + ":" + a : "";
+			sum2 = b > a && b > c ? "b" + ":" + b : "";
+			sum3 = c > a && c > b ? "c" + ":" + c : "";
+	        console.log("最大值为" + sum1 + sum2 + sum3);
+	        
+	        sum1 = a < b && a < c ? "a" + ":" + a : "";
+			sum2 = b < a && b < c ? "b" + ":" + b : "";
+			sum3 = c < b && c < a ? "c" + ":" + c : "";
+	        console.log("最小值为" + sum1 + sum2 + sum3);
+	        
+	        sum1 = (a > b && a < c) || (a > c && a < b) ? "a" + ":" + a : "";
+			sum2 = (b > a && b < c) || (b > c && b < a) ? "b" + ":" + b : "";
+			sum3 = (c > b && c < a) || (c > a && c < b) ? "c" + ":" + c : "";
+	        console.log("中间值为" + sum1 + sum2 + sum3);
+		</script>
+	</body>
+</html>

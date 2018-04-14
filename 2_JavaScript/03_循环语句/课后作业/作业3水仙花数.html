@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		    var sum = 0;
+			for (var num = 100; num < 1000; num++) {
+				var a = parseInt(num / 100);  //百位
+				var b = parseInt(num % 100 / 10); //十位
+				var c = parseInt(num % 10);  //个位
+				if ((a * a * a + b * b * b + c * c * c) == num) {
+					console.log(num);
+					sum++;
+				}
+			}
+			console.log("一共有" + sum + "个水仙花数");
+		</script>
+	</body>
+</html>

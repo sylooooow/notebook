@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        .tagBall {
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+            position: relative;
+        }
+        .tag {
+            display: block;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            color: #000;
+            text-decoration: none;
+            font-size: 15px;
+            font-family: "微软雅黑";
+            font-weight: bold;
+            will-change: transform;
+        }
+        .tag:hover {
+            border: 1px solid #666;
+        }
+    </style>
+    <title>3D标签云</title>
+</head>
+<body>
+<div class="tagBall">
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+    <a class="tag" href="#">蓝鸥</a>
+    <a class="tag" href="#">学校</a>
+</div>
+<script>
+    var tagEle = "querySelectorAll" in document ? document.querySelectorAll(".tag") : getClass("tag"),
+        paper = "querySelectorAll" in document ? document.querySelector(".tagBall") : getClass("tagBall")[0];
+        RADIUS = 220,
+        fallLength = 500,
+        tags = [],
+        angleX = Math.PI / 500,
+        angleY = Math.PI / 500,
+        CX = paper.offsetWidth / 2,
+        CY = paper.offsetHeight / 2,
+        EX = paper.offsetLeft + document.body.scrollLeft + document.documentElement.scrollLeft,
+        EY = paper.offsetTop + document.body.scrollTop + document.documentElement.scrollTop;
+    function getClass(className) {
+        var ele = document.getElementsByTagName("*");
+        var classEle = [];
+        for (var i = 0; i < ele.length; i++) {
+            var cn = ele[i].className;
+            if (cn === className) {
+                classEle.push(ele[i]);
+            }
+        }
+        return classEle;
+    }
+
+    /*用于生成球面上的点的x,y,z轴的坐标。用到的就是简单的球面方程：已知半径r和球心，一般为了方便，我们都以坐标轴原点为球心，有下面三个方程
+
+    x=r*sinθ*cosΦ   y=r*sinθ*sinΦ   z=r*cosθ;
+
+    也就是说，我们可以对θ和Φ取随机数，来获得圆上的随机点坐标。但仅此还不够，因为如果要做3D标签云，一个很重要点的就是平均分布。如果单纯的取随机坐标，会导致一些标签重叠，相对来说就没那么美观了。所以我们引入第二个公式：
+
+θ = arccos( ((2*num)-1)/all - 1);
+
+    Φ = θ*sqrt(all * π);
+
+    num是当前第几个点，all则是点的总数。这个公式的是我在别人的代码里找到的，我也不懂原理。不过确实好用。*/
+    function innit() {
+        for (var i = 0; i < tagEle.length; i++) {
+            var a, b;
+            var k = -1 + (2 * (i + 1) - 1) / tagEle.length;
+            var a = Math.acos(k);
+            var b = a * Math.sqrt(tagEle.length * Math.PI);
+            var x = RADIUS * Math.sin(a) * Math.cos(b);
+            var y = RADIUS * Math.sin(a) * Math.sin(b);
+            var z = RADIUS * Math.cos(a);
+            var t = new tag(tagEle[i], x, y, z);
+            tagEle[i].style.color = "rgb(" + parseInt(Math.random() * 255) + "," + parseInt(Math.random() * 255) + "," + parseInt(Math.random() * 255) + ")";
+            tags.push(t);
+            t.move();
+        }
+    }
+    Array.prototype.forEach = function(callback) {
+        for (var i = 0; i < this.length; i++) {
+            callback.call(this[i]);
+        }
+    }
+    function animate() {
+        rotateX();
+        rotateY();
+        tags.forEach(function() {
+            this.move();
+        });
+        requestAnimationFrame(animate);
+    }
+
+    //用鼠标事件来控制
+    if ("addEventListener" in window) {
+        paper.addEventListener("mousemove", function(event) {
+            var x = event.clientX - EX - CX;
+            var y = event.clientY - EY - CY;
+            angleY = x * 0.0001;
+            angleX = y * 0.0001;
+        });
+    }
+    else {
+        paper.attachEvent("onmousemove", function(event) {
+            var x = event.clientX - EX - CX;
+            var y = event.clientY - EY - CY;
+            angleY = x * 0.0001;
+            angleX = y * 0.0001;
+        });
+    }
+
+    //然后，我们就可以写出两个函数，一个是绕X轴旋转，一个是绕Y轴旋转。
+    //可以通过控制angleX和angleY两个角度的值来控制标签云的旋转方向以及旋转速度，角度的正负值控制旋转方向，大小控制旋转速度。
+    function rotateX() {
+        var cos = Math.cos(angleX);
+        var sin = Math.sin(angleX);
+        tags.forEach(function() {
+            var y1 = this.y * cos - this.z * sin;
+            var z1 = this.z * cos + this.y * sin;
+            this.y = y1;
+            this.z = z1;
+        })
+    }
+    function rotateY() {
+        var cos = Math.cos(angleY);
+        var sin = Math.sin(angleY);
+        tags.forEach(function() {
+            var x1 = this.x * cos - this.z * sin;
+            var z1 = this.z * cos + this.x * sin;
+            this.x = x1;
+            this.z = z1;
+        })
+    }
+
+
+    var tag = function(ele, x, y, z) {
+        this.ele = ele;
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+    tag.prototype = {
+        move: function() {
+            //获得球面上所需要的平均分布的点。然后再对每个标签进行操作
+            //fallLength是焦距，也就是一个常量，scale和alpha都是要根据z轴来调整的比例。
+            var scale = fallLength / (fallLength - this.z);
+            var alpha = (this.z + RADIUS) / (2 * RADIUS);
+            var left = this.x + CX - this.ele.offsetWidth / 2 + "px";
+            var top = this.y + CY - this.ele.offsetHeight / 2 + "px";
+            var transform = 'translate(' + left + ', ' + top + ') scale(' + scale + ')';
+            this.ele.style.opacity = alpha + 0.5;
+            this.ele.style.zIndex = parseInt(scale * 100);
+            this.ele.style.transform = transform;
+            this.ele.style.webkitTransform = transform;
+        }
+    }
+    innit();
+    animate();
+</script>
+</body>
+</html>

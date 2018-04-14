@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				padding: 50px;
+				overflow: hidden;
+			}
+			
+			#min,
+			#max {
+				float: left;
+				width: 350px;
+				height: 350px;
+				position: relative;
+				margin-right: 20px;
+				border: 1px solid black;
+				overflow: hidden;
+			}
+			
+			#mask {
+				width: 100px;
+				height: 100px;
+				background-color: lightgray;
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0.8;
+				display: none;
+			}
+			
+			#max {
+				display: none;
+				overflow: hidden;
+			}
+			
+			#max img {
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all">
+			<div id="min">
+				<img src="img/min.jpg" />
+				<div id="mask"></div>
+			</div>
+			<div id="max">
+				<img src="img/max.jpg" id="maxImg" />
+			</div>
+		</div>
+		<script src="jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#min").mouseover(function() {
+				$("#mask").css("display", "block");
+				$("#max").css("display", "block");
+			});
+
+			$("#min").mouseout(function() {
+				$("#mask").css("display", "none");
+				$("#max").css("display", "none");
+			});
+
+			$("#min").mousemove(function(ev) {
+				var ev = ev || window.event;
+				var maxL = $("#min").innerWidth() - $("#mask").outerWidth();
+				var maxT = $("#min").innerHeight() - $("#mask").outerHeight();
+				//获取鼠标相对min的位置
+				var mouseX = ev.pageX - $("#min").position().left;
+				var mouseY = ev.pageY - $("#min").position().top;
+				//蒙版的位置
+				var maskL = mouseX - $("#mask").outerWidth() / 2;
+				var maskT = mouseY - $("#mask").outerHeight() / 2;
+				//蒙版临界值判断
+				if(maskL < 0) {
+					maskL = 0;
+				}
+				if(maskL > maxL) {
+					maskL = maxL;
+				}
+				if(maskT < 0) {
+					maskT = 0;
+				}
+				if(maskT > maxT) {
+					maskT = maxT;
+				}
+				$("#mask").css("top", maskT + "px");
+				$("#mask").css("left", maskL + "px")
+
+				//比例系数
+				var ratioX = maskL / maxL;
+				var ratioY = maskT / maxT;
+
+				//放大图片的位置
+				$("#maxImg").css("left", ($("#max").innerWidth() - $("#maxImg").outerWidth()) * ratioX + "px");
+				$("#maxImg").css("top", ($("#max").innerHeight() - $("#maxImg").outerHeight()) * ratioY + "px");
+			});
+		</script>
+
+	</body>
+
+</html>

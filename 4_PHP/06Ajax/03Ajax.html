@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //Ajax 异步的JavaScript和XML，可以进行数据交互，从后台拿数据，或者向后台提交数据
+
+    /*
+    Ajax
+    1.节省用户操作时间，减少不必要的数据请求和加载
+    2.可以在不刷新页面时，发送网络请求，对页面DOM节点进行其他操作
+    3.可以异步加载数据，加载数据过程中，可以进行其他操作
+    */
+
+    //1.创建Ajax对象，相当于打开一个浏览器
+    var xhr = null;
+    if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+    } else {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        //xhr.readyState == 4表示解析完成，服务器已经返回数据
+        if (xhr.readyState == 4) {
+            //xhr.responseText表示服务器返回的数据,为json字符串格式
+            console.log(xhr.responseText);
+
+            //json字符串转json
+            var jsonObj = JSON.parse(xhr.responseText);
+            console.log(jsonObj);  //格式为json对象
+
+            //json转成json字符串
+//          JSON.stringify();
+        }
+    }
+    
+    //请求的接口
+    var url = "02json.php?username=何欣&password=123";
+
+    
+    //参数1：请求方式,get或者post     参数2：请求的URL     参数3：是否异步请求(选择同步无效)
+    xhr.open("get",url,false);
+
+    //发送请求
+    xhr.send();
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div1 {
+				width: 300px;
+				height: 300px;
+				/*线性渐变*/
+				background: -webkit-linear-gradient(left top,red 30%,green 20%,blue); 
+			}
+			.div2 {
+				width: 300px;
+				height: 300px;
+				margin-top: 100px;
+				/*经向渐变*/
+				background: -webkit-radial-gradient(33% 33%,red 20%,yellow 30%,blue 40%); 
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			渐变：
+			1. 线性渐变
+			2. 经向渐变
+		-->
+		<div class="div1"></div>
+		<div class="div2"></div>
+	</body>
+</html>
+<!--
+	注意：
+	     1. 线性渐变最少要有两个颜色，第一个参数可以设置渐变开始的方向，在颜色后可加渐变的长度
+	     2. 惊险渐变前两个参数可以设置圆心的坐标，单位可以是PX、百分比、方向; 也可以在颜色后加渐变的长度
+-->

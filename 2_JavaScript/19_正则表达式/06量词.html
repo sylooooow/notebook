@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str = "klashdoiqklklwue097024971djod10";
+			//1.  + 表示最少一个，最多不限 。相当于[1,]
+			var re1 = /\d+/g;
+//			console.log(str.match(re1));
+			
+			//2.  {n,m} 表示最少n个，最多m个
+			var re2 = /\d{2,5}/g;
+//			console.log(str.match(re2));
+			
+			//3.  {n,} 表示最少n个，最多不限
+			var re3 = /\d{3,}/g;
+//			console.log(str.match(re3));
+			
+			//4.  {n} 表示正好几个
+			var re4 = /\d{2}/g;
+//			console.log(str.match(re4));
+			
+			//5.  * 代表最少0个，最多不限,相当于{0，}
+			var re5 = /\d*/g;
+			var re55 = /(kky)*/g;   //把括号里看成一个整体,如果不加括号则只看 * 前面的那一个
+//			console.log(str.match(re5));
+			
+			//6.  ? 表示最少0个，做多1个。相当于[0,1]
+			var re6 = /(kl)?/g;
+			var re66 = /0?\d+/g;  
+			console.log(str.match(re6));
+			
+			 //练习：匹配QQ号
+			 var str4 = "我的QQ号: 02788712348 077007007";
+			 var str5 = "6787984"
+			 var re8 = /[1-9]\d{0,10}/g;
+			 //下面这样写表示会从头到尾匹配，^头 ，$尾
+			 var re9 = /^[1-9]\d{0,10}$/g; 
+			 console.log(str4.match(re8));
+			 console.log(re9.test(str5));
+		</script>
+	</body>
+</html>

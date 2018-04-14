@@ -1,0 +1,195 @@
+			body {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				position: relative;
+				overflow: visible;
+			}
+			
+			.box_top {
+				width: 60%;
+				height: 500px;
+				margin: 0 auto;
+				border: 2px solid black;
+				border-radius: 1.5em;
+				margin-bottom: 15px;
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			
+			.logo {
+				width: 90%;
+				height: 100px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			
+			.logo .span1,
+			.logo .span2 {
+				font-size: 2.5em;
+				color: #FC940A;
+			}
+			
+			.content {
+				width: 80%;
+				height: 280px;
+			}
+			
+			.content textarea {
+				resize: none;
+				width: 100%;
+				height: 100%;
+				font-size: 1.4em;
+			}
+			
+			.send {
+				width: 90%;
+				height: 100px;
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.send .nav {
+				width: 50%;
+				height: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			
+			.send .nav span {
+				font-size: 2em;
+			}
+			
+			.send .issue {
+				width: 40%;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				flex-direction: row-reverse;
+			}
+			
+			.send .issue button {
+				width: 40%;
+				height: 50%;
+				border-radius: 0.5em;
+				font-size: 1.2em;
+				color: white;
+				background-color: #FB906C;
+				outline: none;
+			}
+			
+			.box_bottom {
+				width: 60%;
+				height: 500px;
+				margin: 0 auto;
+				border-top: 2px solid black;
+				border-left: 2px solid black;
+				border-right: 2px solid black;
+				border-top-left-radius: 1.5em;
+				border-top-right-radius: 1.5em;
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			
+			.box_bottom .message {
+				width: 80%;
+				height: 200px;
+				margin-top: 30px;
+				border-radius: 1.2em;
+				border: 2px solid black;
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			
+			.box_bottom .message .message_top,
+			.box_bottom .message .message_content,
+			.box_bottom .message .message_bottom {
+				width: 95%;
+				margin-top: 5px;
+			}
+			
+			.box_bottom .message .message_top {
+				height: 20%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 1.2em;
+			}
+			.box_bottom .message .message_top span:nth-child(2){
+				cursor: pointer;
+			}
+			
+			.box_bottom .message .message_content {
+				height: 50%;
+				font-size: 1.4em;
+			}
+			
+			.box_bottom .message .message_bottom {
+				height: 20%;
+				font-size: 1.2em;
+				display: flex;
+				align-items: center;
+			}
+			/*end of main*/
+			
+			.cover1 {
+				width: 500px;
+				height: 250px;
+				background-color: orange;
+				border-radius: 1em;
+				position: absolute;
+				top: 30%;
+				left: 50%;
+				margin-left: -250px;
+				display: none;
+			}
+			
+			.cover1 span {
+				font-size: 1.2em;
+				position: absolute;
+				top: 10px;
+				right: 15px;
+				color: white;
+			}
+			
+			.cover2 {
+				width: 500px;
+				height: 250px;
+				background-color: blue;
+				border-radius: 1em;
+				position: absolute;
+				top: 30%;
+				left: 50%;
+				margin-left: -250px;
+				display: none;
+			}
+
+			#count2 {
+				font-size: 1.2em;
+				position: absolute;
+				top: 10px;
+				right: 15px;
+				color: white;
+			}
+			.fabu {
+				position: absolute;
+				left: 5px;
+				top: 5px;
+				color: white;
+			}
+			.successSpan { 
+				text-align: center;
+				width: 400px;
+				height: 30px;
+				font-size: 20px;
+				position: absolute;
+				left: 0;
+				top: 100px;
+				color: white;
+			}

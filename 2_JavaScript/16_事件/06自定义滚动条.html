@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				width: 500px;
+				height: 50px;
+				border-radius: 25px;
+				background-color: lightblue;
+				position: relative;
+				left: 50%;
+				margin-left: -250px;
+			}
+			
+			#box {
+				width: 50px;
+				height: 50px;
+				border-radius: 25px;
+				background-color: black;
+				position: absolute;
+			}
+			
+			#div {
+				position: relative;
+				width: 100px;
+				height: 200px;
+				border: 1px solid black;
+				/*overflow: hidden;*/
+			}
+			
+			#text {
+				position: absolute;
+				background-color: lightblue;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div id="box"></div>
+		</div>
+		<div id="div">
+			<div id="text">1张家辉，1967年12月2日出生于香港，祖籍广东，中国香港男演员、导演。 1989年在电影《壮志雄心》中出演少年警校学员，开始其演员生涯。1995年签约无线电视。1998年参演电影《赌侠1999》，获第18届香港电影金像奖最佳男配角提名。2003年12月8日与关咏荷在澳大利亚结婚。2004年出演杜琪峰导演的《大事件》。2008年，张家辉与谢霆锋、张静初合作主演《证人》，凭借该片张家辉荣获第53届亚太影展最佳男主角、第28届香港电影金像奖最佳男主角以及第46届金马奖最佳男主角。2010年，出演林超贤执导的警匪片《线人》。2012年，在《大追捕》中饰“王远阳”，获得第49届金马奖最佳男主角提名、第32届香港电影金像奖最佳男主角提名。2013年，出演《激战》获第33届香港电影金像奖最佳男主角、第16届上海国际电影节最佳男演员奖、第10届华鼎奖中国最佳电影男演员奖。 2015年2月19日，与周润发出演电影《澳门风云2》上映[1] 。4月30日，主演的电影《赤道》全国公映[2]
+			</div>
+		</div>
+		<script type="text/javascript">
+			var oWrap = document.getElementById("wrap");
+			var oBox = document.getElementById("box");
+			var oDiv = document.getElementById("div");
+			var oText = document.getElementById("text");
+			var maxL = oWrap.clientWidth - oBox.offsetWidth;
+			var maxT = oWrap.clientHeight - oBox.offsetHeight;
+			oBox.onmousedown = function(ev) {
+				var ev = ev || window.event;
+				var lessX = ev.pageX - oBox.offsetLeft;
+				var lessY = ev.pageY - oBox.offsetTop;
+				document.onmousemove = function(ev) {
+					var ev = ev || window.event;
+					var posL = ev.pageX - lessX;
+					var posT = ev.pageY - lessY;
+
+					if(posL < 0) {
+						posL = 0;
+					}
+					if(posL > maxL) {
+						posL = maxL
+					}
+					if(posT < 0) {
+						posT = 0;
+					}
+					if(posT > maxT) {
+						posT = maxT;
+					}
+
+					oBox.style.left = posL + "px";
+					oBox.style.top = posT + "px";
+
+					var ratio = posL / maxL;
+					console.log(ratio)
+					oText.style.top = (oDiv.clientHeight - oText.offsetHeight) * ratio + "px";
+					console.log(oText.style.top)
+				}
+			}
+			document.onmouseup = function() {
+				document.onmousemove = null;
+			}
+		</script>
+	</body>
+
+</html>

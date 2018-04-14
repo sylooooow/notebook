@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="text" name="num" id="num" value="" />
+		<button id="button">查看</button><br />
+		<input type="text" name="" id="jieguo" value="" />
+	</body>
+	<script type="text/javascript">
+		//判断奇偶数
+		var Button = document.getElementById("button");
+		var num = document.getElementById("num");
+		var jieguo = document.getElementById("jieguo");
+		Button.onclick = function(){
+
+			if(parseInt(num.value) % 2 == 0) {
+				jieguo.value = "偶数";
+			} else {
+				jieguo.value = "奇数";
+			}
+		}
+	</script>
+
+</html>

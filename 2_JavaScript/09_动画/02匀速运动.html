@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: lightblue;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all"></div>
+
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			var theLeft = 0;
+			//每次匀速运动1px
+			var speed = 1;
+			/*			var timer = setInterval(function() {
+							if (oAll.offsetLeft >= 800) {
+								clearInterval(timer);
+							} else {
+								oAll.style.left = oAll.offsetLeft + speed + "px";
+							}
+						},10)
+			*/
+
+			var speed = 3;
+			var timer = setInterval(function() {
+				move(7, 800, oAll);
+			}, 20);
+
+			//封装一个从左到右匀速运动的函数
+			function move(speed, max, ele) {
+				if(max - oAll.offsetLeft <= speed) {
+					ele.style.left = max + "px";
+					clearInterval(timer);
+				} else {
+					ele.style.left = ele.offsetLeft + speed + "px";
+				}
+			}
+		</script>
+	</body>
+
+</html>

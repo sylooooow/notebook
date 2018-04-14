@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		body {
+				background-color: #FFFFFF;
+				padding: 0;
+				margin: 0;
+			}
+			
+			.top {
+				width: 100%;
+				height: 40px;
+				background-color: #343434;
+			}
+			.nav2 {
+				width: 100%;
+				height: 45px;
+				background-color: #262626;
+				position: absolute;
+				top: 40px;
+				visibility: hidden;
+			}
+			.aaa {
+				width: 96%;
+				height: 100%;
+				margin: 0 auto;
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+			
+			@media only screen and (min-width:1069px) {
+				.nav {
+					width: 100%;
+					height: 45px;
+					background-color: #262626;
+					text-align: center;
+				}
+				.nav a {
+					text-decoration: none;
+					color: #FFFFFF;
+					font-size: 13px;
+					margin-right: 87px;
+					font-weight: lighter;
+					line-height: 45px;
+				}
+				.nav a:hover {
+					color: #ccc;
+				}
+				.box1,
+				.box2 {
+					width: 100%;
+					height: 695px;
+					margin-bottom: 15px;
+				}
+				.box3,
+				.box4,
+				.box5 {
+					width: 100%;
+					height: 580px;
+					margin-bottom: 15px;
+				}
+				.box1 {
+					background-color: #F9F9F9;
+					position: relative;
+				}
+				.box1 img {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					margin-left: -490px;
+				}
+				.box1 span:nth-child(1) {
+					font-size: 50px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 20%;
+					margin-left: -100px;
+				}
+				.box1 span:nth-child(2) {
+					font-size: 25px;
+					position: absolute;
+					left: 50%;
+					top: 30%;
+					margin-left: -60px;
+				}
+				.box2 {
+					background-color: #F7ECE6;
+					position: relative;
+				}
+				.box2 img {
+					position: absolute;
+					left: 50%;
+					margin-left: -337px;
+					bottom: 0;
+				}
+				.box2 span:nth-child(1) {
+					font-size: 50px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -100px;
+				}
+				.box2 span:nth-child(2) {
+					font-size: 25px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -90px;
+				}
+				.box3 {
+					overflow: hidden;
+				}
+				.watch img {
+					position: absolute;
+					left: 50%;
+					margin-left: -293px;
+					top: 35%;
+				}
+				.watch span:nth-child(1) {
+					font-size: 40px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -76px;
+				}
+				.watch span:nth-child(2) {
+					font-size: 20px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -74px;
+				}
+				.airPods img {
+					position: absolute;
+					left: 50%;
+					margin-left: -192px;
+					top: 35%;
+				}
+				.airPods span:nth-child(1) {
+					font-size: 40px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -76px;
+				}
+				.airPods span:nth-child(2) {
+					font-size: 20px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -140px;
+				}
+				.iPad img {
+					position: absolute;
+					left: 50%;
+					margin-left: -255px;
+					top: 50%;
+				}
+				.iPad span:nth-child(1) {
+					font-size: 40px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -76px;
+				}
+				.iPad span:nth-child(2) {
+					font-size: 20px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -115px;
+				}
+				.iMac img {
+					position: absolute;
+					left: 50%;
+					margin-left: -225px;
+					bottom: 0;
+				}
+				.iMac span {
+					z-index: 5;
+				}
+				.iMac span:nth-child(1) {
+					font-size: 40px;
+					color: white;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -76px;
+				}
+				.iMac span:nth-child(2) {
+					font-size: 20px;
+					color: white;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -45px;
+				}
+				.peijian img {
+					position: absolute;
+					left: 50%;
+					margin-left: -330px;
+					bottom: 0;
+				}
+				.peijian span:nth-child(1) {
+					font-size: 40px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -190px;
+				}
+				.peijian span:nth-child(2) {
+					font-size: 20px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -45px;
+				}
+				.intro img {
+					position: absolute;
+					left: 50%;
+					margin-left: -66px;
+					top: 46%;
+				}
+				.intro span:nth-child(1) {
+					font-size: 40px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -190px;
+				}
+				.intro span:nth-child(2) {
+					font-size: 40px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -45px;
+				}
+				.watch,
+				.airPods,
+				.iPad,
+				.iMac,
+				.peijian,
+				.intro {
+					width: 48.5%;
+					height: 100%;
+					float: left;
+					margin-left: 1%;
+					background-color: #F9F9F9;
+					position: relative;
+					overflow: hidden;
+				}
+				.footer {
+					width: 100%;
+					height: 412px;
+					background-color: #EFEFEF;
+				}
+			}
+			
+			@media only screen and (min-width:768px) and (max-width:1068px) {
+				.nav {
+					width: 100%;
+					height: 45px;
+					background-color: #262626;
+					text-align: center;
+					display: flex;
+					align-items: center;
+					justify-content: space-around;
+				}
+				.nav a {
+					text-decoration: none;
+					color: #FFFFFF;
+					font-size: 13px;
+					font-weight: lighter;
+				}
+				.nav a:hover {
+					color: #ccc;
+				}
+				.box1,
+				.box2 {
+					width: 100%;
+					height: 650px;
+					margin-bottom: 15px;
+				}
+				.box3,
+				.box4,
+				.box5 {
+					width: 100%;
+					height: 490px;
+					margin-bottom: 15px;
+				}
+				.box1 {
+					background-color: #F9F9F9;
+					position: relative;
+				}
+				.box1 img {
+					src: url(img/iphone_x_mediumtall.jpg);
+					width: 704px;
+					height: 148px;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					margin-left: -352px;
+				}
+				.box1 span:nth-child(1) {
+					font-size: 40px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 20%;
+					margin-left: -80px;
+				}
+				.box1 span:nth-child(2) {
+					font-size: 20px;
+					position: absolute;
+					left: 50%;
+					top: 30%;
+					margin-left: -50px;
+				}
+				.box2 {
+					background-color: #F7ECE6;
+					position: relative;
+				}
+				.box2 img {
+					src: url(img/iphone_8_mediumtall.jpg);
+					width: 575px;
+					height: 434px;
+					position: absolute;
+					left: 50%;
+					margin-left: -287px;
+					bottom: 0;
+				}
+				.box2 span:nth-child(1) {
+					font-size: 40px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -77px;
+				}
+				.box2 span:nth-child(2) {
+					font-size: 20px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -70px;
+				}
+				.box3 {
+					overflow: hidden;
+				}
+				.watch {
+					background: url(img/watch_medium.jpg) no-repeat center 80%;
+					background-size: 288px 322px;
+				}
+				.watch img {
+					visibility: hidden;
+				}
+				.watch span:nth-child(1) {
+					font-size: 35px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -68px;
+				}
+				.watch span:nth-child(2) {
+					font-size: 15px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -56px;
+				}
+				.airPods {
+					background: url(img/airpods_medium.jpg) no-repeat center 75%;
+					background-size: 269px 212px;
+				}
+				.airPods img {
+					visibility: hidden;
+				}
+				.airPods span:nth-child(1) {
+					font-size: 35px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -68px;
+				}
+				.airPods span:nth-child(2) {
+					font-size: 15px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -102px;
+				}
+				.iPad {
+					background: url(img/ipad_pro_medium.jpg) no-repeat center 75%;
+					background-size: 318px 91px;
+				}
+				.iPad img {
+					visibility: hidden;
+				}
+				.iPad span:nth-child(1) {
+					font-size: 30px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -62px;
+				}
+				.iPad span:nth-child(2) {
+					font-size: 15px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -87px;
+				}
+				.iMac {
+					background: url(img/imac_pro_medium.jpg) no-repeat center 100%;
+					background-size: 380px 392px;
+				}
+				.iMac img {
+					visibility: hidden;
+				}
+				.iMac span {
+					z-index: 5;
+				}
+				.iMac span:nth-child(1) {
+					font-size: 35px;
+					color: white;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -76px;
+				}
+				.iMac span:nth-child(2) {
+					font-size: 15px;
+					color: white;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -45px;
+				}
+				.peijian {
+					background: url(img/accessories_medium.jpg) no-repeat center 100%;
+					background-size: 516px 347px;
+				}
+				.peijian img {
+					visibility: hidden;
+				}
+				.peijian span:nth-child(1) {
+					font-size: 35px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -165px;
+				}
+				.peijian span:nth-child(2) {
+					font-size: 15px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -36px;
+				}
+				.intro {
+					background: url(img/customer_letter_medium.png) no-repeat center 72%;
+					background-size: 101px 124px;
+				}
+				.intro img {
+					visibility: hidden;
+				}
+				.intro span:nth-child(1) {
+					font-size: 35px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -180px;
+				}
+				.intro span:nth-child(2) {
+					font-size: 35px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -60px;
+				}
+				.watch,
+				.airPods,
+				.iPad,
+				.iMac,
+				.peijian,
+				.intro {
+					width: 48.5%;
+					height: 100%;
+					float: left;
+					margin-left: 1%;
+					background-color: #F9F9F9;
+					position: relative;
+					overflow: hidden;
+				}
+				.footer {
+					width: 100%;
+					height: 412px;
+					background-color: #EFEFEF;
+				}
+			}
+			
+			@media only screen and (min-width: 736px) and (max-width:767px) {
+				.nav {
+					visibility: hidden;
+				}
+				.nav2 {
+					visibility: visible;
+				}
+				.nav a {
+					text-decoration: none;
+					color: #FFFFFF;
+					font-size: 13px;
+					font-weight: lighter;
+				}
+				.nav a:hover {
+					color: #ccc;
+				}
+				.nav a:nth-child(2),
+				.nav a:nth-child(3),
+				.nav a:nth-child(4),
+				.nav a:nth-child(5),
+				.nav a:nth-child(6),
+				.nav a:nth-child(7) {
+					display:none;
+				}
+				.box1,
+				.box2 {
+					width: 100%;
+					height: 650px;
+					margin-bottom: 15px;
+				}
+				.box3,
+				.box4,
+				.box5 {
+					width: 100%;
+					height: 490px;
+					margin-bottom: 15px;
+				}
+				.box1 {
+					background-color: #F9F9F9;
+					position: relative;
+				}
+				.box1 img {
+					src: url(img/iphone_x_mediumtall.jpg);
+					width: 704px;
+					height: 148px;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					margin-left: -352px;
+				}
+				.box1 span:nth-child(1) {
+					font-size: 40px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 20%;
+					margin-left: -80px;
+				}
+				.box1 span:nth-child(2) {
+					font-size: 20px;
+					position: absolute;
+					left: 50%;
+					top: 30%;
+					margin-left: -50px;
+				}
+				.box2 {
+					background-color: #F7ECE6;
+					position: relative;
+				}
+				.box2 img {
+					src: url(img/iphone_8_mediumtall.jpg);
+					width: 575px;
+					height: 434px;
+					position: absolute;
+					left: 50%;
+					margin-left: -287px;
+					bottom: 0;
+				}
+				.box2 span:nth-child(1) {
+					font-size: 40px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -77px;
+				}
+				.box2 span:nth-child(2) {
+					font-size: 20px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -70px;
+				}
+				.box3 {
+					overflow: hidden;
+				}
+				.watch {
+					background: url(img/watch_medium.jpg) no-repeat center 80%;
+					background-size: 288px 322px;
+				}
+				.watch img {
+					visibility: hidden;
+				}
+				.watch span:nth-child(1) {
+					font-size: 35px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -68px;
+				}
+				.watch span:nth-child(2) {
+					font-size: 15px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -56px;
+				}
+				.airPods {
+					background: url(img/airpods_medium.jpg) no-repeat center 75%;
+					background-size: 269px 212px;
+				}
+				.airPods img {
+					visibility: hidden;
+				}
+				.airPods span:nth-child(1) {
+					font-size: 35px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -68px;
+				}
+				.airPods span:nth-child(2) {
+					font-size: 15px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -102px;
+				}
+				.iPad {
+					background: url(img/ipad_pro_medium.jpg) no-repeat center 75%;
+					background-size: 318px 91px;
+				}
+				.iPad img {
+					visibility: hidden;
+				}
+				.iPad span:nth-child(1) {
+					font-size: 30px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -62px;
+				}
+				.iPad span:nth-child(2) {
+					font-size: 15px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -87px;
+				}
+				.iMac {
+					background: url(img/imac_pro_medium.jpg) no-repeat center 100%;
+					background-size: 380px 392px;
+				}
+				.iMac img {
+					visibility: hidden;
+				}
+				.iMac span {
+					z-index: 5;
+				}
+				.iMac span:nth-child(1) {
+					font-size: 35px;
+					color: white;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -76px;
+				}
+				.iMac span:nth-child(2) {
+					font-size: 15px;
+					color: white;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -45px;
+				}
+				.peijian {
+					background: url(img/accessories_medium.jpg) no-repeat center 100%;
+					background-size: 516px 347px;
+				}
+				.peijian img {
+					visibility: hidden;
+				}
+				.peijian span:nth-child(1) {
+					font-size: 30px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -140px;
+				}
+				.peijian span:nth-child(2) {
+					font-size: 15px;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -36px;
+				}
+				.intro {
+					background: url(img/customer_letter_medium.png) no-repeat center 72%;
+					background-size: 101px 124px;
+				}
+				.intro img {
+					visibility: hidden;
+				}
+				.intro span:nth-child(1) {
+					font-size: 25px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -130px;
+				}
+				.intro span:nth-child(2) {
+					font-size: 25px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 18%;
+					margin-left: -45px;
+				}
+				.watch,
+				.airPods,
+				.iPad,
+				.iMac,
+				.peijian,
+				.intro {
+					width: 48.5%;
+					height: 100%;
+					float: left;
+					margin-left: 1%;
+					background-color: #F9F9F9;
+					position: relative;
+					overflow: hidden;
+				}
+				.footer {
+					width: 100%;
+					height: 412px;
+					background-color: #EFEFEF;
+				}
+			}
+		
+		    @media only screen and (min-width: 400px) and (max-width: 735px){
+		    	    .nav {
+					visibility: hidden;
+				}
+				.nav2 {
+					visibility: visible;
+				}
+				.nav a {
+					text-decoration: none;
+					color: #FFFFFF;
+					font-size: 13px;
+					font-weight: lighter;
+				}
+				.nav a:hover {
+					color: #ccc;
+				}
+				.nav a:nth-child(2),
+				.nav a:nth-child(3),
+				.nav a:nth-child(4),
+				.nav a:nth-child(5),
+				.nav a:nth-child(6),
+				.nav a:nth-child(7) {
+					display:none;
+				}
+				.box1,
+				.box2,
+				.box3,
+				.box4,
+				.box5 {
+					width: 100%;
+					height: 500px;
+					margin-bottom: 15px;
+				}
+	
+				.box1 {
+					position: relative;
+					background: url(img/iphone_x_small.jpg) no-repeat center 80%;
+					background-size: 167px 333px;
+					background-color: #F9F9F9;
+				}
+				.box1 img {
+					visibility: hidden;
+				}
+				.box1 span:nth-child(1) {
+					font-size: 40px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 5%;
+					margin-left: -80px;
+				}
+				.box1 span:nth-child(2) {
+					font-size: 20px;
+					position: absolute;
+					left: 50%;
+					top: 15%;
+					margin-left: -50px;
+				}
+				.box2 {
+					position: relative;
+					background: url(img/iphone_8_small.jpg) no-repeat center 100%;
+					background-size: 267px 357px;
+					background-color: #F7ECE6;
+				}
+				.box2 img {
+					visibility: hidden;
+				}
+				.box2 span:nth-child(1) {
+					font-size: 40px;
+					font-weight: bolder;
+					position: absolute;
+					left: 50%;
+					top: 8%;
+					margin-left: -77px;
+				}
+				.box2 span:nth-child(2) {
+					font-size: 20px;
+					position: absolute;
+					left: 50%;
+					top: 20%;
+					margin-left: -70px;
+				}
+				.box3 {
+					background: url(img/watch_small.jpg) no-repeat center 80%;
+					background-size: 291px 326px;
+					background-color: #F9F9F9;	
+				}
+				.box4 {
+					background: url(img/imac_pro_small.jpg) no-repeat center 100%;
+					background-size: 323px 333px;
+					background-color: #141414;	
+				}
+				.box5 {
+					background: url(img/accessories_small.jpg) no-repeat center 100%;
+					background-size: 736px 361px;
+					background-color: #F9F9F9;	
+				}
+				.watch,
+				.airPods,
+				.iPad,
+				.iMac,
+				.peijian,
+				.intro {
+					visibility: hidden;
+				}
+				.footer {
+					width: 100%;
+					height: 412px;
+					background-color: #EFEFEF;
+				}
+			}
+		    }
+		}
+		</style>
+	</head>
+
+	<body>
+		<div class="top"></div>
+		<div class="nav">
+			<a href="#"><img src="img/apple_small.svg" /></a>
+			<a href="#"><img src="img/mac.svg" /></a>
+			<a href="#"><img src="img/ipad.svg" /></a>
+			<a href="#"><img src="img/iphone.svg" /></a>
+			<a href="#"><img src="img/watch.svg" /></a>
+			<a href="#"><img src="img/music.svg" /></a>
+			<a href="#"><img src="img/jszc.svg" /></a>
+			<a href="#"><img src="img/search_small.svg" /></a>
+			<a href="#"><img src="img/bag_small.svg" /></a>
+		</div>
+		<div class="nav2">
+			<div class="aaa">
+			   <a href="#"><img src="img/left.png" alt="" /></a>
+			   <a href="#"><img src="img/apple_small.svg" alt="" /></a>
+			   <a href="#"><img src="img/bag_small.svg" alt="" /></a>
+			</div>
+		</div>
+		<div class="box1">
+			<span>iPhoneX</span>
+			<span>hello,未来。</span>
+			<img src="img/iphone_x_largetall.jpg" />
+		</div>
+		<div class="box2">
+			<span>iPhone8</span>
+			<span>新一代 iPhone。</span>
+			<img src="img/iphone_8_largetall.jpg" />
+		</div>
+		<div class="box3">
+			<div class="watch">
+				<span>WATCH</span>
+				<span>更自由，更来电。</span>
+				<img src="img/watch_large.jpg" />
+			</div>
+			<div class="airPods">
+				<span>AirPods</span>
+				<span>无线，无繁琐，只有妙不可言。</span>
+				<img src="img/airpods_large.jpg" />
+			</div>
+		</div>
+		<div class="box4">
+			<div class="iPad">
+				<span>iPad Pro</span>
+				<span>不只能做到，还能做更好。</span>
+				<img src="img/ipad_pro_large.jpg" />
+			</div>
+			<div class="iMac" style="background-color: #141414;">
+				<span>iMac Pro</span>
+				<span>现已发售。</span>
+				<img src="img/imac_pro_large.jpg" />
+			</div>
+		</div>
+		<div class="box5">
+			<div class="peijian">
+				<span>多种选择，各种心动。</span>
+				<span>选购配件。</span>
+				<img src="img/accessories_large.jpg" />
+			</div>
+			<div class="intro">
+				<span>关于iPhone电池及性能</span>
+				<span>的说明。</span>
+				<img src="img/customer_letter_large.png" />
+			</div>
+		</div>
+		<div class="footer"></div>
+	</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				margin-bottom: 10px;
+				color: white;
+				line-height: 100px;
+				text-align: center;
+				font-size: 25px;
+				background-color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<script type="text/javascript">
+			var oDivs = document.getElementsByTagName("div");
+			//			for (var i = 0; i < oDivs.length; i++) {
+			//				oDivs[i].index = i;
+			//				oDivs[i].onclick = function() {
+			//					this.innerHTML = this.index;
+			//				}
+			//			}
+			for(var i = 0; i < oDivs.length; i++) {
+				oDivs[i].onclick = (function() {
+					var index = i;
+					return function() {
+						this.innerHTML = index;
+					}
+				})();
+			}
+			
+		</script>
+	</body>
+
+</html>

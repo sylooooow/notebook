@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrap {
+            width: 100%;
+            height: 100%;
+            background: url("img/2B.png");
+            background-size: 100% 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .wrap > img:nth-child(1) {
+            width: 76%;
+        }
+
+        .wrap > img:nth-child(2),
+        .wrap > img:nth-child(3) {
+            width: 26.865671641791%;
+            position: absolute;
+            left: 50%;
+            margin-left: -13.432835820896%;
+        }
+
+        .wrap > img:nth-child(3) {
+            top: 39.5%;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <img src="img/rotate.png" alt="" id="rotate">
+    <img src="img/shadow.png" alt="">
+    <img src="img/start.png" alt="" id="start">
+</div>
+</body>
+
+<script src="jquery-3.2.1.min.js"></script>
+<script src="jquery.rotate.min.js"></script>
+<script>
+    $startBtn = $("#start");
+    $rotateImg = $("#rotate");
+    let timer = null;
+    let rotateFlag = true;
+
+
+    $startBtn.click(function () {
+        $.ajax({
+            url: "/ajax", success: function (result) {
+                clickFunc(result);
+            }
+        });
+    });
+
+    function clickFunc(result) {
+
+        if (result == "0") {
+            alert("该账号抽奖机会已用完!");
+        } else if (result == "3") {
+            alert("该奖品已被抽完!");
+        } else {
+            let award_id = null;
+            if (typeof(result) == "object") {
+                award_id = result["award_id"];
+                console.log(award_id);
+                console.log(result["award_name"]);
+            } else {
+                award_id = Number(result);
+            }
+
+            switch(award_id) {
+                case 1:
+                    rotateFunc(1, 0, '恭喜您获得蓝鸥课程免费学习机会');
+                    break;
+                case 2:
+                    rotateFunc(2, 300, '恭喜您获得苹果电脑一台');
+                    break;
+                case 3:
+                    rotateFunc(3, 240, '恭喜您获得平板电脑一个');
+                    break;
+                case 4:
+                    rotateFunc(4, 120, '恭喜您获得智能手表一个');
+                    break;
+                case 5:
+                    rotateFunc(5, 180, '恭喜您获得苹果耳机一个');
+                    break;
+                case 6:
+                    rotateFunc(6, 60, '恭喜您获得机械键盘一个');
+                    break;
+            }
+        }
+    }
+
+    function rotateFunc(awards, angle, text) {
+        $rotateImg.stopRotate();
+        $rotateImg.rotate({
+            angle: 0,//旋转的角度数
+            duration: 4000, //旋转时间
+            animateTo: angle + 1440, //给定的角度,让它根据得出来的结果加上1440度旋转
+            callback: function() {
+                alert(text);
+                // location.reload(true);
+            }
+        });
+    }
+
+</script>
+</html>

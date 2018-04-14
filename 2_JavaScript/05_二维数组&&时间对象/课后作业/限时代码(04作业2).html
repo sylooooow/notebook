@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [];
+			while (arr.length != 10){
+				var num = Math.floor(Math.random() * (66 - 6 + 1) + 6);
+				var flag = true;
+				for (var i = 0; i < arr.length; i++) {
+					if (arr[i] == num) {
+						flag = false;
+						break;
+					}
+				}
+				if (flag) {
+					arr[arr.length] = num;
+				}
+			}
+			console.log(arr);
+		</script>
+	</body>
+</html>

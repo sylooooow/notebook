@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -250px;
+            margin-top: -250px;
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="500" id="canvas"></canvas>
+<script>
+    var oCanvas = document.getElementById("canvas");
+    var ctx = oCanvas.getContext("2d");
+    var foodPos = null;
+    var snakeLength = 3;
+    var timeSpeed = 100;
+
+    function Snake(w, h) {
+        this.w = w;
+        this.h = h;
+        this.x = -w;
+        this.y = h;
+        this.headColor = "blue";
+        this.bodyColor = "black";
+
+        //保存蛇走过的位置
+        this.bodyPos = [];
+
+        //蛇头方向
+        this.right = true;
+        this.left = false;
+        this.top = false;
+        this.bottom = false;
+    }
+
+    //绘制头部
+    Snake.prototype.drawHead = function () {
+        ctx.beginPath();
+        ctx.fillStyle = this.headColor;
+        ctx.fillRect(this.x, this.y, this.w, this.h);
+    }
+
+    //绘制身体
+    Snake.prototype.drawBody = function () {
+        for (var i = 0; i < this.bodyPos.length; i++) {
+            ctx.beginPath();
+            ctx.fillStyle = this.bodyColor;
+            ctx.fillRect(this.bodyPos[i]["x"], this.bodyPos[i]["y"], this.w, this.h);
+        }
+    }
+
+    //蛇移动 -> 改变x,y的值
+    Snake.prototype.move = function () {
+        if (this.left) {
+            this.x -= this.w;
+        }
+        if (this.right) {
+            this.x += this.w;
+        }
+        if (this.top) {
+            this.y -= this.h;
+        }
+        if (this.bottom) {
+            this.y += this.h;
+        }
+
+        // if (this.x == foodPos.x && this.y == foodPos.y) {
+        //     randomFood();
+        //     snakeLength++;
+        //     this.bodyPos.push(foodPos);
+        //     timeSpeed -= 50;
+        //     if (timeSpeed < 100) {
+        //         timeSpeed = 100;
+        //     }
+        // }
+
+        this.drawHead();
+        this.drawBody();
+        this.savePos();
+    }
+
+
+    //保存走过的位置 -> 保证数组中的长度为3
+    Snake.prototype.savePos = function () {
+        var posJson = {
+            x: this.x,
+            y: this.y
+        }
+        this.bodyPos.push(posJson);
+        if (this.bodyPos.length > snakeLength) {
+            this.bodyPos.shift();
+        }
+    }
+
+    //键盘事件，控制方向
+    document.onkeydown = function (ev) {
+        switch (ev.keyCode) {
+            case 37:
+                if (!snake.right) {
+                    snake.left = true;
+                    snake.right = false;
+                    snake.top = false;
+                    snake.bottom = false;
+                }
+                break;
+            case 38:
+                if (!snake.bottom) {
+                    snake.left = false;
+                    snake.right = false;
+                    snake.top = true;
+                    snake.bottom = false;
+                }
+                break;
+            case 39:
+                if (!snake.left) {
+                    snake.left = false;
+                    snake.right = true;
+                    snake.top = false;
+                    snake.bottom = false;
+                }
+                break;
+            case 40:
+                if (!snake.top) {
+                    snake.left = false;
+                    snake.right = false;
+                    snake.top = false;
+                    snake.bottom = true;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    //随机食物坐标
+    function randomFood() {
+        var flag = true;
+        var posx = 0;
+        var posy = 0;
+        while (flag == true) {
+            posx = getRandom(0, 24) * 20;
+            posy = getRandom(0, 24) * 20;
+            if (snake.bodyPos.length == 0) {
+                flag = false;
+            } else {
+                for (var j = 0; j < snake.bodyPos.length; j++) {
+                    if (!(snake.bodyPos[j].x == posx && snake.bodyPos[j].y == posy)) {
+                        flag = false;
+                    }
+                }
+            }
+        }
+
+        var pos = {
+            x: posx,
+            y: posy
+        };
+        foodPos = pos;
+    }
+
+
+    //生成食物
+    function drawFood() {
+        ctx.beginPath();
+        ctx.fillStyle = "black";
+        ctx.fillRect(foodPos.x,foodPos.y,20,20);
+    }
+
+    //随机数
+    function getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    var snake = new Snake(20, 20);
+    setInterval(function () {
+        ctx.clearRect(0, 0, oCanvas.width, oCanvas.height);
+        drawFood();
+        snake.move();
+
+        if (snake.x == foodPos.x && snake.y == foodPos.y) {
+            snakeLength++;
+            snake.bodyPos.push(foodPos);
+            randomFood();
+
+            timeSpeed -= 50;
+            if (timeSpeed < 100) {
+                timeSpeed = 100;
+            }
+        }
+    }, timeSpeed)
+
+    randomFood();
+
+</script>
+</body>
+</html>

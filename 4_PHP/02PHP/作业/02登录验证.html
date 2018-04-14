@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<form action="03login.php" method="get" id="form">
+    <lebal for="a">用户名:</lebal>
+    <input type="text" id="a" name="userName" required>
+
+    <br>
+    <br>
+
+    <lebal for="b">密&nbsp&nbsp&nbsp码:</lebal>
+    <input type="password" id="b" name="passWord" required>
+
+    <br>
+    <br>
+
+    <input type="submit" value="提交">
+
+</form>
+
+<script>
+    var oName = document.getElementById("a");
+    var oPassWord = document.getElementById("b");
+    var theForm = document.getElementById("form");
+
+    theForm.onsubmit = function () {
+        if (oName.value.length == 0 || oPassWord.value.length == 0) {
+            return false;
+        } else {
+            alert("提交成功");
+        }
+    }
+</script>
+</body>
+</html>

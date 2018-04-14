@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body, html {
+				width: 100%;
+				height: 100%;
+				padding: 0;
+				margin: 0;
+			}
+			.box {
+				width: 100%;
+				height: 100%;
+			}
+			.top {
+				width: 100%;
+				height: 90px;
+				background-color: #1E8AFF;
+				position: relative;
+			}
+			.top span {
+				font-size: 60px;
+				color: white;
+				position: absolute;
+				left: 70px;
+			}
+			.content {
+				width: 80%;
+				min-width: 750px;
+				height: 1690px;
+				margin: 0 auto;
+				margin-top: 40px;
+				box-shadow: 0 0 25px 5px #E4E4E4;
+				position: relative;
+			}
+			.content_top {
+				width: 94.782608695652%;
+				height: 90px;
+				background-color: #EFEFEF;
+				position: absolute;
+				top: 45px;
+				left: 50%;
+				margin-left: -47.391304347826%;
+			}
+			.content_top input {
+				width: 230px;
+				height: 42px;
+				border-radius: 5px;
+				border:1px solid #B3BDD4;
+				position: absolute;
+				top: 50%;
+				left: 40px;
+				margin-top: -27px;
+				padding-top: 8px;
+			}
+			::-webkit-input-placeholder {
+				font-size: 20px;
+				text-indent: 0.5em;
+			}
+			.content_top button {
+				height: 50px;
+				width: 80px;
+				background-color: #1E8AFF;
+				font-size: 18px;
+				color: white;
+				border-radius: 5px;
+				position: absolute;
+				outline: none;
+			}
+			.btn1 {
+				top: 50%;
+				margin-top: -25px;
+				left: 287px;
+			}
+			.btn2 {
+				top: 50%;
+				margin-top: -25px;
+				left: 380px;
+			}
+			.hengxian {
+				position: absolute;
+				top: 180px;
+				width: 94.782608695652%;
+				height: 4px;
+				background-color: #EFEFEF;
+				left: 50%;
+				margin-left: -47.391304347826%;
+			}
+			.content_bottom {
+				width: 94.782608695652%;
+				height: 50px;
+				position: absolute;
+				top: 200px;
+				left: 50%;
+				margin-left: -47.391304347826%;
+			}
+			.content_bottom button {
+				height: 40px;
+				width: 110px;
+				background-color: #1E8AFF;
+				font-size: 15px;
+				color: white;
+				border-radius: 0;
+				position: absolute;
+				outline: none;
+			}
+			.content_bottom button:nth-child(1) {
+				left: 10px;
+			}
+			.content_bottom button:nth-child(2) {
+				right: 0px;
+			}
+			.content_bottom button:nth-child(3) {
+				right: 125px;
+			}
+			.hidden {
+				position: absolute;
+				top: 0px;
+				width: 100%;
+				height: 100%;
+				background: rgba(163,163,163, .7);
+				display:none;
+			}
+			.hidden_box {
+				width: 567px;
+				height: 567px;
+				position: absolute;
+				background-color: white;
+				top: 150px;
+				left: 50%;
+				margin-left: -283.5px;
+			}
+			.hidden_box_top {
+				width: 90%;
+				position: absolute;
+				top: 20px;
+				left: 50%;
+				margin-left: -45%;
+			}
+			.span1 {
+				position: absolute;
+				left: 0;
+			}
+			.span2 {
+				position: absolute;
+				right: 0;
+			}
+			.span2 button {
+				width: 105px;
+				height: 35px;
+				background-color: #1E8AFF;
+				font-size: 14px;
+				color: white;
+				border-radius: 5px;
+				outline: none;
+			}
+			.hidden_box_content {
+				width: 76%;
+				height: 380px;
+				position: absolute;
+				top: 80px;
+				left: 50%;
+				margin-left: -38%;
+			}
+			.hidden_box_content_left {
+				position: absolute;
+				width: 17%;
+				left: 0px;
+				text-align: right;
+				margin-right: 2.5%;
+			}
+			.hidden_box_content_left span {
+				display: block;
+				font-size: 18px;
+				margin-bottom: 45px;
+			}
+			.hidden_box_content_right {
+				position: absolute;
+				width: 80%;
+				right: 0px;
+				text-align: left;
+			}
+			.hidden_box_content_right span {
+				display: block;
+				margin-bottom: 35px;
+			}
+			.hidden_box_content_right span input {
+				width: 330px;
+				height: 30px;
+				border: 1px solid #C1C1C1;
+				border-radius: 3px;
+			}
+			.hidden_box_content_right span input::-webkit-input-placeholder {
+				font-size: 14px;
+			}
+			.span_btn button{
+				width: 85px;
+				height: 35px;
+				color: #555365;
+				margin-right: 15px;
+			}
+			.submit {
+				position: absolute;
+				bottom: 35px;
+				left: 50%;
+				margin-left: -131px;
+			}
+			.submit button {
+				width: 262px;
+				height: 42px;
+				background-color: #1E8AFF;
+				border-radius: 5px;
+				color: white;
+				font-size: 16px;
+			}
+	
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<div class="top">
+				<span>ADMIN</span>
+			</div>
+			<div class="content">
+				<div class="content_top">
+					<input type="text" placeholder="姓名"/>
+					<button class="btn1">查询</button>
+					<button class="btn2" id="add">新增</button>
+				</div>
+				<div class="hengxian"></div>
+				<div class="content_bottom">
+					<button>全部删除</button>
+					<button>下一页</button>
+					<button>上一页</button>
+				</div>
+			
+			</div>
+		</div>
+		<div class="hidden" id="hidden">
+			<div class="hidden_box">
+				<div class="hidden_box_top">
+					<span class="span1">新增</span>
+					<span class="span2"><button id="close">关闭</button></span>
+				</div>
+				<div class="hidden_box_content">
+					<div class="hidden_box_content_left">
+					    <span>电影名</span>
+					    <span>热度</span>
+					    <span>图片路径</span>
+					    <span>ID</span>
+					    <span>类别</span>
+					</div>
+					<div class="hidden_box_content_right">
+						<span><input type="text" placeholder="电影名"/></span>
+						<span><input type="text" placeholder="热度"/></span>
+						<span><input type="text" placeholder="图片路径"/></span>
+						<span><input type="text" placeholder="ID"/></span>
+						<span class="span_btn" style="margin-bottom: 20px;">
+							<button class="choose">最热</button>
+							<button class="choose">国产</button>
+							<button class="choose">欧美</button>
+						</span>
+						<span class="span_btn"><button class="choose">韩国</button></span>
+					</div>
+				</div>
+			    <div class="submit">
+			       	<button>提交</button>
+			    </div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var addBtn = document.getElementById("add");
+			var closeBtn = document.getElementById("close");
+			var hiddenBox = document.getElementById("hidden");
+			var bigBox = document.getElementById("box");
+			var fenlei = document.getElementsByClassName("choose");
+			var a = 0;
+			var b = 0;
+			var c = 0;
+			var d = 0;
+			addBtn.onclick = function() {
+				hiddenBox.style.display = "block";
+				bigBox.style.overflow = "hidden";
+			}
+			closeBtn.onclick = function() {
+				hiddenBox.style.display = "none";
+			}
+	
+			fenlei[0].onclick = function() {
+                if (a == 0) {
+                	    fenlei[0].style.backgroundColor = "#1B71FF";
+                	    fenlei[0].style.outline = "none";
+                	    fenlei[0].style.color = "white";
+                	    a ++;
+                } else if(a == 1){
+                	    fenlei[0].style.backgroundColor = "#FFFFFF";
+                	    fenlei[0].style.color = "#555365"
+                	    a --;
+                }   
+			}
+			fenlei[1].onclick = function() {
+                if (b == 0) {
+                	    fenlei[1].style.backgroundColor = "#1B71FF";
+                	    fenlei[1].style.outline = "none";
+                	    fenlei[1].style.color = "white";
+                	    b ++;
+                } else if(b == 1){
+                	    fenlei[1].style.backgroundColor = "#FFFFFF";
+                	    fenlei[1].style.color = "#555365"
+                	    b --;
+                }   
+			}
+			fenlei[2].onclick = function() {
+                if (c == 0) {
+                	    fenlei[2].style.backgroundColor = "#1B71FF";
+                	    fenlei[2].style.outline = "none";
+                	    fenlei[2].style.color = "white";
+                	    c ++;
+                } else if(c == 1){
+                	    fenlei[2].style.backgroundColor = "#FFFFFF";
+                	    fenlei[2].style.color = "#555365"
+                	    c --;
+                }   
+			}
+			fenlei[3].onclick = function() {
+                if (d == 0) {
+                	    fenlei[3].style.backgroundColor = "#1B71FF";
+                	    fenlei[3].style.outline = "none";
+                	    fenlei[3].style.color = "white";
+                	    d ++;
+                } else if(d == 1){
+                	    fenlei[3].style.backgroundColor = "#FFFFFF";
+                	    fenlei[3].style.color = "#555365"
+                	    d --;
+                }   
+			}
+		</script>
+	</body>
+</html>

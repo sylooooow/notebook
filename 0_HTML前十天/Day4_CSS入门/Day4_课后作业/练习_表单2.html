@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.top{
+				width: 100%;
+				height: 40px;
+				background: url(images/email-bg.jpg) 0 0 no-repeat;
+			}
+			.zhuce{
+				line-height: 40px;
+				text-indent: 1em;
+			}
+			.info p{
+				display: inline-block;
+			}
+			.info p a{
+				color: blue;
+			}
+			.name_left {
+				width: 240px;
+				text-align: right;
+			}
+			.zhushi{
+				font-size: 12px;
+				line-height: 13px;
+				vertical-align: middle;
+			}</style>
+	</head>
+	<body>
+		<div class="all">
+			<div class="top">
+				<p class="zhuce">注册邮箱账号</p>
+			</div>
+			<hr />
+			<div class="info">
+				<p class="name_left">邮箱账号</p>
+				<input style="width: 300px; height: 30px;" type="text" />
+				<p class="zhushi">请输入您常用的电子邮箱<br><a href="">创建邮箱</a>或<a href="">注册普通QQ号</a></p>
+			</div>
+			<div class="info">
+				<p class="name_left">昵称</p>
+				<input style="width: 300px; height: 30px;" type="text" />
+			</div>
+			<div class="info">
+				<p class="name_left">密码</p>
+				<input type="text" style="width:300px; height:30px;" />
+			</div>
+			<div class="info">
+				<p class="name_left">确认密码</p>
+				<input type="text" style="width:300px; height:30px" />
+			</div>
+			<div class="info">
+				<p class="name_left">性别</p>
+				<input type="radio" name="sex" value="nan"/>男
+				<input style="margin-left: 20px;" type="radio" name="sex" value="nv"/>女
+			</div>
+			<div class="info">
+				<p class="name_left">生日</p>
+				<select name="gongnongli" id="">
+					<option value="gong">公历</option>
+					<option value="nong">农历</option>
+				</select>
+				<select name="nian" id="">
+					<option value="no">年</option>
+					<option value="2016">2016</option>
+					<option value="2015">2015</option>
+					<option value="2014">2014</option>
+					<option value="2013">2013</option>
+					<option value="2012">2012</option>
+				</select>
+				<!--select>option[value="$"]{$}*12-->
+				<select name="yue" id="">
+					<option value="no">月</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+				</select>
+				<!--select>option[value="$"]{$}*31-->
+				<select name="ri" id="">
+					<option value="no">日</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+					<option value="21">21</option>
+					<option value="22">22</option>
+					<option value="23">23</option>
+					<option value="24">24</option>
+					<option value="25">25</option>
+					<option value="26">26</option>
+					<option value="27">27</option>
+					<option value="28">28</option>
+					<option value="29">29</option>
+					<option value="30">30</option>
+					<option value="31">31</option>
+				</select>
+			</div>
+			<div class="info">
+				<p class="name_left">所在地</p>
+				<select name="country" id="">
+					<option value="zhongguo">中国</option>
+					<option value="maoliqiusi">毛里求斯共和国</option>
+				</select>
+				<select name="city" id="">
+					<option value="shanghai">上海</option>
+					<option value="huhehaote">呼和浩特</option>
+				</select>
+				<select name="area" id="">
+					<option value="huangpu">黄埔</option>
+					<option value="sanshilibao">三十里堡</option>
+				</select>
+			</div>
+			<div class="info">
+				<p class="name_left">验证码</p>
+				<a href="javascript:void(0)">
+					<img style="vertical-align: middle; width: 300px; height: 60px;" src="images/yz.png" alt="" />
+				</a>
+				请先进行安全认证
+			</div>
+			<div class="info">
+				<p class="name_left"></p>
+				<input type="checkbox" />我已阅读并同意相关服务条款和隐私政策 <img src="images/down.jpg" alt="" />
+			</div>
+			<br />
+			<br />
+			<div class="info">
+				<p class="name_left"></p>
+				<input type="submit" value="提交注册" style="border: 1px solid rgb(105, 187, 63); font-size: 25px; width: 300px; height: 60px; background-color: rgb(105, 187, 63); color: white;"/>
+			</div>
+		</div>
+	</body>
+</html>
+

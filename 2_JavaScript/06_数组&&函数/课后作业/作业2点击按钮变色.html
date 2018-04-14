@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				display: flex;
+				justify-content: center
+			}
+			
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin-left: 15px;
+				font-size: 30px;
+				color: white;
+				text-align: center;
+				line-height: 100px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>放上来</div>
+		<div>放上来</div>
+		<div>放上来</div>
+		<div>放上来</div>
+		<div>放上来</div>
+		<div>放上来</div>
+		<div>放上来</div>
+		<div>放上来</div>
+		<div>放上来</div>
+		<div>放上来</div>
+		<script type="text/javascript">
+			var oAll = document.getElementsByTagName("div");
+			for(var i = 0; i < oAll.length; i++) {
+			
+				oAll[i].onmouseover = function() {
+						this.style.backgroundColor = "yellow";
+						this.innerHTML = "点一下";
+						this.style.color = "black";
+				}
+
+				oAll[i].onclick = function() {
+					this.style.backgroundColor = "blue";
+					this.innerHTML = "请移开";
+					this.style.color = "";
+				}
+
+				oAll[i].onmouseout = function() {
+					this.style.backgroundColor = "";
+					this.innerHTML = "放上来";
+					this.style.color = "";
+					console.log("onmouseout");
+				}
+			}
+		</script>
+	</body>
+
+</html>

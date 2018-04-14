@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS背景设置</title>
+		<style type="text/css">
+			.my_Div {
+				width: 400px;
+				height: 400px;
+				background-color: #FF0000;
+				background-image: url(../Day1_HTML常用标签/img/bg.png);
+				background-size: 100% 100%;
+				/*设置背景图片宽度和高度,100%就是跟当前div的宽度和高度一致*/
+			}
+			.my_Div2 {
+				width: 400px;
+				height: 600px;
+				background-image: url(../Day2_课后作业/img/jianli.jpg);
+				border: 1px solid black;
+				background-repeat: no-repeat;
+				/*no-repeat:不重复使用背景图去平铺;no-repeat-x:横向不平铺*/
+				background-position: center;
+				/*background-position:设置背景图位置
+				  参数1.垂直位置
+				  参数2.横向位置
+				 * */
+			}
+			.my_Div3 {
+				width: 500px;
+				height: 600px;
+				border: 1px solid black;
+				background: #ccc url(../Day1_HTML常用标签/img/小龙女/1960南红.jpeg) center no-repeat scroll;
+			}
+			/*
+			  参数1: 背景颜色
+			  参数2:路径
+			  参数3:垂直位置
+			  参数4:横向位置
+			  参数5:是否重复
+			  参数6:fixed 不随着其他标签而滚动
+			        scroll 有滚动条
+			  http://www.runoob.com/try/try.php?filename=trycss_background-attachment
+			 */
+		 
+		</style>
+	</head>
+	<body>
+		<div class="my_Div"></div>
+		<div class="my_Div2"></div>
+		<div class="my_Div3"></div>
+	</body>
+</html>

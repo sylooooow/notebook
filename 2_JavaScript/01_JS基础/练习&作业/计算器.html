@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<span>数值1：<input type="number" name="text1" id="text1" value="" /></span>
+		<br />
+		<span>数值2：<input type="number" name="text2" id="text2" value="" /></span>
+		<br />
+		<span>结果： <input type="text" name="total" id="total" value="" /></span>
+		<br />
+		<span>
+			<button>加</button>
+			<button>减</button>
+			<button>乘</button>
+			<button>除</button>
+			<button>取余</button>
+		</span>
+	</body>
+	<script type="text/javascript">
+		var mytext1 = document.getElementById("text1");
+		var mytext2 = document.getElementById("text2");
+		var myButton = document.getElementsByTagName("button");
+		var myTotal = document.getElementById("total");
+		
+		
+		myButton[0].onclick = function() {
+			myTotal.value = parseInt(mytext1.value) + parseInt(mytext2.value);
+			console.log(myTotal.value);
+		}
+		myButton[1].onclick = function() {
+			myTotal.value = parseInt(mytext1.value) - parseInt(mytext2.value);
+			console.log(myTotal.value);
+		}
+		myButton[2].onclick = function() {
+			myTotal.value = parseInt(mytext1.value) * parseInt(mytext2.value);
+			console.log(myTotal.value);
+		}
+		myButton[3].onclick = function() {
+			myTotal.value = parseInt(mytext1.value) / parseInt(mytext2.value);
+			console.log(myTotal.value);
+		}
+		myButton[4].onclick = function() {
+			myTotal.value = parseInt(mytext1.value) % parseInt(mytext2.value);
+			console.log(myTotal.value);
+		}
+	</script>
+</html>

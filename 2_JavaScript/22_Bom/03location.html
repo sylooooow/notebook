@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn" onclick="aclick()">按钮</button>
+		<a href="#bgc">锚点</a>
+		<form action="" method="get" name="age" id="age">
+			<input type="text" name="name" id="name" value="" /></br>
+			<input type="text" value="" name="age"/>
+			<input type="submit" name="" id="" value="提交" />
+		</form>
+		<script type="text/javascript">
+			
+			function aclick() {
+				console.log(this); //window   因为它为全局函数，实际上调用时是window.click()
+				
+				//打印当前的网址
+				console.log(location.href);
+				
+				//网址中#后面的内容
+				console.log(location.hash);
+				
+				//网址中?后面的内容
+				console.log(location.search);
+				
+				//给location.href赋值，可以打开一个网页,只能在当前页面打开
+//				location.href = "00.html";
+				
+				//刷新页面
+//				location.reload();
+			}
+		</script>
+	</body>
+</html>

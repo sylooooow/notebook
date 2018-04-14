@@ -1,0 +1,66 @@
+//变量
+//@变量名:变量的值
+@color: #38f;
+@length: 100px;
+
+.div1{
+    width: @length;
+    height: @length * 2;
+    color: @color * 2;
+    background-color: saturate(@color,100%);
+}
+.p1{
+    color: @color;
+}
+//运算
+.p1{
+    background-color: @color + 120;
+}
+//混合
+.max(@x,@y,@w,@c:red){
+    -webkit-transform: translate(@x, @y);
+    -moz-transform: translate(@x, @y);
+    -ms-transform: translate(@x, @y);
+    -o-transform: translate(@x, @y);
+    transform: translate(@x, @y);
+    border:@w solid @c;
+    border-radius: @w*10;
+}
+.div1{
+    .max(200px,100px,10px);
+}
+.p1{
+    .max(300px,300px,1px,black);
+}
+//嵌套
+.div2{
+    width: @length;
+    height: @length;
+    background-color: @color;
+    
+    .div3{
+        width: @length/2;
+        height: @length/2;
+        background-color: @color/2;
+        
+        a{
+            text-decoration: none;
+            color:white;
+            &:hover{
+                background-color: red;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

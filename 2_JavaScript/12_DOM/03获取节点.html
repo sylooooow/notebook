@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="all">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+			<div id="ten">10</div>
+			<p>p1</p>
+			<p>p2</p>
+			<p>p3</p>
+			<p>p4</p>
+			<p>p5</p>
+		</div>
+		<script type="text/javascript">
+			//1、获取元素
+			var oAll = document.getElementById("all");
+			//2、获取子节点,父元素的直接子标签，不找孙子辈
+			console.log(oAll.children);
+			//3、创建元素
+			var newDiv = document.createElement("div");
+			newDiv.innerHTML = 100;
+			newDiv.style.backgroundColor = "red";
+			//4、添加元素
+			oAll.appendChild(newDiv);
+			//创建一个img，放在oAll里
+			var newImg = document.createElement("img");
+			newImg.src = "Snip20180119_3.png";
+			oAll.appendChild(newImg);
+			//5、插入元素
+			//在B之前插入A元素
+			//insertBefore(子元素A，子元素B)
+			var newP = document.createElement("p");
+			newP.innerHTML = "哈哈哈";
+			oAll.insertBefore(newP, oAll.children[1]); //前一个参数是要插入的元素，后一个参数是插入元素的位置，原来位置的元素会往后推
+			//6、删除元素
+			//括号里要传要删除的元素
+			oAll.removeChild(oAll.children[0]);
+//		    oAll.remove(); //这样写表示删除它本身
+            //删除父元素下所有元素：oAll.innerHTML = "";
+//			for(var i = 0; i < oAll.children.length; i++) {
+//				oAll.removeChild(oAll.children[0]);
+//				i--;
+//			}
+            
+            //7、替换
+            //replaceChild(新标签，被替换掉的标签)
+            var newA = document.createElement("a");
+            newA.textContent = "超链接";
+            newA.href = "#";
+//          newA.style.color = "blue";
+            oAll.replaceChild(newA,oAll.children[4]);
+            
+            //8、获取父节点
+            var divTen = document.getElementById("ten");
+            var parentDiv = divTen.parentNode;
+            console.log(parentDiv);
+            
+        
+		</script>
+	</body>
+
+</html>

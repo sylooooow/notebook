@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*3d变换沿着z轴*/
+			/*3d变换的基准点在整个屏幕正中间*/
+			html, body {
+				height: 100%;
+			}
+			
+			body {
+				/*开3d: 每个3d变换元素的父级都要加*/
+				transform-style: preserve-3d;
+				/*开空间: 只给最外层3d元素的父级加，整个页面有一个开空间即可*/
+				perspective: 1000px;
+			}
+			
+			.div1 {
+				width: 200px;
+				height: 200px;
+				background-color: green;
+				transition: all 2s;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -100px;
+				margin-left: -100px;
+				/*定位如果不在最中间，给父级加height: 100%*/
+			}
+			
+			.div1:hover {
+				transform: translateZ(500px);
+				transform: rotateX(45deg);
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--
+			3d变换需要做两件事：
+			1. 告诉父级要进行3d变换
+			2. 给3d变换的元素们开辟一个空间
+		-->
+		<div class="div1"></div>
+	</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#img {
+				width: 400px;
+				height: 200px;
+				border: 1px solid black;
+				margin-top: 1000px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img src="" alt="" id="img" datasrc="https://www.baidu.com/img/bd_logo1.png" />
+
+		<script type="text/javascript">
+			var oImg = document.getElementById("img");
+
+			var distance = getPos(oImg, "top");
+		
+			var clientHeight = document.documentElement.clientHeight;
+           
+			window.onscroll = function() {
+				var fromTop = document.documentElement.scrollTop;
+				if(fromTop  > distance - clientHeight) {
+					oImg.src = oImg.getAttribute("datasrc");
+				}
+			}
+
+			function getPos(obj, attr) {
+				var a = obj;
+				var pos = 0;
+				while(a.offsetParent) {
+					var theBorder = "";
+					if(attr == "left") {
+						theBorder = "borderLeftWidth";
+						attr = "offsetLeft";
+					} else {
+						theBorder = "borderTopWidth";
+						attr = "offsetTop";
+					}
+					var borderW = parseInt(getStyle(a.offsetParent, theBorder));
+					pos += a[attr] + borderW;
+					a = a.offsetParent;
+				}
+				console.log(pos);
+				return pos;
+			}
+
+			function getStyle(obj, attr) {
+				if(obj.currentStyle) {
+					return obj.currentStyle[attr]
+				} else {
+					return getComputedStyle(obj)[attr];
+				}
+			}
+		</script>
+	</body>
+
+</html>

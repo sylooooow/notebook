@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="500" id="myCanvas">
+
+</canvas>
+<script>
+    var oCanvas = document.getElementById("myCanvas");
+    //第一步，获取绘图环境对象，俗称为画笔
+    var ctx = oCanvas.getContext("2d");
+    //第二步，开始路径
+    ctx.beginPath();
+    //第三步，设置起点
+    ctx.moveTo(100,100);
+    //第四步，设置终点
+    ctx.lineTo(300,300);
+    ctx.lineTo(200,100);
+    ctx.lineWidth = 30;
+    ctx.strokeStyle = "orange";
+    //第五步，绘制
+    ctx.stroke();
+
+    //在新一个起点画线
+    ctx.beginPath();
+    ctx.moveTo(160,380);
+    ctx.lineTo(230,420);
+    ctx.lineTo(200,300);
+    ctx.strokeStyle = "red";
+    //线边缘样式 butt square round 三种
+    ctx.lineCap = "round";
+    //线交汇处的样式 bevel斜角 round圆角 butt牛角
+    ctx.lineJoin = "round";
+    ctx.stroke();
+</script>
+</body>
+</html>

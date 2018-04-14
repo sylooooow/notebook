@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		    /*在标签后插入内容*/
+			p::after {
+				content: "-蓝鸥科技";
+				font-weight: bold;
+				font-size: 50px;
+				color: red;
+			}
+			/*在标签之前插入内容*/
+			p::before {
+				content: "我相信-";
+				font-weight: bold;
+				color: orange;
+				font-size: 30px;
+			}
+			/*选择首字母*/
+			p::first-letter {
+				color: pink;
+				font-size: 32px;
+			}
+			/*选择用户选择的部分*/
+			p::selection{
+				background-color: yellow;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<p>十万代码成就十万年薪</p>
+	</body>
+</html>

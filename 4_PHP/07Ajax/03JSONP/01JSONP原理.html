@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    ajax只能对同域的接口做请求
+
+     跨域请求的两种方式:
+    1.jsonp
+    前提：接口实现jsonp功能，输入的形式为函数调用的形式，如getdata(请求的返回值)
+    缺点：不能做post请求
+
+    2.代理
+    让后台帮忙做网络请求，即还是用同域名请求数据 -> 接口用curl(以PHP为例) -> 返回给前台
+    */
+
+    function text(arr) {
+        console.log(arr);
+    }
+</script>
+<script src="01.txt"></script>
+</body>
+</html>

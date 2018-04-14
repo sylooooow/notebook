@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var nowDate = new Date();
+			console.log(nowDate);
+			//年
+			var year = nowDate.getFullYear();
+			console.log(year);
+			//月 0~11
+			var month = nowDate.getMonth() + 1;
+			console.log(month);
+			//日
+			var date = nowDate.getDate();
+			console.log(date);
+			//小时 0~23
+			var hour = nowDate.getHours();
+			console.log(hour + "点");
+			//分钟
+			var minute = nowDate.getMinutes();
+			console.log(minute + "分");
+			//秒
+			var sec = nowDate.getSeconds();
+			console.log(sec + "秒");
+			//毫秒
+			var milSec = nowDate.getMilliseconds();
+			console.log(milSec + "毫秒")
+			//星期
+			var week = nowDate.getDay();
+			console.log("星期" + week);
+			
+			
+			//1970年到现在的毫秒数
+			var time = nowDate.getTime();
+			console.log(time);
+			
+			//定义指定时间的时间对象
+			var future = new Date(2018,2,14);  //后面还可以加分和秒
+			console.log(future);
+		</script>
+	</body>
+</html>

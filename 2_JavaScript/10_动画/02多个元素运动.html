@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin-bottom: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<script type="text/javascript">
+			var oAll = document.getElementsByTagName("div");
+			for(var i = 0; i < oAll.length; i++) {
+				oAll[i].onmouseover = function() {
+					unifromMove(this, 500, "width", 3);
+				}
+				oAll[i].onmouseout = function() {
+					unifromMove(this, 100, "width", -3);
+				}
+			}
+
+			function unifromMove(obj, iTarget, iDirection, speed) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					if(Math.abs(iTarget - parseInt(getComputedStyle(obj)[iDirection])) <= Math.abs(speed)) {
+						obj.style[iDirection] = iTarget + "px";
+						clearInterval(obj.timer);
+					} else {
+						obj.style[iDirection] = parseInt(getComputedStyle(obj)[iDirection]) + speed + "px";
+					}
+				}, 1)
+			}
+			
+		</script>
+	</body>
+
+</html>

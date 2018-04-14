@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul,
+			li {
+				list-style: none;
+			}
+			
+			li {
+				font-size: 2em;
+				margin-bottom: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul id="list">
+			<li>江疏影</li>
+			<li>刘德华</li>
+			<li>孙丽楠</li>
+			<li>哈哈哈</li>
+		</ul>
+
+		<script type="text/javascript">
+			//鼠标移入li，字颜色变红，移出变黑,以前写法：
+			//			var myLi = document.getElementsByTagName("li");
+			//			for (var i = 0; i < myLi.length; i++) {
+			//				myLi[i].onmouseover = function() {
+			//					this.style.color = "blue";
+			//				}
+			//				myLi[i].onmouseout = function() {
+			//					this.style.color = "";
+			//				}
+			//			}
+
+			var oList = document.getElementById("list");
+			oList.onmouseover = function(ev) {
+				var ev = ev || window.event;
+				if(ev.target.id != "list") {
+					//事件委托
+					ev.target.style.color = "blue";
+				}
+				console.log(ev.target);
+			}
+			oList.onmouseout = function(ev) {
+				var ev = ev || window.event;
+				if(ev.target.id != "list") {
+					//事件委托
+					ev.target.style.color = "";
+				}
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>div1</div>
+		<div>div2</div>
+		<div>div3</div>
+		<div>div4</div>
+		<div>div5</div>
+		<div>div6</div>
+		<div>div7</div>
+		<div>div8</div>
+		<div>div9</div>
+		<div>div10</div>
+		<script src="jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		var arr = [2,3,4,6,6,3,6,9,0];
+		var ajson = {
+			"name":"琳姐",
+			"age":18,
+			"sex":"女"
+		}
+		
+		    $("div").each(function() {
+		    	   console.log($(this));
+		    })
+		    
+		    
+		    //遍历数组,i代表下标，n代表对应数值
+		    $.each(arr, function(i,n) {
+		    	     console.log("i的值：" + i + "n的值：" + n);
+		    });
+		    
+		    //遍历json
+		    $.each(ajson, function(i,n) {
+		    	    console.log("key: " + i + "value: " + n);
+		    });
+		</script>
+	</body>
+</html>

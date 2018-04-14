@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<button id="btn">按钮</button>
+		<script type="text/javascript">
+		    
+		    var oBtn = document.getElementById("btn");
+		    oBtn.onclick = function() {
+		    	    var timer = setTimeout(function() {
+//		    	    	   clearInterval(1);
+                   //根据代码执行顺序，定时器会从1开始进行排列，清除的时候根据序号就可以清除，不必用定时器名字。且不受作用域限制
+		    	    	   for (var i = 1; i < timer; i++) {
+		    	    	   	  clearInterval(i);
+		    	    	   }
+		    	    },20);
+		    }
+		    
+			var timer1 = setInterval(function() {
+				console.log("timer1");
+			}, 500);
+			var timer2 = setInterval(function() {
+				console.log("timer2");
+			}, 500);
+			var timer3 = setInterval(function() {
+				console.log("timer3");
+			}, 500);
+			
+//			var timer4 = setTimeout(function() {
+//				
+//			},20);
+			
+			console.log(timer1);
+			console.log(timer2);
+			console.log(timer3);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,23 @@
+输出一个变量或者输出一个字符串
+console.log()
+
+这四个方法的使用方法跟 console.log() 一模一样，差别在于输出的颜色与图标不同。
+console.debug()、http://console.info()、console.warn() 与 console.error()
+
+以表格的形式输出
+console.table()
+
+输出一段代码执行时间
+console.time() 与 console.timeEnd()
+
+类似于单元测试中的断言，当表达式为 false 时，输出错误信息。
+console.assert()
+
+输出一段代码被执行了多少次
+console.count()
+
+使一般的 console.log() 方法的输出具有层级关系
+console.group、console.groupEnd() 与 console.groupCollapsed()
+
+将特定的 JS 对象显示为可以交互的列表，而列表是折叠起来的。
+console.dir()

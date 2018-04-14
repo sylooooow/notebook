@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str = "354657uigduqwboiuvqwe";
+			var re = /u/g;
+			console.log(str.match(re));
+			
+			//正则表达式，又叫规则表达式
+			//正则表达式，通常用来检索、替换、某些符合某个模式（规则）的文本
+			//强大的字符串匹配功能
+			
+			//1.定义正则表达式
+			var re1 = new RegExp("F","ig"); //只能填两个参数,第一个参数为要检验的值，第二个参数为限制范围
+//			console.log(typeof(re1)) //对象类型
+            
+            var str1 = "fasiuyFioFf";
+            //re1.test()检验字符串是否符合正则表达式的规则,返回true或者false 。它是正则方法，因为是new RegExp()对象在调用它
+            console.log(re1.test(str1));  //检验str1字符串中是否有F 
+            
+            //i代表忽略大小写
+            var re2 = RegExp("F","i"); 
+            console.log(re2.test(str1)); //返回true
+            
+            //2.per语法
+            var re3 = /F/i; 
+            //g代表全局,i代表忽略大小写
+            var re4 = /f/g;
+            var re5 = /f/; //这样写只能匹配一个f
+            //忽略大小写并找到所有符合标准的,i和g没有顺序要求
+            var re6 = /f/ig; 
+            console.log(str1.match(re5));
+		</script>
+	</body>
+</html>

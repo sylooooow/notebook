@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			
+			#all {
+				width: 320px;
+				height: 480px;
+				background: url(img/game_bg.jpg) no-repeat;
+				position: relative;
+				left: 50%;
+				top: 100px;
+				margin-left: -160px;
+				overflow: hidden;
+			}
+			
+			.img {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			#scores {
+				position: absolute;
+				top: 10px;
+				left: 60px;
+				color: #A6C0F2;
+				font-size: 1.2em;
+			}
+			
+			#time {
+				width: 180px;
+				height: 16px;
+				background: url(img/progress.png) no-repeat;
+				position: absolute;
+				left: 63px;
+				top: 66px;
+			}
+			
+			#start {
+				width: 130px;
+				height: 50px;
+				border-radius: 10px;
+				color: white;
+				background-color: orange;
+				font-size: 18px;
+				outline: none;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -65px;
+				margin-top: -25px;
+			}
+			
+			#gameOver {
+				font-size: 30px;
+				color: black;
+				position: absolute;
+				left: 80px;
+				top: 220px;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all">
+			<button id="start">开始游戏</button>
+			<span id="scores"></span>
+			<span id="gameOver">Game Over!</span>
+			<div id="time"></div>
+			<img src="" id="imgs" />
+		</div>
+		<script type="text/javascript">
+			var wolfImg = ["h0", "h1", "h2", "h3", "h4", "h5", "h5", "h4", "h3", "h2", "h1", "h0"];
+			var wolfImg2 = ["x0", "x1", "x2", "x3", "x4", "x5", "x5", "x4", "x3", "x2", "x1", "x0"];
+			var wolfHitImg = ["h6", "h7", "h8", "h9"];
+			var wolfHitImg2 = ["x6", "x7", "x8", "x9"];
+			var allWolf = [wolfImg, wolfImg, wolfImg2];
+			var oAll = document.getElementById("all");
+			var oBox = document.getElementById("box");
+			var scoresBox = document.getElementById("scores");
+			var oTime = document.getElementById("time");
+			var startBtn = document.getElementById("start");
+			var gameOver = document.getElementById("gameOver");
+			var scores = 0;
+			var flag = true;
+			var flag2 = true;
+			var timer = null;
+			var timer1 = null;
+			var timer2 = null;
+			var arrPos = [{
+				l: "98px",
+				t: "115px"
+			}, {
+				l: "17px",
+				t: "160px"
+			}, {
+				l: "15px",
+				t: "220px"
+			}, {
+				l: "30px",
+				t: "293px"
+			}, {
+				l: "122px",
+				t: "273px"
+			}, {
+				l: "207px",
+				t: "295px"
+			}, {
+				l: "200px",
+				t: "211px"
+			}, {
+				l: "187px",
+				t: "141px"
+			}, {
+				l: "100px",
+				t: "185px"
+			}];
+			startBtn.onclick = function() {
+				startBtn.style.display = "none";
+				timer = setInterval(function() {
+					timeMove(oTime, 0, -1, "width");
+					scoresBox.innerHTML = scores;
+					var allWolfnum = Math.floor(Math.random() * (2 - 0 + 1) + 0);
+					var wolfArr = allWolf[allWolfnum];
+					var index = Math.floor(Math.random() * (8 - 0 + 1) + 0);
+					var pos = arrPos[index];
+					var mark1 = 0;
+					var mark2 = 0;
+					var newImg = document.createElement("img");
+					oAll.appendChild(newImg);
+					newImg.className = "img";
+					newImg.style.left = pos["l"];
+					newImg.style.top = pos["t"];
+					timer1 = setInterval(function() {
+                        //根据随机出的数判断用哪个数组图片
+						newImg.src = allWolfnum == 2 ? "img/" + wolfImg2[mark1] + ".png" : "img/" + wolfImg[mark1] + ".png";
+						mark1++;
+						newImg.onclick = function() {
+							if(flag) {
+								flag = false;
+								clearInterval(timer1);
+								//再根据分数是否为0判断第一次点击是否加分,在根据随机出的数判断加分还是减分
+								scoresBox.innerHTML = allWolfnum == 2 ? (scores = scores == 0 ? 0 : scores -= 10) : scores += 10;
+								timer2 = setInterval(function() {
+                                    //根据随机数判断点击之后用哪个数组的图片
+									newImg.src = allWolfnum == 2 ? "img/" + wolfHitImg2[mark2] + ".png" : "img/" + wolfHitImg[mark2] + ".png";
+									mark2++;
+									if(mark2 == 4) {
+										oAll.removeChild(newImg);
+										clearInterval(timer2);
+									}
+								}, 200);
+							}
+						}
+						flag = true;
+						if(mark1 >= 12) {
+							oAll.removeChild(newImg);
+							clearInterval(timer1);
+						}
+					}, 100);
+				}, 2000);
+
+				function timeMove(obj, iTarget, speed, iDirection) {
+					if(flag2) {
+						var timer3 = setInterval(function() {
+							flag2 = false;
+							if(Math.abs(iTarget - parseInt(getComputedStyle(obj)[iDirection])) <= Math.abs(speed)) {
+								obj.style[iDirection] = iTarget + "px";
+								clearInterval(timer3);
+								clearInterval(timer2);
+								clearInterval(timer1);
+								clearInterval(timer);
+								gameOver.style.display = "block";
+								gameOver.onclick = function() {
+									location.reload(true);
+								}
+							} else {
+								obj.style[iDirection] = parseInt(getComputedStyle(obj)[iDirection]) + speed + "px";
+							}
+						}, 100);
+					}
+					flag2 = true;
+					console.log(obj.style[iDirection]);
+				}
+			}
+		</script>
+	</body>
+
+</html>

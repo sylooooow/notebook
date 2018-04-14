@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="02upload.php" method="post" enctype="multipart/form-data">
+
+    <label for="user">姓名:</label>
+    <input type="text" id="user" name="userName">
+    <br>
+    <label for="gender">性别:</label>
+    <input type="text" id="gender" name="sex">
+    <br>
+    爱好:
+    <input type="checkbox" id="hobby1" name="hobby[]" value="抽烟">
+    <label for="hobby1">抽烟</label>
+    <input type="checkbox" id="hobby2" name="hobby[]" value="喝酒">
+    <label for="hobby2">喝酒</label>
+    <input type="checkbox" id="hobby3" name="hobby[]" value="烫头">
+    <label for="hobby3">烫头</label>
+    <br>
+    <label for="theFile">图片:</label>
+    <input type="file" id="theFile" name="img">
+    <br>
+    <label for="zip">压缩包:</label>
+    <input type="file" id="zip" name="zip">
+    <br>
+    <input type="submit" value="提交">
+
+
+</form>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进度条4</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<!--
+    要用到的知识点
+    1,建立图像对象:图像对象名称=new Image()
+    2,属性: border complete可返回浏览器是否已完成对图像的加载  height
+    3,事件:onload onerror捕获网页中的错误 onkeydown onkeypress在键盘按键被按下并释放一个键时发生
+    4,注意:src属性一定要写在onload后面,否则程序在IE中会出错
+
+-->
+
+<div class="loading">
+    <div class="pic">
+        <span></span>
+        <b>0%</b>
+    </div>
+</div>
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847992&di=882ea64a8c6573dae98fa7dd5c2c8a6f&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F10%2F98%2F38%2F64p58PICw4N.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2911014546,2268419319&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520252892611&di=b5fc91e0ac36c235a6fd2198c963fb3b&imgtype=0&src=http%3A%2F%2Fattachments.gfan.com%2Fforum%2Fattachments2%2F201402%2F22%2F221511qk8efdidtf3ftqez.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847827&di=7b82320253c4e3be5a4c4c186ec3b01e&imgtype=jpg&er=1&src=http%3A%2F%2Fattimg.dospy.com%2Fimg%2Fday_120403%2F20120403_ff7d00e3c8890ac99d0ft829Pq8AcoeE.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253138816&di=29be6baecccdb80c39e18b0162b353bf&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201402%2F21%2F120044k1dgtgc4dg2dm5tw.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847992&di=882ea64a8c6573dae98fa7dd5c2c8a6f&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F10%2F98%2F38%2F64p58PICw4N.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2911014546,2268419319&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520252892611&di=b5fc91e0ac36c235a6fd2198c963fb3b&imgtype=0&src=http%3A%2F%2Fattachments.gfan.com%2Fforum%2Fattachments2%2F201402%2F22%2F221511qk8efdidtf3ftqez.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847827&di=7b82320253c4e3be5a4c4c186ec3b01e&imgtype=jpg&er=1&src=http%3A%2F%2Fattimg.dospy.com%2Fimg%2Fday_120403%2F20120403_ff7d00e3c8890ac99d0ft829Pq8AcoeE.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253138816&di=29be6baecccdb80c39e18b0162b353bf&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201402%2F21%2F120044k1dgtgc4dg2dm5tw.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847992&di=882ea64a8c6573dae98fa7dd5c2c8a6f&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F10%2F98%2F38%2F64p58PICw4N.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2911014546,2268419319&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520252892611&di=b5fc91e0ac36c235a6fd2198c963fb3b&imgtype=0&src=http%3A%2F%2Fattachments.gfan.com%2Fforum%2Fattachments2%2F201402%2F22%2F221511qk8efdidtf3ftqez.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847827&di=7b82320253c4e3be5a4c4c186ec3b01e&imgtype=jpg&er=1&src=http%3A%2F%2Fattimg.dospy.com%2Fimg%2Fday_120403%2F20120403_ff7d00e3c8890ac99d0ft829Pq8AcoeE.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253138816&di=29be6baecccdb80c39e18b0162b353bf&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201402%2F21%2F120044k1dgtgc4dg2dm5tw.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847992&di=882ea64a8c6573dae98fa7dd5c2c8a6f&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F10%2F98%2F38%2F64p58PICw4N.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2911014546,2268419319&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520252892611&di=b5fc91e0ac36c235a6fd2198c963fb3b&imgtype=0&src=http%3A%2F%2Fattachments.gfan.com%2Fforum%2Fattachments2%2F201402%2F22%2F221511qk8efdidtf3ftqez.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847827&di=7b82320253c4e3be5a4c4c186ec3b01e&imgtype=jpg&er=1&src=http%3A%2F%2Fattimg.dospy.com%2Fimg%2Fday_120403%2F20120403_ff7d00e3c8890ac99d0ft829Pq8AcoeE.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253138816&di=29be6baecccdb80c39e18b0162b353bf&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201402%2F21%2F120044k1dgtgc4dg2dm5tw.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847992&di=882ea64a8c6573dae98fa7dd5c2c8a6f&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F10%2F98%2F38%2F64p58PICw4N.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2911014546,2268419319&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847992&di=882ea64a8c6573dae98fa7dd5c2c8a6f&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F10%2F98%2F38%2F64p58PICw4N.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2911014546,2268419319&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520252892611&di=b5fc91e0ac36c235a6fd2198c963fb3b&imgtype=0&src=http%3A%2F%2Fattachments.gfan.com%2Fforum%2Fattachments2%2F201402%2F22%2F221511qk8efdidtf3ftqez.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847827&di=7b82320253c4e3be5a4c4c186ec3b01e&imgtype=jpg&er=1&src=http%3A%2F%2Fattimg.dospy.com%2Fimg%2Fday_120403%2F20120403_ff7d00e3c8890ac99d0ft829Pq8AcoeE.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253138816&di=29be6baecccdb80c39e18b0162b353bf&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201402%2F21%2F120044k1dgtgc4dg2dm5tw.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1502723722,631840997&fm=27&gp=0.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=529043615,3919346002&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847902&di=80c3b01136ff475eeefb81f5b24427e7&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.paopaoche.net%2Fup%2F2014-9%2F201409260921541400006.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847918&di=911ab694a6e73c8e725087e1f5b7873e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F165437va0h8z16wudh546b.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="">
+<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520253285153&di=9814edbc6daf8123f80d3f9f9918c3c8&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130927%2F12045420_085644346124_2.jpg" alt="">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520847992&di=882ea64a8c6573dae98fa7dd5c2c8a6f&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F10%2F98%2F38%2F64p58PICw4N.jpg" alt="">
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2911014546,2268419319&fm=27&gp=0.jpg" alt="">
+
+
+<script src="jquery-1.11.2.min.js"></script>
+<script>
+    /*要用到的知识点
+    1,建立图像对象:图像对象名称=new Image()
+    2,属性: border complete可返回浏览器是否已完成对图像的加载  height
+    3,事件:onload onerror捕获网页中的错误 onkeydown onkeypress在键盘按键被按下并释放一个键时发生
+    4,注意:src属性一定要写在onload后面,否则会因为同步异步问题出错*/
+
+</script>
+</body>
+</html>

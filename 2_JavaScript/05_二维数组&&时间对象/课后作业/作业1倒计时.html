@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#time {
+				width: 580px;
+				height: 150px;
+				border: 1px solid black;
+				position: absolute;
+				top: 300px;
+				left: 50%;
+				margin-left: -290px;
+				text-align: center;
+			}
+			.holiday {
+				width: 580px;
+				height: 50px;
+				position: absolute;
+				top: 240px;
+				left: 50%;
+				margin-left: -290px;
+				font-size: 40px;
+			}
+			p {
+				line-height: 120px;
+			}
+		
+		</style>
+	</head>
+
+	<body>
+		<div class="holiday">距放假还有：</div>
+		<div id="time">
+			<p>
+			<b id="days" style="font-size: 60px; color: red;"></b>
+			<span style="font-size: 40px;">天</span>
+			<b id="hours" style="font-size: 60px; color: red;"></b>
+			<span style="font-size: 40px;">小时</span>
+			<b id="minutes" style="font-size: 60px; color: red;"></b>
+			<span style="font-size: 40px;">分</span>
+			<b id="seconds" style="font-size: 60px; color: red;"></b>
+			<span style="font-size: 40px;">秒</span>
+			</p>
+		</div>
+		<script type="text/javascript">
+			var myTime = document.getElementById("time");
+			var myDays = document.getElementById("days");
+			var myHours = document.getElementById("hours");
+			var myMintues = document.getElementById("minutes");
+			var mySeconds = document.getElementById("seconds");
+			var timer = null;
+			
+			
+			timer = setInterval(function() {
+				var future = new Date(2018, 1, 9, 18).getTime(); //从1970年到放假的毫秒数
+				var now = new Date().getTime(); //现在到1970年的毫秒数
+				var timer = null;
+				var remainTime = future - now; //现在到放假的毫秒数
+				var days = parseInt(remainTime / 1000 / 60 / 60 / 24); //计算剩余的天数 
+				var hours = parseInt(remainTime / 1000 / 60 / 60 % 24); //计算剩余的小时 
+				var minutes = parseInt(remainTime / 1000 / 60 % 60); //计算剩余的分钟 
+				var seconds = parseInt(remainTime / 1000 % 60); //计算剩余的秒数
+//				myTime.innerHTML = "还剩" + days + "天" + hours + "小时" + minutes + "分" + seconds + "秒";
+                myDays.innerHTML = days;
+                myHours.innerHTML = hours;
+                myMintues.innerHTML = minutes;
+                mySeconds.innerHTML = seconds;
+                
+                if (remainTime <= 0) {
+                	    clearInterval(timer);
+                	    alert("放假啦！！！");
+                }
+			}, 1000)
+		</script>
+	</body>
+
+</html>

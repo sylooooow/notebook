@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				margin-bottom: 10px;
+			}
+			#div1 {
+				background-color: lightblue;
+			}
+			#div2 {
+				background-color: lightcoral;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		
+		<script type="text/javascript">
+			var arr1 = [1,2,3,4,5,6];
+			var myDiv1 = document.getElementById("div1");
+			var myDiv2 = document.getElementById("div2");
+			//定义函数
+			function sumArr() {
+				var sum = 0;
+				for (var i = 0; i < arr1.length; i++) {
+					sum += arr1[i];
+				}
+				console.log(sum);
+			}
+			myDiv1.onclick = function() {
+				sumArr();  //调用函数
+			}
+			myDiv2.onclick = function() {
+				sumArr();
+			}
+			
+		</script>
+	</body>
+</html>

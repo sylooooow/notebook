@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div>div</div>
+		<p>h1</p>
+		<span>span</span>
+		<div id="div1">
+			<h1>h1</h1>
+			<h3>h3</h3>
+			<h1>h1</h1>
+			<h3 id="h3">h3</h3>
+		</div>
+		<span>span</span>
+    <script src="jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        //下一个兄弟节点
+    	    $("div").next().css("color","blue");
+    	    //获取上一个兄弟节点
+    	    $("div").prev().css("color","yellow");
+    	    //找父级里的元素,包括子孙级元素，相当于后代选择器$("#div1 h1")
+    	    $("#div1").find("h1").css("color","pink");
+    	    //在选中的多个元素中找到指定的兄弟元素
+    	    $("#div1").find("h1").eq(1).css("color","green");
+    	    //找到指定元素到在其父元素中所有子节点的位置
+    	    var a = $("#h3").index();
+    	    console.log(a);
+    </script>
+	</body>
+
+</html>

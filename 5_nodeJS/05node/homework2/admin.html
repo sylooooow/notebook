@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<!--顶部-->
+<div class="top">
+    <div class="top_left"></div>
+    <div class="top_right"></div>
+</div>
+<!--主体-->
+<div class="main">
+    <div class="main_left">
+        <div class="regular"></div>
+        <div class="left_content">
+            <div id="userNav">
+                <span>用户管理</span>
+            </div>
+            <div id="awardNav">
+                <span>奖品管理</span>
+            </div>
+        </div>
+    </div>
+    <div class="main_right">
+        <div class="regular"></div>
+        <div class="right_content">
+            <div class="long-content">
+                <div class="long-content_operation">
+                    <input id="searchText" type="text" placeholder="用户名">
+                    <button class="long_search_btn">查询</button>
+                    <button class="long_add_btn">新增</button>
+                </div>
+                <div class="long-content_table">
+                    <table cellspacing="0" id="dataTable">
+                        <!--<tr class="first thread">-->
+                        <!--<th>用户ID</th>-->
+                        <!--<th>用户名</th>-->
+                        <!--<th>手机号</th>-->
+                        <!--<th>还剩抽奖次数</th>-->
+                        <!--<th>奖品内定</th>-->
+                        <!--<th>获奖情况</th>-->
+                        <!--<th>操作</th>-->
+                        <!--</tr>-->
+                        <!--<tr class="tr">-->
+                        <!--<td class="td">张三</td>-->
+                        <!--<td class="td">李四</td>-->
+                        <!--</tr>-->
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="right_content2">
+            <div class="long-content">
+                <div class="long-content_operation">
+                    <input id="searchAward" type="text" placeholder="奖品名字">
+                    <button class="long_search_btn">查询</button>
+                </div>
+                <div class="long-content_table">
+                    <table cellspacing="0" id="awardTable">
+                        <!--<tr class="first thread">-->
+                        <!--<th>奖品ID</th>-->
+                        <!--<th>奖品编号</th>-->
+                        <!--<th>奖品数量</th>-->
+                        <!--<th>奖品名称</th>-->
+                        <!--<th>奖品获得者</th>-->
+                        <!--<th>操作</th>-->
+                        <!--</tr>-->
+                        <!--<tr class="tr">-->
+                        <!--<td class="td">121</td>-->
+                        <!--<td class="td">232</td>-->
+                        <!--</tr>-->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--隐藏弹出框(添加或编辑)-->
+<div id="hidden">
+    <div class="hidden_box">
+        <div class="hidden_box_top">
+            <span class="span1">新增/编辑</span>
+            <span class="span2"><button id="close">关闭</button></span>
+        </div>
+        <div class="hidden_box_content">
+            <p>
+                <span>用户ID</span>
+                <span><input id="userid" type="text"/></span>
+            </p>
+            <p>
+                <span>用户名</span>
+                <span><input id="username" type="text"/></span>
+            </p>
+            <p>
+                <span>手机号</span>
+                <span><input id="tel" type="text"/></span>
+            </p>
+            <p>
+                <span>剩余抽奖机会</span>
+                <span><input id="opportunity" type="text"/></span>
+            </p>
+            <p>
+                <span>奖品内定</span>
+                <span><input id="default" type="text"/></span>
+            </p>
+            <p>
+                <span>获奖情况</span>
+                <span><input id="award" type="text"/></span>
+            </p>
+
+        </div>
+        <div class="submit">
+            <button id="submit">提交</button>
+        </div>
+    </div>
+</div>
+
+<!--隐藏奖品弹出框-->
+<div id="awardHide">
+    <div class="hidden_box">
+        <div class="hidden_box_top">
+            <span class="span1">编辑</span>
+            <span class="span2"><button id="awardClose">关闭</button></span>
+        </div>
+        <div class="hidden_box_content">
+            <p>
+                <span>奖品ID</span>
+                <span><input id="awardId" type="text"/></span>
+            </p>
+            <p>
+                <span>奖品编号</span>
+                <span><input id="awardNum" type="text"/></span>
+            </p>
+            <p>
+                <span>奖品数量</span>
+                <span><input id="awardCount" type="text"/></span>
+            </p>
+            <p>
+                <span>奖品名称</span>
+                <span><input id="awardName" type="text"/></span>
+            </p>
+            <p>
+                <span>奖品获得者</span>
+                <span><input id="awardOwner" type="text"/></span>
+            </p>
+
+        </div>
+        <div class="submit">
+            <button id="awardSubmit">提交</button>
+        </div>
+    </div>
+</div>
+<script src="jquery-3.2.1.min.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

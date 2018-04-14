@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [2,4,6,8];
+			//输出的值与foreach相同，但不同的地方在于map()可以返回值
+			var newArr = arr.map(function(value,index,array) {
+				console.log(value,index,array);
+				return value + 1;
+			});
+			console.log(newArr);
+			
+			var arr3 = [
+			    {"name":"yanziye",tel:'110'},
+			    {"name":"zhanyanping","tel":"120"},
+			    {"name":"chixiaonan","tel":"114"}
+			];
+			
+			var arr4 = arr3.map(function(value) {
+				return value["tel"];
+			})
+			console.log(arr4);
+			
+			var newObject = {
+				'city':'chengde',
+				"time":"month",
+				area:'hebei'
+			}
+			console.log(newObject.city);
+			console.log(newObject.time);
+			console.log(newObject.area);
+		</script>
+	</body>
+</html>

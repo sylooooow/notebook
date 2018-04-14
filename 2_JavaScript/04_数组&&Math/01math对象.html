@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>math对象</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var a = Math.abs(-3);  //取绝对值
+		console.log(a);
+		
+		var b = Math.ceil(3.14); //向上取整
+		console.log(b);
+		
+		var c = Math.floor(3.74); //向下取整
+		console.log(c);
+		
+		var d = Math.round(3.54); //四舍五入取整
+		console.log(d);
+		
+		var n = Math.max(2,5,10);  //比较几个数中的最大值
+		console.log(n);
+		
+		var m = Math.min(1,2,3);  //比较几个数中的最小值
+		console.log(m);
+		
+		var y = Math.random(y);  //取0到1之间的随机数
+		console.log(y);
+		
+		
+		// Math.floor(Math.random()*(max - min + 1) + min); 
+		var num = Math.floor(Math.random()*(10 - 2 + 1) + 2);  //随机2~10之间的随机数
+		console.log(num);
+		
+		
+		//随机区间[50~100]的20个数，并打印
+		for (var i = 0; i < 20; i++) {
+			var num = Math.floor(Math.random()*(100 - 50 + 1) + 50); 
+		    console.log(num);
+		}
+	
+	</script>
+</html>

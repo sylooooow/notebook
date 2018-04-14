@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		    /*选择被选中的选框,任何选框只要被选中就可以*/
+			:checked {
+				width: 100px;
+				height: 100px;
+			}
+			[name="play"]:checked {
+				width: 300px;
+				height: 300px;
+			}
+			
+			/*表示被禁用的表单元素*/
+			:disabled {
+				background-color: yellow;
+			}
+			/*表示所有启用的表单元素*/
+			:enabled {
+				 background: green;
+			}
+			
+			/*表示获取所有有焦点的表单元素*/
+			:focus {
+				width: 200px;
+				height: 200px;
+				/*outline表示输入框蓝色的边*/
+				outline: 1px solid yellow; 
+			}
+		</style>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="checkbox" name="play" id="" value="" checked="checked"/>
+			<input type="checkbox" name="" id="" value="" checked="checked"/>
+			<!--check表示默认是否勾选-->
+			<input type="submit" value=""/>
+			<input type="radio" name="" id="" value=""/>
+			<input type="text" name="" id="" value="" disabled=""/>
+			<input type="text" />
+		</form>
+	</body>
+</html>

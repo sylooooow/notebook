@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//			var arr = new Array();
+			//			for(var i = 0; i < 10; i++) {
+			//				var num = Math.floor(Math.random() * (66 - 6 + 1) + 6);
+			//				var judge = false; //判断是否有相同的数字
+			//				for(var i = 0; i < arr.length; i++) {
+			//					if(arr[i] == num) {
+			//						judge = true;
+			//						i--;
+			//						break;
+			//					}	
+			//				}
+			                //如果没有相同的，就把数放入数组
+			//				if(judge == false) {
+			//					arr[i] = num;    //此时arr[i]与arr[arr.length]一样
+			//				}
+			//			}
+			//			console.log(arr);
+
+//			//方法二
+//			var arr = [];
+//			while(arr.length != 10) {
+//				var num = Math.floor(Math.random() * (66 - 6 + 1) + 6);
+//				var control = true;
+//				for(var i = 0; i < arr.length; i++) {
+//					if(num == arr[i]) {
+//						control = false;
+//						break;
+//					}
+//				}
+//				if(control) {
+//					arr[arr.length] = num;
+//				}
+//			}
+//			console.log(arr);
+
+
+            //方法三
+			var arr = [];
+			while(arr.length != 10) {
+				var num = Math.floor(Math.random() * (66 - 6 + 1) + 6);
+				for(var i = 0; i < arr.length; i++) {
+					if(num == arr[i]) {
+						break;
+					}
+				}
+				arr[i] = num;   //这种方法表示如果有相同的数字，那么就把数组原来位置的数字再替换成这个相同数，这样就不会重复
+			}
+			console.log(arr);
+		</script>
+	</body>
+
+</html>

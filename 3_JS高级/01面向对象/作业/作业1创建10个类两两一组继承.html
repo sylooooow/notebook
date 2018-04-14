@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Tree(height, weight, color) {
+        this.height = height;
+        this.weight = weight;
+        this.color = weight;
+        this.grow = function () {
+            console.log("大树");
+        };
+        this.worth = function () {
+            console.log("制作家具");
+        }
+    }
+    function willow(height,weight,color,area,age) {
+        Tree.call(this,height,weight,color);
+        this.area = area;
+        this.age = age;
+    }
+    var willowTree = new willow(500,50,"green","dalian","20年");
+    console.log(willowTree.height);
+    willowTree.grow();
+    console.log(willowTree.age);
+</script>
+</body>
+</html>

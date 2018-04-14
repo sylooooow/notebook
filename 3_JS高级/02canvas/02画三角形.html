@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            position: absolute;
+            left: 50%;
+            margin-left: -250px;
+        }
+    </style>
+</head>
+<body>
+<input type="color" id="color">选颜色
+<canvas width="500" height="500" id="myCanvas">
+
+</canvas>
+<script>
+    var oCanvas = document.getElementById("myCanvas");
+    var oColor = document.getElementById("color");
+    var ctx = oCanvas.getContext("2d");
+    /*空心三角形
+    ctx.beginPath();
+    ctx.moveTo(200,300);
+    ctx.lineTo(300,300);
+    ctx.lineTo(250,200);
+    ctx.lineTo(200,300);  //这行不写也可以，用ctx.closePath()闭合路径
+    ctx.stroke();
+    */
+
+    //实心三角形
+    ctx.beginPath();
+    ctx.moveTo(200,300);
+    ctx.lineTo(300,300);
+    ctx.lineTo(250,200);
+    ctx.fillStyle = "red";
+    ctx.fill();
+    //实心形状外有描边，需要闭合路径
+    //如果仅是实心形状，则不需要
+    ctx.closePath();
+    ctx.stroke();
+
+    oColor.onmouseup = function () {
+        console.log(oColor.value)
+        ctx.strokeStyle = oColor.value;
+    }
+
+
+    //画板
+    oCanvas.onmousedown = function (ev) {
+        var downX = ev.pageX - oCanvas.offsetLeft;
+        var downY = ev.pageY - oCanvas.offsetTop;
+        ctx.beginPath();
+        ctx.moveTo(downX,downY);
+
+        oCanvas.onmousemove = function (ev) {
+            var downX2 = ev.pageX - oCanvas.offsetLeft;
+            var downY2 = ev.pageY - oCanvas.offsetTop;
+            ctx.lineTo(downX2,downY2);
+            ctx.stroke();
+        }
+    }
+    oCanvas.onmouseup = function (ev) {
+        oCanvas.onmousemove = null;
+    }
+</script>
+</body>
+</html>

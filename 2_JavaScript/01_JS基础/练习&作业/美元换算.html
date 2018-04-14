@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<span>请输入钱数：<input type="text" id="money" /></span><br /><br />
+		<span>最少20美元：<input type="text" id="twenty" /></span><br /><br />
+		<span>最少10美元：<input type="text" id="ten" /></span><br /><br />
+		<span>最少5美元：<input type="text" id="five" /></span><br /><br />
+		<span>最少1美元：<input type="text" id="one" /></span><br /><br />
+		<span><button id="button">获取结果</button><br /><br />
+	</body>
+	<script type="text/javascript">
+		var total = document.getElementById("money");
+		var twenty = document.getElementById("twenty");
+		var ten = document.getElementById("ten");
+		var five = document.getElementById("five");
+		var one = document.getElementById("one");
+		var jieguo = document.getElementById("button");
+		
+		jieguo.onclick = function() {
+			twenty.value = parseInt(total.value / 20);
+			ten.value = parseInt((total.value - twenty.value * 20) / 10);
+			five.value = parseInt((total.value - twenty.value * 20 - ten.value * 10) / 5);
+			one.value = parseInt((total.value - twenty.value * 20 - ten.value * 10 - five.value * 5) / 1);
+		}
+	</script>
+</html>

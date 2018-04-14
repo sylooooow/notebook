@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.search() 在字符串中查找第一个对应的值，返回对应的下标,如果不存在，返回-1
+			var str = "ashdoi2qwynkmbcoiuheowiyqpzxc";
+			console.log(str.search("h")); //2
+			console.log(str.search("0")); //-1
+			//打印第一个i所在的位置
+			console.log(str.search(/i/)); 
+			//打印第一个数字所在的位置
+			console.log(str.search(/\d/));
+			
+			//2.match() 寻找字符串中符合正则规则的所有符合的子串s，返回的类型为数组(对象)。如果没有匹配的值，返回null
+			var str1 = "jasoidu023adqjwb9aksjhd";
+		    // /\d+/g表示会把连在一起的数字看成一个整体，如果不用加号会找到所有单个的数字
+			var re1 = /\d+/g; // + 量词，最少一个，没有上限
+			console.log(str1.match(re1));
+			
+			//3.replace() 返回新的字符串，不会改变字符串本身
+			var str3 = "asduywqhasodiywqhba";
+			//匹配字符串中所有的a,大小写忽略
+			var re3 = /a/gi;
+			//把str3中所有的大小写a被替换为1
+			var str4 = str3.replace(re3,"1");
+			console.log(str3,str4);
+			//如果想替换标点符号也可以，但？是正则里的关键字，用它需要用\转义，例如：
+			var re44 = /\?/;
+			//如果是"",也需要转义
+			var re444 = "\"\"";
+			console.log(re444);
+			
+			//把str1中所有的a删除
+			console.log(str1.replace(re3,""));
+			
+			//练习：
+			var str4 = "这周 天 气暖和了，下午有 考试a";
+			//  |表示或，可以选择多个需要的值
+			var re5 = /天气|下午/ig;
+			console.log(str4.replace(re5,"*"))
+			var re6 = / /ig;
+			console.log(str4)
+			console.log(str4.replace(re6,""))
+		</script>
+	</body>
+</html>

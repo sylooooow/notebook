@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+	</head>
+
+	<body style="text-align: ;">
+		<form action="">
+			<table border="1" style="margin: 0 auto;">
+				<tr>
+					<td>用户名: </td>
+					<td><input type="text" name="" id="" value="" placeholder="请输入用户名" /></td>
+				</tr>
+				<tr>
+					<td>密&nbsp;&nbsp;&nbsp;码: </td>
+					<td><input type="password" name="" id="" value="" placeholder="请输入密码" /></td>
+				</tr>
+				<tr>
+					<td>确认密码:</td>
+					<td><input type="password" name="" id="" value="" placeholder="请再次输入密码" /></td>
+				</tr>
+				<tr>
+					<td>年&nbsp;&nbsp;&nbsp;龄: </td>
+					<td><input type="number" name="" id="" value="" /></td>
+				</tr>
+				<tr>
+					<td>性&nbsp;&nbsp;&nbsp;别: </td>
+					<td>
+						<input type="radio" name="sex" id="" value="Man" />男
+						<input type="radio" name="sex" id="" value="woman" />女
+					</td>
+				</tr>
+				<tr>
+					<td>邮&nbsp;&nbsp;&nbsp;箱: </td>
+					<td><input type="text" name="" id="" value="" placeholder="请输入邮箱" /></td>
+				</tr>
+				<tr>
+					<td>城&nbsp;&nbsp;&nbsp;市: </td>
+					<td>
+						<select name="请选择城市">
+							<option value="">大连</option>
+							<option value="">沈阳</option>
+							<option value="">丹东</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>区&nbsp;&nbsp;&nbsp;域: </td>
+					<td>
+						<select name="">
+							<optgroup label="大连">
+								<option value="">甘井子区</option>
+								<option value="">沙河口区</option>
+								<option value="">高新园区</option>
+							</optgroup>
+							<optgroup label="沈阳">
+								<option value="">哈哈哈区</option>
+								<option value="">呵呵呵区</option>
+								<option value="">嘎嘎嘎区</option>
+							</optgroup>
+							<!--下拉菜单组-->
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>交友目的:</td>
+					<td>
+						<select name="" multiple>
+							<option value="">吃</option>
+							<option value="">喝</option>
+							<option value="">玩</option>
+							<option value="">乐</option>
+						</select>
+					</td>
+					<!--
+					<td>
+					<input type="checkbox" name="" id="" value="" />吃喝
+					<input type="checkbox" name="" id="" value="" />玩乐
+				    </td>
+				-->
+				</tr>
+				<tr>
+					<td>爱好: </td>
+					<td>
+						<input type="checkbox" name="" id="" value="" />唱歌
+						<input type="checkbox" name="" id="" value="" />跳舞
+						<input type="checkbox" name="" id="" value="" />打游戏
+					</td>
+				</tr>
+				<tr>
+					<td>选择头像: </td>
+					<td>
+						<input type="file" name="" id="" value="" />
+						<!--文件选择器-->
+					</td>
+				</tr>
+
+				<tr>
+					<td>自我介绍:</td>
+					<td>
+						<textarea name="" rows="7" cols="40" placeholder="请输入.."></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>操&nbsp;&nbsp;&nbsp;作:</td>
+					<td>
+						<input type="submit" name="" id="" value="提交" />
+						<input type="reset" value="重置" />
+						<input type="button" value="保存" />
+					</td>
+				</tr>
+				<!--
+					reset:重置按钮
+					submit:提交按钮,把当前表单的所有内容提交到action后指定的位置
+					button:普通按钮,一般和JS时间配合使用
+				-->
+				<!--
+					表单注意:
+					1.如果要提交数据,input等表单标签必须在form中
+					2.表单上传就是客户端向服务器端传递数据的方式
+					3.form中action的属性,写的是数据要提交到服务器什么地方的地址
+				-->
+			</table>
+		</form>
+	</body>
+
+</html>

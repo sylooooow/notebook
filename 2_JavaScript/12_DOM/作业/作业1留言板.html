@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="homework.css">
+	</head>
+
+	<body id="body">
+		<div class="box_top">
+			<div class="logo">
+				<span class="span1">LOGO</span>
+				<span class="span2">点击领取红包</span>
+			</div>
+			<div class="content">
+				<textarea id="text"></textarea>
+			</div>
+			<div class="send">
+				<div class="nav">
+					<span>表情</span>
+					<span>图片</span>
+					<span>视频</span>
+					<span>话题</span>
+					<span>文章</span>
+				</div>
+				<div class="issue">
+					<button id="send">发布</button>
+				</div>
+			</div>
+		</div>
+		<div class="box_bottom" id="messageBox">
+			<div class="message" id="message">
+				<div class="message_top">
+					<span>闫子夜</span>
+					<span>删除</span>
+				</div>
+				<div class="message_content" id="message_content">
+					哈哈哈
+				</div>
+				<div class="message_bottom">
+					<span>10月26日 21：07 发布</span>
+				</div>
+			</div>
+		</div>
+		<!--以下为点击遮罩-->
+		<div class="cover1" id="wrong">
+			<span class="successSpan">发送失败！请重新输入发布内容</span>
+			<span id="count1"></span>
+		</div>
+		<div class="cover2" id="success">
+			<span class="fabu">发布成功!</span>
+			<span id="count2"></span>
+		</div>
+
+		<script type="text/javascript">
+			var oSend = document.getElementById("send");
+			var oBody = document.getElementById("body");
+			var wrongDiv = document.getElementById("wrong");
+			var successDiv = document.getElementById("success");
+			var oTextarea = document.getElementById("text");
+			var oMessageBox = document.getElementById("message");
+			var bottomBox = document.getElementById("messageBox")
+			var oCount1 = document.getElementById("count1");
+			var oCount2 = document.getElementById("count2");
+			var timer = null;
+			var count = 3;
+			oSend.onclick = function() {
+				if(oTextarea.value.trim()) {
+					successDiv.style.display = "block";
+					body.style.overflow = "hidden";
+					oSend.disabled = "disabled";
+					oTextarea.disabled = "disabled";
+					oCount2.textContent = count;
+					timer = setInterval(function() {
+						count--;
+						oCount2.textContent = count;
+						if(count == 0) {
+							successDiv.style.display = "none";
+							body.style.overflow = "visible";
+							oTextarea.disabled = "";
+							oSend.disabled = "";
+							count = 3;
+							clearInterval(timer);
+						}
+					}, 1000);
+                    
+                    var nowTime = new Date();
+                    var month = nowTime.getMonth() + 1;
+                    var day = nowTime.getDate();
+                    var hour = nowTime.getHours();
+                    var minute = nowTime.getMinutes();
+ 
+                    var msgBox = document.createElement("div");
+					var msgChildTop = document.createElement("div");
+					var msgChildText = document.createElement("div");
+					var msgChildBottom = document.createElement("div");
+					var spanName = document.createElement("span");
+					var spanDel = document.createElement("span");
+					var spanTime = document.createElement("span");
+//					bottomBox.appendChild(msgBox);
+					bottomBox.prepend(msgBox);
+					msgBox.appendChild(msgChildTop);
+					msgBox.appendChild(msgChildText);
+					msgBox.appendChild(msgChildBottom);
+					msgChildTop.appendChild(spanName);
+					msgChildTop.appendChild(spanDel);
+					msgChildBottom.appendChild(spanTime);
+					msgBox.className = "message";
+					msgChildTop.className = "message_top";
+					msgChildText.className = "message_content";
+					msgChildBottom.className = "message_bottom";
+					msgChildText.innerHTML = oTextarea.value;
+					spanName.innerHTML = "闫子夜";
+					spanDel.innerHTML = "删除";
+					spanTime.innerHTML = month + "月" + day + "日" + "" + hour + ":" + minute + "发布";
+					spanDel.onclick = function() {
+						msgBox.remove();
+					}
+				} else {
+					wrongDiv.style.display = "block";
+					body.style.overflow = "hidden";
+					oSend.disabled = "disabled";
+					oTextarea.disabled = "disabled";
+					oCount1.textContent = count;
+					timer = setInterval(function() {
+						count--;
+						oCount1.textContent = count;
+						if(count == 0) {
+							wrongDiv.style.display = "none";
+							body.style.overflow = "visible";
+							oTextarea.disabled = "";
+							oSend.disabled = "";
+							count = 3;
+							clearInterval(timer);
+						}
+					}, 1000);
+				}
+			}
+		</script>
+	</body>
+
+</html>

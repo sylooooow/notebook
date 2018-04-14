@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+              body {
+              	width: 100%;
+              	height: 100%;
+              	margin: 0;
+              	padding: 0;
+              	position: relative;
+              }
+              #box {
+              	 width: 50px;
+              	 height: 50px;
+              	 border-radius: 25px;
+              	 background-color: red;
+              	 position: absolute;
+              	 left: 0;
+              	 top: 0;
+              }
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			//实现横向碰壁反弹
+			var oBox = document.getElementById("box");
+			var bodyW = document.documentElement.clientWidth;
+			var speed = 2;
+			setInterval(function() {
+				if (oBox.offsetLeft + oBox.offsetWidth >= bodyW) {
+					speed = -speed;
+				} 
+				if (oBox.offsetLeft < 0) {
+					speed = -speed;
+				}
+				oBox.style.left = oBox.offsetLeft + speed + "px";
+			},10)
+		</script>
+	</body>
+</html>

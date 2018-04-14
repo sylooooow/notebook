@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <table id="table" border="1"></table>
+    <button id="btn">下一页</button>
+</head>
+<body>
+<script>
+    var num = 0;
+    var url = "interface.php?pageNum=" + num;
+
+    var oBtn = document.getElementById("btn");
+
+    oBtn.onclick = function () {
+        num++;
+        url = "interface.php?pageNum=" + num;
+        ajax_get(url,getData);
+    }
+
+    ajax_get(url,getData);
+
+    function getData(data) {
+        var dataArr = JSON.parse(data);
+
+        var oTable = document.getElementById("table");
+
+        oTable.innerHTML = "";
+
+        var oTr = document.createElement("tr");
+
+        oTable.appendChild(oTr);
+
+        for (var key in dataArr[0]) {
+            var oTh = document.createElement("th");
+            oTr.appendChild(oTh);
+            oTh.innerHTML = key;
+        }
+
+        for (var i = 0; i < dataArr.length; i++) {
+            var oTr2 = document.createElement("tr");
+            oTable.appendChild(oTr2);
+
+            for (var key2 in dataArr[i]) {
+                var oTd = document.createElement("td");
+                oTr2.appendChild(oTd);
+                oTd.innerHTML = dataArr[i][key2];
+            }
+        }
+    }
+
+    function ajax_get(url,fn) {
+        var xhr = null;
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                var theData = xhr.responseText;
+                if (fn) {
+                    fn(theData);
+                }
+                return theData;
+            }
+        }
+        xhr.open("get",url,false);
+        xhr.send();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="500" id="canvas"></canvas>
+<script>
+    var oCanvas = document.getElementById("canvas");
+    var ctx = oCanvas.getContext("2d");
+    ctx.beginPath();
+    ctx.font = "45px Arial";
+    ctx.fillStyle = "pink";
+    //fillText(文字,起始位置x,起始位置y,文字所占宽度)
+    ctx.fillText("今天作业是...",100,100);
+
+</script>
+</body>
+</html>

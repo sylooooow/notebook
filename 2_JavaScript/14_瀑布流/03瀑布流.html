@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+			}
+			
+			ul {
+				position: relative;
+				margin: 0 auto;
+				border: 1px solid black;
+			}
+			
+			li {
+				width: 200px;
+				background-color: black;
+				font-size: 50px;
+				text-align: center;
+				color: white;
+				/*box-sizing: border-box;*/
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul id="list">
+			<li>第1行</li>
+			<li>第2行</li>
+			<li>第3行</li>
+			<li>第4行</li>
+			<li>第5行</li>
+			<li>第6行</li>
+			<li>第7行</li>
+			<li>第8行</li>
+			<li>第9行</li>
+			<li>第10行</li>
+		</ul>
+		<script type="text/javascript">
+			var oList = document.getElementById("list");
+			var space = 10; //块之间的间隙
+			var winW = document.documentElement.clientWidth; //浏览器宽度
+			var cols = Math.floor((winW - space) / (200 + space));
+			console.log(cols);
+			//ul的宽度
+			oList.style.width = (200 + space) * cols + space + "px";
+
+			//初始化每一列高度为0
+			var colHArr = [];
+			for(var i = 0; i < cols; i++) {
+				colHArr[i] = 0;
+			}
+
+			for(var i = 0; i < 50; i++) {
+				var newLi = document.createElement("li");
+				newLi.innerHTML = i;
+				newLi.style.height = Math.floor(Math.random() * (200 - 100 + 1) + 100) + "px";
+				oList.appendChild(newLi);
+				//寻找最短的一列,即colHArr最小数和下标
+				var minNum = colHArr[0];
+				var minIndex = 0;
+				for(var j = 0; j < colHArr.length; j++) {
+					if(minNum > colHArr[j]) {
+						minNum = colHArr[j];
+						minIndex = j;
+					}
+				}
+				console.log(minIndex);
+				newLi.style.top = minNum + space + "px";
+				newLi.style.left = minIndex * (200 + space) + space + "px";
+
+				//更新最短列的高度
+				colHArr[minIndex] += space + newLi.offsetHeight;
+
+			}
+			//更新ul的高度
+			var maxH = colHArr[0];
+			for(var i = 0; i < colHArr.length; i++) {
+				if(maxH < colHArr[i]) {
+					maxH = colHArr[i];
+				}
+			}
+			oList.style.height = maxH + space + "px";
+		</script>
+	</body>
+
+</html>

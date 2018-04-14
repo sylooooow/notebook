@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str = "kkk 1b2 1a2 abc ! cc kk";
+			//中括号里的表示只要有其中一个就行,相当于/1a2|1b2|1c2/
+			var re = /1[abc]2/g;
+			console.log(str.match(re)) //打印1a2、1b2
+			
+			//[1 3] 表示1或者空格 或者3
+			//[0-9] 表示0到9
+			//[123 456] 表示1、2、3、空格、4、5、6
+			//[a-z] 表示a到z
+			//[A-Z] 表示A到Z
+			//[^a]  表示出了a以外的所有字符,标点符号也算字符
+			//[^0-9a-zA-Z] 这样写表示除了数字和字母
+			
+			var re2 = /[^a]/g;
+			var re3 = /[^0-9a-zA-Z]/;
+			console.log(str.match(re2));
+			console.log(str.match(re3));
+		</script>
+	</body>
+</html>

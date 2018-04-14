@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.wrap {
+				width: 366px;
+				height: 650px;
+				/*border: 1px solid black;*/
+				position: relative;
+				left: 50%;
+				top: 50%;
+				margin-left: -183px;
+				margin-top: 100px;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.hidecar-box {
+				width: 100%;
+				height: 93%;
+				background-color: rgba(0, 0, 0, .7);
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 19;
+			}
+
+			.top {
+				width: 100%;
+				height: 21%;
+				background: url("img/头像.jpg") no-repeat;
+				/* 让背景图基于容器大小伸缩 */
+				background-size: cover;
+				/* 背景图垂直、水平均居中 */
+				background-position: 50% 50%;
+				position: relative;
+			}
+
+			.blurry {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, .5);
+			}
+
+			.icon-box {
+				width: 100%;
+				height: 78%;
+				/*background-color: red;*/
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.icon-box-wrap {
+				height: 60%;
+				width: 90.65606361829%;
+				display: flex;
+				justify-content: space-between;
+			}
+
+			.icon {
+				height: 100%;
+				width: 18.859649122807%;
+			}
+
+			.icon img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.shop-title-box {
+				height: 100%;
+				width: 76.754385964912%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+
+			.shop-title {
+				height: 40%;
+				width: 100%;
+			}
+
+			.shop-title span {
+				height: 100%;
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+			}
+
+			.shop-title img {
+				height: 100%;
+				width: 15%;
+			}
+
+			.shop-title span span {
+				display: flex;
+				align-items: center;
+				height: 100%;
+				width: 80%;
+				color: white;
+				font-weight: bold;
+				font-size: 1.2em;
+			}
+
+			.peisong {
+				width: 100%;
+				height: 25%;
+				display: flex;
+			}
+
+			.peisong span {
+				display: flex;
+				align-items: center;
+				width: 100%;
+				height: 100%;
+				font-size: 14px;
+				color: white;
+			}
+
+			.youhui {
+				width: 100%;
+				height: 20%;
+				display: flex;
+				align-items: center;
+				position: relative;
+			}
+
+			.youhui span {
+				height: 100%;
+				display: flex;
+			}
+
+			.youhui img {
+				height: 100%;
+			}
+
+			.youhui-content {
+				color: white;
+				font-size: 0.7em;
+				align-items: center;
+				margin-left: 5px;
+			}
+
+			.youhui div {
+				width: 18%;
+				height: 220%;
+				background-color: pink;
+				position: absolute;
+				top: -60%;
+				right: 0;
+				border-radius: 15px;
+				background-color: rgba(0, 0, 0, .4);
+			}
+
+			.youhui div span {
+				width: 100%;
+				height: 100%;
+				color: white;
+				font-size: 0.5em;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.notice-box {
+				width: 100%;
+				height: 22%;
+				background-color: rgba(0, 0, 0, .3);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.notice {
+				position: relative;
+				width: 96%;
+				height: 60%;
+				display: flex;
+				align-items: center;
+			}
+
+			.notice img {
+				height: 100%;
+			}
+
+			.notice span {
+				font-size: 12px;
+				color: white;
+				margin-left: 5px;
+			}
+
+			.mid-nav {
+				width: 100%;
+				height: 7%;
+				background-color: #FFFFFF;
+				border-bottom: 1px solid #EEEEEE;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+			}
+
+			.main-content {
+				width: 100%;
+				height: 65%;
+				border-top: 1px solid #E7E7E8;
+				border-bottom: 1px solid #EEEEEE;
+				display: flex;
+			}
+
+			.aside-nav {
+				height: 100%;
+				width: 22%;
+				background-color: #F3F5F7;
+			}
+
+			.main-food {
+				height: 100%;
+				width: 78%;
+				background-color: #FFFFFF;
+				display: flex;
+				flex-direction: column;
+				overflow: hidden;
+				position: relative;
+			}
+			.main-food-box {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				overflow: scroll;
+			}
+			.main-food::-webkit-scrollbar {
+				display: none;
+			}
+			.main-food-box::-webkit-scrollbar {
+				display: none;
+			}
+
+			.sort {
+				width: 100%;
+				height: 12%;
+				display: flex;
+				justify-content: center;
+			}
+
+			.sort li {
+				height: 100%;
+				width: 70%;
+				border-bottom: 1px solid #E4E6E9;
+				list-style: none;
+				display: flex;
+				align-items: center;
+			}
+
+			.sort li a {
+				text-decoration: none;
+				color: #4C4F53;
+				font-size: 14px;
+			}
+
+			.sort li a img {
+				width: 13px;
+				height: 13px;
+				display: inline;
+			}
+
+			.sort li a:hover {
+				color: #717477;
+			}
+
+			.special-a {
+				display: inline;
+			}
+
+			.special-a img {
+				display: inline;
+			}
+
+			.food-cell {
+				width: 99.6%;
+				height: auto;
+			}
+
+			.food-cell-title{
+				display: block;
+				width: 94.6%;
+				height: 25px;
+				background-color: #F3F5F7;
+				border-left: 2px solid #D4D9DD;
+				padding-left: 5%;
+				font-size: 0.9em;
+				color: #9FA5AA;
+				line-height: 25px;
+			}
+
+			.food-detail {
+				width: 90%;
+				height: 80px;
+				border-bottom: 1px solid #F1F2F4;
+				margin: 0 auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.food-detail-box {
+				width: 100%;
+				height: 78%;
+				/*background-color: blue;*/
+				display: flex;
+				justify-content: space-between;
+			}
+			.food-img {
+				width: 24%;
+				height: 100%;
+				background-color: red;
+			}
+			.food-img img {
+				width: 100%;
+				height: 100%;
+			}
+			.food-intro {
+				width: 73%;
+				height: 100%;
+				/*background-color: yellow;*/
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			.food-title {
+				color: black;
+				font-weight: bold;
+				/*font-size: 1em;*/
+			}
+			.sales{
+				font-size: 0.7em;
+				color: #AFB3B8;
+			}
+			.sales span:nth-child(1) {
+				margin-right: 10px;
+			}
+			.food-price {
+				font-size: 0.8em;
+				color: red;
+				overflow: hidden;
+				position: relative;
+			}
+			.price-num {
+				font-size: 16px;
+				font-weight: bold;
+				margin-left: 2px;
+			}
+			.add-food {
+				height: 120%;
+				width: 39%;
+				position: absolute;
+				top: -10%;
+				right: 0;
+				display: flex;
+				justify-content: space-between;
+				overflow: hidden;
+			}
+			.add-food img {
+				width: 100%;
+				height: 100%;
+			}
+			.jian,.jia,.count {
+				/*background-color: yellow;*/
+				height: 100%;
+				float: right;
+			}
+			.hide {
+				display: none;
+			}
+			.jian,.jia {
+				width: 32%;
+			}
+			.jian {
+				background: url(img/jian.png) no-repeat;
+			}
+			.jia {
+				background: url(img/jia.png) no-repeat;
+			}
+			.count {
+				width: 36%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 1.1em;
+				color: #A2A8AC;
+			}
+			.bottom {
+				width: 100%;
+				height: 7%;
+				background-color: #141D26;
+				display: flex;
+				justify-content: space-between;
+				position: relative;
+			}
+			.bottom-left,.bottom-right {
+				height: 100%;
+			}
+			.bottom-left {
+				width: 72%;
+				display: flex;
+				align-items: center;
+			}
+			.bottom-right {
+				width: 28%;
+				background-color: #2B333B;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#jiesuan {
+				color: #979A9C;
+				font-size: 0.9em;
+				font-weight: bold;
+			}
+			.money-box {
+				width: 45%;
+				height: 70%;
+				border-right: 1px solid #252D36;
+				position: relative;
+			}
+			.translate {
+				width: 54.5%;
+				height: 70%;
+				display: flex;
+				align-items: center;
+			}
+			.money-box img {
+				width: 37%;
+				height: 152%;
+				position: absolute;
+				left: 12px;
+				top: -17px;
+				z-index: 99;
+			}
+			.fontColor {
+				font-size: 1.4em;
+				font-weight: bold;
+				color: #8D8F92;
+				position: absolute;
+				right: 10px;
+			}
+			.translate span {
+				font-size: 0.8em;
+				color: #75787B;
+				margin-left: 10px;
+			}
+			.active {
+				background-color: #FFFFFF;
+			}
+			marquee {
+				color: #EDECEB;
+				font-size: 0.8em;
+			}
+			.blueBgc {
+				background-color: #009FD9;
+			}
+			.whiteFont {
+				color: white;
+			}
+			.redFont{
+				color: #F9F9F9;
+			}
+			.grayFont {
+				color: #8D8F92;
+			}
+
+			.car-box {
+				width: 100%;
+				max-height: 246px;
+				/*overflow: scroll;*/
+				background-color: #FFFFFF;
+				position: absolute;
+				left: 0;
+				z-index: 88;
+			}
+			.car-box::-webkit-scrollbar {
+				display: none;
+			}
+			.carbox-content {
+				width: 100%;
+				max-height: 204px;
+				overflow: scroll;
+				display: flex;
+				justify-content: center;
+			}
+			.carbox-content::-webkit-scrollbar {
+				display: none;
+			}
+			.carbox-content-detail {
+				width: 92%;
+			}
+			.carbox-title {
+				width: 100%;
+				height: 40px;
+				background-color: #F1F3F5;
+				border-bottom: 2px solid #E0E3E6;
+				display: flex;
+				justify-content: center;
+			}
+			.carbox-title-box {
+				height: 100%;
+				width: 92%;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.carbox-title-box span:nth-child(1) {
+				color: #57595C;
+			}
+			.clear-car {
+				color: #009BD8;
+			}
+			.goods-detail-box {
+				width: 100%;
+				height: 50px;
+				border-bottom: 1px solid #EFF0F1;
+				display: flex;
+				align-items: center;
+			}
+			.goods-detail {
+				width: 100%;
+				height: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.goodTitle {
+				display: flex;
+				align-items: center;
+			}
+			.goodsControl {
+				width: 35%;
+				height: 100%;
+				/*background-color: blue;*/
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.goodsPrice {
+				color: red;
+				font-size: 12px;
+			}
+			.priceNum {
+				font-size: 1.5em;
+			}
+            .goodsChange {
+                height: 80%;
+                width: 60%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                /*background-color: yellow;*/
+            }
+            .jianfa img {
+                margin-top: 6px;
+            }
+            .jiafa img {
+                margin-top: 5px;
+            }
+            .carCount {
+                width: 26px;
+                height: 20px;
+                text-align: center;
+                line-height: 20px;
+                color: white;
+                font-size: 0.8em;
+                border-radius: 10px;
+                background-color: red;
+                position: absolute;
+                top: -10px;
+                left: 40px;
+                z-index: 99;
+            }
+
+
+			/*评论CSS*/
+
+		</style>
+		<link rel="stylesheet" href="css/comment.css">
+	</head>
+
+	<body>
+		<div class="wrap">
+			<!--购物车蒙版-->
+			<div class="hidecar-box hide"></div>
+
+			<div class="top">
+				<!--蒙版-->
+				<div class="blurry"></div>
+				<!--头像-->
+				<div class="icon-box">
+					<div class="icon-box-wrap">
+						<div class="icon"><img src="img/头像.jpg" alt=""></div>
+						<div class="shop-title-box">
+							<div class="shop-title">
+								<span>
+                            <img src="img/brand@2x.png" alt="">
+                            <span>粥品香坊 (大运村）</span>
+								</span>
+							</div>
+							<div class="peisong">
+								<span>蜂鸟专送 / 38分钟送达</span>
+							</div>
+							<div class="youhui">
+								<span>
+                            <img src="img/decrease_1@2x.png" alt="">
+                        </span>
+								<span class="youhui-content">
+                            在线支付满28减5 , 满50减10
+                        </span>
+								<div>
+									<span>5个 ></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="notice-box">
+					<div class="notice">
+						<img src="img/bulletin@2x.png" alt="">
+						<!--<span>粥品香坊其烹饪粥料的秘方源于中国千年古法，再融和... ></span>-->
+						<marquee scrollamount=3 scro direction="left">粥品香坊其烹饪粥料的秘方源于中国千年古法，再融和现代制作工艺，巧妙地将传统秘方与现代手工艺结合，使其味道独特！</marquee>
+					</div>
+				</div>
+			</div>
+			<div class="mid-nav">
+				<span id="goods" style="color: red">商品</span>
+				<span id="comment">评价</span>
+				<span>商家</span>
+			</div>
+			<div class="main-content">
+				<div class="aside-nav">
+					<div class="sort">
+						<li>
+							<a href="#" title_id="a" class="v">热销榜</a>
+						</li>
+					</div>
+					<div class="sort">
+						<li>
+							<a href="#" class="special-a" title_id="b" class="v">
+								<img src="img/special_3@2x.png" alt=""> 单人特色套餐
+							</a>
+						</li>
+					</div>
+					<div class="sort">
+						<li>
+							<a href="#" title_id="c" class="v">特色粥品</a>
+						</li>
+					</div>
+					<div class="sort">
+						<li>
+							<a href="#" title_id="d" class="v">精选热菜</a>
+						</li>
+					</div>
+					<div class="sort">
+						<li>
+							<a href="#" title_id="e" class="v">爽口凉菜</a>
+						</li>
+					</div>
+					<div class="sort">
+						<li>
+							<a href="#" title_id="f" class="v">半成品</a>
+						</li>
+					</div>
+					<div class="sort">
+						<li>
+							<a href="#" title_id="g" class="v">饭类</a>
+						</li>
+					</div>
+					<div class="sort">
+						<li>
+							<a href="#" title_id="h" class="v">面类</a>
+						</li>
+					</div>
+				</div>
+				<div class="main-food">
+					<div class="main-food-box"></div>
+					<!--<div class="food-cell">
+						<span class="food-cell-title">热销榜</span>
+						<div class="food-detail">
+							<div class="food-detail-box">
+								<div class="food-img">
+									<img src="img/头像.jpg"/>
+								</div>
+								<div class="food-intro">
+									<span class="food-title">莲子核桃黑米粥</span>
+									<span class="sales">
+										<span>月售1132份</span>
+										<span>好评率100%</span>
+									</span>
+									<span class="food-price">¥
+										<i class="price-num">24</i>
+										<div class="add-food">
+											<span id="jian"><img src="img/jian.png"/></span>
+											<span id="count">1</span>
+											<span id="jia"><img src="img/jia.png"/></span>
+										</div>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="food-detail"></div>
+					</div>
+					<div class="food-cell">
+						<span class="food-cell-title">单人特色套餐</span>
+						<div class="food-detail"></div>
+					</div>
+					-->
+				</div>
+			</div>
+
+			<!--评论-->
+			<div class="main-comment hide">
+				<div class="synthesis">
+					<div class="synthesis-box">
+						<div class="synthesis-box-left">
+							<span class="comment-grade">4.0</span>
+							<span>综合评分</span>
+							<span>高于周边商家69%</span>
+						</div>
+						<div class="synthesis-box-right">
+							<div class="shop-comment">
+								<span>商家评分</span>
+								<div class="star1">
+									<img src="img/star24_on@2x.png" alt="" index = "0">
+									<img src="img/star24_on@2x.png" alt="" index = "0">
+									<img src="img/star24_on@2x.png" alt="" index = "0">
+									<img src="img/star24_on@2x.png" alt="" index = "0">
+									<img src="img/star24_off@2x.png" alt="" index = "0">
+								</div>
+								<span class="score1">4.0</span>
+							</div>
+							<div class="service-comment">
+								<span>服务态度</span>
+								<div class="star2">
+									<img src="img/star24_off@2x.png" alt="" index = "0">
+									<img src="img/star24_off@2x.png" alt="" index = "1">
+									<img src="img/star24_off@2x.png" alt="" index = "2">
+									<img src="img/star24_off@2x.png" alt="" index = "3">
+									<img src="img/star24_off@2x.png" alt="" index = "4">
+								</div>
+								<span class="score2">4.0</span>
+							</div>
+							<div class="wheel-time">
+								<span>送达时间</span>
+								<span>44分钟</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block-box"></div>
+				<div class="comment-nav">
+					<div class="comment-nav-top">
+						<div class="feeling-box">
+							<button>全部<img src="img/57.png"></button>
+							<button>满意<img src="img/47.png"></button>
+							<button>不满意<img src="img/10.png"></button>
+						</div>
+					</div>
+					<div class="comment-nav-bottom">
+						<div class="comment-nav-bottom-box">
+							<img src="img/123.png" alt="">
+							<span>只看有内容的评价</span>
+						</div>
+					</div>
+				</div>
+				<div class="comment-allbox">
+					<div class="comment-box">
+						<div class="comment-box-left">
+							<img src="img/user.png" alt="">
+						</div>
+						<div class="comment-box-right">
+							<div class="box1">
+								<span class="user">聚***家</span>
+								<span class="user-time">2016-07-13 20:33</span>
+							</div>
+							<div class="box2">
+								<span class="user-star">
+									<img src="img/star24_on@2x.png" alt="" index = "0">
+									<img src="img/star24_on@2x.png" alt="" index = "0">
+									<img src="img/star24_on@2x.png" alt="" index = "0">
+									<img src="img/star24_on@2x.png" alt="" index = "0">
+									<img src="img/star24_off@2x.png" alt="" index = "0">
+								</span>
+								<span class="songda">80分钟送达</span>
+							</div>
+							<div class="box3">
+								油条凉了，而且没有酱。75分钟才送到，很慢。送餐员态度不错，但毕竟好晚了啊。
+							</div>
+							<div class="box4">
+								<img src="img/dianzan.png" alt="">
+								<span>送餐太慢</span>
+								<span>服务态度好</span>
+								<span>味道不错</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="comment-allbox">
+					<div class="comment-box">
+						<div class="comment-box-left">
+							<img src="img/user.png" alt="">
+						</div>
+						<div class="comment-box-right">
+							<div class="box1">
+								<span class="user">聚***家</span>
+								<span class="user-time">2016-07-13 20:33</span>
+							</div>
+							<div class="box2">
+								<span class="user-star">
+									<img src="img/star24_on@2x.png" alt="" index = "0">
+									<img src="img/star24_on@2x.png" alt="" index = "0">
+									<img src="img/star24_on@2x.png" alt="" index = "0">
+									<img src="img/star24_on@2x.png" alt="" index = "0">
+									<img src="img/star24_off@2x.png" alt="" index = "0">
+								</span>
+								<span class="songda">80分钟送达</span>
+							</div>
+							<div class="box3">
+								油条凉了，而且没有酱。75分钟才送到，很慢。送餐员态度不错，但毕竟好晚了啊。
+							</div>
+							<div class="box4">
+								<img src="img/chaping.png" alt="">
+								<span>送餐慢</span>
+								<span>价格贵</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="bottom">
+				<div class="bottom-left">
+					<div class="money-box">
+						<img src="img/car.png" alt="">
+						<span class="fontColor">
+							￥<span id="money">0</span>
+						</span>
+					</div>
+					<div class="translate">
+						<span>另需配送费￥4元</span>
+					</div>
+				</div>
+				<div class="bottom-right">
+					<span id="jiesuan"><i id="haisheng">￥</i><span id="payMoney">20</span><span id="qisong">起送</span></span>
+				</div>
+
+				<!--购物车里的商品-->
+				<div class="car-box hide">
+					<!--<div class="carbox-title">-->
+						<!--<div class="carbox-title-box">-->
+							<!--<span>购物车</span>-->
+							<!--<span class="clear-car">清空</span>-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="goods-detail-box">-->
+						<!--<div class="goods-detail">-->
+							<!--<span class="goodTitle">莲子核桃黑米粥</span>-->
+							<!--<div class="goodsControl">-->
+								<!--<span class="goodsPrice">-->
+									<!--￥<span class="priceNum">10</span>-->
+								<!--</span>-->
+								<!--<span class="goodsChange">-->
+									<!--<span class="jianfa"><img src="img/jian.png"/></span>-->
+                                    <!--<span class="shuliang">1</span>-->
+                                    <!--<span class="jiafa"><img src="img/jia.png"/></span>-->
+								<!--</span>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+				</div>
+
+                <!--购物车中商品数量-->
+                <div class="carCount hide"></div>
+			</div>
+		</div>
+
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/comment.js"></script>
+	</body>
+
+</html>

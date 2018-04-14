@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -250px;
+            margin-top: -250px;
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="500" id="canvas"></canvas>
+<script>
+    var oCanvas = document.getElementById("canvas");
+    var ctx = oCanvas.getContext("2d");
+
+    ctx.beginPath();
+    ctx.moveTo(200,200);
+    ctx.lineTo(400,200);
+    ctx.lineWidth = 100;
+
+    //线性渐变 创建线性渐变对象(clg)
+    //createLinearGradient(起始x，起始y，终点x，终点y)
+    var clg = ctx.createLinearGradient(200,200,400,200);
+    //创建渐变颜色(渐变百分点，颜色)
+    clg.addColorStop(0,"red");
+    clg.addColorStop(0.3,"yellow");
+    clg.addColorStop(0.7,"orange");
+    clg.addColorStop(1,"blue");
+    ctx.strokeStyle = clg;
+
+    ctx.stroke();
+
+</script>
+</body>
+</html>

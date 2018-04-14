@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 500px;
+				height: 600px;
+				border: 10px solid black;
+				padding: 30px;
+				/*position: relative;*/
+			}
+			
+			#div2 {
+				width: 300px;
+				height: 300px;
+				border: 5px solid lightblue;
+				position: relative;
+			}
+			
+			#div3 {
+				width: 100px;
+				height: 100px;
+				border: 2px solid grey;
+				position: absolute;
+				top: 10px;
+				left: 10px;
+			}
+		</style>
+	</head>
+
+	<body id="body">
+		<div id="div1">
+			<div id="div2">
+				<div id="div3"></div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var oDiv3 = document.getElementById("div3");
+			var oBody = document.getElementById("body");
+			//如果是定位元素，offsetParent是定位父级
+			//如果是定位元素，如果不给任何父级添加relative，offsetParent是body
+			//如果不是定位元素，offsetParent是body
+
+			getDistance(oDiv3, "top");
+
+			function getDistance(obj, attr) {
+				var result = 0;
+				var borders = 0;
+				while(obj) {
+					result += attr == "left" ? obj.offsetLeft + borders : obj.offsetTop + borders
+					obj = obj.offsetParent;
+					if(obj) {
+						borders = parseInt(getComputedStyle(obj)["border-" + attr]);
+					}
+				}
+				console.log(result);
+			}
+		</script>
+	</body>
+
+</html>

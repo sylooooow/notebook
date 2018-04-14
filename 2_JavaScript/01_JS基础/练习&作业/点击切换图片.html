@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">
+			<img src="images/girl12.jpg" id="img"/>
+			<div id="">
+				<button id="btn">点我换图片</button>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var myBtn = document.getElementById("btn");
+			var myImg = document.getElementById("img");
+			
+			var myArray = ["images/girl2.jpg", "images/girl3.jpg", "images/girl4.jpg", "images/girl5.jpg", "images/girl6.jpg"];
+			myBtn.onclick = function() {
+//				myImg.src = "images/girl10.jpg";
+                for (var i = 0; i < myArray.length; i++) {
+                	 myImg.src = myArray[i];
+                	 console.log(myImg.src);
+                }
+			}
+			
+		</script>
+	</body>
+</html>

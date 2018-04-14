@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//unicode     [\u4e00-\u9fa5] unicode编码
+			var str = "~~~~~偶还是去欧威有阿萨德不完全哦~~~~~~";
+			var re = /[\u4e00-\u9fa5]/g;
+			console.log(str.match(re)); //Array(14),不会识别前后符号
+			
+		</script>
+	</body>
+
+</html>

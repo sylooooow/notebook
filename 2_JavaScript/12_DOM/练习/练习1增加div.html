@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.color {
+				width: 100px;
+				height: 100px;
+				/*background-color: rgb(213,124,245);*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="add">添加</button>
+		<button id="del">删除</button>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAdd = document.getElementById("add");
+			var oDel = document.getElementById("del");
+			var Odiv = document.getElementById("all");
+			var delDivs = Odiv.children;
+			console.log(delDivs)
+			oAdd.onclick = function() {
+				var divs = document.createElement("div")
+				Odiv.appendChild(divs);
+				divs.className = "color";
+				var r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+				var g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+				var b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+				console.log(r, g, b);
+				divs.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+				divs.onclick = function() {
+					this.remove();
+				}
+			}
+			oDel.onclick = function() {
+				Odiv.removeChild(Odiv.children[0]);
+			}
+
+//			getColor() {
+//				var r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+//				var g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+//				var b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+//				var backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+//				return backgroundColor;
+//			}
+		</script>
+	</body>
+
+</html>

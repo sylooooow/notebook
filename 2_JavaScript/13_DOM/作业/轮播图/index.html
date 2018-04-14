@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.all {
+				cursor: pointer;
+				width: 800px;
+				margin: 0 auto;
+			}
+			
+			.screen {
+				width: 800px;
+				height: 443px;
+				position: relative;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			
+			.imgFa {
+				width: 2400px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				overflow: hidden;
+			}
+			
+			.imgFa img {
+				width: 800px;
+				float: left;
+			}
+			
+			.btn {
+				position: absolute;
+				background-color: rgba(0, 0, 0, 0.5);
+				bottom: 0;
+				right: 0;
+				color: white;
+				width: 80px;
+				height: 20px;
+				text-align: center;
+			}
+			
+			.lastImg {
+				right: 100px;
+			}
+			
+			.numsBtn {
+				text-align: center;
+			}
+			
+			.numsBtn {
+				text-align: center;
+			}
+			
+			.numsBtn a {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				background-color: #ccc;
+			}
+			
+			a.isTrue {
+				background-color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="all">
+			<div class="screen">
+				<div class="imgFa">
+					<img src="img/01.jpg" alt="" />
+					<img src="img/02.jpg" alt="" />
+					<img src="img/03.jpg" alt="" />
+				</div>
+				<div class="lastImg btn">lastImg</div>
+				<div class="nextImg btn">nextImg</div>
+			</div>
+			<div class="numsBtn">
+				<a class="isTrue" href="###"></a>
+				<a href="###"></a>
+				<a href="###"></a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var all = document.querySelector(".all");
+			var myScreen = document.querySelector(".screen");
+			var imgFa = document.querySelector(".imgFa");
+			var lastBtn = document.querySelector(".lastImg");
+			var nextBtn = document.querySelector(".nextImg");
+			var nums = document.querySelectorAll(".numsBtn a");
+			//判断当前页数
+			var index = 0;
+			//终点位置
+			var endPos = 0;
+			//滚动定时器
+			var rollTimer = null;
+			//自动滚动定时器
+			var autoTimer = null;
+			//向下滚动间隔时间
+			var JGTime = 10;
+			//移动的速度和方向
+			var speed = 10;
+			//向下一张滚动
+			function nextRoll() {
+				//连点的时候，在没有走到终点的情况下，直接变到终点位置
+				imgFa.style.left = endPos + "px";
+					nums[index].className = "";
+				//页数++
+				index++;
+				//当页数是最后一页
+				if (index == 3) {
+					//下一次回到第一页
+					index = 0;
+					//速度取反
+					speed = -50;
+				} else {
+					//速度取正
+					speed = 10;
+				}
+					nums[index].className = "isTrue";
+				rollAni(index, -speed);
+			}
+			//向上一张滚动
+			function lastRoll() {
+				imgFa.style.left = endPos + "px";
+				nums[index].className = "";
+				index--;
+				if (index == -1) {
+					index = 2;
+					//速度取反
+					speed = -50;
+				} else {
+					//速度变回来
+					speed = 10;
+				}
+				nums[index].className = "isTrue";
+				rollAni(index, speed);
+			}
+			autoRoll();
+			//自动滚动
+			function autoRoll() {
+				clearInterval(autoTimer);
+				autoTimer = setInterval(function() {
+					nextRoll();
+				}, 2000);
+			}
+			//鼠标移入all,停止自动滚动
+			all.onmouseover = function() {
+					clearInterval(autoTimer);
+				}
+				//鼠标移出all,继续自动滚动
+			all.onmouseout = function() {
+				autoRoll();
+			}
+			//按钮点击上一张下一张
+			nextBtn.onclick = function() {
+				nextRoll();
+			}
+			lastBtn.onclick = function() {
+				lastRoll();
+			}
+			//分页器逻辑
+			for (var i = 0; i < nums.length; i++) {
+				//保存下标
+				nums[i].index = i;
+				nums[i].onclick = function() {
+					imgFa.style.left = endPos + "px";
+					//判断方向
+					if (this.index > index) {
+						speed = 10;
+					} else {
+						speed = -10;
+					}
+					//更改页数
+					index = this.index;
+					//更改样式
+					for (var j = 0; j < nums.length; j++) {
+						nums[j].className = "";
+					}
+					this.className = "isTrue";
+					//滚动
+					rollAni(index, -speed);
+				}
+			}
+			//滚动动画
+			function rollAni(index, speed) {
+				//终点位置=-（当前页数*一页的宽度）;
+				endPos = -index * myScreen.offsetWidth;
+				//执行移动，执行定时器
+				clearInterval(rollTimer);
+				rollTimer = setInterval(function() {
+					//如果移动到达终点位置，则停止
+					if (imgFa.offsetLeft == endPos) {
+						clearInterval(rollTimer);
+					} else {
+						imgFa.style.left = imgFa.offsetLeft + speed + "px";
+					}
+				}, JGTime);
+			}
+		</script>
+
+	</body>
+
+</html>

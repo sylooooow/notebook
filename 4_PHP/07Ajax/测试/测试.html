@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+</div>
+
+<script>
+    var oDiv = document.getElementsByTagName("div")[0];
+
+    function ajax_get(url,fn) {
+        var xhr = null;
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                var theData = xhr.responseText;
+                if (fn) {
+                    fn(theData);
+                }
+            }
+        }
+
+        xhr.open("get",url,true);
+
+        xhr.send();
+    }
+
+
+    var url = "测试.php";
+    ajax_get(url,function (data) {
+        var dataArr = JSON.parse(data)["result"][0]["text"];
+        console.log(dataArr);
+        oDiv.innerHTML = dataArr;
+    })
+</script>
+
+</body>
+</html>

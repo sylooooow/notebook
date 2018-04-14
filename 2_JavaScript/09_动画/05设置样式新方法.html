@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				top: 10px;
+				left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+//			oAll.style.width = "200px"; //以前的方法
+			oAll.style["height"] = "300px"; //优点:在封装函数时方便传参
+			oAll["style"]["height"] = "500px"; //更方便传参
+		</script>
+	</body>
+</html>

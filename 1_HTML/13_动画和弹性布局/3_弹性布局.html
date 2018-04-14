@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>弹性布局</title>
+		<style type="text/css">
+			.div1 div {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				color: white;
+			}
+			.div1 {
+				height: 700px;
+				
+				
+				
+				/*转换为弹性布局，高度默认由内容撑开*/
+				display: flex;
+				/*行内弹性布局,宽高由内容撑开*/
+				/*display: inline-flex;*/
+				
+			    /*主轴方向*/
+			   /*flex-direction: column-reverse;*/
+			   /*1、row默认
+			     2、row-reverse 反向，从右向左,字体也是
+			     3、column 主轴为竖直方向， 从上到下排布
+			     4、column-reverse 主轴为竖直方向，从下到上排布*/
+			    
+			    
+			    
+			    /*flex-wrap 当主轴排不下时如何显示
+			     1、 nowrap(默认)不换行，外面的容器宽度不变,会把每个内容都缩小到能放下
+			     2、 wrap 换行，外面的容器宽度还是不变，放不下的内容到下一行
+			     3、 wrap-reverse 换行(反向)，即原来的第一行在下面*/
+			    /*flex-wrap: wrap;*/
+			    
+			    
+			    /*上面两个的简写(主轴方向和主轴放不下时的排列)*/
+			   /*flex-flow：row nowrap*/
+			  
+			  
+			  
+			  /*子项目在主轴的对其方式
+			   * 1. 默认为flex-start(主轴开始的方向)
+			   * 2. flex-end
+			   * 3. center
+			   * 4. space-between(在外容器内平分间距)
+			   * 5. space-around(相当于对子标签设置相同的左右边距)
+			   * */
+			  justify-content: ;
+			    
+			    
+			 /*子项目交叉轴(单根主轴)对其方式
+			  1、flex-start 上对齐
+			  2、center 居中
+			  3、flex-end 下对齐
+			  4、baseline 基线对齐，比较少用
+			  5、stretch(默认) 如果子项目未设置高度或为auto，则沾满整个容器*/
+			align-items: stretch;
+			
+			
+			
+			/*子项目在交叉轴（多根轴线）对齐方式
+			 默认也为stretch， 其他属性和单轴一样 ,多一个space-between(两端对齐) 和一个space-around（相当于对子项目设置相同的上下边距,上下边距取最大值）
+			 * */
+			align-content: ;
+			
+				border: 1px solid black;
+				
+			}
+			
+			.div1 div:nth-child(3) {
+				/*子项目的排布顺序,默认是0，越小越靠前*/
+				order: 4;
+			}
+			
+			/*让每个子项目都有不同的对齐方式：(下面例子为上中下对齐)*/
+			.div1 div:nth-child(1) {
+				align-self: flex-start;
+			}
+			.div1 div:nth-child(4) {
+				align-self: flex-end;
+			}
+			.div1 div:nth-child(5) {
+				align-self: center;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="div1">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1
+    String.prototype.judge = function () {
+        return this.charAt(0) == "闫";
+    }
+    var str = "闫哈哈";
+    console.log(str.judge());
+
+    //2
+    String.prototype.judgeWord = function (str) {
+        return this.toUpperCase() == str.toUpperCase();
+    }
+    var str1 = "Student";
+    var str2 = "studeNt";
+    console.log(str1.judgeWord(str2));
+</script>
+</body>
+</html>

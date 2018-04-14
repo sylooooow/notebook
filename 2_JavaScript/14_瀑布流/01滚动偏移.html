@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		
+		<script type="text/javascript">
+		    //页面滚动时触发
+			window.onscroll = function() {
+				//页面滚动的距离
+				var scrollT = document.documentElement.scrollTop;
+				console.log(scrollT);
+				//浏览器可视区域的宽度和高度
+				var winHeight = document.documentElement.clientHeight;
+				var winWidth = document.documentElement.clientWidth;
+				console.log(winHeight);
+				console.log(winWidth);
+				//页面的高度
+				var pageHeight = document.documentElement.scrollHeight;
+				var pageWidth = document.documentElement.scrollWidth;
+				console.log(pageWidth);
+				console.log(pageHeight);
+			}
+		</script>
+	</body>
+</html>

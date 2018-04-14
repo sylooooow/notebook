@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="text" />
+		<button id="send">发送</button>
+		<div id="box"></div>
+		<script type="text/javascript">
+		    var oBox = document.getElementById("box")
+			var oText = document.getElementById("text");
+			var oBtn = document.getElementById("send");
+			document.onkeydown = function(ev) {
+				if (ev.shiftKey && ev.keyCode == 13) {
+					var newDiv = document.createElement("div");
+					newDiv.innerHTML = oText.value;
+					oBox.appendChild(newDiv);
+					oText.value = "";
+				}
+			}
+		</script>
+	</body>
+</html>

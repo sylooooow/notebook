@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div1 {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				background: url(huaji.jpg) no-repeat;
+				background-size: 100% 100%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -100px;
+				margin-left: -100px;
+				/*transform: rotateY(30deg);*/
+				transition: all 1s ease 0.1s;
+				
+				/*设置变换基点(默认是center,center),还可以设置px、em和百分比任意设置基点*/
+				/*transform-origin: left top;*/
+			}
+			
+			.div1:hover {
+				/*移动(transform是变换的意思，translate为移动,方向为x,y)*/
+				/*transform不能写两个样式，只有最后一个会生效。可以在一个transform后加空格写多个样式*/
+				transform:rotate(36000deg) translate(100px, 100px) scale(2);
+				
+				/*旋转,参数是度数,还可以改变旋转基点*/
+				/*transform: rotate(36000deg);*/
+				
+				/*缩放,参数为放大的倍数，大于1是放大，小于1是缩小；还可以改变缩放基点*/
+				/*transform: scale(2);*/
+				
+				/*倾斜,参数为角度*/
+				/*transform: skew(45deg);*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--
+			变换：
+			移动、旋转、缩放、倾斜
+		-->
+		<div class="div1"></div>
+	</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				padding-top: 100px;
+				padding-left: 700px;
+			}
+			
+			ul:before,
+			ul:after {
+				display: table;
+				content: "";
+			}
+			
+			ul:after {
+				clear: both;
+				overflow: hidden;
+			}
+			
+			ul {
+				zoom: 1;
+				list-style: none outside none;
+				margin-bottom: 30px;
+			}
+			
+			ul li {
+				float: left: margin: 10px;
+			}
+			
+			ul a {
+				display: block;
+				float: left;
+				text-decoration: none;
+			}
+			
+			ul img {
+				border: 0;
+			}
+			
+			h1 {
+				margin: 2em 0;
+			}
+			
+			.ul1 img,
+			.ul2 img {
+				transition: all 0.8s ease-in-out;
+			}
+			
+			.ul1 img:hover {
+				transform: rotate(360deg) scale(1.5);
+			}
+			
+			.ul2 img:hover {
+				transform: rotate(-360deg) scale(.7);
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>顺时针旋转360度放大1.2倍</h1>
+		<ul class="ul1">
+			<li>
+				<a href="#"><img src="img/rss.png" alt="" /></a>
+			</li>
+			<li>
+				<a href="#"><img src="img/delicious.png" alt="" /></a>
+			</li>
+			<li>
+				<a href="#"><img src="img/facebook.png" alt="" /></a>
+			</li>
+			<li>
+				<a href="#"><img src="img/twitter.png" alt="" /></a>
+			</li>
+			<li>
+				<a href="#"><img src="img/yahoo.png" alt="" /></a>
+			</li>
+		</ul>
+		<h1>逆时针旋转360度缩小0.7倍</h1>
+		<ul class="ul2">
+			<li>
+				<a href="#"><img src="img/rss.png" alt="" /></a>
+			</li>
+			<li>
+				<a href="#"><img src="img/delicious.png" alt="" /></a>
+			</li>
+			<li>
+				<a href="#"><img src="img/facebook.png" alt="" /></a>
+			</li>
+			<li>
+				<a href="#"><img src="img/twitter.png" alt="" /></a>
+			</li>
+			<li>
+				<a href="#"><img src="img/yahoo.png" alt="" /></a>
+			</li>
+		</ul>
+	</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+			}
+			
+			#list {
+				border: 1px solid black;
+				position: relative;
+				margin: 0 auto;
+			}
+			
+			#list li {
+				width: 200px;
+				padding: 10px;
+				box-sizing: border-box;
+				border: 1px solid lightgray;
+				position: absolute;
+				visibility: hidden;
+				transition: all 0.5s; 
+			}
+			
+			#list li img {
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul id="list">
+			<!--<li><img src="img/12.jpeg"/></li>-->
+		</ul>
+		<script type="text/javascript">
+			var oList = document.getElementById("list");
+			var space = 10;
+			createImg();
+
+			window.onload = function() {
+				changePos();
+			}
+			//当改变浏览器宽度和高度时生效
+			window.onresize = function() {
+				changePos();
+			}
+				//生成瀑布流，改变图片定位
+			function changePos() {
+				//判断列数
+				var winW = document.documentElement.clientWidth;
+				var cols = (winW - space) / (200 + space);
+				cols = parseInt(cols);
+				//ul宽度
+				oList.style.width = space + cols * (200 + space) + "px";
+				//初始化每一列的高度
+				var colHArr = [];
+				for(var i = 0; i < cols; i++) {
+					colHArr[i] = 0;
+				}
+				//更改li定位位置
+				var listChild = oList.children;
+				for(var i = 0; i < listChild.length; i++) {
+					//寻找最短的一列,即colHArr最小数和下标
+					var minHeight = colHArr[0];
+					var minIndex = 0;
+					for(var j = 0; j < colHArr.length; j++) {
+						if(minHeight > colHArr[j]) {
+							minHeight = colHArr[j];
+							minIndex = j;
+						}
+
+					}
+
+					//改变定位位置
+					listChild[i].style.top = minHeight + space + "px";
+					listChild[i].style.left = space + (200 + space) * minIndex + "px";
+					colHArr[minIndex] += space + listChild[i].offsetHeight;
+					listChild[i].style.visibility = "visible";
+				}
+				var maxH = colHArr[0];
+				for(var i = 0; i < colHArr.length; i++) {
+					if(maxH < colHArr[i]) {
+						maxH = colHArr[i];
+					}
+				}
+				oList.style.height = maxH + space + "px";
+			}
+
+			//创建图片
+			function createImg() {
+				for(var i = 1; i <= 20; i++) {
+					var theLi = document.createElement("li");
+					var theImg = document.createElement("img");
+					theImg.src = "img/" + i + ".jpeg";
+					oList.appendChild(theLi);
+					theLi.appendChild(theImg);
+				}
+			}
+		</script>
+	</body>
+
+</html>

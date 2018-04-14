@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		    //按下抬起键盘响应
+		    document.onkeyup = function(ev) {
+		    	   var ev = ev || window.event;
+		    	   console.log("呵呵呵");
+		    	   console.log(ev.keyCode); //键盘码, A~Z : 65~90  a~z : 97~112。onkeyup不识别大小写
+		    	   var str = String.fromCharCode(ev.keyCode);//输出键盘上字母的值
+		    	   console.log(str);
+		    }
+		    
+//		    //键盘按下事件,如果不抬起，会一直响应事件
+//			document.onkeydown = function(ev) {
+//				var ev = ev || window.event;
+//				console.log("哈哈哈");
+//			}
+//			
+//			//也是键盘按下事件，但是不能识别shift，Ctrl，上下左右等功能按键。而onkeydown全可以识别
+//			document.onkeypress = function(ev) {
+//				var ev = ev || window.event;
+//				console.log("ss")
+//				console.log(ev.keyCode); //onkeypress可以识别大小写
+//			}
+		</script>
+	</body>
+</html>

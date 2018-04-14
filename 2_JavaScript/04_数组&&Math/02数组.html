@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>数组</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+//			var arr = [5, 7, 9, "abc", true, "哈哈哈"] //数组可以存放任何类型的值
+//			console.log(typeof(arr)); //object
+//
+//	
+//			var arr2 = new Array() //空数组;
+//			console.log(arr2);
+//			
+//			var arr3 = new Array(2,3,5,"123") 
+//			arr3[3] = 7;          //改变数组中的值
+//			console.log(arr3);
+//			
+//			console.log(arr3[arr3.length - 1]);   //数组中最后一个元素的下标
+//			
+//			var arr4 = [2,3,5,7,9,12,35,27];
+//			for (var i = 0; i < arr4.length; i++) {
+//				console.log(arr4[i]);
+//			}
+			
+			var arr5 = [];
+			for (var i = 0; i < 20; i++) {
+			var num = Math.floor(Math.random()*(100 - 0 + 1) + 0); 
+		    arr5[i] = num;
+		}
+			console.log(arr5);
+		</script>
+	</body>
+
+</html>
+<!--
+	数组定义：
+	var arr = [];
+	var arr = new Array();
+	
+	数组长度:
+	console.log(arr.length);
+	
+	获取数组中的某一个元素:
+	例如arr[0] arr[3] , 数组下表从零开始
+
+-->

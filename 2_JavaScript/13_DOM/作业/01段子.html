@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<style type="text/css">
+			#btn {
+				position: fixed;
+				top: 20px;
+				left: 20px;
+			}
+			
+			#wrap {
+				width: 600px;
+				margin: 0 auto;
+				font-size: 20px;
+			}
+			
+			.wrapS {
+				border-radius: 20px;
+				padding: 20px;
+				background-color: lightgray;
+				margin-bottom: 10px;
+			}
+			
+			.bottom {
+				margin-top: 10px;
+				overflow: hidden;
+				font-size: 16px;
+				/*background-color: yellow;*/
+			}
+			
+			.source {
+				float: left;
+				font-size: 12px;
+			}
+			
+			.downTime {
+				float: right;
+				font-size: 12px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="btn" onclick="btnClick()">按钮</button>
+
+		<div id="wrap">
+
+		</div>
+
+	</body>
+
+	<script>
+		//使用jsonp的形式，点击按钮获取返回结果
+
+		function btnClick() {
+
+			var oScript = document.createElement("script");
+			oScript.src = "http://c.3g.163.com/recommend/getChanRecomNews?channel=duanzi&passport=91153191bdb987ca2bc10b1d3e7a5004@tencent.163.com&devId=CE80EFE4-9CE9-4E06-B117-DFA8DE7893F1&size=20&callback=getData";
+			document.body.appendChild(oScript);
+		}
+		var oWrap = document.getElementById("wrap");
+
+		function getData(data) {
+			oWrap.innerHTML = "";
+//           console.log(data);
+             for (var i = 0; i < 20; i++) {
+             	var newDiv = document.createElement("div");
+             	var newText = document.createElement("div");
+             	var newSource = document.createElement("div");
+             	var newTime = document.createElement("div");
+             	oWrap.appendChild(newDiv);
+             	newDiv.appendChild(newText);
+             	newDiv.appendChild(newSource);
+             	newDiv.appendChild(newTime);
+             	newDiv.className = "wrapS";
+             	newText.className = "bottom";
+             	newSource.className = "source";
+             	newTime.className = "downTime";
+             	
+             	var dataArr = data["段子"];
+             	newText.innerHTML = dataArr[i]["digest"];
+             	newSource.innerHTML = "来源：" + dataArr[i]["source"];
+             	newTime.innerHTML = "下载次数：" + dataArr[i]["upTimes"];
+             }
+		}
+	</script>
+
+</html>

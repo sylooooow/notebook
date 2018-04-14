@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*
+			  选择器 {
+			  	CSS属性名1:值1,  CSS属性名2:值2
+			  }
+			  选择器: 用来寻找你要设置样式的标签
+			 */
+			
+			#aaa {
+				background-color: yellow;
+				font-size: 40px;
+			}
+			.bbb {
+				background-color: blue;
+				font-size: 30px;
+			}
+			span {
+				/*当前页面所有span标签都被选择*/
+				background-color: #FB8745;
+				font-size: 20px;
+			}
+		</style>
+		<!--
+			数码侧色计:
+			打开数码测色计,设置为16进制.鼠标移动到想要的颜色位置,commond+shift+c快速复制颜色到剪切板,commond+v进行粘贴
+		-->
+	</head>
+	<body>
+		<p id="aaa">我是ID选择器</p>
+		<!--id选择器的ID不可重复-->
+		<p class="bbb">我是类选择器1</p>
+		<br />
+		<span>我是标签选择器</span>
+	</body>
+</html>

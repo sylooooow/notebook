@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr1 = [2,4,6,2,7,9,14,21,6];
+			var arr2 = [];
+			for (var i = 0; i < arr1.length; i++) {
+				var flag = true;
+				//如果有相等的数，不存到arr2中
+				for (var j = 0; j < arr2.length; j++) {
+					if (arr1[i] == arr2[j]) {
+						flag = false;
+						break;
+					}
+				}
+				if (flag) {
+					arr2[j] = arr1[i];
+				}
+			}
+			console.log(arr2);
+		</script>
+	</body>
+</html>

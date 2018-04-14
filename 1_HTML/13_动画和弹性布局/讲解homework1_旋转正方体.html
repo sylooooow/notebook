@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,
+			body,
+			.allfa {
+				height: 100%;
+			}
+			.allfa {
+				transform-style: preserve-3d;
+				perspective: 1000px;
+				transition: all 100s; 
+			}
+			body {
+				transform-style: preserve-3d;
+			}
+
+			.all {
+				width: 200px;
+				height: 200px;
+				/*background-color: red;*/
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -100px;
+				margin-left: -100px;
+				-webkit-transform-style: preserve-3d;
+				/*立起来*/
+				transform: rotateX(40deg) rotateY(40deg);
+			}
+			
+			body:hover .allfa {
+				transform: rotateY(3600deg);
+			}
+			
+			.all div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+				position: absolute;
+				font-size: 50px;
+				text-align: center;
+				line-height: 200px;
+			}
+			
+			.all div:nth-child(1) {
+				transform: translateZ(100px);
+				background: rgba(128, 0, 128, .5);
+			}
+			
+			.all div:nth-child(2) {
+				transform: rotateY(180deg) translateZ(100px);
+				background: rgba(255, 0, 255, .5);
+			}
+			
+			.all div:nth-child(3) {
+				transform: rotateY(-90deg) translateZ(100px);
+				background: rgba(255, 153, 204, .5);
+			}
+			
+			.all div:nth-child(4) {
+				transform: rotateY(90deg) translateZ(100px);
+				background: rgba(0, 204, 255, .5);
+			}
+			
+			.all div:nth-child(5) {
+				transform: rotateX(90deg) translateZ(100px);
+				background: rgba(153, 204, 255, .5);
+			}
+			
+			.all div:nth-child(6) {
+				transform: rotateX(-90deg) translateZ(100px);
+				background: rgba(0, 255, 255, .5);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="allfa">
+			<div class="all">
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+				<div>5</div>
+				<div>6</div>
+			</div>
+		</div>
+	</body>
+
+</html>

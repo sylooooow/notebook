@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body id="body">
+<canvas id="myCanvas">
+
+</canvas>
+<script>
+    var oBody = document.getElementById("body");
+    var oCanvas = document.getElementById("myCanvas");
+    var ctx = oCanvas.getContext("2d");
+
+    oCanvas.width = document.documentElement.clientWidth;
+    oCanvas.height = document.documentElement.clientHeight;
+
+    function getRandom(n, m) {
+        return Math.floor(Math.random() * (m - n + 1) + n);
+    }
+
+    function getColor() {
+        var r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+        var g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+        var b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+        var a = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+        return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+    }
+
+    function randomWord() {
+        return Math.floor(Math.random() * (90 - 65 + 1) + 65);
+    }
+    //随机字体大小
+    function randomSize(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    function createWord() {
+        this.text = String.fromCharCode(randomWord());
+        this.size = randomSize(40, 80);
+        this.color = getColor();
+        this.posX = getRandom(0, oCanvas.width - this.size);
+        this.posY = -this.size;
+        this.speed = getRandom(2, 10);
+    }
+
+    createWord.prototype.create = function () {
+        ctx.beginPath();
+        ctx.font = this.size + "px Arial";
+        ctx.fillStyle = this.color;
+        ctx.fillText(this.text,this.posX,this.posY);
+    }
+
+    createWord.prototype.move = function () {
+        this.posY += this.speed;
+    }
+
+    var wordArr = []; //存放字母对象
+
+    //定时器每走20次，创建一个字母
+    var count = 0; //记录定时器走过的次数
+    setInterval(function () {
+        ctx.clearRect(0, 0, oCanvas.width, oCanvas.height);
+
+        if (count % 10 == 0) {
+            var newWord = new createWord();
+            wordArr.push(newWord);
+        }
+
+        for (var j = 0; j < wordArr.length; j++) {
+            wordArr[j].move();
+            if (wordArr[j].posY > oCanvas.height - parseInt(wordArr[j].size)) {
+                wordArr.splice(j,1);
+                j--;
+            } else  {
+                wordArr[j].create();
+            }
+        }
+        count++;
+    },20)
+
+    document.onkeydown = function (ev) {
+        var ev = ev || window.event;
+        var str = String.fromCharCode(ev.keyCode);
+        console.log(str);
+        for (var k = 0; k < wordArr.length; k++) {
+            if (wordArr[k].text == str) {
+                wordArr.splice(k,1);
+                break;
+            }
+        }
+    }
+</script>
+</body>
+</html>

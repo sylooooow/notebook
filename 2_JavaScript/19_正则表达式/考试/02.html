@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="wrap"></div>
+		<script type="text/javascript">
+			//2.
+			//1)绑定div 点击事件
+			//2)获取事件对象
+			//3)列举5个事件对象属性,并用注释解释属性的含义
+			//4)阻止事件冒泡
+			var oWrap = document.getElementById("wrap");
+			
+			//1
+			oWrap.onclick = function() {
+				
+			}
+			
+			//2
+			oWrap.onmousedown = function(ev) {
+				var ev = ev || window;
+			}
+			
+			//3
+			oWrap.onmouseover = function(ev) {
+				var ev = ev || window;
+				//事件触发时，鼠标距离页面左边的距离
+				var pageX = ev.pageX;
+				//事件触发时，鼠标距离页面上边的距离
+				var pageY = ev.pageY;
+				//事件触发时，鼠标距离浏览器左边的距离
+				var clientX = ev.clientX;
+				//事件触发时，鼠标距离浏览器上边的距离
+				var clientY = ev.clientY;
+				//事件触发时，鼠标距离屏幕左边的距离
+				var screenX = ev.screenX;
+				//事件触发时，鼠标距离浏览器上边的距离
+				var screenY = ev.screenY;
+			}
+			
+			//4
+			oWrap.onkeydown = function(ev) {
+				var ev = ev || window;
+				ev.StopIteration();
+			}
+			oWrap.addEventListener("click",function() {}, false);
+		</script>
+	</body>
+</html>

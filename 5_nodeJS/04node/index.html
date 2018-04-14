@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>node服务</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<form action="/post" method="post" enctype="multipart/form-data">
+    <p>用户名: <input type="text" name="username"></p>
+    <p>密码: <input type="password" name="password"></p>
+    <p>上传图片: <input type="file" name="fileId"></p>
+    <p><input type="submit" value="提交" id="submit"></p>
+</form>
+
+<div id="time"></div>
+
+<script>
+
+    var timeDiv = document.getElementById("time");
+
+    var url = "/ajax";
+
+    var timer = setInterval(function () {
+        ajax_get(url,function (time) {
+            timeDiv.innerHTML = time;
+        });
+    },1000);
+
+    //ajax请求函数
+    function ajax_get(url, fn) {
+        var xhr = null;
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                var theData = xhr.responseText;
+                if (fn) {
+                    fn(theData);
+                }
+            }
+        };
+        xhr.open("get", url, true);
+        xhr.send();
+    }
+</script>
+</body>
+</html>
