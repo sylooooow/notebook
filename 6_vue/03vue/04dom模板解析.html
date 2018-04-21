@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<!--第一种方式-->
+<div id="app">
+    <table>
+        <tr is="my-tr"></tr>
+        <th is="my-th"></th>
+        <!--<my-tr></my-tr>-->
+        <!--<my-th></my-th>-->
+    </table>
+    <my-comp></my-comp>
+</div>
+
+
+<!--第二种方式-->
+<!--标签名字随意起,但是要在app作用域内调用组件属性,并且id名要对应-->
+<!--<template id="temp">-->
+    <!--<div>-->
+        <!--<h1>h1</h1>-->
+        <!--<h2>h2</h2>-->
+        <!--<div>asdwq</div>-->
+    <!--</div>-->
+<!--</template>-->
+
+
+<qwqw id="temp">
+    <div>
+        <h1>h1</h1>
+        <h2>h2</h2>
+        <div>asdwq</div>
+    </div>
+</qwqw>
+
+
+<script>
+
+    /*
+
+    局部组件
+    1.只在当前vue实例里有效,需要写在app里面
+
+    */
+
+    var app = new Vue({
+        el:'#app',
+        //局部组件
+        components:{
+            'my-th':{
+                template:'<th>表头</th>'
+            },
+            'my-tr':{
+                template:'<tr>123</tr>'
+            },
+            'my-comp':{
+                template:'#temp'
+            }
+        },
+    });
+
+</script>
+</body>
+</html>

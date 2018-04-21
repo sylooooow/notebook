@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="application/javascript" src="../../node_modules/vue/dist/vue.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+    <script src="json.js"></script>
+</head>
+<body>
+<div id="app" class="wrap">
+    <top></top>
+    <container></container>
+    <ting-list></ting-list>
+    <read-list></read-list>
+    <user-list></user-list>
+    <more-list></more-list>
+</div>
+
+<template id="header">
+    <div class="header">
+        <div class="nav-wrap">
+            <div class="logo"><img src="img/logo.png" alt=""></div>
+            <div class="nav">
+                <ul>
+                    <li v-for="item in nav">{{item}}</li>
+                </ul>
+            </div>
+            <div class="login">
+                <div class="editer"><img src="img/icon.png" alt=""></div>
+                <div class="login-btn">登录 / 注册</div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="main">
+    <div class="container">
+        <div class="img_nav">
+            <div v-for="value in pic">
+                <a href="#" class="pic-a">
+                    <img :src="value.cover">
+                    <span class="article-focus-bg"></span>
+                    <span class="article-focus-title">{{value.title}}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="ting-list">
+    <div class="ting-list-group">
+        <div class="ting-cpt"><div></div><span>TING</span></div>
+        <div class="ting-list">
+            <div class="ting" v-for="item in tings">
+                <div class="ting-img">
+                    <a href="#"><img :src="item.cover"></a>
+                </div>
+                <div class="ting-info">
+                    <div class="ting-title"><a href="#">{{item.title}}</a></div>
+                    <div class="ting-author"><a href="#">主播&nbsp;/&nbsp;{{item.detail.userinfo.uname}}</a></div>
+                    <div class="ting-others">
+                        {{(item.statistics.view / 1000).toFixed(1)}} k次播放 | 评论:{{item.statistics.comments}} | 喜欢:{{item.statistics.like}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="read-list">
+    <div class="article-list-group">
+        <div class="ting-cpt"><div></div><span>阅读 | Read</span></div>
+        <div class="article-list">
+            <div class="article" v-for="item in read">
+                <div class="article-info">
+                    <div class="article-info-box">
+                        <div class="article-title">
+                            <a href="#">{{item.title}}</a>
+                        </div>
+                        <div class="article-author">
+                            <a href="#">by / {{item.detail.userinfo.uname}}</a>
+                        </div>
+                        <div class="article-content">
+                            {{item.summary}}
+                            <span>
+                                <a href="#"></a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="others">{{item.statistics.view}}次阅读 &nbsp;|&nbsp; 评论:{{item.statistics.comments}} &nbsp;|&nbsp; 喜欢:{{item.statistics.like}}</div>
+                </div>
+                <div class="article-img">
+                    <a href="#">
+                        <img :src="item.cover">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="user-list">
+    <div class="user-list-group">
+        <div class="ting-cpt"><div></div><span>人气片客 | Hot Pianker</span></div>
+        <div class="user-list">
+            <div class="user" v-for="item in user">
+                <div class="user-info">
+                    <div class="user-info-left">
+                        <a href="#"><img :src="item.icon"></a>
+                        <!--<img src="img/音乐人.png">-->
+                    </div>
+                    <div class="user-info-right">
+                        <div class="user-name">
+                            <a href="#">{{item.uname}}</a>
+                        </div>
+                        <div class="user-des">
+                            <span>{{item.desc}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="more-list">
+    <div class="more-wrap">
+        <div v-show="btn" id="more-button" class="more-button">
+            <div @click="showLoad()" class="btn-box">
+                <div class="btn">查看更多精彩内容</div>
+            </div>
+        </div>
+        <div v-show="load" class="more-content">
+            <div class="past-content">
+                <div class="left-linear"></div>
+                <div class="past-title">
+                    <div></div>
+                    <span>往期精选</span>
+                </div>
+                <div class="right-linear"></div>
+            </div>
+
+            <div class="more-img-group">
+                <div id="list">
+                    <div class="list-item" v-for="item in more">
+                        <div class="list-item-img">
+                            <a href="#"><img :src="item.cover"></a>
+                        </div>
+                        <div class="list-item-intro">
+                            <div class="list-item-title">{{item.title}}</div>
+                            <div class="list-item-author">主播 / {{item.detail.userinfo.uname}}</div>
+                            <div class="list-item-others">
+                                <div class="list-item-ting">
+                                    Ting
+                                </div>
+                                <div class="list-item-like">
+                                    {{(item.detail.plays / 1000).toFixed(1)}} k次播放 | 评论:{{item.detail.comments}} | 喜欢:{{(item.detail.likes / 1000).toFixed(1)}}k
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-item-icon">
+                            <div class="list-item-user">
+                                <div class="list-item-pic">
+                                    <img :src="item.detail.userinfo.icon">
+                                </div>
+                                <div class="list-item-username">{{item.detail.userinfo.uname}}</div>
+                            </div>
+                            <div class="list-item-dianzan">
+                                <img src="img/dianzan.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+</body>
+<script>
+
+    var app = new Vue({
+        el:'#app',
+        data:{
+
+        },
+        components:{
+            'top':{
+                template:'#header',
+                data:function () {
+                    return {
+                        nav:['首页','阅读','电台','碎片','客户端']
+                    }
+                }
+            },
+            'container':{
+                template:'#main',
+                data:function () {
+                    return {
+                        pic:json1,
+                    }
+                },
+            },
+            'ting-list':{
+                template:'#ting-list',
+                data:function () {
+                    return {
+                        tings:json2[5]["data"],
+                    }
+                },
+            },
+            'read-list':{
+                template:'#read-list',
+                data:function () {
+                    return {
+                        read:json2[2]["data"],
+                    }
+                },
+            },
+            'user-list':{
+                template:'#user-list',
+                data:function () {
+                    return {
+                        user:json3,
+                    }
+                },
+            },
+            'more-list':{
+                template:'#more-list',
+                data:function () {
+                    return {
+                        more:json4,
+                        btn:true,
+                        load:false
+                    }
+                },
+                methods:{
+                    showLoad:function () {
+                        this.btn = false;
+                        this.load = true;
+                    }
+                },
+            },
+        },
+
+    });
+</script>
+<script src="index.js"></script>
+</html>

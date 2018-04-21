@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <my-comp v-on:pass="countAdd"></my-comp>
+    <my-comp v-on:pass="countAdd"></my-comp>
+    <my-comp v-on:pass="countAdd"></my-comp>
+
+    {{count}}
+
+</div>
+</body>
+<script>
+
+    /*
+
+
+    */
+
+    var app = new Vue({
+        el:'#app',
+        //局部组件。组件里可以套组件,还可以写计算属性、生命周期等一些属性
+        components:{
+            'my-comp':{
+                template:'<div>{{count}}<button @click="changeMsg">点击</button></div>',
+                methods:{
+                    changeMsg:function () {
+                        this.count++;
+
+                        //向父级传递消息
+                        this.$emit('pass', {message:'qwasdwqe'});
+                    },
+                },
+                data:function () {
+                    return {
+                        count:0
+                    }
+                }
+            },
+        },
+
+        data:{
+            count:0,
+            item:{
+                message:'item消息',
+                number:10
+            },
+        },
+        methods:{
+            countAdd:function (msg) {
+                this.count++;
+                console.log(msg);
+            }
+        }
+    });
+
+</script>
+</html>

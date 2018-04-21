@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>{{msg}}</div>
+
+    <!--1. 当想要嵌套HTML的数据时,使用v-html-->
+    <div v-html="html"></div>
+
+    <!--2. 想要对数据进行计算输出,可以用computed进行数据过滤-->
+    <div>{{showFirstName}}</div>
+
+    <!--上面的问题用method方法也可以实现,直接调用函数或者用@绑定-->
+    <div>{{showFirstName("三")}}</div>
+    <!--<div @click="showFirstName('奥术大师')"></div>-->
+    <div>{{fullName}}</div>
+
+    <!--3.-->
+    <input type="text" v-model="message">
+    <div>{{message}}</div>
+</div>
+</body>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            msg:'这是一条信息',
+            html:'<span>这是一个span标签</span>',
+            price:100,
+            firstName:'zhang',
+            lastName:'骊威',
+            message:""
+        },
+        //计算属性
+        computed:{
+            //数据加载完成之后
+            //计算属性,默认只有取值器,但是可以创建赋值
+            goods:function () {
+                return '$' + (this.price + 6)
+            },
+            showFirstName:function () {
+                return this.firstName.toUpperCase();
+            },
+            // fullName:function () {
+            //     return this.firstName + "" + this.lastName
+            // }
+            fullName:{
+                //取值器
+                get:function () {
+                    return this.firstName + "" + this.lastName
+                },
+                //赋值器
+                set:function(newName) {
+                    // this.fullName = newName; 报错,死循环
+
+                    //正确方法,根据数据双向绑定特性,直接改变data里的数据
+                    var names = newName.split(' ');
+                    this.firstName = names[0];
+                    this.lastName = names[names.length - 1];
+                }
+            }
+        },
+        methods:{
+            showFirstName:function (name) {
+                return this.firstName.toUpperCase() + "" + name;
+            }
+        },
+
+        //监听属性
+        watch:{
+            //监听器,检测到data中数据的更改
+            message:function (oldValue, newValue) {
+                // console.log(oldValue);
+                //可以对其他数据进行赋值,这样的话可以跟其他数据进行绑定
+                // this.msg = value;
+
+                console.log(oldValue + " " + newValue);
+            }
+        }
+    });
+
+
+    // app.fullName = "李 四";
+</script>
+</html>

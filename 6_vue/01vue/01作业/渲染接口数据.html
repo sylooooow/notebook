@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="application/javascript" src="../../node_modules/vue/dist/vue.js"></script>
+    <style>
+        html,body {
+            margin: 0;
+            padding: 0;
+        }
+        #app {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .article {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid black;
+        }
+        #title {
+            width: 100%;
+            height: 100px;
+        }
+        #img {
+            width: 100px;
+            height: 100px;
+        }
+        #img > img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div v-for="item in articles" class="article">
+        <div id="title">{{item.title}}</div>
+        <div id="img" v-for="target in item.thumbnail_medias">
+            <!--{{data.url}}-->
+            <img :src=target.min_url>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $.ajax({
+        type:"get",
+        url:"http://lmymingyu.com:6060/zaker",
+        success:function (result) {
+            console.log(result["data"]["articles"]);
+            var app = new Vue({
+                el:'#app',
+                data:{
+                    articles:result["data"]["articles"]
+                }
+            });
+        }
+    });
+
+</script>
+</body>
+</html>
+

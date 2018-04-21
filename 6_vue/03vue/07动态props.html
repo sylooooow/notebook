@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--这样写把data中的数据传到了组件中,并且双向绑定-->
+    <!--<my-comp :message="message" :number="number"></my-comp>-->
+
+    <!--这样写可以把data中的对象传入,用.即可-->
+    <!--<my-comp :message="item.message" :number="item.number"></my-comp>-->
+
+    <!--如果想把data中的数据全部传给组件用,可以用v-bind直接绑定要传入的对象,会自动按上面的哪样拆分-->
+    <my-comp v-bind="item"></my-comp>
+
+</div>
+</body>
+<script>
+
+    /*
+
+    1.动态props 使用v-bind与父级的data进行绑定
+    2.字面量语法和动态语法区别：  字面量传入的是一个固定的字符串 如message='hello'，动态语法传入的是data中的对象
+    3.props是单向传递,当父组件发生变化时传递给子组件。但是反过来不会
+    4.子组件中的props传入的名字轻易不要修改,修改后会报警。
+    */
+
+    var app = new Vue({
+        el:'#app',
+        //局部组件。组件里可以套组件,还可以写计算属性、生命周期等一些属性
+        components:{
+            'my-comp':{
+                template:'<div>{{msg}} : {{number}}<button @click="changeMsg">改变</button></div>',
+                props:['message', 'number'],//声明父级传入的数据
+                methods:{
+                    changeMsg:function () {
+                        this.msg = '哈哈哈'
+                    },
+                },
+                data:function () {
+                    return {
+                        msg:this.message
+                    }
+                }
+            },
+        },
+
+        data:{
+            // message:'呵呵呵呵',
+            // number:10,
+            item:{
+                message:'item消息',
+                number:10
+            },
+        }
+    });
+
+</script>
+</html>

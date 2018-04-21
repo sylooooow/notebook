@@ -1,0 +1,30 @@
+1.安装脚手架:
+npm install vue-cli --save
+
+2.创建一个vue-cli工程(如果上一步是全局安装的脚手架,直接vue init webpack vue-cli即可。否则要找到路径)
+node_modules/vue-cli/bin/vue init webpack vue-cli(目录名)
+
+3.运行
+cd vue-cli之后  npm run dev
+
+4.运行项目(只运行一次 npm run dev一直运行,实时刷新),运行完会生成dist文件
+npm run build
+
+5.安装axios,并安装到package.json里的Dev依赖下
+npm install axios --save-dev
+
+6.安装解析时间(自动转化为年月日格式)
+npm install dateformat --save-dev
+
+7.安装MD5加密
+npm install md5 --save-dev
+
+8.安装Base64加密
+npm install Base64 --save-dev
+
+9.在需要多页面开发时,glob模块允许你使用 *等符号, 来写一个glob规则,像在shell里一样,获取匹配对应规则的文件
+之后需要在build目录下的util.js和webpack.base.conf.js webpack.dev.conf.js 进行配置
+npm install glob --save-dev
+
+注意:
+网络请求时配置接口代理 在config目录的index.js里

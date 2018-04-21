@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制类</title>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--控制类是否生效,可以控制类的添加和移除，如果按正常方法添加类也会加上-->
+    <div class="add" :class="{active:isActive, 'img-text':has}"></div>
+
+    <!--data中定义个存放类的对象,会达到一样的效果-->
+    <div :class="classObj"></div>
+
+    <!--数组写法-->
+    <div :class="[class1,class2]"></div>
+
+    <!--表达式写法-->
+    <div :class="[isActive ? class1 : class2,class3]"></div>
+
+    <!--内联样式写法-->
+    <div :style="{color:color, fontSize:font}">洒洒水</div>
+
+    <!--内联样式一般用一个对象代替-->
+    <div :style="styleObj">呵呵呵</div>
+
+    <div :style="[baseStyle,headerStyle]">按时四大欠王</div>
+</div>
+
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            isActive:true,
+            has:true,
+            classObj:{
+                active:true,
+                'img-text':true,
+            },
+            class1:'div1',
+            class2:'div2',
+            class3:'div3',
+            color:'red',
+            font:'20px',
+            styleObj: {
+                color:'yellow',
+                fontSize:'30px',
+                backgroundColor:'blue'
+            },
+            baseStyle:{
+                color:"yellow"
+            },
+            headerStyle:{
+                backgroundColor:"green"
+            }
+        },
+    });
+</script>
+</body>
+</html>

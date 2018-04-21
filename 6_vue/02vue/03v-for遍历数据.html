@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--<div v-if="type === 'loading'">-->
+        <!--现在是正在加载-->
+    <!--</div>-->
+
+    <!--<div v-else-if="type === 'load'">-->
+        <!--加载-->
+    <!--</div>-->
+
+    <!--<div v-else>-->
+        <!--404-->
+    <!--</div>-->
+
+    <div v-if="type === 'loading'">
+        <label for="">姓名:</label>
+        <input type="text" placeholder="请输入姓名" key="input1">
+    </div>
+
+    <div v-else>
+        <label for="">年龄:</label>
+        <input type="text" placeholder="请输入年龄" key="input2">
+    </div>
+    <!--点击切换后input不会改变因为Vue重复利用,要给一个key来解决重复利用-->
+    <button @click="changeType()">点击切换</button>
+
+    <ul>
+        <!--在v-for作用块里,可以随意访问父级数据,但是父级不能访问v-for生成的数据-->
+        <!--<li v-for="data in list">-->
+            <!--{{data.element}}-->
+        <!--</li>-->
+
+        <!--这样写index表示是list数组的下标,vue中index放在data后面-->
+        <li v-for="(data,index) in list" :index="index">
+            {{data}}
+            {{data.element}}
+            {{index}}
+        </li>
+    </ul>
+
+
+    <!--遍历数据对象 比js遍历对象多了一个index index为下标-->
+    <ul>
+        <li v-for="value in obj">
+            {{value}}
+        </li>
+        <!--<li v-for="(value, key, index) in obj">-->
+            <!--{{key}}-->
+            <!--{{value}}-->
+            <!--{{index}}-->
+        <!--</li>-->
+    </ul>
+
+
+    <ul>
+        <li v-for="num in nums">{{num}}</li>
+    </ul>
+    <button @click="changeNum">更改数字</button>
+
+    <button @click="changeName">更改上面的名字</button>
+</div>
+</body>
+<script>
+
+    var app = new Vue({
+        el:'#app',
+        data: {
+            type:'loading',
+            list:[
+                {
+                    element:'el1',
+                },
+                {
+                    element:'el2'
+                }
+            ],
+            obj:{
+                name:'zhangsan',
+                age:18,
+                sex:'女'
+            },
+            nums:[1,2,3,4,5,6,7]
+        },
+        methods:{
+            changeType:function () {
+                this.type = 'loaded'
+            },
+            changeNum:function () {
+                //这样更新data里数组中的元素不会更新
+                // this.nums[1] = 9;
+                // console.log(this.nums[1])
+                // this.nums.push(9);
+
+                //更新数组内元素,两种写法
+                Vue.set(app.nums,1,9);  //原型方法
+                app.$set(app.nums,1,9); //$表示调用原型方法
+            },
+            changeName:function () {
+                Vue.set(this.obj,'name','李四');
+            },
+        },
+    });
+
+
+</script>
+</html>

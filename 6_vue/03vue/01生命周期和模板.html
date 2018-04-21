@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>
+        {{message}}
+    </div>
+    <button @click="clicked">销毁app</button>
+
+    <button @click="changeMessage">改message</button>
+</div>
+</body>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello vue!'
+        },
+        methods:{
+            clicked:function () {
+                // this.message = 'hello lanou!';
+                // console.log('我是一个点击事件');
+                this.$destroy();//销毁实例,即app
+            },
+            changeMessage:function () {
+                this.message = 'hello lanou';
+            }
+        },
+        beforeCreate:function () {
+            console.log('创建之前');
+            console.log(this.message);
+            console.log(this.$el);
+            console.log(this.clicked);
+        },
+        //数据和方法完成后
+        created:function () {
+            console.log('已经创建');
+            console.log(this.message);
+            console.log(this.$el);
+            console.log(this.clicked);
+            //在这个方法里可以做数据请求,提前拿到数据,但是不能操作视图
+        },
+        beforeMount:function () {
+            console.log('数据挂载之前');
+            console.log(this.$el); //能拿到标签
+            //此时开始对视图操作
+        },
+        mounted:function () {
+            console.log('挂载完成');
+            console.log(this.$el);
+            //ajax请求在这里写,因为此时视图和数据都初始化完成
+        },
+        beforeUpdate:function () {
+            console.log('更新前');
+            console.log(this.$el.innerHTML);
+        },
+        updated:function () {
+            console.log('更新完成');
+            console.log(this.$el.innerHTML);
+            //可以监测data里数据是否发生变化,有变化可以做一些事情,(例如加载数据时候旋转,在ajax请求时开始,在这里结束)
+        },
+        beforeDestroy:function () {
+            console.log('销毁之前');
+        },
+        destroyed:function () {
+            console.log('销毁完成');
+        }
+    });
+</script>
+</html>

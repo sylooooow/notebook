@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <my-comp></my-comp>
+    <my-comp></my-comp>
+    <my-comp></my-comp>
+</div>
+</body>
+<script>
+
+    // var data = {
+    //     count:0,
+    //     message:'saasdsad'
+    // };
+
+    var app = new Vue({
+        el:'#app',
+        //局部组件。组件里可以套组件,还可以写计算属性、方法属性、生命周期等一些属性,还可以引用其他组件
+        components:{
+            'my-comp':{
+                template:'<div>{{count}}<button @click="count++">按钮</button></div>',
+                //组件里的data,必须是函数,函数里必须返回一个对象
+                data:function () {
+                    return {
+                        message:'我是消息',
+                        count:0,
+                    }
+                },
+            }
+        },
+        data:{
+            count:0
+        }
+    });
+
+</script>
+</html>

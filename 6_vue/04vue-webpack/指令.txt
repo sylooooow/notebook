@@ -1,0 +1,22 @@
+
+npm start使项目运行指定的文件
+
+安装开发者工具(实时刷新):
+1.npm install webpack-dev-server
+2.在package.json和webpack.config.js里进行配置
+3.npm run server 开启服务
+4.ctrl + c退出服务
+
+
+安装loader相关模块(下面装的不是必须)
+1.npm install css-loader style-loader --save
+3.npm install less-loader less --save
+2.在webpack.config.js里进行配置
+
+
+安装HTML模板(不用dist即开发目录里的html文件了)
+1.npm install html-webpack-plugin
+2.在webpack.config.js里进行配置
+
+
+

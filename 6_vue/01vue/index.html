@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--<input type="text" v-model="message">-->
+    <!--message:{{message}}-->
+
+    <a :href="url2">百度一下</a>
+
+    <div v-if="isShow">是否显示</div>
+
+    <div v-show="isShow">哈哈哈啊</div>
+
+    <ul>
+        <li v-for="aaa in list">
+            <div>姓名:{{aaa.name}}</div>
+            <div>年龄:{{aaa.age}}</div>
+        </li>
+    </ul>
+
+    <button v-on:click="changeShow">按钮</button>
+
+    <button @click="changeText">改名字</button>
+
+
+
+
+
+
+    <!--
+    v-bind,绑定 简写:  :属性名 , 如:href
+    v-if 值为bool类型, 如果为true则显示标签,否则隐藏 (是否渲染)
+    v-show 也是true显示,false隐藏,但是标签会渲染,相当于display:none
+    v-for 循环标签
+    v-on 绑定事件 事件定义在实例的methods属性里, 简写@click
+    -->
+
+
+    <!--<button onclick="changeMessage()">改变</button>-->
+</div>
+
+<script>
+    //创建一个vm
+    var app = new Vue({
+        //绑定视图 作用域是id对应的子视图
+        el:'#app',
+        // data:{
+        //     //用过{{}}进行绑定
+        //     message:'hello vue!',
+        //     url:'http://baidu.com'
+        // },
+
+        //下面是E6写法
+        //绑定数据
+        data() {
+            return {
+                url2:'http://baidu.com',
+                isShow:true,
+                list:[
+                    {
+                        name:'zhangsan',
+                        age:20
+                    },
+                    {
+                        name:'lizi',
+                        age:10
+                    },
+                    {
+                        name:'wangwu',
+                        age:16
+                    }
+                ]
+            }
+        },
+        //绑定方法
+        methods:{
+            changeShow:function () {
+                this.isShow = !this.isShow;
+            },
+            changeText:function () {
+                this.name = "郝伟";
+            }
+        }
+    });
+
+    //修改message可以这样写
+    // app.message = "hello lanou!";
+
+    // function changeMessage() {
+    //     app.message = "data";
+    // }
+</script>
+</body>
+</html>
+
+<!--
+注意：
+1.{{}}在属性里不能使用,比如a标签中的href
+2.{{}}里可以使用js表达式(只能一行),如{{age + 10}} , 但是不能用语句,如{{var a = 10}}
+3.一旦data初始化完不能再用app.添加属性
+-->

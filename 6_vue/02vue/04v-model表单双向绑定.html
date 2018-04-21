@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--v-model用于表单绑定,实现表单输入和data的双向绑定-->
+    <input type="checkbox" id="checkbox" v-model="checked">{{checked}}
+
+    <!--复选框-->
+    <div>
+        <label for="zhangsan">张三</label>
+        <input type="checkbox" id="zhangsan" value="张三" v-model="names">
+
+        <label for="lisi">李四</label>
+        <input type="checkbox" id="lisi" value="李四" v-model="names">
+
+        <label for="wangwu">王五</label>
+        <input type="checkbox" id="wangwu" value="王五" v-model="names">
+
+        <br>
+        names:{{names}}
+    </div>
+    
+    <!--单选框-->
+    <div>
+        <label for="a">张三:</label>
+        <input type="radio" id="a" value="张三" v-model="name">
+
+        <label for="b">李四:</label>
+        <input type="radio" id="b" value="李四" v-model="name">
+
+        <label for="c">王五:</label>
+        <input type="radio" id="c" value="王五" v-model="name">
+
+        <br>
+        姓名是:{{name}}
+    </div>
+    
+    <!--下拉菜单-->
+    <div>
+        <select name="" id="" v-model="select" multiple>
+            <option value="" disabled="disabled">请选择</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+        </select>
+        字母是:{{select}}
+    </div>
+</div>
+</body>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            checked:false,
+            names:[],
+            name:'',
+            select:[],
+        }
+    });
+</script>
+</html>
