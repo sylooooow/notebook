@@ -19,3 +19,22 @@ a {
   font-weight: lighter;
   color: #D5BFC5;
 }
+.back-top {
+  cursor: pointer;
+  width: 52px;
+  height: 52px;
+  -ms-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 170px;
+  right: 50px;
+  background-image: url(../assets/back-top.png);
+  background-size: cover;
+  opacity: .1;
+}
+.back-top:hover {
+  background-image: url(../assets/back-topH.png);
+  opacity: 1;
+}

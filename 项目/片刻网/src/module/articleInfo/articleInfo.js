@@ -5,8 +5,10 @@ import App from './App'
 import axios from 'axios'
 import params from '../../common/requestParams'
 import style from '../../common/commen.css'
+import $ from 'jquery'
 import controlHeader from '../../common/controlHeader'
 import backtop from '../../common/backtop'
+
 
 Vue.config.productionTip = false
 //将axios设置成全局
@@ -17,7 +19,7 @@ Vue.prototype.$util.controlHeader = controlHeader
 Vue.prototype.$util.backtop = backtop
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  components: { App },
-  template: '<App/>',
+    el: '#app',
+    components: { App },
+    template: '<App/>',
 })

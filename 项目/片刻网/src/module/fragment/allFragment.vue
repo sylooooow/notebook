@@ -105,7 +105,7 @@
           // console.log(loadH)
 
           //当加载高度小于500时，加载数据
-          if (loadH < 500) {
+          if (loadH < 300) {
             //显示加载图
             _this.loadImgFlag = true;
             if (_this.loadFlag) {

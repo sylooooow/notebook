@@ -7,11 +7,12 @@
     <user></user>
     <more></more>
     <bottom></bottom>
+    <div class="back-top"></div>
   </div>
 </template>
 
 <script>
-  import top from './top'
+    import top from '../../components/common/top'
   import container from './container'
   import ting from './ting'
   import read from './read'
@@ -30,6 +31,15 @@ export default {
     more,
     bottom
   },
+    data:function () {
+      return {
+          backtotop:false
+      }
+    },
+    mounted:function () {
+        this.$util.controlHeader.controlHeader();
+        this.$util.backtop.backtop();
+    }
 }
 </script>
 
@@ -47,5 +57,7 @@ export default {
   .wrap {
     width: 100%;
     position: relative;
+    padding-top: 90px;
   }
+
 </style>

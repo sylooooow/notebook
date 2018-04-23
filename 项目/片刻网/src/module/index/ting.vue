@@ -4,7 +4,8 @@
     <div class="ting-list">
       <div class="ting" v-for="item in ting">
         <div class="ting-img">
-          <a href="#"><img :src="item.cover"></a>
+          <a href="#"><img class="img" :src="item.cover"></a>
+          <span class="span"></span>
         </div>
         <div class="ting-info">
           <div class="ting-title"><a href="#">{{item.title}}</a></div>
@@ -78,6 +79,30 @@
   .ting-img img{
     width: 100%;
     height: 300px;
+  }
+  .ting-img {
+    position: relative;
+    overflow: hidden;
+  }
+  .ting-img span {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    left: 0;
+    background-color: rgba(0,0,0,0);
+    background-image: url(../../assets/play-icon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+  }
+  .ting-img:hover .img {
+    transform: scale(1.1);
+    transition: all 1s;
+  }
+  .ting-img:hover .span {
+    background-color: rgba(0,0,0,0.4);
+    opacity: 1;
   }
   .ting-info {
     width: 258px;

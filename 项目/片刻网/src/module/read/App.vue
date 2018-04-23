@@ -7,11 +7,12 @@
       <hotarticle></hotarticle>
     </div>
     <bottom></bottom>
+    <div class="back-top"></div>
   </div>
 </template>
 
 <script>
-  import top from './top'
+    import top from '../../components/common/top'
   import slider from './slider'
   import bottom from '../../components/common/bottom'
   import classify from './classify'
@@ -26,9 +27,10 @@ export default {
     hotarticle,
     bottom
   },
-  methods:{
-
-  }
+    mounted:function () {
+        this.$util.controlHeader.controlHeader();
+        this.$util.backtop.backtop();
+    }
 }
 </script>
 
@@ -53,5 +55,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 90px;
   }
 </style>

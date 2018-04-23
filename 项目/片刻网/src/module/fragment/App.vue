@@ -7,11 +7,12 @@
       <allFragment></allFragment>
     </div>
     <bottom></bottom>
+    <div class="back-top"></div>
   </div>
 </template>
 
 <script>
-  import top from './top'
+  import top from '../../components/common/top'
   import comment from './comment'
   import tag from './tag'
   import allFragment from './allFragment'
@@ -26,6 +27,10 @@ export default {
     allFragment,
     bottom
   },
+    mounted:function () {
+        this.$util.controlHeader.controlHeader();
+        this.$util.backtop.backtop();
+    }
 }
 </script>
 
@@ -50,6 +55,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 90px;
   }
 
 </style>
