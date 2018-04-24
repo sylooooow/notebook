@@ -6,22 +6,25 @@
         <div class="article-info">
           <div class="article-info-box">
             <div class="article-title">
-              <a href="#">{{item.title}}</a>
+              <a :href="'articleInfo.html?id=' + item.contentid" target="_blank">{{item.title}}</a>
             </div>
             <div class="article-author">
-              <a href="#">by / {{item.detail.userinfo.uname}}</a>
+              <a href="#">By / {{item.detail.userinfo.uname}}</a>
             </div>
             <div class="article-content">
               {{item.summary}}
-              <span>
-                <a href="#"></a>
+              <span class="view-all">
+                <a :href="'articleInfo.html?id=' + item.contentid" target="_blank">
+                  VIEW ALL
+                  <img src="../../assets/viewall.png" alt="">
+                </a>
               </span>
             </div>
           </div>
           <div class="article-others">{{item.statistics.view}}次阅读 &nbsp;|&nbsp; 评论:{{item.statistics.comments}} &nbsp;|&nbsp; 喜欢:{{item.statistics.like}}</div>
         </div>
         <div class="article-img">
-          <a href="#">
+          <a :href="'articleInfo.html?id=' + item.contentid" target="_blank">
             <img :src="item.cover">
           </a>
         </div>
@@ -75,6 +78,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+    background-color: #FFFFFF;
   }
   .article-info {
     width: 660px;
@@ -96,17 +100,33 @@
     white-space: nowrap;
   }
   .article-title a {
-    font-size: 1.5em;
-    color: #6C3333;
+    font-size: 24px;
+    color: #333;
+  }
+  .article-title a:hover,
+  .article-author a:hover {
+    color: #7DBE8B;
   }
   .article-author a {
     font-size: 12px;
     color: #334646;
   }
+  .article-content:before {
+    content: '';
+    margin-top: -10px;
+    position: absolute;
+    width: 30px;
+    height: 1px;
+    border-top: 1px solid #333;
+  }
   .article-content {
-    font-size: 0.9em;
-    color: #6C5959;
-    margin-top: 10px;
+    overflow: hidden;
+    height: 85px;
+    font-size: 13px;
+    font-weight: 100;
+    color: #333;
+    line-height: 20px;
+    padding-top: 25px;
   }
   .article-others {
     font-size: 10px;
@@ -118,5 +138,21 @@
     height: 100%;
     width: 300px;
     background-color: yellow;
+  }
+  .view-all {
+    padding-left: 10px;
+    position: relative;
+  }
+  .view-all a {
+    color: #78bc85;
+    font-weight: 200;
+  }
+  .view-all a img {
+    vertical-align: baseline;
+    width: 5px;
+    padding-left: 3px;
+  }
+  .article-cpt img {
+    opacity: 1;
   }
 </style>

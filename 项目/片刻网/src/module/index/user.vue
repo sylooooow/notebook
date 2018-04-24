@@ -5,12 +5,13 @@
       <div class="user" v-for="item in user">
         <div class="user-info">
           <div class="user-info-left">
-            <a href="#"><img :src="item.icon"></a>
-            <!--<img src="img/音乐人.png">-->
+            <a :href="'userCenter.html?uid=' + item.uid"><img :src="item.icon"></a>
+            <img v-if="item.typeName == '音乐人'" src="../../assets/user_musician.png">
+            <img v-if="item.typeName == '作者'" src="../../assets/user_author.png">
           </div>
           <div class="user-info-right">
             <div class="user-name">
-              <a href="#">{{item.uname}}</a>
+              <a :href="'userCenter.html?uid=' + item.uid">{{item.uname}}</a>
             </div>
             <div class="user-des">
               <span>{{item.desc}}</span>
@@ -65,25 +66,32 @@
   .user {
     height: 100%;
     width: 230px;
+    background-image: url(../../assets/user-bg.png);
+    background-size: cover;
   }
   .user-info {
     width: 100%;
     height: 187px;
-    border: 1px solid #EAEAEA;
     display: flex;
     justify-content:space-around;
     align-items: center;
   }
   .user-info-left{
     width: 80px;
-    height: 80px;
-    border-radius: 40px;
-    overflow: hidden;
     margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .user-info-left img {
     width: 80px;
     height: 80px;
+    border-radius: 50%;
+  }
+  .user-info-left img:nth-child(2) {
+    width: 52px;
+    height: 19px;
+    border-radius: 0;
   }
   .user-info-right {
     width: 80px;
@@ -97,11 +105,22 @@
     color: #5AB974;
   }
   .user-name{
-    font-size: 1.1em;
+    font-size: 16px;
+    height: 44px;
   }
   .user-des {
     font-size: 0.8em;
-    color: #A8ADAD;
-    font-weight: lighter;
+    padding-top: 6px;
+    font-weight: 100;
+    color: #666;
+    position: relative;
+  }
+  .user-des:before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 1px;
+    top: 0;
+    border-top: 1px solid #666;
   }
 </style>

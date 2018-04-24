@@ -2,7 +2,7 @@
   <div class="container">
     <div class="img_nav">
       <div v-for="value in json">
-        <a :href="'articleInfo.html?id=' + value.contentid" class="pic-a">
+        <a :href="'articleInfo.html?id=' + value.contentid" class="pic-a" target="_blank">
           <img :src="value.cover">
           <span class="article-focus-bg"></span>
           <span class="article-focus-title">{{value.title}}</span>

@@ -1,5 +1,5 @@
 <template>
-    <div class="article-info">
+    <div v-if="info" class="article-info">
         <div class="article-header-info">
             <div class="article-type">
                 <a class="article-type-a" href="">{{info.typeName}}</a>
@@ -44,23 +44,24 @@
                 发表你的精彩评论啦
             </div>
         </div>
-        <comments></comments>
+        <UserComments :comments-count="commentsCount"></UserComments>
     </div>
 
 </template>
 
 <script>
     import dateformat from 'dateformat/'
-    import comments from './comments'
+    import UserComments from './UserComments'
     export default {
         name: "info",
-        component:{
-            comments
+        components:{
+            UserComments
         },
         data:function () {
             return {
                 info:null,
-                time:null
+                time:null,
+                commentsCount:''
             }
         },
         methods:{
@@ -73,15 +74,21 @@
                         Authorization:parmas.Authorization
                     }
                 }).then((res) => {
-                    console.log(res.data["data"]);
-                    this.info = res.data["data"];
+                    let json = res.data["data"];
+                    this.info = json;
 
-                    let times = res.data["data"].addtime;
-                    let addTime1 = dateformat(times, 'yyyy-mm-dd');
-                    let addTime2 = dateformat(times, 'HH:MM');
-                    let addTime = addTime1 + " " + addTime2;
-                    console.log(addTime)
+                    let parmas = this.$util.params.getParams(json.addtime);
+                    let addTime = parmas.addTime;
                     this.time = addTime;
+
+                    this.commentsCount = json.comments;
+
+                    //把数据传给父组件
+                    let obj = {
+                        likes:json.likes,
+                        comments:json.comments
+                    };
+                    this.$emit('getData',obj);
                 })
             }
         },

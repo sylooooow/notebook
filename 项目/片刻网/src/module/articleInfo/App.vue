@@ -5,12 +5,13 @@
         <div class="index-content">
             <div class="article-info-box">
                 <div class="article-info-content">
-                    <info></info>
+                    <info @getData="getInformation"></info>
                 </div>
             </div>
         </div>
     </div>
     <bottom></bottom>
+      <LikeNav v-if="information" :information="information"></LikeNav>
     <div class="back-top"></div>
   </div>
 </template>
@@ -19,13 +20,27 @@
   import top from '../../components/common/top'
   import info from './info'
   import bottom from '../../components/common/bottom'
+  import LikeNav from './LikeNav'
 
 export default {
   name: 'App',
+    data:function () {
+        return {
+            information:''
+        }
+    },
+    methods:{
+      getInformation:function (result) {
+          console.log('子组件传来的:' + result);
+          this.information = result;
+          console.log('父组件数据:' + this.information.likes);
+      }
+    },
   components: {
       top,
       info,
-      bottom
+      bottom,
+      LikeNav
   },
     mounted:function () {
         this.$util.controlHeader.controlHeader();

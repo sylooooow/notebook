@@ -2,17 +2,25 @@ import dateformat from 'dateformat/'
 import MD5 from 'md5/md5'
 import Base64 from 'Base64'
 
-var getParams = function () {
-  let monthArr = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-  let date = new Date();
-  let time = dateformat(date.getTime(), 'yyyymmddHHMMss');
-  let sig = MD5('0' + '' + time).toUpperCase();
-  let formatString = '' + ':' + time;
-  let Authorization = Base64.btoa(formatString);
-  let timeDay = dateformat(date.getTime(), 'yyyy-mm-dd');
-  let day = dateformat(date.getTime(), 'dd');
-  let month = monthArr[date.getMonth()];
-  let h = date.getHours();
+var getParams = function (secondTime) {
+  if (secondTime) {
+      var times = secondTime * 1000;
+      var addTime1 = dateformat(times, 'yyyy-mm-dd');
+      var addTime2 = dateformat(times, 'HH:MM');
+      var addTime = addTime1 + " " + addTime2;
+  } else {
+      var monthArr = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      var date = new Date();
+      var time = dateformat(date.getTime(), 'yyyymmddHHMMss');
+      var sig = MD5('0' + '' + time).toUpperCase();
+      var formatString = '' + ':' + time;
+      var Authorization = Base64.btoa(formatString);
+      var timeDay = dateformat(date.getTime(), 'yyyy-mm-dd');
+      var day = dateformat(date.getTime(), 'dd');
+      var month = monthArr[date.getMonth()];
+      var h = date.getHours();
+  }
+
   return {
     h,
     time,
@@ -20,7 +28,8 @@ var getParams = function () {
     sig,
     Authorization,
     day,
-    month
+    month,
+      addTime
   }
 };
 
