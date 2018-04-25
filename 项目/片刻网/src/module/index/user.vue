@@ -5,13 +5,13 @@
       <div class="user" v-for="item in user">
         <div class="user-info">
           <div class="user-info-left">
-            <a :href="'userCenter.html?uid=' + item.uid"><img :src="item.icon"></a>
+            <a :href="'userCenter.html?uid=' + item.uid" target="_blank"><img :src="item.icon"></a>
             <img v-if="item.typeName == '音乐人'" src="../../assets/user_musician.png">
             <img v-if="item.typeName == '作者'" src="../../assets/user_author.png">
           </div>
           <div class="user-info-right">
             <div class="user-name">
-              <a :href="'userCenter.html?uid=' + item.uid">{{item.uname}}</a>
+              <a :href="'userCenter.html?uid=' + item.uid" target="_blank">{{item.uname}}</a>
             </div>
             <div class="user-des">
               <span>{{item.desc}}</span>

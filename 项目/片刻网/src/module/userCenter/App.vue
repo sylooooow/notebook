@@ -3,8 +3,8 @@
     <top></top>
     <div class="container">
         <UserBaseContent @getInformation="dealInformation"></UserBaseContent>
-        <TitleNav :transmitData="information"></TitleNav>
-        <DataContent></DataContent>
+        <TitleNav :transmitData="information" @getTargetText="getTargetText"></TitleNav>
+        <DataContent :transmitClickText="clickText"></DataContent>
     </div>
     <bottom></bottom>
     <div class="back-top"></div>
@@ -30,14 +30,18 @@ export default {
   },
     data:function () {
         return {
-            information:''
+            information:'',
+            clickText:''
         }
     },
     methods:{
       dealInformation:function (result) {
           console.log('父组件接受:' + result);
           this.information = result;
-      }
+      },
+        getTargetText:function (result) {
+          this.clickText = result;
+        }
     },
     mounted:function () {
         this.$util.controlHeader.controlHeader();

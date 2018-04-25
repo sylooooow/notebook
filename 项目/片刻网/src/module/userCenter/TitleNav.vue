@@ -2,16 +2,16 @@
     <div class="title-nav-box">
         <div class="data-title data-title-home" v-show="homeNavFlag">
             <span class="active">
-                <a href="">全部</a> ({{transmitData.articles + transmitData.tings + transmitData.timelines}})
+                <a @click="getTarget">全部</a> ({{transmitData.articles + transmitData.tings + transmitData.timelines}})
             </span>
             <span>
-                <a href="">文章</a> ({{transmitData.articles}})
+                <a @click="getTarget">文章</a> ({{transmitData.articles}})
             </span>
             <span>
-                <a href="">碎片</a> ({{transmitData.timelines}})
+                <a @click="getTarget">碎片</a> ({{transmitData.timelines}})
             </span>
             <span>
-                <a href="">Ting</a> ({{transmitData.tings}})
+                <a @click="getTarget">Ting</a> ({{transmitData.tings}})
             </span>
         </div>
         <div class="data-title data-title-like" v-show="likeNavFlag">
@@ -39,6 +39,15 @@
                 msgNavFlag:false
             }
         },
+        methods:{
+            getTarget:function (ev) {
+                $(".data-title-home").find('span').removeClass("active");
+                $(this).parent().addClass("active");
+                ev.target.parentNode.className = "active";
+                let targetText = ev.target.innerHTML;
+                this.$emit('getTargetText',{targetText});
+            }
+        }
     }
 </script>
 

@@ -1,5 +1,12 @@
 <template>
     <div class="article-comment">
+        <div class="is-login-cpt">
+            <div class="if-no-login">
+                快来
+                <a class="btn">登录</a>
+                发表你的精彩评论啦
+            </div>
+        </div>
         <div class="comment-title-cpt">
             <div>
                 评论
@@ -55,6 +62,7 @@
         methods:{
             getCommentsData:function () {
                 let contentid = location.search.substr(4);
+                console.log('contentid:' + contentid)
                 let parmas = this.$util.params.getParams();
                 console.log("sig:" + parmas.sig)
                 this.$http.get('/api/version5.0/comment/list.php?contentid=' + contentid + '&isAll=1' + '&minId=' + this.minId + '&sig=' + parmas.sig, {
@@ -83,11 +91,21 @@
         },
         mounted:function () {
             this.getCommentsData();
-        }
+        },
+        // watch: {
+        //     transmitClickText: {
+        //         handler(newValue, oldValue) {
+        //             console.log('呵呵呵呵额呵呵呵:' + newValue);
+        //         }
+        //     }
+        // }
     }
 </script>
 
 <style scoped>
+    .article-comment {
+        background-color: #FFFFFF;
+    }
     .comment-title-cpt {
         color: #333;
         font-size: 18px;
@@ -107,6 +125,7 @@
         width: 638px;
         padding-top: 40px;
         position: relative;
+        margin: 0 auto;
     }
     .comment-cpt .comment-user-icon {
         width: 40px;
@@ -203,6 +222,31 @@
         background-position: center 0;
         background-repeat: no-repeat;
         padding-top: 173px;
+        font-weight: 100;
+    }
+    .is-login-cpt {
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+    .is-login-cpt .if-no-login {
+        font-weight: 200;
+        color: #666;
+        font-size: 14px;
+        background-color: rgba(87,173,106,0.06);
+        height: 53px;
+        border-radius: 10px;
+        line-height: 53px;
+        text-align: center;
+    }
+    .is-login-cpt .if-no-login a {
+        margin: 0 10px;
+        padding: 2px 17px;
+    }
+    .btn {
+        cursor: pointer;
+        color: #fff;
+        background-color: #78bc85;
+        border-radius: 25px;
         font-weight: 100;
     }
 

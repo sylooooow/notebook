@@ -37,13 +37,7 @@
                 <div class="share-dou"></div>
             </div>
         </div>
-        <div class="is-login-cpt">
-            <div class="if-no-login">
-                快来
-                <a class="btn">登录</a>
-                发表你的精彩评论啦
-            </div>
-        </div>
+        <!---->
         <UserComments :comments-count="commentsCount"></UserComments>
     </div>
 
@@ -51,7 +45,7 @@
 
 <script>
     import dateformat from 'dateformat/'
-    import UserComments from './UserComments'
+    import UserComments from '../../components/common/UserComments'
     export default {
         name: "info",
         components:{
@@ -67,6 +61,7 @@
         methods:{
             getInfoData:function () {
                 let contentid = location.search.substr(4);
+                console.log('contentid' + contentid)
                 let parmas = this.$util.params.getParams();
                 console.log("sig:" + parmas.sig)
                 this.$http.get('/api/version5.0/article/info.php?contentid=' + contentid + '&sig=' + parmas.sig, {
@@ -245,31 +240,6 @@
     }
     .share-cpt .share-wechat:hover .code {
         display: block;
-    }
-    .is-login-cpt {
-        padding-top: 100px;
-        padding-bottom: 40px;
-    }
-    .is-login-cpt .if-no-login {
-        font-weight: 200;
-        color: #666;
-        font-size: 14px;
-        background-color: rgba(87,173,106,0.06);
-        height: 53px;
-        border-radius: 10px;
-        line-height: 53px;
-        text-align: center;
-    }
-    .is-login-cpt .if-no-login a {
-        margin: 0 10px;
-        padding: 2px 17px;
-    }
-    .btn {
-        cursor: pointer;
-        color: #fff;
-        background-color: #78bc85;
-        border-radius: 25px;
-        font-weight: 100;
     }
 
 </style>
