@@ -1,11 +1,11 @@
 <template>
     <div class="radio-type-group">
-      <div class="radio-type-cpt"><a href=""><img src="../../assets/love.png" alt=""></a></div>
-      <div class="radio-type-cpt"><a href=""><img src="../../assets/travel.png" alt=""></a></div>
-      <div class="radio-type-cpt"><a href=""><img src="../../assets/story.png" alt=""></a></div>
-      <div class="radio-type-cpt"><a href=""><img src="../../assets/music.png" alt=""></a></div>
-      <div class="radio-type-cpt"><a href=""><img src="../../assets/movie.png" alt=""></a></div>
-      <div class="radio-type-cpt"><a href=""><img src="../../assets/shi.png" alt=""></a></div>
+      <div class="radio-type-cpt"><a href="radioType.html?type=1"><img src="../../assets/love.png" alt=""></a></div>
+      <div class="radio-type-cpt"><a href="radioType.html?type=2"><img src="../../assets/travel.png" alt=""></a></div>
+      <div class="radio-type-cpt"><a href="radioType.html?type=3"><img src="../../assets/story.png" alt=""></a></div>
+      <div class="radio-type-cpt"><a href="radioType.html?type=4"><img src="../../assets/music.png" alt=""></a></div>
+      <div class="radio-type-cpt"><a href="radioType.html?type=5"><img src="../../assets/movie.png" alt=""></a></div>
+      <div class="radio-type-cpt"><a href="radioType.html?type=6"><img src="../../assets/shi.png" alt=""></a></div>
     </div>
 </template>
 

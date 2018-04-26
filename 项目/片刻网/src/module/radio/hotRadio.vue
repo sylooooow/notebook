@@ -7,7 +7,7 @@
           <img :src="item.coverimg" alt="">
           <img :src="item.baseimg" alt="">
           <img :src="item.userimg" alt="">
-          <a href="">
+          <a :href="'radioIntro.html?id=' + item.id">
             <span class="radio-img-bg">
               <span class="radio-img-bg-text">
               <span>-</span>
@@ -18,10 +18,10 @@
         </div>
         <div class="radio-info">
           <div class="radio-title">
-            <a href="">{{item.title}}</a>
+            <a :href="'radioIntro.html?id=' + item.id">{{item.title}}</a>
           </div>
           <div class="radio-author">
-            <a href="">主播&nbsp;/&nbsp;{{item.userinfo.uname}}</a>
+            <a :href="'userCenter.html?uid=' + item.userinfo.uid">主播&nbsp;/&nbsp;{{item.userinfo.uname}}</a>
           </div>
           <div class="radio-others">{{(item.plays / 1000000).toFixed(1)}} m次播放</div>
         </div>

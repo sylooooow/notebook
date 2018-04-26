@@ -3,7 +3,7 @@
     <div class="ting-cpt"><div></div><span>分类 | Classification</span></div>
     <div class="article-list-group">
       <div v-for="item in classify" class="article-type-cpt">
-        <a href="">
+        <a :href="'readType.html?type=' + item.type + '&tag=' + item.typeName">
           <img :src="item.img" class="imgs">
           <span class="type-bg"></span>
           <span class="pos">

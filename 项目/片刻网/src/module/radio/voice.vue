@@ -4,11 +4,11 @@
     <div class="ting-list">
       <div class="ting" v-for="item in ting">
         <div class="ting-img">
-          <a href="#"><img :src="item.imgUrl"></a>
+          <a :href="'tingInfo.html?tingid=' + item.tingid + '&contentid=' + item.contentid" target="_blank"><img :src="item.imgUrl"></a>
         </div>
         <div class="ting-info">
-          <div class="ting-title"><a href="#">{{item.title}}</a></div>
-          <div class="ting-author"><a href="#">主播&nbsp;/&nbsp;{{item.userinfo.uname}}</a></div>
+          <div class="ting-title"><a :href="'tingInfo.html?tingid=' + item.tingid + '&contentid=' + item.contentid" target="_blank">{{item.title}}</a></div>
+          <div class="ting-author"><a :href="'userCenter.html?uid=' + item.userinfo.uid" target="_blank">主播&nbsp;/&nbsp;{{item.userinfo.uname}}</a></div>
           <div class="ting-others">
             {{(item.plays / 1000).toFixed(1)}} k次播放 | 评论:{{item.comments}} | 喜欢:{{item.likes}}
           </div>

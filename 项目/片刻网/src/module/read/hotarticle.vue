@@ -5,10 +5,10 @@
     <div class="article-info">
       <div class="article-info-box">
         <div class="article-title">
-          <a href="">{{item.title}}</a>
+          <a :href="'articleInfo.html?id=' + item.id" target="_blank">{{item.title}}</a>
         </div>
         <div class="article-author">
-          <a href="">by / {{item.userinfo.uname}}</a>
+          <a :href="'userCenter.html?uid=' + item.userinfo.uid" target="_blank">by / {{item.userinfo.uname}}</a>
         </div>
         <div class="article-content">{{item.text}}</div>
       </div>
@@ -18,7 +18,9 @@
     </div>
   </div>
   <div class="hour">
-    <img src="../../assets/24hours.jpg" alt="">
+    <a href="readNode.html" target="_blank">
+      <img src="../../assets/24hours.jpg" alt="">
+    </a>
   </div>
   <div class="special">
     <img src="../../assets/topic.jpg" alt="">
@@ -93,6 +95,10 @@
     color: #463333;
     font-weight: lighter;
   }
+.article-title a:hover,
+.article-author a:hover {
+  color: #48B058;
+}
   .article-content {
     display: -webkit-box;
     -webkit-box-orient: vertical;

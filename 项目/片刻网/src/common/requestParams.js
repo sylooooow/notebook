@@ -29,7 +29,8 @@ var getParams = function (secondTime) {
     Authorization,
     day,
     month,
-      addTime
+      addTime,
+      addTime1
   }
 };
 
