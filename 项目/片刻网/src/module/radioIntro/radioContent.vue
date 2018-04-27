@@ -7,7 +7,7 @@
                     <span class="ting-idx">{{index}}</span>
                 </div>
                 <div class="ting-title">
-                    <a href="" target="_blank">{{item.title}}</a>
+                    <a :href="'tingInfo.html?tingid=' + item.tingid + '&contentid=' + item.contentid" target="_blank" class="title-a">{{item.title}}</a>
                 </div>
                 <div class="likes-cpt ting-like"></div>
                 <div class="ting-share" style="display: none">
@@ -35,7 +35,7 @@
         </div>
         <div class="pages-cpt">
             <a href="" class="prev" style="display: none"></a>
-            <a href="">1</a>
+            <a href="" class="active">1</a>
             <a href="">2</a>
             <a href="">3</a>
             <a href="">4</a>
@@ -111,6 +111,15 @@
         background-repeat: no-repeat;
         /*background-image: url(../img/ting-play.png) 0;*/
         background-size: 20px;
+    }
+    .radio-ting-list .ting-item:hover {
+        background-color: #F2F2F2;
+    }
+    .radio-ting-list .ting-item:hover .title-a {
+        color: #17C06B;
+    }
+    .radio-ting-list .ting-item:hover .ting-idx {
+        /*background-color: red;*/
     }
     .radio-ting-list .ting-item div {
         float: left;
@@ -200,6 +209,9 @@
     .pages-cpt .active {
         background-color: #57ad68;
         color: #fff;
+    }
+    .pages-cpt a:last-child {
+        background-image: url(../../assets/next.png);
     }
 
 </style>

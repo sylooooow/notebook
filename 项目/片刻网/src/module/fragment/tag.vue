@@ -3,7 +3,7 @@
       <div class="ting-cpt"><div></div><span>热门标签</span></div>
       <div class="timeline-list">
         <div v-for="item in tag" class="article-type-cpt">
-          <a href="">
+          <a :href="'fragment.html?tag=' + item.tag">
             <img :src="item.img" alt="" class="img">
             <span class="type-bg"></span>
             <span class="pos">

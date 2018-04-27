@@ -14,11 +14,11 @@
                     <div class="authors">
                         <div class="ting-author">
                             主播:
-                            <a href="" target="_blank">{{info.userinfo.uname}}</a>
+                            <a :href="'userCenter.html?uid=' + info.userInfo.uid" target="_blank">{{info.userinfo.uname}}</a>
                         </div>
                         <div class="article-author">
                             原文:
-                            <a href="" target="_blank">{{info.authorinfo.uname}}</a>
+                            <a :href="'userCenter.html?uid=' + info.userInfo.uid" target="_blank">{{info.authorinfo.uname}}</a>
                         </div>
                     </div>
                     <div class="play-all">

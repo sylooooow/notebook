@@ -6,7 +6,7 @@
         <div class="img-group-cpt" id="list">
             <div v-for="item in dataContent" :class="'card-' + item.content.typeName + '-cpt'" class="contentItem">
                 <div v-if="item.content.typeName == 'ting'" class="card-top-img">
-                    <a href="">
+                    <a>
                         <img v-if="item.content.oriImgUrl" :src="item.content.oriImgUrl" alt="">
                         <img v-else="item.content.imageInfo.img" :src="item.content.imageInfo.img" alt="">
                         <span></span>

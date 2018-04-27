@@ -4,16 +4,21 @@
     <div class="container">
       <div class="radio-type">
         <div class="type-title-cpt">
-          <span class="jingxuan">精选</span>
-          <span class="all-radio">全部电台</span>
+          <span @click="jingxuan" class="active">精选</span>
+          <span @click="allRadio" class="">全部电台</span>
         </div>
       </div>
-      <slider></slider>
-      <classify></classify>
-      <Ting></Ting>
-      <TopTing></TopTing>
-      <hotRadio></hotRadio>
-      <voice></voice>
+      <div v-if="flagJingxuan" class="choice-radio">
+        <slider></slider>
+        <classify></classify>
+        <Ting></Ting>
+        <TopTing></TopTing>
+        <hotRadio></hotRadio>
+        <voice></voice>
+      </div>
+      <div v-if="flagAll" class="all-radio">
+        <allRadio></allRadio>
+      </div>
     </div>
     <bottom></bottom>
     <div class="back-top"></div>
@@ -28,10 +33,17 @@
   import TopTing from './TopTing'
   import hotRadio from './hotRadio'
   import voice from './voice'
+    import allRadio from './allRadio'
   import bottom from '../../components/common/bottom'
 
 export default {
   name: 'App',
+    data:function () {
+        return {
+            flagJingxuan:true,
+            flagAll:false
+        }
+    },
   components: {
     top,
     slider,
@@ -40,8 +52,23 @@ export default {
     TopTing,
     hotRadio,
     voice,
+      allRadio,
     bottom
   },
+    methods:{
+        jingxuan:function (ev) {
+            $('.type-title-cpt').find('span').removeClass('active');
+            ev.target.className = 'active';
+            this.flagJingxuan = true;
+            this.flagAll = false;
+        },
+        allRadio:function (ev) {
+            $('.type-title-cpt').find('span').removeClass('active');
+            ev.target.className = 'active';
+            this.flagJingxuan = false;
+            this.flagAll = true;
+        }
+    },
     mounted:function () {
         this.$util.controlHeader.controlHeader();
         this.$util.backtop.backtop();
@@ -78,12 +105,16 @@ export default {
     display: flex;
     align-items: center;
   }
-  .jingxuan {
-    padding: 10px 0;
-    border-bottom: 2px solid black;
-  }
-  .all-radio {
-    padding: 10px 40px;
+  .type-title-cpt span:nth-child(1) {
     color: #9999A4;
+    padding: 10px 0;
+  }
+  .type-title-cpt span:nth-child(2) {
+    color: #9999A4;
+    padding: 10px 40px;
+  }
+  .active {
+    color: #000;
+    border-bottom: 2px solid black;
   }
 </style>

@@ -1,10 +1,13 @@
 <template>
     <div class="timeline-list-group">
-      <div class="ting-cpt"><div></div><span>全部碎片</span></div>
+      <div class="ting-cpt">
+        <div></div>
+        <span v-if="tag">{{tag}}</span>
+      </div>
       <div id="list" class="img-group-cpt">
         <div v-for="item in fragment" v-if="item.coverimg" class="card-timeline-cpt">
           <div class="card-top-img">
-            <a href="">
+            <a :href="'fragmentInfo.html?id=' + item.id" target="_blank">
               <img :src="item.coverimg" alt="">
             </a>
           </div>
@@ -36,14 +39,21 @@
             minId:"",
             loadFlag:true,
             loadImgFlag:false,
+              tag:'全部碎片',
           }
         },
       methods:{
         //获取Ting数据
-        getFragmentData:function () {
+        getFragmentData:function (tag) {
           let parmas = this.$util.params.getParams();
           console.log("sig:" + parmas.sig);
-          let url = '/api/version5.0/newTimeLine/list.php?pageSize=10&tag=&minId=' + this.minId + '&sig=' + parmas.sig;
+
+          let url = '';
+          if (tag) {
+              url = '/api/version5.0/newTimeLine/listByTag.php?pageSize=10&tag=' + this.tag + '&minId=&sig=' + parmas.sig;
+          } else {
+              url = '/api/version5.0/newTimeLine/list.php?pageSize=10&tag=&minId=' + this.minId + '&sig=' + parmas.sig;
+          }
           this.$http.get(url, {
             headers:{
               Authorization:parmas.Authorization
@@ -132,7 +142,13 @@
       },
       mounted:function () {
         //网络请求过程不要写在mounted里，定义在methods里，只在这里调用
-        this.getFragmentData();
+        let tag = location.search.substr(5);
+        console.log(tag)
+        if (tag) {
+            this.tag = tag;
+        }
+          this.getFragmentData(tag);
+
         window.addEventListener('scroll', this.getLoadHeight);
       },
       updated:function () {

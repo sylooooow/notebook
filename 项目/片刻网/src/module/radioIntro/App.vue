@@ -7,6 +7,7 @@
         <div class="radio-info-box">
           <radioTop></radioTop>
           <radioContent></radioContent>
+          <otherRadio></otherRadio>
         </div>
       </div>
     </div>
@@ -19,6 +20,7 @@
   import top from '../../components/common/top'
   import radioTop from './radioTop'
   import radioContent from './radioContent'
+  import otherRadio from './OtherRadio'
   import bottom from '../../components/common/bottom'
 
 export default {
@@ -27,6 +29,7 @@ export default {
       top,
       radioTop,
       radioContent,
+      otherRadio,
       bottom,
   },
     mounted:function () {
