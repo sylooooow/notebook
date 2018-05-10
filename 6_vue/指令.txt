@@ -28,3 +28,17 @@ npm install glob --save-dev
 
 注意:
 网络请求时配置接口代理 在config目录的index.js里
+
+
+10.npm install lib-flexible --save-dev 安装手淘布局
+
+11.npm install px2rem-loader --save-dev 将px自动转化为rem
+需要在build/utils.js里配置：
+const px2remLoader = {
+    loader:'px2rem-loader',
+    options:{
+      remUnit:{
+        remUnit:75  //按照你设计图宽度/10,作为根单位rem的值
+      }
+    }
+  }

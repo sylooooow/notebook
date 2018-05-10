@@ -1,22 +1,42 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <Container></Container>
-    <Footer></Footer>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import Header from './components/Header'
-  import Container from './components/Container'
-  import Footer from './components/Footer'
 export default {
   name: 'App',
-  components:{
-    Header,
-    Container,
-    Footer
-  }
+  methods:{
+    getData:function () {
+      //获取商品数据
+      let goodsUrl = '/api/goods';
+      this.$http.get(goodsUrl, {}).then((res) => {
+        let json = res.data["data"];
+        //把请求来的数据传给store的state
+        this.$store.commit('SET_GOODSDATA',json);
+      })
+
+      //获取评论数据
+      let ratingsUrl = '/api/ratings';
+      this.$http.get(ratingsUrl, {}).then((res) => {
+        let json = res.data["data"];
+        //把请求来的数据传给store的state
+        this.$store.commit('SET_RATINGSDATA',json);
+      })
+
+      //获取商家数据
+      let sellerUrl = '/api/seller';
+      this.$http.get(sellerUrl, {}).then((res) => {
+        let json = res.data["data"];
+        //把请求来的数据传给store的state
+        this.$store.commit('SET_SELLERDATA',json);
+      })
+    },
+  },
+  mounted:function () {
+    this.getData();
+  },
 }
 </script>
 
@@ -28,6 +48,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   width: 100%;
-  height: 100%;
+  overflow: hidden;
 }
 </style>

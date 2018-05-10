@@ -16,7 +16,7 @@
       <span class="header-sale-img"></span>
       <span class="header-sale-text">{{supports.description}}</span>
     </div>
-    <div class="header-total">
+    <div @click="showSeller" class="header-total">
       <span><span class="header-total-num">5</span>个</span>
       <span class="header-total-more"></span>
     </div>
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+  import goods from '../assets/js/goods'
     export default {
       name: "Header",
       data:function () {
@@ -47,8 +48,10 @@
             let json = res.data["data"];
             this.json = json;
             this.supports = json.supports[0];
-            console.log(json)
           })
+        },
+        showSeller:function () {
+          goods.showHideSeller();
         }
       },
       mounted:function () {
@@ -60,13 +63,13 @@
 <style scoped>
   .header {
     width: 100%;
-    height: 134px;
+    height: 268px;
     position: relative;
     overflow: hidden;
   }
   .header > img {
     filter: blur(10px);
-    margin-top: 45px;
+    margin-top: 90px;
   }
   .header-box {
     width: 100%;
@@ -78,7 +81,7 @@
   }
   .header-bottom {
     width: 100%;
-    height: 28px;
+    height: 56px;
     background-color: rgba(7,17,27,.2);
     position: absolute;
     bottom: 0;
@@ -87,11 +90,11 @@
     justify-content: center;
   }
   .header-img {
-    width: 64px;
-    height: 64px;
+    width: 128px;
+    height: 128px;
     position: absolute;
-    top: 24px;
-    left: 24px;
+    top: 48px;
+    left: 48px;
     border-radius: 4px;
   }
   .header-img img {
@@ -102,78 +105,78 @@
 
   .header-title {
     position: absolute;
-    left: 104px;
-    top: 26px;
+    left: 208px;
+    top: 52px;
     display: flex;
     align-items: center;
   }
   .header-title-tag {
-    width: 30px;
-    height: 18px;
+    width: 60px;
+    height: 36px;
     background-color: red;
     background: url("../assets/brand@2x.png") no-repeat;
     background-size: cover;
     vertical-align: center;
   }
   .header-title-text {
-    font-size: 16px;
+    font-size: 32px;
     color: rgb(255,255,255);
     font-weight: bold;
-    line-height: 18px;
-    margin-left: 6px;
+    line-height: 36px;
+    margin-left: 12px;
   }
   .header-distribution {
-    font-size: 12px;
+    font-size: 24px;
     color: rgb(255,255,255);
     font-weight: 200;
-    line-height: 12px;
+    line-height: 24px;
     position: absolute;
-    left: 104px;
-    top: 52px;
+    left: 208px;
+    top: 104px;
   }
   .header-sale {
     position: absolute;
-    left: 104px;
-    top: 74px;
+    left: 208px;
+    top: 148px;
     display: flex;
     align-items: center;
   }
   .header-sale-img {
-    width: 12px;
-    height: 12px;
+    width: 24px;
+    height: 24px;
     background: url("../assets/decrease_1@2x.png") no-repeat;
     background-size: cover;
   }
   .header-sale-text {
-    font-size: 10px;
+    font-size: 20px;
     color: rgb(255,255,255);
     font-weight: 200;
-    line-height: 12px;
-    margin-left: 4px;
+    line-height: 24px;
+    margin-left: 8px;
   }
   .header-total {
-    width: 43px;
-    height: 24px;
-    border-radius: 12px;
+    width: 86px;
+    height: 48px;
+    border-radius: 24px;
     background-color: rgba(0,0,0,.2);
     position: absolute;
-    top: 67px;
-    right: 12px;
+    top: 134px;
+    right: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .header-total span {
     color: rgb(255,255,255);
-    font-size: 10px;
+    font-size: 20px;
     font-weight: 200;
-    line-height: 12px;
+    line-height: 24px;
   }
   .header-total-more {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-image: url("../assets/keyboard_arrow_right.svg");
-    background-size: 10px 10px;
+    background-size: 20px 20px;
   }
   .header-bottom > div {
     width: 94.6%;
@@ -182,26 +185,26 @@
     justify-content: space-between;
   }
   .header-bottom-notice {
-    height: 12px;
-    width: 22px;
+    height: 24px;
+    width: 44px;
     background: url("../assets/bulletin@2x.png") no-repeat;
     background-size: cover;
   }
   .header-bottom-notice-text {
     width: 90.603988603989%;
-    font-size: 10px;
+    font-size: 20px;
     color: rgb(255,255,255);
     font-weight: 200;
-    line-height: 28px;
+    line-height: 56px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
   .header-bottom-notice-more {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-image: url("../assets/keyboard_arrow_right.svg");
-    background-size: 10px 10px;
+    background-size: 20px 20px;
   }
 
 

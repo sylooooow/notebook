@@ -10,8 +10,9 @@
 
       <router-link to="/phone">充电话费</router-link>
       <router-link to="/qq">充值点卡</router-link>
-      <router-view name="phone"/>
-      <router-view name="qq"/>
+      <router-view></router-view>
+      <!--<router-view name="phone"/>-->
+      <!--<router-view name="qq"/>-->
     </div>
 </template>
 

@@ -84,3 +84,6 @@ html {
 .hide {
   display: none
 }
+.pos-hide {
+  visibility: hidden;
+}

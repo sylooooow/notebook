@@ -26,27 +26,27 @@ export default new Router({
       path: '/mycom/:id/:name', //链接传值
       component: MyCom,
       //子路由
+      children:[
+        {
+          path:'/',
+          component:phone
+        },
+        {
+          path:'/qq',
+          component:qq
+        }
+      ]
+
+      //这样可以写多个组件，对应多个路由视图，通过给路由视图name属性连接组件名，这样可以实现一次路由跳转显示多个视图
       // children:[
       //   {
       //     path:'/phone',
-      //     component:phone
+      //     components:{
+      //       phone,
+      //       qq
+      //     }
       //   },
-      //   {
-      //     path:'/qq',
-      //     component:qq
-      //   }
       // ]
-
-      //这样可以写多个组件，对应多个路由视图，通过给路由视图name属性连接组件名，这样可以实现一次路由跳转显示多个视图
-      children:[
-        {
-          path:'/phone',
-          components:{
-            phone,
-            qq
-          }
-        },
-      ]
 
 
     },
