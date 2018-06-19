@@ -8,7 +8,7 @@
       </div>
       <button @click="getData">获取数据</button>
 
-      <router-link to="/phone">充电话费</router-link>
+      <router-link to="/">充电话费</router-link>
       <router-link to="/qq">充值点卡</router-link>
       <router-view></router-view>
       <!--<router-view name="phone"/>-->
@@ -38,8 +38,11 @@
       //   console.log(to.params.id + '  ' + from.params.id);
       // }
     }
+
 </script>
 
 <style scoped>
-
+  .router-link-active {
+    border-bottom: 2px solid black;/*no*/
+  }
 </style>

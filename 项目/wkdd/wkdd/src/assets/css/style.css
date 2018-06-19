@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?w70rm');
+  src:  url('../fonts/icomoon.eot?w70rm#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?w70rm') format('truetype'),
+    url('../fonts/icomoon.woff?w70rm') format('woff'),
+    url('../fonts/icomoon.svg?w70rm#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-group-chat:before {
+  content: "\e900";
+}
+.icon-报表:before {
+  content: "\e901";
+}
+.icon-表情-new:before {
+  content: "\e902";
+}
+.icon-倒三角:before {
+  content: "\e903";
+}
+.icon-返回:before {
+  content: "\e904";
+}
+.icon-功能键:before {
+  content: "\e905";
+}
+.icon-好友:before {
+  content: "\e906";
+}
+.icon-前进箭头:before {
+  content: "\e907";
+}
+.icon-设置:before {
+  content: "\e909";
+}
+.icon-搜索:before {
+  content: "\e90a";
+}
+.icon-添加_1:before {
+  content: "\e90b";
+}
+.icon-添加:before {
+  content: "\e90c";
+}
+.icon-通讯录:before {
+  content: "\e90d";
+}
+.icon-信息:before {
+  content: "\e90e";
+}
+.icon-眼睛:before {
+  content: "\e90f";
+}
+.icon-邀请好友:before {
+  content: "\e910";
+}
+.icon-用户:before {
+  content: "\e911";
+}
+.icon-暂无数据:before {
+  content: "\e912";
+}
+.icon-AK-MN消息2:before {
+  content: "\e913";
+}

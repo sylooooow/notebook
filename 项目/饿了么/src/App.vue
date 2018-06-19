@@ -48,6 +48,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   width: 100%;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 </style>

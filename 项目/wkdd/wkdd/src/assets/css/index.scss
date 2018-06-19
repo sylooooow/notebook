@@ -1,0 +1,41 @@
+.theme-bg {
+  background-color: #26CF90;
+}
+.max-w-h {
+  width: 100%;
+  height: 100%;
+}
+%position-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+@mixin flex($direction,$horizontal,$endwise) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $horizontal;
+  align-items: $endwise;
+}
+@mixin position($style,$top,$bottom,$left,$right) {
+  position: $style;
+  top: $top;
+  bottom: $bottom;
+  left: $left;
+  right: $right;
+}
+@mixin horizontalCenter($top,$bottom) {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: $top;
+  bottom: $bottom;
+}
+@mixin verticalCenter($left,$right) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: $left;
+  right: $right;
+}
+
