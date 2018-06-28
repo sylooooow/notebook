@@ -27,3 +27,5 @@ console.log(id, status, data);
 
 const isEven = n => n % 2 == 0;
 console.log(isEven(4));
+
+coldplay

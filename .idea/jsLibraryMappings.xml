@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$/5_nodeJS/07node" libraries="{HTML, notebook/5_nodeJS/07node/node_modules, notebook/6_vue/04vue-webpack/node_modules}" />
-    <file url="file://$PROJECT_DIR$/6_vue/04vue-webpack" libraries="{HTML, notebook/5_nodeJS/07node/node_modules, notebook/6_vue/04vue-webpack/node_modules}" />
-    <file url="PROJECT" libraries="{HTML}" />
     <includedPredefinedLibrary name="Node.js Core" />
+    <excludedPredefinedLibrary name="notebook/5_nodeJS/07node/node_modules" />
+    <excludedPredefinedLibrary name="notebook/6_vue/04vue-webpack/node_modules" />
+    <excludedPredefinedLibrary name="notebook/6_vue/07vue-Router/node_modules" />
+    <excludedPredefinedLibrary name="notebook/6_vue/08vue-vuex/node_modules" />
+    <excludedPredefinedLibrary name="notebook/6_vue/09vue-plus/node_modules" />
+    <excludedPredefinedLibrary name="notebook/6_vue/10vue移动端布局/vue移动端布局/node_modules" />
+    <excludedPredefinedLibrary name="notebook/6_vue/node_modules" />
+    <excludedPredefinedLibrary name="notebook/项目/pianke/pianke/node_modules" />
+    <excludedPredefinedLibrary name="notebook/项目/wkdd/wkdd/node_modules" />
+    <excludedPredefinedLibrary name="notebook/项目/片刻网/node_modules" />
+    <excludedPredefinedLibrary name="notebook/项目/饿了么/node_modules" />
   </component>
 </project>
